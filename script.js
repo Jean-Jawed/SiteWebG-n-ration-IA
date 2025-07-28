@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Gemini",
             description: "Modèle multimodal développé par Google DeepMind",
-            logo: "https://www.gstatic.com/lamda/images/gemini_sparkle_resting_v2_darkmode_2x.png",
+            logo: "https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg",
             link: "https://gemini.google.com"
         },
         {

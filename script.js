@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Mistral",
             description: "IA française créée en 2023. Modèles open-source performants",
-            logo: "https://fr.wikipedia.org/wiki/Mistral_AI#/media/Fichier:Mistral_AI_logo_(2025%E2%80%93).svg",
+            logo: "/images/mistral-logo.png",
             link: "https://chat.mistral.ai/chat"
         },
         {
@@ -182,9 +182,10 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Qwen",
             description: "Modèles open-source d'Alibaba Cloud",
-            logo: "https://qianwen.aliyun.com/favicon.ico",
-            link: "https://qianwen.aliyun.com"
+            logo: "https://upload.wikimedia.org/wikipedia/commons/6/69/Qwen_logo.svg",
+            link: "https://chat.qwen.ai/"
         },
+        // j en suis là. Reste le dessous à mettre à jour
         {
             name: "Llama",
             description: "Modèles open-source de Meta",

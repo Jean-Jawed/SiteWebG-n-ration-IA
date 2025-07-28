@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Mistral",
             description: "IA française créée en 2023. Modèles open-source performants",
-            logo: "/images/mistral-logo.png",
+            logo: "/images/mistral_logo.png",
             link: "https://chat.mistral.ai/chat"
         },
         {

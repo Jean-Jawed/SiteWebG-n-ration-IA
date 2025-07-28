@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Développeurs - Génération-IA.fr</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animation de fond -->
+    <div id="particles-js"></div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">GÉNÉRATION<span>-IA</span></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="multimedia.html">Multimédia</a></li>
+                    <li><a href="prompting.html">Prompting</a></li>
+                    <li><a href="energie.html">Énergie</a></li>
+                    <li><a href="developpeurs.html" class="active">Développeurs</a></li>
+                    <li><a href="enseignants.html">Enseignants</a></li>
+                    <li><a href="art.html">Art & IA</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>DÉVELOPP<span class="blink">E</span>URS</h1>
+                <p class="subtitle">Ressources et outils pour intégrer l'IA dans vos projets</p>
+            </div>
+        </section>
+
+        <section class="dev-content">
+            <div class="container">
+                <h2>Guide des API IA pour développeurs</h2>
+                <p>Intégrez facilement des fonctionnalités d'IA dans vos applications grâce à ces API et plateformes :</p>
+                
+                <div class="api-guide">
+                    <div class="api-step">
+                        <h3>1. Choix de l'API</h3>
+                        <p>Plusieurs fournisseurs offrent des API pour différents besoins :</p>
+                        <ul>
+                            <li><strong>OpenAI API</strong> : Accès à GPT-4, DALL·E, Whisper</li>
+                            <li><strong>Google Cloud AI</strong> : Vertex AI, Gemini API</li>
+                            <li><strong>Anthropic Claude API</strong> : Modèles conversationnels</li>
+                            <li><strong>HuggingFace</strong> : Modèles open-source</li>
+                            <li><strong>Stability AI</strong> : Génération d'images</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="api-step">
+                        <h3>2. Authentification</h3>
+                        <p>La plupart des API utilisent des clés secrètes :</p>
+                        <div class="code-block">
+// Exemple d'authentification avec OpenAI
+const OpenAI = require('openai');
+
+const openai = new OpenAI({
+  apiKey: 'votre-cle-api', // Stockez ça en sécurité!
+});
+                        </div>
+                        <p>Ne commitez jamais vos clés API dans le code source. Utilisez des variables d'environnement.</p>
+                    </div>
+                    
+                    <div class="api-step">
+                        <h3>3. Appel basique</h3>
+                        <p>Exemple d'appel à l'API de chat :</p>
+                        <div class="code-block">
+async function getAIResponse(prompt) {
+  const completion = await openai.chat.completions.create({
+    messages: [{ role: "user", content: prompt }],
+    model: "gpt-4",
+  });
+  
+  return completion.choices[0].message.content;
+}
+                        </div>
+                    </div>
+                    
+                    <div class="api-step">
+                        <h3>4. Gestion des erreurs</h3>
+                        <p>Toujours implémenter une gestion robuste des erreurs :</p>
+                        <div class="code-block">
+try {
+  const response = await getAIResponse(userInput);
+  // Traiter la réponse
+} catch (error) {
+  console.error("Erreur API:", error.response?.status, error.message);
+  // Fallback ou message utilisateur
+}
+                        </div>
+                    </div>
+                    
+                    <div class="api-step">
+                        <h3>5. Optimisation</h3>
+                        <p>Techniques pour améliorer performances et coûts :</p>
+                        <ul>
+                            <li>Mise en cache des réponses similaires</li>
+                            <li>Streaming pour les réponses longues</li>
+                            <li>Limitation du nombre de tokens</li>
+                            <li>Utilisation de modèles plus petits quand possible</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h2>Plateformes de développement IA</h2>
+                <div class="platforms-grid">
+                    <div class="platform-card">
+                        <h3>Bolt.new</h3>
+                        <p>Environnement de développement rapide pour applications IA</p>
+                        <a href="https://bolt.new" target="_blank">Visiter</a>
+                    </div>
+                    <div class="platform-card">
+                        <h3>Emergent.sh</h3>
+                        <p>Plateforme collaborative pour prototypes IA</p>
+                        <a href="https://emergent.sh" target="_blank">Visiter</a>
+                    </div>
+                    <div class="platform-card">
+                        <h3>Blackbox.ai</h3>
+                        <p>Assistant de codage avec IA en temps réel</p>
+                        <a href="https://blackbox.ai" target="_blank">Visiter</a>
+                    </div>
+                    <div class="platform-card">
+                        <h3>Webwave.me</h3>
+                        <p>Création de sites web avec intégration IA</p>
+                        <a href="https://webwave.me" target="_blank">Visiter</a>
+                    </div>
+                    <div class="platform-card">
+                        <h3>Replit</h3>
+                        <p>IDE en ligne avec support IA intégré</p>
+                        <a href="https://replit.com" target="_blank">Visiter</a>
+                    </div>
+                    <div class="platform-card">
+                        <h3>HuggingFace Spaces</h3>
+                        <p>Déploiement facile de modèles IA</p>
+                        <a href="https://huggingface.co/spaces" target="_blank">Visiter</a>
+                    </div>
+                </div>
+                
+                <div class="resources-section">
+                    <h2>Ressources d'apprentissage</h2>
+                    <div class="resources-grid">
+                        <div class="resource-card">
+                            <h3>OpenAI Cookbook</h3>
+                            <p>Exemples de code et bonnes pratiques</p>
+                            <a href="https://github.com/openai/openai-cookbook" target="_blank">Visiter</a>
+                        </div>
+                        <div class="resource-card">
+                            <h3>LangChain Docs</h3>
+                            <p>Framework pour applications IA complexes</p>
+                            <a href="https://python.langchain.com" target="_blank">Visiter</a>
+                        </div>
+                        <div class="resource-card">
+                            <h3>AI For Devs</h3>
+                            <p>Cours sur l'intégration d'IA</p>
+                            <a href="https://aifordevs.com" target="_blank">Visiter</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>Génération-IA</h3>
+                    <p>Explorer le futur de l'intelligence artificielle et ses applications dans tous les domaines.</p>
+                </div>
+                <div class="footer-section links">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="multimedia.html">Multimédia</a></li>
+                        <li><a href="prompting.html">Prompting</a></li>
+                        <li><a href="energie.html">Énergie</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contact</h3>
+                    <p>jawed_tahir@yahoo.fr</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Javed Tahir. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

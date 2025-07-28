@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompting - Génération-IA.fr</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animation de fond -->
+    <div id="particles-js"></div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">GÉNÉRATION<span>-IA</span></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="multimedia.html">Multimédia</a></li>
+                    <li><a href="prompting.html" class="active">Prompting</a></li>
+                    <li><a href="energie.html">Énergie</a></li>
+                    <li><a href="developpeurs.html">Développeurs</a></li>
+                    <li><a href="enseignants.html">Enseignants</a></li>
+                    <li><a href="art.html">Art & IA</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>PROMPT<span class="blink">I</span>NG</h1>
+                <p class="subtitle">Maîtrisez l'art de communiquer avec les IA</p>
+            </div>
+        </section>
+
+        <section class="prompting-content">
+            <div class="container">
+                <h2>Les bases du Prompt Engineering</h2>
+                <p>Le prompting est l'art de formuler des instructions pour les IA génératives afin d'obtenir les meilleurs résultats possibles. Voici les principes fondamentaux :</p>
+                
+                <div class="prompt-categories">
+                    <div class="prompt-category">
+                        <h3>Structure de base</h3>
+                        <ul>
+                            <li>Commencez par un verbe d'action clair</li>
+                            <li>Précisez le contexte et le format souhaité</li>
+                            <li>Ajoutez des détails pertinents</li>
+                            <li>Indiquez le style ou le ton désiré</li>
+                            <li>Spécifiez la longueur ou la complexité</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="prompt-category">
+                        <h3>Techniques avancées</h3>
+                        <ul>
+                            <li>Prompt chaining (décomposition en étapes)</li>
+                            <li>Few-shot prompting (exemples inclus)</li>
+                            <li>Role prompting (attribution d'un rôle)</li>
+                            <li>Template prompting (utilisation de modèles)</li>
+                            <li>Iterative prompting (affinage progressif)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="prompt-category">
+                        <h3>Outils utiles</h3>
+                        <ul>
+                            <li>PromptPerfect - Optimisation de prompts</li>
+                            <li>PromptBase - Marketplace de prompts</li>
+                            <li>PromptHero - Bibliothèque de prompts</li>
+                            <li>ChatGPT Prompt Generator</li>
+                            <li>Midjourney Prompt Helper</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="prompt-examples">
+                    <h2>Exemples de prompts élaborés</h2>
+                    
+                    <div class="prompt-example">
+                        <h4>Création d'un jeu vidéo</h4>
+                        <p>[En tant que concepteur de jeu expérimenté, créez un concept original de jeu mobile. 
+Le jeu doit être un puzzle game avec mécanique de fusion, thème médiéval fantastique, 
+graphismes cartoon colorés. Inclure : 
+1. Titre accrocheur 
+2. Synopsis en 3 phrases 
+3. 3 mécaniques de gameplay uniques 
+4. Système de progression 
+5. Idées de monétisation éthique 
+6. Public cible 
+Présentez le tout sous forme de document de conception professionnel avec sections claires.]</p>
+                    </div>
+                    
+                    <div class="prompt-example">
+                        <h4>Développement d'application</h4>
+                        <p>[En tant qu'architecte logiciel senior, concevez une application web de gestion de tâches innovante. 
+Spécifications : 
+- Technologie : React frontend, Node.js backend 
+- Fonctionnalités principales : 
+  * Tableaux Kanban personnalisables 
+  * Système de tags intelligents 
+  * Synchronisation temps réel 
+  * Analyse de productivité 
+- Public : équipes de 5 à 50 personnes 
+- UI/UX : moderne, minimaliste, dark mode par défaut 
+Produisez : 
+1. Diagramme d'architecture technique 
+2. Liste des endpoints API principaux 
+3. Maquette wireframe des écrans clés 
+4. Roadmap de développement sur 6 mois 
+5. Stratégie de test et déploiement]</p>
+                    </div>
+                    
+                    <div class="prompt-example">
+                        <h4>Création de contenu</h4>
+                        <p>[En tant que rédacteur expert en technologie, rédigez un article approfondi sur l'impact de l'IA dans l'éducation. 
+Ton : informatif mais accessible 
+Longueur : 1500 mots 
+Structure : 
+1. Introduction percutante 
+2. 5 applications concrètes avec exemples 
+3. Analyse des bénéfices et risques 
+4. Témoignages fictifs mais réalistes 
+5. Perspectives futures 
+6. Conclusion avec appel à l'action 
+Inclure : 
+- 3 sous-titres accrocheurs 
+- 5 statistiques pertinentes (inventez des données crédibles) 
+- 2 encadrés "Le saviez-vous ?" 
+- 1 infographie textuelle 
+Format Markdown avec mise en forme pour publication web.]</p>
+                    </div>
+                </div>
+                
+                <div class="resources-section">
+                    <h2>Ressources pour apprendre</h2>
+                    <div class="resources-grid">
+                        <div class="resource-card">
+                            <h3>Prompting Guide</h3>
+                            <p>Guide complet sur les techniques de prompting</p>
+                            <a href="https://www.promptingguide.ai" target="_blank">Visiter</a>
+                        </div>
+                        <div class="resource-card">
+                            <h3>LearnPrompting</h3>
+                            <p>Cours gratuit de prompt engineering</p>
+                            <a href="https://learnprompting.org" target="_blank">Visiter</a>
+                        </div>
+                        <div class="resource-card">
+                            <h3>Awesome Prompts</h3>
+                            <p>Collection de prompts pour diverses IA</p>
+                            <a href="https://github.com/f/awesome-chatgpt-prompts" target="_blank">Visiter</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>Génération-IA</h3>
+                    <p>Explorer le futur de l'intelligence artificielle et ses applications dans tous les domaines.</p>
+                </div>
+                <div class="footer-section links">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="multimedia.html">Multimédia</a></li>
+                        <li><a href="prompting.html">Prompting</a></li>
+                        <li><a href="energie.html">Énergie</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contact</h3>
+                    <p>jawed_tahir@yahoo.fr</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Javed Tahir. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -151,26 +151,26 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             name: "Mistral",
-            description: "Modèles open-source performants",
-            logo: "https://mistral.ai/images/logo_hubc88f0f0d5e0e1a4a0a2a0a0a0a0a0a.png",
-            link: "https://mistral.ai"
+            description: "IA française créée en 2023. Modèles open-source performants",
+            logo: "https://fr.wikipedia.org/wiki/Mistral_AI#/media/Fichier:Mistral_AI_logo_(2025%E2%80%93).svg",
+            link: "https://chat.mistral.ai/chat"
         },
         {
             name: "Yiaho",
-            description: "Assistant IA chinois développé par Alibaba",
-            logo: "https://img.alicdn.com/imgextra/i4/O1CN01Z5p5Qp1Q0Z5Z5Z5Z5_!!6000000001916-2-tps-240-240.png",
-            link: "https://www.aliyun.com/product/yiaho"
+            description: "Le site français pour l'IA gratuite et illimitée",
+            logo: "https://www.yiaho.com/wp-content/uploads/2023/03/yiaho-intelligence-artificielle-gratuite-en-ligne.jpg",
+            link: "https://www.yiaho.com/"
         },
         {
             name: "Deepseek",
-            description: "Modèle spécialisé dans la recherche d'information",
-            logo: "https://deepseek.com/images/logo.png",
-            link: "https://deepseek.com"
+            description: "Modèle performant spécialisé dans la recherche d'information",
+            logo: "https://upload.wikimedia.org/wikipedia/commons/e/ec/DeepSeek_logo.svg",
+            link: "https://deepseek.com/en"
         },
         {
             name: "Perplexity",
             description: "IA de recherche avec citations des sources",
-            logo: "https://www.perplexity.ai/images/logo.png",
+            logo: "https://upload.wikimedia.org/wikipedia/commons/1/1d/Perplexity_AI_logo.svg",
             link: "https://www.perplexity.ai"
         },
         {

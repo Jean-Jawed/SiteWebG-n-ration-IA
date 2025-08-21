@@ -295,9 +295,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initTooltips();
 });
 
-// Tout le JavaScript fourni précédemment reste inchangé
-// Ajoutez ces nouvelles fonctions à la fin du fichier
-
 // Initialisation spécifique à la page Art
 function initArtPage() {
     if (document.querySelector('.art-content')) {
@@ -2056,10 +2053,25 @@ Cette startup se positionne pour surfer sur la vague d'adoption crypto B2B tout 
         const templateOutput = document.getElementById('templateOutput');
         const generatedPrompt = document.getElementById('generatedPrompt');
         const copyButton = document.getElementById('copyButton');
-        
-        if (templateSelector) {
+        const displayButton = document.getElementById('displayButton');
+
+        if (templateSelector && displayButton) {
             templateSelector.addEventListener('change', function() {
-                const selectedTemplate = this.value;
+                if (this.value) {
+                    displayButton.disabled = false;
+                    displayButton.classList.remove('disabled');
+                } else {
+                    displayButton.disabled = true;
+                    displayButton.classList.add('disabled');
+                    templateOutput.style.display = 'none';
+                }
+            });
+        }
+
+        // Gestion du clic sur le bouton "Afficher"
+        if (displayButton) {
+            displayButton.addEventListener('click', function() {
+                const selectedTemplate = templateSelector.value;
                 
                 if (selectedTemplate && promptTemplates[selectedTemplate]) {
                     generatedPrompt.value = promptTemplates[selectedTemplate].prompt;
@@ -2074,8 +2086,14 @@ Cette startup se positionne pour surfer sur la vague d'adoption crypto B2B tout 
                         templateOutput.style.opacity = '1';
                         templateOutput.style.transform = 'translateY(0)';
                     }, 10);
-                } else {
-                    templateOutput.style.display = 'none';
+                    
+                    // Scroll vers le résultat sur mobile
+                    setTimeout(() => {
+                        templateOutput.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'start' 
+                        });
+                    }, 300);
                 }
             });
         }

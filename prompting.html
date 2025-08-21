@@ -86,63 +86,53 @@
                     </div>
                 </div>
                 
-                <div class="prompt-examples">
-                    <h2>Exemples de prompts élaborés</h2>
+                <div class="prompt-templates">
+                    <h2>Échantillon de Prompts de qualité</h2>
+                    <p>Choisissez une situation dans le menu déroulant pour obtenir un prompt complet et optimisé :</p>
                     
-                    <div class="prompt-example">
-                        <h4>Création d'un jeu vidéo</h4>
-                        <p>[En tant que concepteur de jeu expérimenté, créez un concept original de jeu mobile. 
-Le jeu doit être un puzzle game avec mécanique de fusion, thème médiéval fantastique, 
-graphismes cartoon colorés. Inclure : 
-1. Titre accrocheur 
-2. Synopsis en 3 phrases 
-3. 3 mécaniques de gameplay uniques 
-4. Système de progression 
-5. Idées de monétisation éthique 
-6. Public cible 
-Présentez le tout sous forme de document de conception professionnel avec sections claires.]</p>
+                    <div class="template-selector">
+                        <select id="templateSelector">
+                            <option value="">-- Sélectionnez une situation --</option>
+                            <option value="nouvelleBesan">Écrire une nouvelle de 45 pages qui se passe à Besançon</option>
+                            <option value="appBudget">Développer une appli Android pour mieux gérer mon budget</option>
+                            <option value="entretienEmbauche">Me préparer pour l'entretien d'embauche que j'ai bientôt</option>
+                            <option value="reparationBaignoire">M'aider à réparer ma baignoire qui fuit</option>
+                            <option value="marketingJusPomme">Développer une stratégie marketing pour l'entreprise de vente de jus de pomme de ma tante</option>
+                            <option value="articleIAChine">Écrire un article sur les IA chinoises pour mon blog</option>
+                            <option value="techniqueRespiration">Me guider dans l'apprentissage de techniques de respiration</option>
+                            <option value="planMaison">Concevoir les plans d'une maison écologique de 120m²</option>
+                            <option value="recetteVegan">Créer un livre de recettes véganes pour débutants</option>
+                            <option value="apprendrePiano">Apprendre à jouer du piano en 6 mois à l'âge de 35 ans</option>
+                            <option value="startupFintech">Lancer une startup fintech spécialisée dans les cryptomonnaies</option>
+                            <option value="podcastHistoire">Créer un podcast sur l'histoire médiévale française</option>
+                            <option value="jardinBalcon">Optimiser mon petit jardin sur balcon de 6m²</option>
+                            <option value="reorganiserCV">Réorganiser mon CV pour postuler dans l'industrie du gaming</option>
+                            <option value="coursYoutube">Développer un cours en ligne sur YouTube pour enseigner la photographie</option>
+                            <option value="ecommerceArtisanat">Créer une boutique en ligne pour vendre mes créations artisanales en macramé</option>
+                            <option value="appMeditation">Concevoir une application de méditation pour les enfants de 8-12 ans</option>
+                            <option value="romanSciFi">Écrire un roman de science-fiction sur la colonisation de Mars</option>
+                            <option value="chaineRestaurant">Ouvrir une chaîne de restaurants de street food asiatique</option>
+                            <option value="formationIA">Créer une formation complète sur l'intelligence artificielle pour les PME</option>
+                            <option value="blogVoyage">Monétiser mon blog de voyage spécialisé dans le tourisme durable</option>
+                            <option value="jeuMobile">Développer un jeu mobile éducatif sur l'écologie marine</option>
+                            <option value="consultingRH">Lancer mon activité de consulting en ressources humaines</option>
+                            <option value="documentaireClima">Réaliser un documentaire sur le changement climatique en Arctique</option>
+                            <option value="associationAnimaux">Créer une association pour la protection des animaux sauvages locaux</option>
+                        </select>
                     </div>
                     
-                    <div class="prompt-example">
-                        <h4>Développement d'application</h4>
-                        <p>[En tant qu'architecte logiciel senior, concevez une application web de gestion de tâches innovante. 
-Spécifications : 
-- Technologie : React frontend, Node.js backend 
-- Fonctionnalités principales : 
-  * Tableaux Kanban personnalisables 
-  * Système de tags intelligents 
-  * Synchronisation temps réel 
-  * Analyse de productivité 
-- Public : équipes de 5 à 50 personnes 
-- UI/UX : moderne, minimaliste, dark mode par défaut 
-Produisez : 
-1. Diagramme d'architecture technique 
-2. Liste des endpoints API principaux 
-3. Maquette wireframe des écrans clés 
-4. Roadmap de développement sur 6 mois 
-5. Stratégie de test et déploiement]</p>
-                    </div>
-                    
-                    <div class="prompt-example">
-                        <h4>Création de contenu</h4>
-                        <p>[En tant que rédacteur expert en technologie, rédigez un article approfondi sur l'impact de l'IA dans l'éducation. 
-Ton : informatif mais accessible 
-Longueur : 1500 mots 
-Structure : 
-1. Introduction percutante 
-2. 5 applications concrètes avec exemples 
-3. Analyse des bénéfices et risques 
-4. Témoignages fictifs mais réalistes 
-5. Perspectives futures 
-6. Conclusion avec appel à l'action 
-Inclure : 
-- 3 sous-titres accrocheurs 
-- 5 statistiques pertinentes (inventez des données crédibles) 
-- 2 encadrés "Le saviez-vous ?" 
-- 1 infographie textuelle 
-Format Markdown avec mise en forme pour publication web.]</p>
+                    <div class="template-output" id="templateOutput">
+                        <h4>Prompt généré :</h4>
+                        <div class="prompt-display">
+                            <textarea id="generatedPrompt" readonly></textarea>
+                            <button id="copyButton" class="copy-btn">
+                                <i class="fas fa-copy"></i> Copier
+                            </button>
+                        </div>
                     </div>
                 </div>
+                
+                
                 
                 <div class="resources-section">
                     <h2>Ressources pour apprendre</h2>

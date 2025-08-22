@@ -998,6 +998,149 @@ footer {
     backdrop-filter: blur(10px);
     border: 1px solid rgba(0, 240, 255, 0.2);
     position: relative;
+}
+
+/* Styles pour la page À propos */
+.about-content {
+    padding: 80px 0;
+}
+
+.author-profile {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 60px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+}
+
+.author-image {
+    flex-shrink: 0;
+}
+
+.profile-pic {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+}
+
+.author-info {
+    flex-grow: 1;
+}
+
+.author-info h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.author-title {
+    font-size: 1.2rem;
+    color: var(--light);
+    margin-bottom: 20px;
+}
+
+.author-links {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.website-link, .email-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--light);
+    transition: all 0.3s ease;
+}
+
+.website-link:hover, .email-link:hover {
+    background: rgba(0, 240, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+.site-logo {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.mission-statement, .passion-section {
+    margin: 60px 0;
+}
+
+.mission-statement h2, .passion-section h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--primary);
+}
+
+.mission-grid, .passions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.mission-card, .passion-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mission-card:hover, .passion-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.mission-card h3, .passion-card h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--primary);
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .author-profile {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .author-links {
+        justify-content: center;
+    }
+
+    .profile-pic {
+        width: 200px;
+        height: 200px;
+        margin-bottom: 20px;
+    }
+}
+
+.prompt-templates {
+    background: rgba(25, 25, 35, 0.7);
+    border-radius: 10px;
+    padding: 30px;
+    margin: 50px 0;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    position: relative;
     overflow: hidden;
 }
 
@@ -1243,5 +1386,221 @@ footer {
     .copy-btn {
         padding: 8px 12px;
         font-size: 14px;
+    }
+}
+
+/* Création du code css pour l'animation neuron */
+.neural-network-animation {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background: rgba(30, 30, 42, 0.8);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.neuron {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(0, 240, 255, 0.8);
+    border-radius: 50%;
+    animation: neuronPulse 1.5s infinite;
+}
+
+@keyframes neuronPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* neural-network-animation.css */
+.neural-network-section {
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.neural-network-section h1 {
+    margin: 20px 0;
+    font-size: 2.5rem;
+    color: #6dd5ed;
+    text-shadow: 0 0 10px rgba(109, 213, 237, 0.5);
+}
+
+.neural-network-section .description {
+    max-width: 800px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+    font-size: 1.1rem;
+    color: #d4f1f9;
+}
+
+.neural-network {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.neural-network .layer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    flex: 1;
+    position: relative;
+    z-index: 2;
+}
+
+.neural-network .neuron {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(109, 213, 237, 0.7);
+    box-shadow: 0 0 15px rgba(109, 213, 237, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #6dd5ed;
+    font-weight: bold;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.neural-network .input-layer .neuron {
+    background: rgba(247, 255, 106, 0.2);
+    border-color: #f7ff6a;
+    box-shadow: 0 0 15px rgba(247, 255, 106, 0.5);
+    color: #f7ff6a;
+}
+
+.neural-network .output-layer .neuron {
+    background: rgba(255, 106, 167, 0.2);
+    border-color: #ff6aa7;
+    box-shadow: 0 0 15px rgba(255, 106, 167, 0.5);
+    color: #ff6aa7;
+}
+
+.neural-network .connections {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.neural-network .connection {
+    position: absolute;
+    background: linear-gradient(to right, rgba(109, 213, 237, 0.3), rgba(255, 255, 255, 0.1));
+    transform-origin: 0 0;
+    z-index: 1;
+}
+
+.neural-network .signal {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #6dd5ed;
+    box-shadow: 0 0 10px #6dd5ed, 0 0 20px #6dd5ed;
+    z-index: 2;
+}
+
+.neural-network .pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
+
+.neural-network-section .controls {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.neural-network-section button {
+    background: rgba(109, 213, 237, 0.2);
+    border: 2px solid #6dd5ed;
+    color: #6dd5ed;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.neural-network-section button:hover {
+    background: rgba(109, 213, 237, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(109, 213, 237, 0.4);
+}
+
+.neural-network-section .explanation {
+    margin-top: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.neural-network-section .explanation h2 {
+    color: #6dd5ed;
+    margin-bottom: 15px;
+}
+
+.neural-network-section .explanation p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .neural-network {
+        height: 400px;
+    }
+    
+    .neural-network .neuron {
+        width: 40px;
+        height: 40px;
+        font-size: 0.8rem;
+    }
+    
+    .neural-network-section h1 {
+        font-size: 2rem;
+    }
+    
+    .neural-network-section .controls {
+        flex-direction: column;
+        align-items: center;
     }
 }

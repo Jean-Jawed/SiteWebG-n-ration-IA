@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Génération-IA.fr - L'avenir de l'intelligence artificielle</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="neural-network-animation.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animation de fond -->
+    <div id="particles-js"></div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">GÉNÉRATION<span>-IA</span></a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="multimedia.html">Multimédia</a></li>
+                    <li><a href="prompting.html">Prompting</a></li>
+                    <li><a href="howitworks.html">Comment ça marche ?</a></li>
+                    <li><a href="energie.html">Énergie</a></li>
+                    <li><a href="developpeurs.html">Développeurs</a></li>
+                    <li><a href="enseignants.html">Enseignants</a></li>
+                    <li><a href="offline.html">L'IA OFFLINE</a></li>
+                    <li><a href="art.html">Art & IA</a></li>
+                    <li><a href="about.html">À propos</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>COMMENT CA M<span class="blink">A</span>RCHE <span class="highlight">?</span></h1>
+                <p class="subtitle">Une IA c'est quoi ?</p>
+            </div>
+        </section>
+
+    <section class="content">
+        <div class="container">
+            <h2>Qu'est-ce qu'un LLM ?</h2>
+            <p>
+                Un LLM, ou "Large Language Model", est un modèle d'intelligence artificielle conçu pour comprendre et générer du texte en langage naturel. Ces modèles sont entraînés sur d'énormes quantités de données textuelles, leur permettant de prédire le mot suivant dans une phrase ou de répondre à des questions complexes.
+            </p>
+            <img src="images/llm-overview.jpg" alt="Illustration d'un LLM" class="content-image" style="width: 20%; height: auto;">
+            
+            <h3>Comment fonctionnent les IA actuelles ?</h3>
+            <p>
+                Les IA modernes, comme les LLM, utilisent des réseaux de neurones profonds pour analyser des données et apprendre des modèles. Voici les étapes principales :
+            </p>
+            <ul>
+                <li><strong>Entraînement :</strong> Les modèles sont formés sur des milliards de phrases pour comprendre les relations entre les mots.</li>
+                <li><strong>Compréhension :</strong> Une fois entraînés, ils peuvent analyser des requêtes en langage naturel et en extraire le sens.</li>
+                <li><strong>Génération :</strong> En fonction de la requête, ils produisent des réponses cohérentes et pertinentes.</li>
+            </ul>
+            <img src="images/ai-training.jpg" alt="Processus d'entraînement d'une IA" class="content-image">
+            
+            <h3>LLMs et les chats IA</h3>
+            <p>
+                Les LLMs sont au cœur de nombreux chats IA. Par exemple :
+            </p>
+            <ul>
+                <li><strong>GPT :</strong> Utilisé par ChatGPT, développé par OpenAI.</li>
+                <li><strong>Llama :</strong> Développé par Meta AI, utilisé dans des applications spécifiques.</li>
+                <li><strong>Modèles personnalisés :</strong> Certaines IA comme Perplexity ou Copilot utilisent des grands modèles comme GPT et les adaptent à leurs besoins spécifiques.</li>
+            </ul>
+            <p>
+                Ces adaptations permettent de répondre à des cas d'utilisation variés, allant de l'assistance au codage à la recherche d'informations.
+            </p>
+            <img src="images/chat-ai.jpg" alt="Exemple d'un chat IA" class="content-image">
+            
+            <!-- neural-network-animation.html -->
+            <section class="neural-network-section">
+                <h1>Réseau de Neurones Artificiels</h1>
+                
+                <p class="description">
+                    Cette animation simplifiée illustre le fonctionnement d'un réseau de neurones.
+                    Les signaux voyagent des neurones d'entrée vers les neurones de sortie en passant par des couches cachées.
+                </p>
+                
+                <div class="neural-network">
+                    <div class="layer input-layer">
+                        <div class="neuron pulse">Entrée 1</div>
+                        <div class="neuron">Entrée 2</div>
+                        <div class="neuron">Entrée 3</div>
+                    </div>
+                    
+                    <div class="layer">
+                        <div class="neuron">Cache 1</div>
+                        <div class="neuron">Cache 2</div>
+                        <div class="neuron pulse">Cache 3</div>
+                        <div class="neuron">Cache 4</div>
+                    </div>
+                    
+                    <div class="layer">
+                        <div class="neuron pulse">Cache 5</div>
+                        <div class="neuron">Cache 6</div>
+                        <div class="neuron">Cache 7</div>
+                    </div>
+                    
+                    <div class="layer output-layer">
+                        <div class="neuron">Sortie 1</div>
+                        <div class="neuron pulse">Sortie 2</div>
+                    </div>
+                    
+                    <div class="connections" id="connections"></div>
+                </div>
+                
+                <div class="controls">
+                    <button id="slowBtn">Ralenti</button>
+                    <button id="normalBtn">Vitesse Normale</button>
+                    <button id="fastBtn">Accéléré</button>
+                </div>
+                
+                <div class="explanation">
+                    <h2>Comment fonctionne un réseau de neurones ?</h2>
+                    <p>Un réseau de neurones artificiels s'inspire du fonctionnement du cerveau humain. Il est composé de couches de neurones interconnectés :</p>
+                    <p>• <strong>Couche d'entrée</strong> : Reçoit les données brutes</p>
+                    <p>• <strong>Couches cachées</strong> : Traitent l'information en calculant des combinaisons complexes</p>
+                    <p>• <strong>Couche de sortie</strong> : Produit le résultat final</p>
+                    <p>Chaque connexion entre neurones a un "poids" qui influence l'importance du signal transmis. Pendant l'apprentissage, ces poids sont ajustés pour améliorer la précision des résultats.</p>
+                </div>
+            </section>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section about">
+                    <h3>Génération-IA</h3>
+                    <p>Explorer le futur de l'intelligence artificielle et ses applications dans tous les domaines.</p>
+                </div>
+                <div class="footer-section links">
+                    <h3>Liens rapides</h3>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="multimedia.html">Multimédia</a></li>
+                        <li><a href="prompting.html">Prompting</a></li>
+                        <li><a href="energie.html">Énergie</a></li>
+                        <li><a href="about.html">À propos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section contact">
+                    <h3>Contact</h3>
+                    <p>jawed_tahir@yahoo.fr</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Javed Tahir. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    <script src="neural-network-animation.js"></script>
+</body>
+</html>

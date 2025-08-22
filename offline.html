@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prompting - Génération-IA.fr</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Génération-IA.fr - L'IA Offline</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="offline.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -22,7 +24,7 @@
                 <ul class="nav-links">
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="multimedia.html">Multimédia</a></li>
-                    <li><a href="prompting.html" class="active">Prompting</a></li>
+                    <li><a href="prompting.html">Prompting</a></li>
                     <li><a href="howitworks.html">Comment ça marche ?</a></li>
                     <li><a href="energie.html">Énergie</a></li>
                     <li><a href="developpeurs.html">Développeurs</a></li>
@@ -48,6 +50,188 @@
                 <p class="subtitle">L'IA décentralisée, sans Internet, en local : une révolution à portée de main ?</p>
             </div>
         </section>
+
+        <section class="content">
+            <div class="container">
+                <div class="intro-text">
+                    <p>Et si vous pouviez utiliser une intelligence artificielle puissante sans connexion Internet, sans abonnement, et sans partager vos données avec qui que ce soit ? Découvrez l'IA offline, une révolution technologique qui remet le contrôle entre vos mains.</p>
+                </div>
+
+                <div class="cards-container">
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-user-lock"></i>
+                        </div>
+                        <h3>Vie Privée Totale</h3>
+                        <p>Avec l'IA offline, vos données restent sur votre appareil. Plus de crainte que vos conversations soient analysées ou stockées sur des serveurs distants.</p>
+                        <button class="card-toggle">En savoir plus</button>
+                        <div class="card-details">
+                            <p>Contrairement aux services cloud où vos requêtes sont traitées sur des serveurs externes, l'IA locale fonctionne entièrement sur votre propre matériel. Vos questions, documents et conversations ne quittent jamais votre appareil.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h3>Contrôle Complet</h3>
+                        <p>Choisissez vos modèles, personnalisez-les selon vos besoins, et utilisez-les sans dépendre d'une connexion Internet ou des caprices des géants technologiques.</p>
+                        <button class="card-toggle">En savoir plus</button>
+                        <div class="card-details">
+                            <p>Vous décidez quel modèle utiliser, quand le mettre à jour, et comment l'intégrer à vos workflows. Plus de restrictions imposées par les fournisseurs de services cloud, plus de modifications unilatérales des conditions d'utilisation.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-euro-sign"></i>
+                        </div>
+                        <h3>Économie à Long Terme</h3>
+                        <p>Même si l'investissement initial peut être plus important, vous éviterez les abonnements mensuels coûteux et les augmentations de prix imprévisibles.</p>
+                        <button class="card-toggle">En savoir plus</button>
+                        <div class="card-details">
+                            <p>Les services d'IA cloud facturent souvent à l'usage ou via des abonnements. Avec une solution locale, après l'acquisition du matériel nécessaire, vos coûts supplémentaires sont minimes, même avec une utilisation intensive.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="platforms-section">
+                    <h2>Les plateformes d'IA offline</h2>
+                    <p>Plusieurs solutions existent pour faire fonctionner des modèles d'IA en local sur votre ordinateur ou smartphone :</p>
+                    
+                    <div class="platform-cards">
+                        <div class="platform-card">
+                            <div class="platform-logo">
+                                <i class="fas fa-dragon"></i>
+                            </div>
+                            <h3>Ollama</h3>
+                            <p>Ollama permet d'exécuter localement des modèles comme Llama, Mistral et autres. Simple d'installation et d'utilisation, c'est une des solutions les plus populaires.</p>
+                            <div class="platform-features">
+                                <span class="feature-tag">Multi-OS</span>
+                                <span class="feature-tag">Modèles variés</span>
+                                <span class="feature-tag">API simple</span>
+                            </div>
+                            <a href="https://ollama.ai" target="_blank" class="platform-link">Découvrir Ollama</a>
+                        </div>
+                        
+                        <div class="platform-card">
+                            <div class="platform-logo">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <h3>Jan</h3>
+                            <p>Jan est une alternative open-source à ChatGPT qui fonctionne entièrement en local sur votre machine. Interface conviviale et support de nombreux modèles.</p>
+                            <div class="platform-features">
+                                <span class="feature-tag">Open Source</span>
+                                <span class="feature-tag">Interface intuitive</span>
+                                <span class="feature-tag">Hors ligne</span>
+                            </div>
+                            <a href="https://jan.ai" target="_blank" class="platform-link">Découvrir Jan</a>
+                        </div>
+                        
+                        <div class="platform-card">
+                            <div class="platform-logo">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3>MLC LLM</h3>
+                            <p>Solution permettant d'exécuter des modèles de langage sur smartphones et appareils edge, sans serveur ni connexion cloud requise.</p>
+                            <div class="platform-features">
+                                <span class="feature-tag">Mobile</span>
+                                <span class="feature-tag">Efficace</span>
+                                <span class="feature-tag">Multi-appareils</span>
+                            </div>
+                            <a href="https://mlc.ai" target="_blank" class="platform-link">Découvrir MLC LLM</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-section">
+                    <h2>IA Cloud vs IA Locale : comparaison</h2>
+                    <div class="comparison-table">
+                        <div class="comparison-header">
+                            <div class="comparison-cell"></div>
+                            <div class="comparison-cell">IA Cloud</div>
+                            <div class="comparison-cell">IA Locale</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Confidentialité</div>
+                            <div class="comparison-cell"><i class="fas fa-times-circle"></i> Données sur serveurs distants</div>
+                            <div class="comparison-cell"><i class="fas fa-check-circle"></i> Données sur votre appareil</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Coût à long terme</div>
+                            <div class="comparison-cell"><i class="fas fa-times-circle"></i> Abonnements récurrents</div>
+                            <div class="comparison-cell"><i class="fas fa-check-circle"></i> Investissement unique</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Accès hors ligne</div>
+                            <div class="comparison-cell"><i class="fas fa-times-circle"></i> Impossible</div>
+                            <div class="comparison-cell"><i class="fas fa-check-circle"></i> Total</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Personnalisation</div>
+                            <div class="comparison-cell"><i class="fas fa-minus-circle"></i> Limitée</div>
+                            <div class="comparison-cell"><i class="fas fa-check-circle"></i> Complète</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Performance</div>
+                            <div class="comparison-cell"><i class="fas fa-check-circle"></i> Élevée (serveurs puissants)</div>
+                            <div class="comparison-cell"><i class="fas fa-minus-circle"></i> Dépend de votre matériel</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="philosophy-section">
+                    <h2>Une question de philosophie</h2>
+                    <div class="philosophy-content">
+                        <div class="philosophy-text">
+                            <p>L'IA offline représente bien plus qu'une simple alternative technique : c'est un choix philosophique fondamental sur qui contrôle l'intelligence artificielle et à qui elle profite.</p>
+                            <p>En rendant l'IA accessible localement, nous :</p>
+                            <ul>
+                                <li>Préservons la diversité culturelle et linguistique</li>
+                                <li>Évitons la concentration du pouvoir IA entre quelques mains</li>
+                                <li>Garantissons un accès égalitaire indépendamment des connexions Internet</li>
+                                <li>Protégeons les communautés vulnérables de la surveillance</li>
+                            </ul>
+                            <p>L'IA offline, c'est l'assurance que cette technologie transformative reste un bien commun accessible à tous, et non un produit commercial contrôlé par quelques multinationales.</p>
+                        </div>
+                        <div class="philosophy-image">
+                            <img src="images/offline-ia-community.jpg" alt="Communauté autour de l'IA offline">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="getting-started">
+                    <h2>Comment commencer avec l'IA offline ?</h2>
+                    <div class="steps-container">
+                        <div class="step">
+                            <div class="step-number">1</div>
+                            <h3>Vérifiez votre matériel</h3>
+                            <p>Assurez-vous d'avoir suffisamment de RAM (16Go minimum recommandé) et un processeur récent. Une carte graphique performante (NVIDIA RTX série 30/40) accélérera considérablement les calculs.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">2</div>
+                            <h3>Choisissez une plateforme</h3>
+                            <p>Selectionnez l'outil qui correspond à vos besoins : Ollama pour la simplicité, Jan pour une interface complète, ou MLC LLM pour mobile.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">3</div>
+                            <h3>Téléchargez un modèle</h3>
+                            <p>Commencez avec un modèle léger comme Llama 3 8B ou Mistral 7B, puis expérimentez avec des modèles plus grands selon vos capacités matérielles.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-number">4</div>
+                            <h3>Testez et personnalisez</h3>
+                            <p>Expérimentez avec différents paramètres, contextes et prompts pour obtenir les meilleurs résultats avec votre configuration.</p>
+                        </div>
+                    </div>
+                    <div class="getting-started-cta">
+                        <p>Prêt à reprendre le contrôle de votre expérience IA ?</p>
+                        <a href="https://ollama.ai" target="_blank" class="cta-button">Essayer Ollama maintenant</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -80,5 +264,6 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
+    <script src="offline.js"></script>
 </body>
 </html>

@@ -1,0 +1,551 @@
+/* Styles spécifiques pour la page Enseignants */
+.page-hero {
+    text-align: center;
+    padding: 4rem 0;
+    background: linear-gradient(135deg, rgba(33, 150, 243, 0.1) 0%, rgba(13, 71, 161, 0.2) 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 3rem;
+}
+
+.page-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.page-hero .subtitle {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.intro-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.intro-text h2 {
+    color: #fff;
+    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
+}
+
+.intro-text p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.intro-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.benefits-section {
+    margin: 4rem 0;
+}
+
+.benefits-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #fff;
+}
+
+.benefits-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.benefit-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    background: rgba(33, 150, 243, 0.05);
+}
+
+.benefit-icon {
+    font-size: 3rem;
+    color: #2196F3;
+    margin-bottom: 1rem;
+}
+
+.benefit-card h3 {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.benefit-card p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+.assistance-section {
+    margin: 4rem 0;
+}
+
+.assistance-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+.simple-tabs {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.tab-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tab-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: none;
+    padding: 1rem 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 200px;
+}
+
+.tab-btn:hover {
+    background: rgba(33, 150, 243, 0.1);
+    color: #fff;
+}
+
+.tab-btn.active {
+    background: rgba(33, 150, 243, 0.2);
+    color: #2196F3;
+    font-weight: bold;
+}
+
+.tab-content {
+    padding: 2rem;
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content h3 {
+    color: #fff;
+    margin-bottom: 1.5rem;
+}
+
+.tab-content ul {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+}
+
+.tab-content li {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+.example-box {
+    background: rgba(33, 150, 243, 0.1);
+    border-left: 4px solid #2196F3;
+    padding: 1.5rem;
+    border-radius: 4px;
+}
+
+.example-box h4 {
+    color: #2196F3;
+    margin-bottom: 0.5rem;
+}
+
+.example-box p {
+    color: rgba(255, 255, 255, 0.8);
+    font-style: italic;
+    margin: 0;
+}
+
+.student-assistance {
+    margin: 4rem 0;
+}
+
+.student-assistance h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #fff;
+}
+
+.student-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.student-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.student-card:hover {
+    transform: translateY(-5px);
+}
+
+.student-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.student-card h3 {
+    color: #fff;
+    padding: 1.5rem 1.5rem 0.5rem;
+    margin: 0;
+}
+
+.student-card p {
+    color: rgba(255, 255, 255, 0.8);
+    padding: 0 1.5rem 1.5rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.teaching-ia-section {
+    margin: 4rem 0;
+}
+
+.teaching-ia-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #fff;
+}
+
+.age-groups-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.age-group {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 2rem;
+}
+
+.age-group h3 {
+    color: #fff;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.activity-card {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.activity-card:hover {
+    transform: translateY(-3px);
+    background: rgba(33, 150, 243, 0.05);
+}
+
+.activity-card h4 {
+    color: #fff;
+    margin-bottom: 0.8rem;
+}
+
+.activity-card p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.activity-details {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+}
+
+.activity-details span {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.pedagogical-impact {
+    margin: 4rem 0;
+}
+
+.pedagogical-impact h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #fff;
+}
+
+.impact-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.impact-text h3 {
+    color: #fff;
+    margin: 1.5rem 0 1rem;
+}
+
+.impact-text h3:first-child {
+    margin-top: 0;
+}
+
+.impact-text p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.impact-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.resources-section {
+    margin: 4rem 0;
+}
+
+.resources-section h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #fff;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.resource-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    background: rgba(33, 150, 243, 0.05);
+}
+
+.resource-card h3 {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.resource-card p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.resource-link {
+    display: inline-block;
+    background: linear-gradient(45deg, #2196F3, #21CBF3);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.resource-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(33, 150, 243, 0.4);
+}
+
+.ethical-guidelines {
+    margin: 4rem 0;
+}
+
+.ethical-guidelines h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #fff;
+}
+
+.guidelines-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.guideline-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.guideline-card:hover {
+    transform: translateY(-5px);
+    background: rgba(33, 150, 243, 0.05);
+}
+
+.guideline-icon {
+    font-size: 2.5rem;
+    color: #2196F3;
+    margin-bottom: 1rem;
+}
+
+.guideline-card h3 {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.guideline-card p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+.getting-started {
+    margin: 4rem 0;
+    padding: 2rem;
+    background: rgba(33, 150, 243, 0.05);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.getting-started h2 {
+    margin-bottom: 3rem;
+    color: #fff;
+}
+
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.step {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #2196F3, #21CBF3);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-weight: bold;
+}
+
+.step h3 {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+.step p {
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+}
+
+.cta-box {
+    margin-top: 2rem;
+}
+
+.cta-box p {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+}
+
+.cta-button {
+    display: inline-block;
+    background: linear-gradient(45deg, #2196F3, #21CBF3);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(33, 150, 243, 0.4);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .intro-section,
+    .impact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .tab-buttons {
+        flex-direction: column;
+    }
+    
+    .tab-btn {
+        min-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .page-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .page-hero .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .benefits-cards,
+    .student-cards,
+    .resources-grid,
+    .guidelines-grid,
+    .steps-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .activities-grid {
+        grid-template-columns: 1fr;
+    }
+}

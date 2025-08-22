@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <title>Génération-IA.fr - L'avenir de l'intelligence artificielle</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="neural-network-animation.css">
+    <link rel="stylesheet" href="howitworks.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -46,98 +48,178 @@
         <section class="hero">
             <div class="container">
                 <h1>COMMENT CA M<span class="blink">A</span>RCHE <span class="highlight">?</span></h1>
-                <p class="subtitle">Une IA c'est quoi ?</p>
+                <p class="subtitle">Découvrez le fonctionnement des IA génératives</p>
             </div>
         </section>
 
-    <section class="content">
-        <div class="container">
-            <h2>Qu'est-ce qu'un LLM ?</h2>
-            <p>
-                Un LLM, ou "Large Language Model", est un modèle d'intelligence artificielle conçu pour comprendre et générer du texte en langage naturel. Ces modèles sont entraînés sur d'énormes quantités de données textuelles, leur permettant de prédire le mot suivant dans une phrase ou de répondre à des questions complexes.
-            </p>
-            <img src="images/llm-overview.jpg" alt="Illustration d'un LLM" class="content-image" style="width: 20%; height: auto;">
-            
-            <h3>Comment fonctionnent les IA actuelles ?</h3>
-            <p>
-                Les IA modernes, comme les LLM, utilisent des réseaux de neurones profonds pour analyser des données et apprendre des modèles. Voici les étapes principales :
-            </p>
-            <ul>
-                <li><strong>Entraînement :</strong> Les modèles sont formés sur des milliards de phrases pour comprendre les relations entre les mots.</li>
-                <li><strong>Compréhension :</strong> Une fois entraînés, ils peuvent analyser des requêtes en langage naturel et en extraire le sens.</li>
-                <li><strong>Génération :</strong> En fonction de la requête, ils produisent des réponses cohérentes et pertinentes.</li>
-            </ul>
-            <img src="images/ai-training.jpg" alt="Processus d'entraînement d'une IA" class="content-image">
-            
-            <h3>LLMs et les chats IA</h3>
-            <p>
-                Les LLMs sont au cœur de nombreux chats IA. Par exemple :
-            </p>
-            <ul>
-                <li><strong>GPT :</strong> Utilisé par ChatGPT, développé par OpenAI.</li>
-                <li><strong>Llama :</strong> Développé par Meta AI, utilisé dans des applications spécifiques.</li>
-                <li><strong>Modèles personnalisés :</strong> Certaines IA comme Perplexity ou Copilot utilisent des grands modèles comme GPT et les adaptent à leurs besoins spécifiques.</li>
-            </ul>
-            <p>
-                Ces adaptations permettent de répondre à des cas d'utilisation variés, allant de l'assistance au codage à la recherche d'informations.
-            </p>
-            <img src="images/chat-ai.jpg" alt="Exemple d'un chat IA" class="content-image">
-            
-            <!-- neural-network-animation.html -->
-            <section class="neural-network-section">
-                <h1>Réseau de Neurones Artificiels</h1>
-                
-                <p class="description">
-                    Cette animation simplifiée illustre le fonctionnement d'un réseau de neurones.
-                    Les signaux voyagent des neurones d'entrée vers les neurones de sortie en passant par des couches cachées.
-                </p>
-                
-                <div class="neural-network">
-                    <div class="layer input-layer">
-                        <div class="neuron pulse">Entrée 1</div>
-                        <div class="neuron">Entrée 2</div>
-                        <div class="neuron">Entrée 3</div>
+        <section class="content">
+            <div class="container">
+                <div class="cards-container">
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Qu'est-ce qu'un LLM ?</h3>
+                        <p>Un LLM, ou "Large Language Model", est un modèle d'intelligence artificielle conçu pour comprendre et générer du texte en langage naturel.</p>
+                        <button class="card-toggle">En savoir plus</button>
+                        <div class="card-details">
+                            <p>Ces modèles sont entraînés sur d'énormes quantités de données textuelles, leur permettant de prédire le mot suivant dans une phrase ou de répondre à des questions complexes.</p>
+                        </div>
                     </div>
                     
-                    <div class="layer">
-                        <div class="neuron">Cache 1</div>
-                        <div class="neuron">Cache 2</div>
-                        <div class="neuron pulse">Cache 3</div>
-                        <div class="neuron">Cache 4</div>
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Fonctionnement des IA</h3>
+                        <p>Les IA modernes utilisent des réseaux de neurones profonds pour analyser des données et apprendre des modèles.</p>
+                        <button class="card-toggle">Voir le processus</button>
+                        <div class="card-details">
+                            <ul>
+                                <li><strong>Entraînement :</strong> Formées sur des milliards de phrases pour comprendre les relations entre les mots.</li>
+                                <li><strong>Compréhension :</strong> Analysent des requêtes en langage naturel et en extraient le sens.</li>
+                                <li><strong>Génération :</strong> Produisent des réponses cohérentes et pertinentes.</li>
+                            </ul>
+                        </div>
                     </div>
                     
-                    <div class="layer">
-                        <div class="neuron pulse">Cache 5</div>
-                        <div class="neuron">Cache 6</div>
-                        <div class="neuron">Cache 7</div>
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>LLMs et les chats IA</h3>
+                        <p>Les LLMs sont au cœur de nombreux chats IA comme ChatGPT, Llama, ou les modèles personnalisés.</p>
+                        <button class="card-toggle">Découvrir</button>
+                        <div class="card-details">
+                            <ul>
+                                <li><strong>GPT :</strong> Utilisé par ChatGPT, développé par OpenAI.</li>
+                                <li><strong>Llama :</strong> Développé par Meta AI.</li>
+                                <li><strong>Modèles personnalisés :</strong> Adaptés à des besoins spécifiques comme Perplexity ou Copilot.</li>
+                            </ul>
+                        </div>
                     </div>
-                    
-                    <div class="layer output-layer">
-                        <div class="neuron">Sortie 1</div>
-                        <div class="neuron pulse">Sortie 2</div>
-                    </div>
-                    
-                    <div class="connections" id="connections"></div>
                 </div>
                 
-                <div class="controls">
-                    <button id="slowBtn">Ralenti</button>
-                    <button id="normalBtn">Vitesse Normale</button>
-                    <button id="fastBtn">Accéléré</button>
+                <div class="comparison-section">
+                    <h2>Les différents types de modèles IA</h2>
+                    <div class="comparison-table">
+                        <div class="comparison-header">
+                            <div class="comparison-cell"></div>
+                            <div class="comparison-cell">GPT (OpenAI)</div>
+                            <div class="comparison-cell">Llama (Meta)</div>
+                            <div class="comparison-cell">Modèles personnalisés</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Usage principal</div>
+                            <div class="comparison-cell">Usage général</div>
+                            <div class="comparison-cell">Recherche</div>
+                            <div class="comparison-cell">Applications spécifiques</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Accès</div>
+                            <div class="comparison-cell">Commercial</div>
+                            <div class="comparison-cell">Open-source</div>
+                            <div class="comparison-cell">Variable</div>
+                        </div>
+                        <div class="comparison-row">
+                            <div class="comparison-cell">Personnalisation</div>
+                            <div class="comparison-cell">Limitée</div>
+                            <div class="comparison-cell">Élevée</div>
+                            <div class="comparison-cell">Complète</div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="explanation">
-                    <h2>Comment fonctionne un réseau de neurones ?</h2>
-                    <p>Un réseau de neurones artificiels s'inspire du fonctionnement du cerveau humain. Il est composé de couches de neurones interconnectés :</p>
-                    <p>• <strong>Couche d'entrée</strong> : Reçoit les données brutes</p>
-                    <p>• <strong>Couches cachées</strong> : Traitent l'information en calculant des combinaisons complexes</p>
-                    <p>• <strong>Couche de sortie</strong> : Produit le résultat final</p>
-                    <p>Chaque connexion entre neurones a un "poids" qui influence l'importance du signal transmis. Pendant l'apprentissage, ces poids sont ajustés pour améliorer la précision des résultats.</p>
+                <div class="process-flow">
+                    <h2>Processus de fonctionnement d'une IA</h2>
+                    <div class="flow-steps">
+                        <div class="flow-step">
+                            <div class="step-number">1</div>
+                            <h3>Entraînement</h3>
+                            <p>Apprentissage sur des milliards d'exemples</p>
+                        </div>
+                        <div class="flow-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="flow-step">
+                            <div class="step-number">2</div>
+                            <h3>Compréhension</h3>
+                            <p>Analyse de la requête utilisateur</p>
+                        </div>
+                        <div class="flow-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="flow-step">
+                            <div class="step-number">3</div>
+                            <h3>Génération</h3>
+                            <p>Création de la réponse</p>
+                        </div>
+                        <div class="flow-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="flow-step">
+                            <div class="step-number">4</div>
+                            <h3>Résultat</h3>
+                            <p>Fourniture de la réponse à l'utilisateur</p>
+                        </div>
+                    </div>
                 </div>
-            </section>
-        </div>
-    </section>
-
+                
+                <!-- neural-network-animation.html -->
+                <section class="neural-network-section">
+                    <h2>Réseau de Neurones Artificiels</h2>
+                    
+                    <p class="description">
+                        Cette animation simplifiée illustre le fonctionnement d'un réseau de neurones.
+                        Les signaux voyagent des neurones d'entrée vers les neurones de sortie en passant par des couches cachées.
+                    </p>
+                    
+                    <div class="neural-network">
+                        <div class="layer input-layer">
+                            <div class="neuron pulse">Entrée 1</div>
+                            <div class="neuron">Entrée 2</div>
+                            <div class="neuron">Entrée 3</div>
+                        </div>
+                        
+                        <div class="layer">
+                            <div class="neuron">Cache 1</div>
+                            <div class="neuron">Cache 2</div>
+                            <div class="neuron pulse">Cache 3</div>
+                            <div class="neuron">Cache 4</div>
+                        </div>
+                        
+                        <div class="layer">
+                            <div class="neuron pulse">Cache 5</div>
+                            <div class="neuron">Cache 6</div>
+                            <div class="neuron">Cache 7</div>
+                        </div>
+                        
+                        <div class="layer output-layer">
+                            <div class="neuron">Sortie 1</div>
+                            <div class="neuron pulse">Sortie 2</div>
+                        </div>
+                        
+                        <div class="connections" id="connections"></div>
+                    </div>
+                    
+                    <div class="controls">
+                        <button id="slowBtn">Ralenti</button>
+                        <button id="normalBtn">Vitesse Normale</button>
+                        <button id="fastBtn">Accéléré</button>
+                    </div>
+                    
+                    <div class="explanation">
+                        <h2>Comment fonctionne un réseau de neurones ?</h2>
+                        <p>Un réseau de neurones artificiels s'inspire du fonctionnement du cerveau humain. Il est composé de couches de neurones interconnectés :</p>
+                        <p>• <strong>Couche d'entrée</strong> : Reçoit les données brutes</p>
+                        <p>• <strong>Couches cachées</strong> : Traitent l'information en calculant des combinaisons complexes</p>
+                        <p>• <strong>Couche de sortie</strong> : Produit le résultat final</p>
+                        <p>Chaque connexion entre neurones a un "poids" qui influence l'importance du signal transmis. Pendant l'apprentissage, ces poids sont ajustés pour améliorer la précision des résultats.</p>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
@@ -171,5 +253,6 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
     <script src="neural-network-animation.js"></script>
+    <script src="howitworks.js"></script>
 </body>
 </html>

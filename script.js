@@ -110,23 +110,27 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
 
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        hamburger.classList.toggle('active');
-    });
-
-    // Fermer le menu mobile quand on clique sur un lien
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            hamburger.classList.remove('active');
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
         });
-    });
+
+        // Fermer le menu mobile quand on clique sur un lien
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+    }
 
     // Header scroll effect
     window.addEventListener('scroll', () => {
         const header = document.querySelector('header');
-        header.classList.toggle('scrolled', window.scrollY > 50);
+        if (header) {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+        }
     });
 
     // Effet de hover sur les cartes
@@ -144,6 +148,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Animation au chargement
     document.body.classList.add('page-transition');
+
+    // Initialisation des tooltips
+    initTooltips();
+
+    // Initialisation de la parallaxe
+    initParallax();
+
+    // Initialisations spécifiques aux pages
+    initArtPage();
+    initTeachersPage();
+    initDevelopersPage();
+    initEnergyPage();
+    initPromptingPage();
+    initMultimediaPage();
+
+    // Gestion de la navigation SPA (Single Page Application)
+    initSPANavigation();
+
+    // Initialisation des transitions entre pages
+    initPageTransitions();
 });
 
 // Fonction pour charger le contenu des autres pages
@@ -196,11 +220,16 @@ function initPageSpecificScripts(page) {
         });
     }
     
-    // Autres initialisations spécifiques aux pages...
+    // Réinitialiser les autres pages si nécessaire
+    initArtPage();
+    initTeachersPage();
+    initDevelopersPage();
+    initEnergyPage();
+    initPromptingPage();
 }
 
-// Gestion de la navigation SPA (Single Page Application)
-document.addEventListener('DOMContentLoaded', function() {
+// Gestion de la navigation SPA
+function initSPANavigation() {
     // Intercepter les clics sur les liens de navigation
     document.querySelectorAll('nav a').forEach(link => {
         link.addEventListener('click', function(e) {
@@ -229,71 +258,72 @@ document.addEventListener('DOMContentLoaded', function() {
         const page = window.location.pathname.replace('.html', '').replace('/', '') || 'index';
         loadPageContent(page);
     });
-});
+}
 
 // Effet de parallaxe pour les sections
 function initParallax() {
     const parallaxSections = document.querySelectorAll('.parallax');
     
-    window.addEventListener('scroll', function() {
-        const scrollPosition = window.pageYOffset;
-        
-        parallaxSections.forEach(section => {
-            const speed = parseFloat(section.getAttribute('data-speed')) || 0.5;
-            const yPos = -(scrollPosition * speed);
-            section.style.backgroundPosition = `center ${yPos}px`;
+    if (parallaxSections.length > 0) {
+        window.addEventListener('scroll', function() {
+            const scrollPosition = window.pageYOffset;
+            
+            parallaxSections.forEach(section => {
+                const speed = parseFloat(section.getAttribute('data-speed')) || 0.5;
+                const yPos = -(scrollPosition * speed);
+                section.style.backgroundPosition = `center ${yPos}px`;
+            });
         });
-    });
+    }
 }
 
 // Initialiser les tooltips
 function initTooltips() {
     const tooltipElements = document.querySelectorAll('[data-tooltip]');
     
-    tooltipElements.forEach(element => {
-        const tooltip = document.createElement('div');
-        tooltip.className = 'tooltip';
-        tooltip.textContent = element.getAttribute('data-tooltip');
-        document.body.appendChild(tooltip);
+    if (tooltipElements.length > 0) {
+        // Vérifier si le style des tooltips existe déjà
+        if (!document.querySelector('style#tooltip-style')) {
+            const tooltipStyle = document.createElement('style');
+            tooltipStyle.id = 'tooltip-style';
+            tooltipStyle.textContent = `
+                .tooltip {
+                    position: fixed;
+                    background: rgba(0, 0, 0, 0.8);
+                    color: white;
+                    padding: 5px 10px;
+                    border-radius: 5px;
+                    font-size: 0.8rem;
+                    pointer-events: none;
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
+                    z-index: 10000;
+                    max-width: 200px;
+                    text-align: center;
+                }
+            `;
+            document.head.appendChild(tooltipStyle);
+        }
         
-        element.addEventListener('mouseenter', function(e) {
-            const rect = this.getBoundingClientRect();
-            tooltip.style.left = `${rect.left + rect.width / 2 - tooltip.offsetWidth / 2}px`;
-            tooltip.style.top = `${rect.top - tooltip.offsetHeight - 10}px`;
-            tooltip.style.opacity = '1';
+        tooltipElements.forEach(element => {
+            const tooltip = document.createElement('div');
+            tooltip.className = 'tooltip';
+            tooltip.textContent = element.getAttribute('data-tooltip');
+            document.body.appendChild(tooltip);
+            
+            element.addEventListener('mouseenter', function(e) {
+                const rect = this.getBoundingClientRect();
+                tooltip.style.left = `${rect.left + rect.width / 2 - tooltip.offsetWidth / 2}px`;
+                tooltip.style.top = `${rect.top - tooltip.offsetHeight - 10}px`;
+                tooltip.style.opacity = '1';
+            });
+            
+            element.addEventListener('mouseleave', function() {
+                tooltip.style.opacity = '0';
+            });
         });
-        
-        element.addEventListener('mouseleave', function() {
-            tooltip.style.opacity = '0';
-        });
-    });
+    }
 }
-
-// Ajouter le CSS pour les tooltips
-const tooltipStyle = document.createElement('style');
-tooltipStyle.textContent = `
-.tooltip {
-    position: fixed;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.8rem;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 10000;
-    max-width: 200px;
-    text-align: center;
-}
-`;
-document.head.appendChild(tooltipStyle);
-
-// Initialiser toutes les fonctions
-document.addEventListener('DOMContentLoaded', function() {
-    initParallax();
-    initTooltips();
-});
 
 // Initialisation spécifique à la page Art
 function initArtPage() {
@@ -322,9 +352,11 @@ function initTeachersPage() {
         const ageGroups = document.querySelectorAll('.age-group');
         ageGroups.forEach(group => {
             const heading = group.querySelector('h3');
-            heading.addEventListener('click', () => {
-                group.classList.toggle('expanded');
-            });
+            if (heading) {
+                heading.addEventListener('click', () => {
+                    group.classList.toggle('expanded');
+                });
+            }
         });
     }
 }
@@ -384,42 +416,12 @@ function initEnergyPage() {
     }
 }
 
-// Initialisation spécifique à la page Prompting
-function initPromptingPage() {
-    if (document.querySelector('.prompting-content')) {
-        // Interaction avec les exemples de prompts
-        const promptExamples = document.querySelectorAll('.prompt-example');
-        promptExamples.forEach(example => {
-            example.addEventListener('click', function() {
-                this.classList.toggle('expanded');
-            });
-        });
-    }
-}
-
 // Initialisation spécifique à la page Multimédia
 function initMultimediaPage() {
     if (document.querySelector('.multimedia-tabs')) {
         // Rien de supplémentaire ici car déjà géré dans le HTML
     }
 }
-
-// Au chargement du DOM
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialisation générale
-    initMenu();
-    initScrollEffects();
-    initPageTransitions();
-    initTooltips();
-    
-    // Initialisations spécifiques aux pages
-    initArtPage();
-    initTeachersPage();
-    initDevelopersPage();
-    initEnergyPage();
-    initPromptingPage();
-    initMultimediaPage();
-});
 
 // Nouvelle fonction pour les transitions entre pages
 function initPageTransitions() {
@@ -438,44 +440,29 @@ function initPageTransitions() {
             });
         }
     });
-}
-
-// Animation de sortie de page
-const pageExitStyle = document.createElement('style');
-pageExitStyle.textContent = `
-@keyframes fadeOut {
-    to { opacity: 0; transform: translateY(20px); }
-}
-.page-exit {
-    animation: fadeOut 0.5s ease forwards;
-}
-`;
-document.head.appendChild(pageExitStyle);
-
-// Fonctions d'initialisation
-function initParticles() {
-    // Initialisation des particules déjà gérée dans le DOMContentLoaded
-}
-
-function initMenu() {
-    // Menu hamburger déjà géré dans le DOMContentLoaded
-}
-
-function initScrollEffects() {
-    // Header scroll effect déjà géré dans le DOMContentLoaded
-}
-
-function initAIcards() {
-    // Les cartes AI sont maintenant statiques, donc pas besoin d'initialisation JavaScript
+    
+    // Vérifier si le style de transition de page existe déjà
+    if (!document.querySelector('style#page-exit-style')) {
+        const pageExitStyle = document.createElement('style');
+        pageExitStyle.id = 'page-exit-style';
+        pageExitStyle.textContent = `
+            @keyframes fadeOut {
+                to { opacity: 0; transform: translateY(20px); }
+            }
+            .page-exit {
+                animation: fadeOut 0.5s ease forwards;
+            }
+        `;
+        document.head.appendChild(pageExitStyle);
+    }
 }
 
 // Fonction d'initialisation pour la page Prompting
 function initPromptingPage() {
     if (document.querySelector('.prompting-content')) {
         // Base de données des templates de prompts
-        
-const promptTemplates = {
-    nouvelleBesan: {
+        const promptTemplates = {
+            nouvelleBesan: {
         title: "Écrire une nouvelle de 45 pages qui se passe à Besançon",
         prompt: `# MISSION : Écriture d'une nouvelle littéraire de 45 pages située à Besançon
 
@@ -2059,11 +2046,11 @@ Cette startup se positionne pour surfer sur la vague d'adoption crypto B2B tout 
             templateSelector.addEventListener('change', function() {
                 if (this.value) {
                     displayButton.disabled = false;
-                    displayButton.classList.remove('disabled');
+                    displayButton.innerHTML = '<i class="fas fa-eye"></i> Afficher le prompt';
                 } else {
                     displayButton.disabled = true;
-                    displayButton.classList.add('disabled');
-                    templateOutput.style.display = 'none';
+                    displayButton.innerHTML = '<i class="fas fa-eye"></i> Sélectionnez d\'abord une situation';
+                    if (templateOutput) templateOutput.style.display = 'none';
                 }
             });
         }
@@ -2074,31 +2061,46 @@ Cette startup se positionne pour surfer sur la vague d'adoption crypto B2B tout 
                 const selectedTemplate = templateSelector.value;
                 
                 if (selectedTemplate && promptTemplates[selectedTemplate]) {
-                    generatedPrompt.value = promptTemplates[selectedTemplate].prompt;
-                    templateOutput.style.display = 'block';
-                    
-                    // Animation d'apparition
-                    templateOutput.style.opacity = '0';
-                    templateOutput.style.transform = 'translateY(20px)';
+                    // Effet de chargement temporaire
+                    const originalContent = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Génération...';
+                    this.disabled = true;
                     
                     setTimeout(() => {
-                        templateOutput.style.transition = 'all 0.5s ease';
-                        templateOutput.style.opacity = '1';
-                        templateOutput.style.transform = 'translateY(0)';
-                    }, 10);
-                    
-                    // Scroll vers le résultat sur mobile
-                    setTimeout(() => {
-                        templateOutput.scrollIntoView({ 
-                            behavior: 'smooth', 
-                            block: 'start' 
-                        });
-                    }, 300);
+                        if (generatedPrompt) {
+                            generatedPrompt.value = promptTemplates[selectedTemplate].prompt;
+                        }
+                        if (templateOutput) {
+                            templateOutput.style.display = 'block';
+                            
+                            // Animation d'apparition
+                            templateOutput.style.opacity = '0';
+                            templateOutput.style.transform = 'translateY(20px)';
+                            
+                            setTimeout(() => {
+                                templateOutput.style.transition = 'all 0.5s ease';
+                                templateOutput.style.opacity = '1';
+                                templateOutput.style.transform = 'translateY(0)';
+                            }, 10);
+                            
+                            // Scroll vers le résultat sur mobile
+                            setTimeout(() => {
+                                templateOutput.scrollIntoView({ 
+                                    behavior: 'smooth', 
+                                    block: 'start' 
+                                });
+                            }, 300);
+                        }
+                        
+                        // Restaurer le bouton
+                        this.innerHTML = originalContent;
+                        this.disabled = false;
+                    }, 800); // Petit délai pour l'effet
                 }
             });
         }
-        
-        if (copyButton) {
+                
+        if (copyButton && generatedPrompt) {
             copyButton.addEventListener('click', function() {
                 generatedPrompt.select();
                 document.execCommand('copy');
@@ -2125,10 +2127,15 @@ Cette startup se positionne pour surfer sur la vague d'adoption crypto B2B tout 
     }
 }
 
-// Ajouter l'initialisation au chargement du DOM
-document.addEventListener('DOMContentLoaded', function() {
-    // ... le reste de votre code existant ...
-    
-    // Initialisation spécifique à la page Prompting
-    initPromptingPage();
-});
+// Fonctions d'initialisation (pour compatibilité)
+function initMenu() {
+    // Cette fonctionnalité est déjà gérée dans le DOMContentLoaded principal
+}
+
+function initScrollEffects() {
+    // Cette fonctionnalité est déjà gérée dans le DOMContentLoaded principal
+}
+
+function initAIcards() {
+    // Les cartes AI sont maintenant statiques, donc pas besoin d'initialisation JavaScript
+}

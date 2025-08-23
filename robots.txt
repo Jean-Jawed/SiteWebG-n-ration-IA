@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://xn--gnration-ia-bbbb.fr/sitemap.xml
+Sitemap: https://www.xn--gnration-ia-bbbb.fr/sitemap.xml

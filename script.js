@@ -163,8 +163,8 @@ document.addEventListener('DOMContentLoaded', function() {
     initPromptingPage();
     initMultimediaPage();
 
-    // Gestion de la navigation SPA (Single Page Application)
-    initSPANavigation();
+    // Gestion de la navigation SPA (Single Page Application) désactivée pour corriger les JS marginaux
+    // initSPANavigation();
 
     // Initialisation des transitions entre pages
     initPageTransitions();

@@ -308,13 +308,13 @@ footer {
     margin-bottom: 10px;
 }
 
-.footer-section.links a {
+footer a {
     color: var(--light);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.footer-section.links a:hover {
+footer a:hover {
     color: var(--primary);
 }
 

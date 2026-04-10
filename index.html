@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,37 +10,17 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <!-- Animation de fond -->
     <div id="particles-js"></div>
-    
+
     <!-- Header -->
-    <header>
-        <div class="container">
-            <a href="index.html" class="logo">GÉNÉRATION<span>-IA</span></a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="index.html">Accueil</a></li>
-                    <li><a href="multimedia.html">Multimédia</a></li>
-                    <li><a href="prompting.html">Prompting</a></li>
-                    <li><a href="howitworks.html">Comment ça marche ?</a></li>
-                    <li><a href="energie.html">Énergie</a></li>
-                    <li><a href="developpeurs.html">Développeurs</a></li>
-                    <li><a href="enseignants.html">Enseignants</a></li>
-                    <li><a href="offline.html">L'IA OFFLINE</a></li>
-                    <li><a href="art.html">Art & IA</a></li>
-                    <li><a href="about.html">À propos</a></li>
-                </ul>
-                <div class="hamburger">
-                    <div class="line"></div>
-                    <div class="line"></div>
-                    <div class="line"></div>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <site-header></site-header>
 
     <!-- Contenu principal -->
     <main>
@@ -55,7 +36,7 @@
                 <h2>Les principales IA génératives</h2>
                 <div class="grid">
                     <div class="ai-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/240px-ChatGPT_logo.svg.png" alt="ChatGPT">
+                        <img src="images/openai_logo.png" alt="ChatGPT">
                         <div class="ai-card-content">
                             <h3>ChatGPT</h3>
                             <p>Modèle de langage avancé développé par OpenAI</p>
@@ -71,7 +52,8 @@
                         </div>
                     </div>
                     <div class="ai-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg" alt="Gemini">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg"
+                            alt="Gemini">
                         <div class="ai-card-content">
                             <h3>Gemini</h3>
                             <p>Modèle multimodal développé par Google DeepMind</p>
@@ -103,7 +85,8 @@
                         </div>
                     </div>
                     <div class="ai-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Perplexity_AI_logo.svg" alt="Perplexity">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Perplexity_AI_logo.svg"
+                            alt="Perplexity">
                         <div class="ai-card-content">
                             <h3>Perplexity</h3>
                             <p>IA de recherche avec citations des sources</p>
@@ -154,12 +137,14 @@
                         <img src="images/poe_logo.png" alt="Poe">
                         <div class="ai-card-content">
                             <h3>Poe</h3>
-                            <p>Plateforme permettant d'accéder à divers modèles d'IA et d'utiliser de nombreux bots spécifiques</p>
+                            <p>Plateforme permettant d'accéder à divers modèles d'IA et d'utiliser de nombreux bots
+                                spécifiques</p>
                             <a href="https://poe.com/" target="_blank">Visiter</a>
                         </div>
                     </div>
                     <div class="ai-card">
-                        <img src="https://www.yiaho.com/wp-content/uploads/2023/03/yiaho-intelligence-artificielle-gratuite-en-ligne.jpg" alt="Yiaho">
+                        <img src="https://www.yiaho.com/wp-content/uploads/2023/03/yiaho-intelligence-artificielle-gratuite-en-ligne.jpg"
+                            alt="Yiaho">
                         <div class="ai-card-content">
                             <h3>Yiaho</h3>
                             <p>Le site français pour l'IA gratuite et illimitée</p>
@@ -170,7 +155,8 @@
                         <img src="images/pi_logo.png" alt="Pi">
                         <div class="ai-card-content">
                             <h3>Pi</h3>
-                            <p>IA conversationnelle personnelle, empathique et toujours disponible, conçue pour offrir soutien, conseils et échanges chaleureux</p>
+                            <p>IA conversationnelle personnelle, empathique et toujours disponible, conçue pour offrir
+                                soutien, conseils et échanges chaleureux</p>
                             <a href="https://pi.ai/" target="_blank">Visiter</a>
                         </div>
                     </div>
@@ -178,7 +164,8 @@
                         <img src="images/komo_logo.png" alt="Komo">
                         <div class="ai-card-content">
                             <h3>Komo</h3>
-                            <p>un moteur de recherche alimenté par l’IA, sans publicité, permettant d’explorer des sujets</p>
+                            <p>un moteur de recherche alimenté par l’IA, sans publicité, permettant d’explorer des
+                                sujets</p>
                             <a href="https://komo.ai/" target="_blank">Visiter</a>
                         </div>
                     </div>
@@ -188,35 +175,11 @@
     </main>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section about">
-                    <h3>Génération-IA</h3>
-                    <p>Explorer le futur de l'intelligence artificielle et ses applications dans tous les domaines.</p>
-                </div>
-                <div class="footer-section links">
-                    <h3>Liens rapides</h3>
-                    <ul>
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="multimedia.html">Multimédia</a></li>
-                        <li><a href="prompting.html">Prompting</a></li>
-                        <li><a href="energie.html">Énergie</a></li>
-                        <li><a href="about.html">À propos</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section contact">
-                    <h3>Contact</h3>
-                    <p>jawed_tahir@yahoo.fr</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Javed Tahir. Tous droits réservés. Visitez le site : <a href="https://javed.fr">javed.fr</a></p>
-            </div>
-        </div>
-    </footer>
+    <site-footer></site-footer>
 
+    <script src="components.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

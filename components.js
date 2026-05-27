@@ -57,13 +57,9 @@ class SiteFooter extends HTMLElement {
                         <li><a href="offline.html">L'IA offline</a></li>
                     </ul>
                 </div>
-                <div class="footer-section contact">
-                    <h3>Contact</h3>
-                    <a href="https://javed.fr/contact.html">Formulaire de contact</a>
-                </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Javed Tahir. Tous droits réservés. Visitez le site : <a href="https://javed.fr" target="_blank" rel="noopener noreferrer">javed.fr</a></p>
+                <p>&copy; 2025 Génération-IA. Tous droits réservés. Conception et contenu du site par <a href="https://virgule-studio.fr" target="_blank" rel="noopener noreferrer">Virgule-Studio</a>.</p>
             </div>
         </div>
     </footer>

@@ -25,7 +25,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, rgba(103, 58, 183, 0.1), rgba(33, 150, 243, 0.1));
+    background: linear-gradient(45deg, rgba(103, 58, 183, 0.1), rgba(var(--ui-blue-rgb), 0.1));
     z-index: -1;
 }
 
@@ -70,7 +70,7 @@
 
 .card-toggle:hover {
     transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(33, 150, 243, 0.4);
+    box-shadow: 0 5px 15px rgba(var(--ui-blue-rgb), 0.4);
 }
 
 .card-details {
@@ -129,7 +129,7 @@
 }
 
 .comparison-header .comparison-cell {
-    background: rgba(33, 150, 243, 0.1);
+    background: rgba(var(--ui-blue-rgb), 0.1);
     font-weight: bold;
     color: var(--ui-blue);
     text-align: center;
@@ -177,7 +177,7 @@
 
 .flow-step:hover {
     transform: translateY(-5px);
-    background: rgba(33, 150, 243, 0.1);
+    background: rgba(var(--ui-blue-rgb), 0.1);
 }
 
 .step-number {

@@ -12,7 +12,7 @@
     position: absolute;
     width: 20px;
     height: 20px;
-    background: rgba(0, 240, 255, 0.8);
+    background: rgba(var(--primary-rgb), 0.8);
     border-radius: 50%;
     animation: neuronPulse 1.5s infinite;
 }

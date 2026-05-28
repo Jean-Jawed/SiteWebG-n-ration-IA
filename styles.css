@@ -8,6 +8,10 @@
     --ui-blue: #2196F3;
     --ui-cyan: #21CBF3;
     --gradient-ui: linear-gradient(45deg, var(--ui-blue), var(--ui-cyan));
+    --primary-rgb: 0, 240, 255;
+    --secondary-rgb: 255, 0, 228;
+    --ui-blue-rgb: 33, 150, 243;
+    --ui-cyan-rgb: 33, 203, 243;
 }
 
 * {
@@ -274,7 +278,7 @@ nav {
 
 .ai-card a:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 240, 255, 0.3);
+    box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.3);
 }
 
 /* Footer */
@@ -436,7 +440,7 @@ footer a:hover {
 }
 
 .tab-button:hover {
-    background: rgba(0, 240, 255, 0.1);
+    background: rgba(var(--primary-rgb), 0.1);
 }
 
 .tab-button.active {
@@ -522,7 +526,7 @@ footer a:hover {
 
 .resource-card a:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 240, 255, 0.3);
+    box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.3);
 }
 
 /* Prompting page */
@@ -569,7 +573,7 @@ footer a:hover {
 }
 
 .prompt-example {
-    background: rgba(0, 240, 255, 0.05);
+    background: rgba(var(--primary-rgb), 0.05);
     border-left: 3px solid var(--primary);
     padding: 20px;
     margin-bottom: 20px;
@@ -646,11 +650,11 @@ footer a:hover {
 .ranking-table th {
     font-family: 'Orbitron', sans-serif;
     color: var(--primary);
-    background: rgba(0, 240, 255, 0.1);
+    background: rgba(var(--primary-rgb), 0.1);
 }
 
 .ranking-table tr:hover {
-    background: rgba(0, 240, 255, 0.05);
+    background: rgba(var(--primary-rgb), 0.05);
 }
 
 .ranking-table .rank {
@@ -709,7 +713,7 @@ footer a:hover {
     color: var(--primary);
     margin-bottom: 20px;
     font-size: 1.5rem;
-    border-bottom: 1px solid rgba(0, 240, 255, 0.3);
+    border-bottom: 1px solid rgba(var(--primary-rgb), 0.3);
     padding-bottom: 10px;
 }
 
@@ -938,7 +942,7 @@ footer a:hover {
 
 .platform-card a:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 240, 255, 0.3);
+    box-shadow: 0 5px 15px rgba(var(--primary-rgb), 0.3);
 }
 
 .code-block {
@@ -963,10 +967,10 @@ footer a:hover {
 }
 
 .solution-card {
-    background: rgba(0, 240, 255, 0.05);
+    background: rgba(var(--primary-rgb), 0.05);
     border-radius: 10px;
     padding: 25px;
-    border: 1px solid rgba(0, 240, 255, 0.2);
+    border: 1px solid rgba(var(--primary-rgb), 0.2);
 }
 
 .solution-card h3 {
@@ -999,7 +1003,7 @@ footer a:hover {
     padding: 30px;
     margin: 50px 0;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 240, 255, 0.2);
+    border: 1px solid rgba(var(--primary-rgb), 0.2);
     position: relative;
 }
 
@@ -1029,7 +1033,7 @@ footer a:hover {
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--primary);
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+    box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.3);
 }
 
 .author-info {
@@ -1071,7 +1075,7 @@ footer a:hover {
 }
 
 .website-link:hover, .email-link:hover {
-    background: rgba(0, 240, 255, 0.1);
+    background: rgba(var(--primary-rgb), 0.1);
     transform: translateY(-2px);
 }
 
@@ -1142,7 +1146,7 @@ footer a:hover {
     padding: 30px;
     margin: 50px 0;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(0, 240, 255, 0.2);
+    border: 1px solid rgba(var(--primary-rgb), 0.2);
     position: relative;
     overflow: hidden;
 }
@@ -1154,7 +1158,7 @@ footer a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(255, 0, 228, 0.1));
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1), rgba(var(--secondary-rgb), 0.1));
     z-index: -1;
 }
 
@@ -1185,7 +1189,7 @@ footer a:hover {
     border-radius: 8px;
     background: rgba(42, 42, 58, 0.8);
     color: #fff;
-    border: 1px solid rgba(0, 240, 255, 0.3);
+    border: 1px solid rgba(var(--primary-rgb), 0.3);
     font-size: 16px;
     font-family: 'Roboto', sans-serif;
     transition: all 0.3s ease;
@@ -1199,7 +1203,7 @@ footer a:hover {
 .template-selector select:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 2px rgba(0, 240, 255, 0.3);
+    box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.3);
 }
 
 /* Styles pour le bouton Afficher - Version sophistiquée */
@@ -1240,12 +1244,12 @@ footer a:hover {
 
 .display-btn:hover:not(:disabled) {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 240, 255, 0.4);
+    box-shadow: 0 8px 25px rgba(var(--primary-rgb), 0.4);
 }
 
 .display-btn:active:not(:disabled) {
     transform: translateY(0);
-    box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(var(--primary-rgb), 0.3);
 }
 
 .display-btn:disabled {
@@ -1289,7 +1293,7 @@ footer a:hover {
     background: rgba(30, 30, 42, 0.8);
     color: #e0e0e0;
     border-radius: 8px;
-    border: 1px solid rgba(0, 240, 255, 0.3);
+    border: 1px solid rgba(var(--primary-rgb), 0.3);
     font-family: 'Roboto Mono', monospace;
     font-size: 14px;
     line-height: 1.6;
@@ -1300,7 +1304,7 @@ footer a:hover {
 .prompt-display textarea:focus {
     outline: none;
     border-color: var(--primary);
-    box-shadow: 0 0 0 2px rgba(0, 240, 255, 0.3);
+    box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.3);
 }
 
 .copy-btn {

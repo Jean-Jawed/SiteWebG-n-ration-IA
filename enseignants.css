@@ -2,7 +2,7 @@
 .page-hero {
     text-align: center;
     padding: 4rem 0;
-    background: linear-gradient(135deg, rgba(33, 150, 243, 0.1) 0%, rgba(13, 71, 161, 0.2) 100%);
+    background: linear-gradient(135deg, rgba(var(--ui-blue-rgb), 0.1) 0%, rgba(13, 71, 161, 0.2) 100%);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     margin-bottom: 3rem;
 }
@@ -73,7 +73,7 @@
 
 .benefit-card:hover {
     transform: translateY(-5px);
-    background: rgba(33, 150, 243, 0.05);
+    background: rgba(var(--ui-blue-rgb), 0.05);
 }
 
 .benefit-icon {
@@ -126,12 +126,12 @@
 }
 
 .tab-btn:hover {
-    background: rgba(33, 150, 243, 0.1);
+    background: rgba(var(--ui-blue-rgb), 0.1);
     color: #fff;
 }
 
 .tab-btn.active {
-    background: rgba(33, 150, 243, 0.2);
+    background: rgba(var(--ui-blue-rgb), 0.2);
     color: var(--ui-blue);
     font-weight: bold;
 }
@@ -162,7 +162,7 @@
 }
 
 .example-box {
-    background: rgba(33, 150, 243, 0.1);
+    background: rgba(var(--ui-blue-rgb), 0.1);
     border-left: 4px solid var(--ui-blue);
     padding: 1.5rem;
     border-radius: 4px;
@@ -269,7 +269,7 @@
 
 .activity-card:hover {
     transform: translateY(-3px);
-    background: rgba(33, 150, 243, 0.05);
+    background: rgba(var(--ui-blue-rgb), 0.05);
 }
 
 .activity-card h4 {
@@ -360,7 +360,7 @@
 
 .resource-card:hover {
     transform: translateY(-5px);
-    background: rgba(33, 150, 243, 0.05);
+    background: rgba(var(--ui-blue-rgb), 0.05);
 }
 
 .resource-card h3 {
@@ -387,7 +387,7 @@
 
 .resource-link:hover {
     transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(33, 150, 243, 0.4);
+    box-shadow: 0 5px 15px rgba(var(--ui-blue-rgb), 0.4);
 }
 
 .ethical-guidelines {
@@ -416,7 +416,7 @@
 
 .guideline-card:hover {
     transform: translateY(-5px);
-    background: rgba(33, 150, 243, 0.05);
+    background: rgba(var(--ui-blue-rgb), 0.05);
 }
 
 .guideline-icon {
@@ -438,7 +438,7 @@
 .getting-started {
     margin: 4rem 0;
     padding: 2rem;
-    background: rgba(33, 150, 243, 0.05);
+    background: rgba(var(--ui-blue-rgb), 0.05);
     border-radius: 12px;
     text-align: center;
 }
@@ -509,7 +509,7 @@
 
 .cta-button:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(33, 150, 243, 0.4);
+    box-shadow: 0 8px 20px rgba(var(--ui-blue-rgb), 0.4);
 }
 
 /* Responsive adjustments */

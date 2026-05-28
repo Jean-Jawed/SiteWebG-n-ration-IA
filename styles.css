@@ -1,17 +1,27 @@
 :root {
-    --primary: #00f0ff;
-    --secondary: #ff00e4;
+    /* === PALETTE LAITON / OR SOURD — version chaude === */
+    /* Famille principale (ex-cyan -> ex-magenta) */
+    --primary: #C9A24A;
+    /* laiton / or sourd */
+    --secondary: #D9714A;
+    /* corail terracotta (2e teinte du gradient) */
     --dark: #0a0a0a;
     --dark-light: #1a1a1a;
     --light: #f0f0f0;
     --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
-    --ui-blue: #2196F3;
-    --ui-cyan: #21CBF3;
+
+    /* Famille UI secondaire (ex-blue -> ex-cyan), recalée en chaud */
+    --ui-blue: #C9A24A;
+    /* laiton */
+    --ui-cyan: #E0C068;
+    /* laiton clair (pour garder une variation lumineuse) */
     --gradient-ui: linear-gradient(45deg, var(--ui-blue), var(--ui-cyan));
-    --primary-rgb: 0, 240, 255;
-    --secondary-rgb: 255, 0, 228;
-    --ui-blue-rgb: 33, 150, 243;
-    --ui-cyan-rgb: 33, 203, 243;
+
+    /* Versions -rgb (mêmes couleurs, pour les rgba() translucides) */
+    --primary-rgb: 201, 162, 74;
+    --secondary-rgb: 217, 113, 74;
+    --ui-blue-rgb: 201, 162, 74;
+    --ui-cyan-rgb: 224, 192, 104;
 }
 
 * {
@@ -167,8 +177,15 @@ nav {
 }
 
 @keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
 }
 
 .subtitle {
@@ -383,8 +400,15 @@ footer a:hover {
 
 /* Animations */
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
 }
 
 /* Page transitions */
@@ -393,8 +417,13 @@ footer a:hover {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* Page hero */
@@ -641,7 +670,8 @@ footer a:hover {
     overflow: hidden;
 }
 
-.ranking-table th, .ranking-table td {
+.ranking-table th,
+.ranking-table td {
     padding: 15px;
     text-align: left;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -1062,7 +1092,8 @@ footer a:hover {
     flex-wrap: wrap;
 }
 
-.website-link, .email-link {
+.website-link,
+.email-link {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -1074,7 +1105,8 @@ footer a:hover {
     transition: all 0.3s ease;
 }
 
-.website-link:hover, .email-link:hover {
+.website-link:hover,
+.email-link:hover {
     background: rgba(var(--primary-rgb), 0.1);
     transform: translateY(-2px);
 }
@@ -1085,11 +1117,13 @@ footer a:hover {
     object-fit: contain;
 }
 
-.mission-statement, .passion-section {
+.mission-statement,
+.passion-section {
     margin: 60px 0;
 }
 
-.mission-statement h2, .passion-section h2 {
+.mission-statement h2,
+.passion-section h2 {
     font-family: 'Orbitron', sans-serif;
     font-size: 2rem;
     text-align: center;
@@ -1097,13 +1131,15 @@ footer a:hover {
     color: var(--primary);
 }
 
-.mission-grid, .passions-grid {
+.mission-grid,
+.passions-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
 }
 
-.mission-card, .passion-card {
+.mission-card,
+.passion-card {
     background: rgba(255, 255, 255, 0.05);
     border-radius: 10px;
     padding: 25px;
@@ -1111,12 +1147,14 @@ footer a:hover {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.mission-card:hover, .passion-card:hover {
+.mission-card:hover,
+.passion-card:hover {
     transform: translateY(-5px);
     border-color: var(--primary);
 }
 
-.mission-card h3, .passion-card h3 {
+.mission-card h3,
+.passion-card h3 {
     font-family: 'Orbitron', sans-serif;
     color: var(--primary);
     margin-bottom: 15px;
@@ -1170,7 +1208,7 @@ footer a:hover {
     text-align: center;
 }
 
-.prompt-templates > p {
+.prompt-templates>p {
     text-align: center;
     margin-bottom: 25px;
     color: rgba(255, 255, 255, 0.8);
@@ -1334,6 +1372,7 @@ footer a:hover {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1350,11 +1389,11 @@ footer a:hover {
         flex-direction: row;
         align-items: end;
     }
-    
+
     .template-selector select {
         flex: 1;
     }
-    
+
     .display-btn {
         min-width: 200px;
         white-space: nowrap;
@@ -1366,33 +1405,32 @@ footer a:hover {
         padding: 20px;
         margin: 30px 0;
     }
-    
+
     .prompt-templates h2 {
         font-size: 1.7rem;
     }
-    
+
     .template-selector select {
         padding: 12px;
         font-size: 14px;
     }
-    
+
     .display-btn {
         padding: 12px 20px;
         font-size: 15px;
     }
-    
+
     .display-btn i {
         font-size: 16px;
     }
-    
+
     .prompt-display textarea {
         padding: 15px;
         font-size: 13px;
     }
-    
+
     .copy-btn {
         padding: 8px 12px;
         font-size: 14px;
     }
 }
-

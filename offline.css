@@ -774,7 +774,7 @@
 }
 
 .guide-download-inner {
-    background: #ffffff;
+    background: var(--primary);
     border-radius: 16px;
     padding: 2.5rem;
     display: flex;
@@ -786,7 +786,7 @@
 .guide-download-icon {
     flex-shrink: 0;
     font-size: 3.5rem;
-    color: #E53935;
+    color: #f5f0e6;
     line-height: 1;
 }
 
@@ -795,13 +795,13 @@
 }
 
 .guide-download-text h2 {
-    color: #0d2235;
+    color: #f5f0e6;
     margin: 0 0 0.6rem;
     text-align: left;
 }
 
 .guide-download-text p {
-    color: #41525f;
+    color: rgba(245, 240, 230, 0.85);
     line-height: 1.6;
     margin: 0;
 }
@@ -811,8 +811,8 @@
     display: inline-flex;
     align-items: center;
     gap: 0.6rem;
-    background: var(--gradient-ui);
-    color: #ffffff;
+    background: #ffffff;
+    color: #E53935;
     padding: 1rem 1.8rem;
     border-radius: 30px;
     text-decoration: none;
@@ -824,11 +824,11 @@
 
 .guide-download-btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(var(--ui-blue-rgb), 0.45);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
 .guide-download-btn:focus-visible {
-    outline: 3px solid #0d2235;
+    outline: 3px solid #ffffff;
     outline-offset: 3px;
 }
 
@@ -842,6 +842,25 @@
     .guide-download-text h2,
     .guide-download-text p {
         text-align: center;
+    }
+}
+
+.guide-anchor-cta {
+    text-align: center;
+    margin: 1rem 0 3rem;
+}
+
+#guide {
+    scroll-margin-top: 100px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
     }
 }
 

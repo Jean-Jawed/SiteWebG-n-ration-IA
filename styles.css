@@ -1434,3 +1434,22 @@ footer a:hover {
         font-size: 14px;
     }
 }
+/* Logo de l'agence (page À propos) — affichage complet, format paysage 749x291 (ratio 2,57:1) */
+.agency-logo {
+    width: 320px;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 749 / 291;
+    object-fit: contain;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 18px 22px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .agency-logo {
+        width: 260px;
+        margin-bottom: 20px;
+    }
+}

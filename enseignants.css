@@ -78,7 +78,7 @@
 
 .benefit-icon {
     font-size: 3rem;
-    color: #2196F3;
+    color: var(--ui-blue);
     margin-bottom: 1rem;
 }
 
@@ -132,7 +132,7 @@
 
 .tab-btn.active {
     background: rgba(33, 150, 243, 0.2);
-    color: #2196F3;
+    color: var(--ui-blue);
     font-weight: bold;
 }
 
@@ -163,13 +163,13 @@
 
 .example-box {
     background: rgba(33, 150, 243, 0.1);
-    border-left: 4px solid #2196F3;
+    border-left: 4px solid var(--ui-blue);
     padding: 1.5rem;
     border-radius: 4px;
 }
 
 .example-box h4 {
-    color: #2196F3;
+    color: var(--ui-blue);
     margin-bottom: 0.5rem;
 }
 
@@ -376,7 +376,7 @@
 
 .resource-link {
     display: inline-block;
-    background: linear-gradient(45deg, #2196F3, #21CBF3);
+    background: var(--gradient-ui);
     color: white;
     padding: 0.8rem 1.5rem;
     border-radius: 30px;
@@ -421,7 +421,7 @@
 
 .guideline-icon {
     font-size: 2.5rem;
-    color: #2196F3;
+    color: var(--ui-blue);
     margin-bottom: 1rem;
 }
 
@@ -466,7 +466,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: linear-gradient(45deg, #2196F3, #21CBF3);
+    background: var(--gradient-ui);
     color: white;
     display: flex;
     align-items: center;
@@ -497,7 +497,7 @@
 
 .cta-button {
     display: inline-block;
-    background: linear-gradient(45deg, #2196F3, #21CBF3);
+    background: var(--gradient-ui);
     color: white;
     padding: 1rem 2rem;
     border-radius: 30px;

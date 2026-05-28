@@ -5,6 +5,9 @@
     --dark-light: #1a1a1a;
     --light: #f0f0f0;
     --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+    --ui-blue: #2196F3;
+    --ui-cyan: #21CBF3;
+    --gradient-ui: linear-gradient(45deg, var(--ui-blue), var(--ui-cyan));
 }
 
 * {

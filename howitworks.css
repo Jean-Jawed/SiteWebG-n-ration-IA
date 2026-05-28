@@ -36,7 +36,7 @@
 
 .card-icon {
     font-size: 2.5rem;
-    color: #2196F3;
+    color: var(--ui-blue);
     margin-bottom: 1rem;
     text-align: center;
 }
@@ -55,7 +55,7 @@
 }
 
 .card-toggle {
-    background: linear-gradient(45deg, #2196F3, #21CBF3);
+    background: var(--gradient-ui);
     color: white;
     border: none;
     padding: 0.8rem 1.5rem;
@@ -131,7 +131,7 @@
 .comparison-header .comparison-cell {
     background: rgba(33, 150, 243, 0.1);
     font-weight: bold;
-    color: #2196F3;
+    color: var(--ui-blue);
     text-align: center;
 }
 
@@ -184,7 +184,7 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: linear-gradient(45deg, #2196F3, #21CBF3);
+    background: var(--gradient-ui);
     color: white;
     display: flex;
     align-items: center;
@@ -204,7 +204,7 @@
 }
 
 .flow-arrow {
-    color: #2196F3;
+    color: var(--ui-blue);
     font-size: 1.5rem;
     padding: 0 1rem;
 }

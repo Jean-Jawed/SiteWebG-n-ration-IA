@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +10,15 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <!-- Animation de fond -->
     <div id="particles-js"></div>
-    
+
     <!-- Header -->
     <site-header></site-header>
 
@@ -29,46 +33,63 @@
 
         <section class="prompting-content">
             <div class="container">
-                
+
 
                 <div class="prompt-templates">
                     <h2>Échantillon de Prompts de qualité</h2>
                     <p>Choisissez une situation dans le menu déroulant pour obtenir un prompt complet et optimisé :</p>
-                    
+
                     <div class="template-selector">
                         <select id="templateSelector">
                             <option value="">-- Sélectionnez une situation --</option>
-                            <option value="nouvelleBesan">Écrire une nouvelle de 45 pages qui se passe à Besançon</option>
+                            <option value="nouvelleBesan">Écrire une nouvelle de 45 pages qui se passe à Besançon
+                            </option>
                             <option value="appBudget">Développer une appli Android pour mieux gérer mon budget</option>
-                            <option value="entretienEmbauche">Me préparer pour l'entretien d'embauche que j'ai bientôt</option>
+                            <option value="entretienEmbauche">Me préparer pour l'entretien d'embauche que j'ai bientôt
+                            </option>
                             <option value="reparationBaignoire">M'aider à réparer ma baignoire qui fuit</option>
-                            <option value="marketingJusPomme">Développer une stratégie marketing pour l'entreprise de vente de jus de pomme de ma tante</option>
+                            <option value="marketingJusPomme">Développer une stratégie marketing pour l'entreprise de
+                                vente de jus de pomme de ma tante</option>
                             <option value="articleIAChine">Écrire un article sur les IA chinoises pour mon blog</option>
-                            <option value="techniqueRespiration">Me guider dans l'apprentissage de techniques de respiration</option>
+                            <option value="techniqueRespiration">Me guider dans l'apprentissage de techniques de
+                                respiration</option>
                             <option value="planMaison">Concevoir les plans d'une maison écologique de 120m²</option>
                             <option value="recetteVegan">Créer un livre de recettes véganes pour débutants</option>
-                            <option value="apprendrePiano">Apprendre à jouer du piano en 6 mois à l'âge de 35 ans</option>
-                            <option value="startupFintech">Lancer une startup fintech spécialisée dans les cryptomonnaies</option>
+                            <option value="apprendrePiano">Apprendre à jouer du piano en 6 mois à l'âge de 35 ans
+                            </option>
+                            <option value="startupFintech">Lancer une startup fintech spécialisée dans les
+                                cryptomonnaies</option>
                             <option value="podcastHistoire">Créer un podcast sur l'histoire médiévale française</option>
                             <option value="jardinBalcon">Optimiser mon petit jardin sur balcon de 6m²</option>
-                            <option value="reorganiserCV">Réorganiser mon CV pour postuler dans l'industrie du gaming</option>
-                            <option value="coursYoutube">Développer un cours en ligne sur YouTube pour enseigner la photographie</option>
-                            <option value="ecommerceArtisanat">Créer une boutique en ligne pour vendre mes créations artisanales en macramé</option>
-                            <option value="appMeditation">Concevoir une application de méditation pour les enfants de 8-12 ans</option>
-                            <option value="romanSciFi">Écrire un roman de science-fiction sur la colonisation de Mars</option>
-                            <option value="chaineRestaurant">Ouvrir une chaîne de restaurants de street food asiatique</option>
-                            <option value="formationIA">Créer une formation complète sur l'intelligence artificielle pour les PME</option>
-                            <option value="blogVoyage">Monétiser mon blog de voyage spécialisé dans le tourisme durable</option>
+                            <option value="reorganiserCV">Réorganiser mon CV pour postuler dans l'industrie du gaming
+                            </option>
+                            <option value="coursYoutube">Développer un cours en ligne sur YouTube pour enseigner la
+                                photographie</option>
+                            <option value="ecommerceArtisanat">Créer une boutique en ligne pour vendre mes créations
+                                artisanales en macramé</option>
+                            <option value="appMeditation">Concevoir une application de méditation pour les enfants de
+                                8-12 ans</option>
+                            <option value="romanSciFi">Écrire un roman de science-fiction sur la colonisation de Mars
+                            </option>
+                            <option value="chaineRestaurant">Ouvrir une chaîne de restaurants de street food asiatique
+                            </option>
+                            <option value="formationIA">Créer une formation complète sur l'intelligence artificielle
+                                pour les PME</option>
+                            <option value="blogVoyage">Monétiser mon blog de voyage spécialisé dans le tourisme durable
+                            </option>
                             <option value="jeuMobile">Développer un jeu mobile éducatif sur l'écologie marine</option>
-                            <option value="consultingRH">Lancer mon activité de consulting en ressources humaines</option>
-                            <option value="documentaireClima">Réaliser un documentaire sur le changement climatique en Arctique</option>
-                            <option value="associationAnimaux">Créer une association pour la protection des animaux sauvages locaux</option>
+                            <option value="consultingRH">Lancer mon activité de consulting en ressources humaines
+                            </option>
+                            <option value="documentaireClima">Réaliser un documentaire sur le changement climatique en
+                                Arctique</option>
+                            <option value="associationAnimaux">Créer une association pour la protection des animaux
+                                sauvages locaux</option>
                         </select>
                         <button id="displayButton" class="display-btn" disabled>
                             <i class="fas fa-eye"></i> Afficher le prompt
                         </button>
                     </div>
-                    
+
                     <div class="template-output" id="templateOutput">
                         <h4>Prompt généré :</h4>
                         <div class="prompt-display">
@@ -79,11 +100,12 @@
                         </div>
                     </div>
                 </div>
-                
+
 
                 <h2>Les bases du Prompt Engineering</h2>
-                <p>Le prompting est l'art de formuler des instructions pour les IA génératives afin d'obtenir les meilleurs résultats possibles. Voici les principes fondamentaux :</p>
-                
+                <p>Le prompting est l'art de formuler des instructions pour les IA génératives afin d'obtenir les
+                    meilleurs résultats possibles. Voici les principes fondamentaux :</p>
+
 
                 <div class="prompt-categories">
                     <div class="prompt-category">
@@ -96,7 +118,7 @@
                             <li>Spécifiez la longueur ou la complexité</li>
                         </ul>
                     </div>
-                    
+
                     <div class="prompt-category">
                         <h3>Techniques avancées</h3>
                         <ul>
@@ -107,7 +129,7 @@
                             <li>Iterative prompting (affinage progressif)</li>
                         </ul>
                     </div>
-                    
+
                     <div class="prompt-category">
                         <h3>Outils utiles</h3>
                         <ul>
@@ -119,8 +141,8 @@
                         </ul>
                     </div>
                 </div>
-                
-                
+
+
                 <div class="resources-section">
                     <h2>Ressources pour apprendre</h2>
                     <div class="resources-grid">
@@ -151,5 +173,8 @@
     <script src="components.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="script.js"></script>
+    <script
+        src="https://websites-monitoring.vercel.app/tracking.js?siteId=génération-ia&key=ac5f777f63c2dd5795c39e0b5034eeed68659c292c2fe7aaa18a1b02ac3482f3"></script>
 </body>
+
 </html>

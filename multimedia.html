@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +10,15 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <!-- Animation de fond -->
     <div id="particles-js"></div>
-    
+
     <!-- Header -->
     <site-header></site-header>
 
@@ -34,7 +38,7 @@
                     <button class="tab-button" data-tab="images">Images</button>
                     <button class="tab-button" data-tab="videos">Vidéos</button>
                 </div>
-                
+
                 <div class="tab-content active" id="sons">
                     <h2>Génération audio par IA</h2>
                     <div class="resources-grid">
@@ -105,7 +109,7 @@
 
                     </div>
                 </div>
-                
+
                 <div class="tab-content" id="images">
                     <h2>Génération d'images par IA</h2>
                     <div class="resources-grid">
@@ -117,7 +121,7 @@
                                 <a href="https://venice.ai/lp/ai-image-generator" target="_blank">Visiter</a>
                             </div>
                         </div>
-                        
+
                         <div class="ai-card">
                             <img src="images/midjourney_logo.jpeg" alt="Midjourney">
                             <div class="ai-card-content">
@@ -168,7 +172,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="tab-content" id="videos">
                     <h2>Génération vidéo par IA</h2>
                     <div class="resources-grid">
@@ -236,21 +240,24 @@
         // Gestion des onglets
         const tabButtons = document.querySelectorAll('.tab-button');
         const tabContents = document.querySelectorAll('.tab-content');
-        
+
         tabButtons.forEach(button => {
             button.addEventListener('click', () => {
                 // Retirer active de tous les boutons et contenus
                 tabButtons.forEach(btn => btn.classList.remove('active'));
                 tabContents.forEach(content => content.classList.remove('active'));
-                
+
                 // Ajouter active au bouton cliqué
                 button.classList.add('active');
-                
+
                 // Afficher le contenu correspondant
                 const tabId = button.getAttribute('data-tab');
                 document.getElementById(tabId).classList.add('active');
             });
         });
     </script>
+    <script
+        src="https://websites-monitoring.vercel.app/tracking.js?siteId=génération-ia&key=ac5f777f63c2dd5795c39e0b5034eeed68659c292c2fe7aaa18a1b02ac3482f3"></script>
 </body>
+
 </html>

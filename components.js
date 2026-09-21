@@ -14,6 +14,7 @@ class SiteHeader extends HTMLElement {
                     <li><a href="developpeurs.html">Développeurs</a></li>
                     <li><a href="enseignants.html">Enseignants</a></li>
                     <li><a href="offline.html">L'IA OFFLINE</a></li>
+                    <li><a href="archipelle.html">Archipelle</a></li>
                     <li><a href="art.html">Art & IA</a></li>
                     <li><a href="about.html">À propos</a></li>
                 </ul>
@@ -55,6 +56,7 @@ class SiteFooter extends HTMLElement {
                         <li><a href="multimedia.html">Multimédia</a></li>
                         <li><a href="enseignants.html">Enseignants</a></li>
                         <li><a href="offline.html">L'IA offline</a></li>
+                        <li><a href="archipelle.html">Archipelle</a></li>
                     </ul>
                 </div>
             </div>

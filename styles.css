@@ -101,15 +101,16 @@ nav {
 }
 
 .nav-links li {
-    margin-left: 30px;
+    margin-left: 18px;
     position: relative;
+    white-space: nowrap;
 }
 
 .nav-links a {
     color: var(--light);
     text-decoration: none;
     font-weight: 500;
-    font-size: 1rem;
+    font-size: 0.95rem;
     transition: color 0.3s ease;
     position: relative;
 }
@@ -348,8 +349,9 @@ footer a:hover {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Mobile menu */
-@media (max-width: 768px) {
+/* Menu replié : le nombre d'entrées ne permet plus une seule ligne en dessous
+   de cette largeur, le menu latéral prend le relais. */
+@media (max-width: 1250px) {
     .nav-links {
         position: fixed;
         top: 0;
@@ -388,7 +390,9 @@ footer a:hover {
     .hamburger.active .line:nth-child(3) {
         transform: rotate(-45deg) translate(5px, -5px);
     }
+}
 
+@media (max-width: 768px) {
     .hero h1 {
         font-size: 3rem;
     }

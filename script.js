@@ -106,33 +106,6 @@ document.addEventListener('DOMContentLoaded', function() {
         "retina_detect": true
     });
 
-    // Menu hamburger
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-
-    if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-
-        // Fermer le menu mobile quand on clique sur un lien
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                hamburger.classList.remove('active');
-            });
-        });
-    }
-
-    // Header scroll effect
-    window.addEventListener('scroll', () => {
-        const header = document.querySelector('header');
-        if (header) {
-            header.classList.toggle('scrolled', window.scrollY > 50);
-        }
-    });
-
     // Effet de hover sur les cartes
     const cards = document.querySelectorAll('.ai-card');
     cards.forEach(card => {

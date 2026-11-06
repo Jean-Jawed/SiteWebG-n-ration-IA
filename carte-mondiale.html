@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Carte mondiale de l'IA : l'intelligence artificielle hors des États-Unis et de la Chine — Génération-IA.fr</title>
+    <meta name="description"
+        content="Qui développe l'IA dans le monde ? Plus de 25 pays construisent leurs propres modèles : Mistral en France, Falcon aux Émirats, Sarvam en Inde, Bielik en Pologne, Cohere au Canada… Stratégies, modèles et accès, pays par pays.">
+    <link rel="canonical" href="https://xn--gnration-ia-bbbb.fr/carte-mondiale.html">
+    <link rel="alternate" hreflang="fr" href="https://xn--gnration-ia-bbbb.fr/carte-mondiale.html">
+    <link rel="alternate" hreflang="en" href="https://xn--gnration-ia-bbbb.fr/en/carte-mondiale.html">
+    <link rel="alternate" hreflang="x-default" href="https://xn--gnration-ia-bbbb.fr/carte-mondiale.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="carte-mondiale.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Carte mondiale de l'IA — panorama hors États-Unis et Chine",
+      "description": "Panorama mondial des développements de l'intelligence artificielle hors du duopole américano-chinois : modèles nationaux, interfaces et stratégies de souveraineté, pays par pays.",
+      "inLanguage": "fr",
+      "about": ["Intelligence artificielle", "Modèles de langage", "Souveraineté numérique"]
+    }
+    </script>
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+
+<body>
+    <!-- Animation de fond -->
+    <div id="particles-js"></div>
+
+    <!-- Header -->
+    <site-header></site-header>
+
+    <!-- Contenu principal -->
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>CARTE <span class="highlight">MONDIALE</span></h1>
+                <p class="subtitle">L'IA ne vient pas que des États-Unis ou de Chine</p>
+            </div>
+        </section>
+
+        <section class="cm-intro">
+            <div class="container">
+                <p class="cm-lead">
+                    Entre les grands américains et les géants chinois, on oublie souvent le reste du
+                    monde. Pourtant, plus de <strong>25 pays</strong> développent aujourd'hui leurs
+                    propres modèles, leurs interfaces ou leurs infrastructures d'IA — de la France
+                    au Qatar, du Brésil au Kazakhstan. Presque toujours pour la même raison :
+                    <strong>parler leur langue</strong>, et garder leurs données chez eux.
+                </p>
+                <div class="cm-stats">
+                    <div class="cm-stat"><span class="cm-stat-n">25+</span><span>pays actifs</span></div>
+                    <div class="cm-stat"><span class="cm-stat-n">4</span><span>stratégies</span></div>
+                    <div class="cm-stat"><span class="cm-stat-n">5</span><span>régions</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- La carte -->
+        <section class="cm-map-section">
+            <div class="container">
+                <h2>Le monde de l'IA d'un seul coup d'œil</h2>
+                <p class="cm-hint">Chaque point est un pays qui développe l'IA. Survolez pour voir
+                    qui, cliquez pour lire le détail.</p>
+                <div class="cm-map-stage">
+                    <img src="world-map.svg" alt="Carte du monde illustrant les pays qui développent l'intelligence artificielle" class="cm-map-bg" draggable="false">
+                    <div class="cm-dots" id="cm-dots"></div>
+                </div>
+                <div class="cm-map-legend">
+                    <span class="cm-legend-item"><span class="cm-dot cm-dot-dispo"></span> En service</span>
+                    <span class="cm-legend-item"><span class="cm-dot cm-dot-endev"></span> En construction</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Détails par région -->
+        <section class="cm-regions">
+            <div class="container">
+
+                <h2 class="cm-region-title" id="europe"><i class="fa-solid fa-earth-europe" aria-hidden="true"></i>
+                    Europe</h2>
+                <div class="cm-cards">
+
+                    <article class="cm-card" id="c-france">
+                        <header>
+                            <h3>France</h3>
+                            <span class="cm-badge cm-badge-dispo">En service</span>
+                        </header>
+                        <span class="cm-tags">from scratch · interface verticale</span>
+                        <p><strong>Mistral AI</strong> : modèles à poids ouverts de rang mondial,
+                            interface grand public <strong>Le Chat / Vibe</strong> — qui intègre aussi
+                            les modèles GLM de Z.ai. Mistral est le moteur du français d'Alexa+
+                            (Amazon) en France, et ses poids alimentent des tiers comme Bielik
+                            en Pologne.</p>
+                        <div class="cm-links"><a href="https://chat.mistral.ai" target="_blank"
+                                rel="noopener">chat.mistral.ai</a> <a href="https://mistral.ai"
+                                target="_blank" rel="noopener">mistral.ai</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-suisse">
+                        <header>
+                            <h3>Suisse</h3>
+                            <span class="cm-badge cm-badge-dispo">En service</span>
+                        </header>
+                        <span class="cm-tags">from scratch · bien public</span>
+                        <p><strong>Apertus</strong> : LLM entièrement public et open source
+                            (Apache 2.0), lancé par la Swiss AI Initiative (EPFL, ETH Zurich,
+                            Centre suisse de calcul scientifique). Multilingue, données
+                            d'entraînement transparentes.</p>
+                        <div class="cm-links"><a href="https://swiss-ai.ch" target="_blank"
+                                rel="noopener">swiss-ai.ch</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-allemagne">
+                        <header>
+                            <h3>Allemagne</h3>
+                            <span class="cm-badge cm-badge-dispo">En service</span>
+                        </header>
+                        <span class="cm-tags">souveraineté · images open source</span>
+                        <p><strong>Aleph Alpha</strong> (Heidelberg) : plateforme souveraine
+                            <em>PhariaAI</em> — données sous juridiction allemande exclusive,
+                            déployée dans des ministères fédéraux ; a fusionné avec le canadien
+                            Cohere. <strong>Teuken-7B</strong> (consortium public OpenGPT-X) couvre
+                            les 24 langues de l'UE, mais son financement fédéral s'est arrêté début
+                            2025. <strong>Black Forest Labs</strong> (Fribourg) : <em>Flux</em>,
+                            générateur d'images open source utilisé mondialement.</p>
+                        <div class="cm-links"><a href="https://aleph-alpha.com" target="_blank"
+                                rel="noopener">aleph-alpha.com</a> <a
+                                href="https://blackforestlabs.ai" target="_blank"
+                                rel="noopener">blackforestlabs.ai</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-royaume-uni">
+                        <header>
+                            <h3>Royaume-Uni</h3>
+                            <span class="cm-badge cm-badge-mixte">Recherche ++ / souveraineté en cours</span>
+                        </header>
+                        <span class="cm-tags">recherche mondiale · programmes d'État</span>
+                        <p><strong>DeepMind</strong> (Londres) : grand labo mondial de recherche,
+                            mais propriété de Google. Le programme <em>UK Sovereign AI</em> (en
+                            construction) soutient 11 startups et vise une AI Research Resource
+                            multipliée par 20 d'ici 2030, avec des AI Growth Zones.
+                            <strong>Stability AI</strong> : pionnier historique des modèles ouverts
+                            (Stable Diffusion), aujourd'hui fragilisé.</p>
+                        <div class="cm-links"><a href="https://deepmind.google" target="_blank"
+                                rel="noopener">deepmind.google</a> <a href="https://stability.ai"
+                                target="_blank" rel="noopener">stability.ai</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-finlande">
+                        <header>
+                            <h3>Finlande</h3>
+                            <span class="cm-badge cm-badge-dispo">En service</span>
+                        </header>
+                        <span class="cm-tags">ancrage linguistique · supercalculateur</span>
+                        <p><strong>Silo AI</strong> : familles ouvertes <em>Poro</em> puis
+                            <em>Viking</em>, premiers LLM dédiés aux langues nordiques, entraînés sur
+                            le supercalculateur européen <strong>LUMI</strong> avec l'université de
+                            Turku. Racheté par AMD, Silo AI devient son labo d'IA.</p>
+                        <div class="cm-links"><a href="https://huggingface.co/LumiOpen"
+                                target="_blank" rel="noopener">Hugging Face — LumiOpen</a> <a
+                                href="https://www.siloai.com" target="_blank"
+                                rel="noopener">siloai.com</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-norvege">
+                        <header>
+                            <h3>Norvège</h3>
+                            <span class="cm-badge cm-badge-dispo">En service</span>
+                        </header>
+                        <span class="cm-tags">interface sans modèle · IA locale</span>
+                        <p>Aucun LLM norvégien majeur — mais <strong>Opera</strong> (Oslo) mène une
+                            stratégie d'interface : IA <em>Aria</em> branchée sur les modèles OpenAI et
+                            Google, et premier navigateur à supporter <strong>150 LLM locaux</strong>
+                            tournant directement sur la machine de l'utilisateur.</p>
+                        <div class="cm-links"><a href="https://www.opera.com" target="_blank"
+                                rel="noopener">opera.com</a> <a href="offline.html">Voir « L'IA
+                                offline »</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-pologne">
+                        <header>
+                            <h3>Pologne</h3>
+                            <span class="cm-badge cm-badge-dispo">En service</span>
+                        </header>
+                        <span class="cm-tags">pré-entraînement continu · communauté</span>
+                        <p><strong>Bielik</strong> (fondation SpeakLeash) : base Mistral
+                            ré-entraînée en profondeur (1,5B / 4,5B / 11B), qui bats des modèles bien
+                            plus gros en polonais. Conforme au droit d'auteur européen, entretenu par
+                            sa communauté. L'exemple même de la chaîne de valeur complète.</p>
+                        <div class="cm-links"><a href="https://huggingface.co/speakleash"
+                                target="_blank" rel="noopener">Hugging Face — SpeakLeash</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-italie">
+                        <header>
+                            <h3>Italie</h3>
+                            <span class="cm-badge cm-badge-dispo">En service</span>
+                        </header>
+                        <span class="cm-tags">recherche nationale</span>
+                        <p><strong>Minerva</strong> : LLM national de recherche développé à
+                            Sapienza (Rome), financé par le plan de relance européen (PNRR) dans le
+                            cadre de la stratégie IA nationale italienne.</p>
+                        <div class="cm-links"><a
+                                href="https://huggingface.co/DeepSenseAI-Studio" target="_blank"
+                                rel="noopener">Hugging Face — DeepSense</a></div>
+                    </article>
+                </div>
+
+                <h2 class="cm-region-title" id="ameriques"><i class="fa-solid fa-earth-americas"
+                        aria-hidden="true"></i> Amériques</h2>
+                <div class="cm-cards">
+
+                    <article class="cm-card" id="c-canada">
+                        <header>
+                            <h3>Canada</h3>
+                            <span class="cm-badge cm-badge-dispo">En service</span>
+                        </header>
+                        <span class="cm-tags">from scratch · IA souveraine</span>
+                        <p><strong>Cohere</strong> (Toronto) : fondé par d'ex-Google Brain.
+                            Modèles <em>Command A</em> (111B) et <em>Command A+</em> (open source
+                            Apache 2.0), positionnés « IA souveraine » pour gouvernements et
+                            industries régulées, avec 4 milliards CAD investis au pays. A absorbé
+                            Aleph Alpha.</p>
+                        <div class="cm-links"><a href="https://cohere.com" target="_blank"
+                                rel="noopener">cohere.com</a> <a
+                                href="https://huggingface.co/CohereLabs" target="_blank"
+                                rel="noopener">Hugging Face — CohereLabs</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-bresil">
+                        <header>
+                            <h3>Brésil</h3>
+                            <span class="cm-badge cm-badge-dispo">En service</span>
+                        </header>
+                        <span class="cm-tags">portugais · corpus juridique</span>
+                        <p><strong>Maritaca AI</strong> : famille <em>Sabiá</em> (jusqu'à Sabiá 4) —
+                            base généraliste puis pré-entraînement continu sur corpus portugais et
+                            juridique brésilien, contexte 128k, et l'app grand public
+                            <em>MariTalk</em>.</p>
+                        <div class="cm-links"><a href="https://maritaca.ai" target="_blank"
+                                rel="noopener">maritaca.ai</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-argentine">
+                        <header>
+                            <h3>Argentine</h3>
+                            <span class="cm-badge cm-badge-endev">En construction</span>
+                        </header>
+                        <span class="cm-tags">espagnol latino-américain</span>
+                        <p><strong>Latam-GPT</strong> : initiative académique de LLM pour l'espagnol
+                            latino-américain, sur la voie de l'adaptation de modèles existants (accès
+                            au supercalculateur européen LUMI). Contexte politique atypique : le
+                            gouvernement a proposé en 2026 une loi sur les « sociétés non humaines »,
+                            des entités juridiques possédées et opérées par des IA.</p>
+                    </article>
+
+                    <article class="cm-card" id="c-mexique">
+                        <header>
+                            <h3>Mexique</h3>
+                            <span class="cm-badge cm-badge-endev">En construction</span>
+                        </header>
+                        <span class="cm-tags">espagnol régional · data centers</span>
+                        <p><strong>Mexico IA</strong> : initiative nationale portée par le patronat
+                            (CCE) avec NVIDIA — objectif d'un LLM « en espagnol, made in Mexico »
+                            adapté aux variantes régionales. Boom parallèle des data centers :
+                            18&nbsp;G$ d'investissements attendus, et le premier labo IA de Google
+                            en Amérique latine annoncé à Puebla pour 2026.</p>
+                    </article>
+                </div>
+
+                <h2 class="cm-region-title" id="moyen-orient"><i class="fa-solid fa-earth-africa"
+                        aria-hidden="true"></i> Moyen-Orient</h2>
+                <div class="cm-cards">
+
+                    <article class="cm-card" id="c-emirats">
+                        <header>
+                            <h3>Émirats arabes unis</h3>
+                            <span class="cm-badge cm-badge-dispo">En service</span>
+                        </header>
+                        <span class="cm-tags">from scratch · pari souverain massif</span>
+                        <p><strong>Falcon</strong> (TII, Abou Dhabi) : série open weights adoptée
+                            mondialement. <strong>Jais</strong> (G42 / Core42 / MBZUAI) : l'arabe
+                            d'abord, fort en code-switching arabe-anglais. Le pari souverain le plus
+                            capitalisé au monde pour un pays de cette taille.</p>
+                        <div class="cm-links"><a href="https://falconllm.ai" target="_blank"
+                                rel="noopener">falconllm.ai</a> <a href="https://core42.ai"
+                                target="_blank" rel="noopener">core42.ai</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-qatar">
+                        <header>
+                            <h3>Qatar</h3>
+                            <span class="cm-badge cm-badge-dispo">En service</span>
+                        </header>
+                        <span class="cm-tags">arabe-anglais · écosystème complet</span>
+                        <p><strong>Fanar</strong> (QCRI) : LLM arabe-anglais, version 2.0 multimodale
+                            sortie en 2026, 3.0 annoncée pour décembre. Autour : Fanar-Diwan (poésie
+                            arabe classique), FanarShaheen (traduction), Oryx-IVU (vision), et le
+                            premier benchmark arabe de reconnaissance vocale longue durée.</p>
+                        <div class="cm-links"><a href="https://www.hbku.edu.qa/en/qcri"
+                                target="_blank" rel="noopener">hbku.edu.qa — QCRI</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-arabie">
+                        <header>
+                            <h3>Arabie saoudite</h3>
+                            <span class="cm-badge cm-badge-mixte">En service + méga-infrastructures</span>
+                        </header>
+                        <span class="cm-tags">modèles + infrastructures</span>
+                        <p><strong>ALLaM</strong> (SDAIA) : série de modèles arabes, en service.
+                            <strong>HUMAIN</strong> (société du fonds souverain PIF) : plus de
+                            100&nbsp;G$ d'infrastructures IA annoncées, partenariats NVIDIA et
+                            hyperscalers — déploiement massif en cours. 2026 a été déclarée
+                            « Année de l'IA ».</p>
+                        <div class="cm-links"><a href="https://www.sdaia.gov.sa" target="_blank"
+                                rel="noopener">sdaia.gov.sa</a></div>
+                    </article>
+                </div>
+
+                <h2 class="cm-region-title" id="afrique"><i class="fa-solid fa-earth-africa"
+                        aria-hidden="true"></i> Afrique</h2>
+                <div class="cm-cards">
+
+                    <article class="cm-card" id="c-afsu">
+                        <header>
+                            <h3>Afrique du Sud</h3>
+                            <span class="cm-badge cm-badge-dispo">En service</span>
+                        </header>
+                        <span class="cm-tags">langues à faibles ressources</span>
+                        <p><strong>Lelapa AI</strong> : <em>InkubaLM</em>, petits modèles
+                            multilingues pour les langues africaines à faibles ressources (swahili,
+                            yoruba, xhosa, haoussa, zoulou), capables de gérer le code-switching.
+                            <em>Vulavula</em> : plateforme API (voix, traduction, sentiment).</p>
+                        <div class="cm-links"><a href="https://lelapa.ai" target="_blank"
+                                rel="noopener">lelapa.ai</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-egypte">
+                        <header>
+                            <h3>Égypte</h3>
+                            <span class="cm-badge cm-badge-dispo">En service</span>
+                        </header>
+                        <span class="cm-tags">LLM national · usages d'État</span>
+                        <p><strong>Karnak</strong> : LLM national lancé en 2026, bien classé en arabe
+                            dans les catégories 30-40B et 70-80B. Socle pour startups et institutions,
+                            avec des applications d'État dont <em>SIA</em>, tuteur IA d'arabe et
+                            d'histoire égyptienne au lycée. À côté : <strong>Widebot</strong>
+                            (privé) et son modèle arabe AQL Mind.</p>
+                        <div class="cm-links"><a href="https://mcit.gov.eg" target="_blank"
+                                rel="noopener">mcit.gov.eg</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-maroc">
+                        <header>
+                            <h3>Maroc</h3>
+                            <span class="cm-badge cm-badge-endev">En construction</span>
+                        </header>
+                        <span class="cm-tags">stratégie · fine-tuning assumé</span>
+                        <p>Feuille de route <strong>« Maroc IA 2030 »</strong> (janvier 2026) :
+                            choix assumé du fine-tuning de modèles ouverts (Llama, Mistral) plutôt que
+                            du from scratch. Fer de lance : l'<strong>UM6P</strong> et son centre de
+                            calcul ; l'opérateur Inwi travaille sur un modèle de darija.</p>
+                        <div class="cm-links"><a href="https://um6p.ma" target="_blank"
+                                rel="noopener">um6p.ma</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-algerie">
+                        <header>
+                            <h3>Algérie</h3>
+                            <span class="cm-badge cm-badge-endev">En construction</span>
+                        </header>
+                        <span class="cm-tags">la bataille du dialecte</span>
+                        <p>Pas encore de LLM national : la recherche se concentre sur le
+                            <em>darja</em> — <strong>DziriBERT</strong> (2021), puis
+                            <strong>DziriBOT</strong>, agent conversationnel de service client gérant
+                            le mélange arabe / français et l'arabizi, dans un marché public en pleine
+                            numérisation (stratégie SNTN-2030).</p>
+                        <div class="cm-links"><a href="https://arxiv.org/abs/2602.02270"
+                                target="_blank" rel="noopener">Article DziriBOT (arXiv)</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-nigeria">
+                        <header>
+                            <h3>Nigéria</h3>
+                            <span class="cm-badge cm-badge-endev">En construction</span>
+                        </header>
+                        <span class="cm-tags">bien public numérique</span>
+                        <p><strong>N-ATLAS</strong> : LLM multilingue open source porté par
+                            l'agence gouvernementale NCAIR pour les 500+ langues du pays, positionné
+                            comme bien public numérique « pour toute l'Afrique ». Stratégie IA
+                            nationale en déploiement 2026-2028.</p>
+                        <div class="cm-links"><a href="https://nitda.gov.ng" target="_blank"
+                                rel="noopener">nitda.gov.ng</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-rwanda">
+                        <header>
+                            <h3>Rwanda</h3>
+                            <span class="cm-badge cm-badge-dispo">Données ouvertes</span>
+                        </header>
+                        <span class="cm-tags">l'infrastructure de données d'abord</span>
+                        <p><strong>Digital Umuganda</strong> : plus de 2 000 heures de voix en
+                            kinyarwanda collectées sur Mozilla Common Voice — un travail de terrain
+                            engagé avant même la vague ChatGPT.</p>
+                        <div class="cm-links"><a href="https://commonvoice.mozilla.org"
+                                target="_blank" rel="noopener">commonvoice.mozilla.org</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-namibie">
+                        <header>
+                            <h3>Namibie</h3>
+                            <span class="cm-badge cm-badge-endev">En construction</span>
+                        </header>
+                        <span class="cm-tags">l'institution d'abord</span>
+                        <p>Ni modèle ni startup majeure — mais un <strong>Institut national
+                            d'IA</strong> ouvert en septembre 2026 à Windhoek (santé, éducation,
+                            sécurité alimentaire, énergie). Point de vigilance : toujours pas de loi
+                            sur la protection des données ni d'autorité dédiée.</p>
+                    </article>
+
+                    <article class="cm-card" id="c-masakhane">
+                        <header>
+                            <h3>Panafricain — Masakhane</h3>
+                            <span class="cm-badge cm-badge-dispo">En service</span>
+                        </header>
+                        <span class="cm-tags">communauté citoyenne</span>
+                        <p><strong>Masakhane</strong> : communauté de recherche en NLP qui fait le
+                            trait d'union entre Lelapa AI, les équipes nigérianes, rwandaises et
+                            bien d'autres — l'ossature humaine de l'IA africaine.</p>
+                        <div class="cm-links"><a href="https://www.masakhane.co.za" target="_blank"
+                                rel="noopener">masakhane.co.za</a></div>
+                    </article>
+                </div>
+
+                <h2 class="cm-region-title" id="asie-pacifique"><i class="fa-solid fa-earth-asia"
+                        aria-hidden="true"></i> Asie-Pacifique</h2>
+                <div class="cm-cards">
+
+                    <article class="cm-card" id="c-russie">
+                        <header>
+                            <h3>Russie</h3>
+                            <span class="cm-badge cm-badge-dispo">En service en Russie</span>
+                        </header>
+                        <span class="cm-tags">duopole national fermé</span>
+                        <p><strong>Yandex</strong> : assistant <em>Alice</em> + familles YandexGPT et
+                            « Alice AI », 100&nbsp;% maison, optimisés pour le russe — mais invisibles
+                            hors de Russie (distribution, sanctions, pas d'ouverture). Concurrent
+                            privé : <strong>GigaChat</strong> (Sber). Même sur le russe, ils ne
+                            surpassent pas toujours DeepSeek ou Kimi.</p>
+                        <div class="cm-links"><a href="https://alice.yandex.ru" target="_blank"
+                                rel="noopener">alice.yandex.ru</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-japon">
+                        <header>
+                            <h3>Japon</h3>
+                            <span class="cm-badge cm-badge-dispo">En service</span>
+                        </header>
+                        <span class="cm-tags">l'art du modèle spécialisé</span>
+                        <p><strong>tsuzumi</strong> (NTT) : léger — 30B sur un seul GPU — déployé
+                            santé, assurance, énergie. <strong>LLM-jp</strong> : open source du
+                            consortium national. Swallow (Tokyo Tech), NEC, Fujitsu : modèles
+                            complémentaires. <strong>Sakana AI</strong> : labo de renommée mondiale
+                            fondé par des co-auteurs d'« Attention Is All You Need ». Plateforme
+                            d'État <em>Gennai</em> pour l'administration en construction.</p>
+                        <div class="cm-links"><a href="https://sakana.ai" target="_blank"
+                                rel="noopener">sakana.ai</a> <a
+                                href="https://huggingface.co/llm-jp" target="_blank"
+                                rel="noopener">Hugging Face — llm-jp</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-coree">
+                        <header>
+                            <h3>Corée du Sud</h3>
+                            <span class="cm-badge cm-badge-dispo">En service</span>
+                        </header>
+                        <span class="cm-tags">duopole privé co-entraîné par l'État</span>
+                        <p><strong>Naver</strong> : HyperCLOVA&nbsp;X (recherche, e-commerce,
+                            entreprises). <strong>LG</strong> : EXAONE 4.0, qui passe les examens
+                            professionnels coréens, poids publiés sur Hugging Face. Originalité : le
+                            gouvernement co-entraîne les deux en adversarial pour son modèle national
+                            de cybersécurité.</p>
+                        <div class="cm-links"><a href="https://www.ncloud.com" target="_blank"
+                                rel="noopener">ncloud.com</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-inde">
+                        <header>
+                            <h3>Inde</h3>
+                            <span class="cm-badge cm-badge-mixte">API en service · souverain en cours</span>
+                        </header>
+                        <span class="cm-tags">frugal AI · multilingue</span>
+                        <p><strong>Sarvam AI</strong> : choisi par la mission IndiaAI pour construire
+                            le LLM souverain from scratch avec calcul dédié. <strong>Krutrim</strong>
+                            (Ola) : premier concurrent privé. <strong>Bhashini</strong> : couche
+                            publique de traduction pour les langues indiennes.</p>
+                        <div class="cm-links"><a href="https://www.sarvam.ai" target="_blank"
+                                rel="noopener">sarvam.ai</a> <a href="https://bhashini.gov.in"
+                                target="_blank" rel="noopener">bhashini.gov.in</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-singapour">
+                        <header>
+                            <h3>Singapour</h3>
+                            <span class="cm-badge cm-badge-dispo">En service</span>
+                        </header>
+                        <span class="cm-tags">hub multilingue régional</span>
+                        <p><strong>SEA-LION</strong> : famille ouverte d'AI Singapore couvrant 11
+                            langues de l'Asie du Sud-Est (malais, tamoul, birman, khmer…). Dernière
+                            vague : v4.8 co-développée avec NVIDIA.</p>
+                        <div class="cm-links"><a href="https://huggingface.co/aisingapore"
+                                target="_blank" rel="noopener">Hugging Face — AI Singapore</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-vietnam">
+                        <header>
+                            <h3>Vietnam</h3>
+                            <span class="cm-badge cm-badge-mixte">Infra en service · modèles en cours</span>
+                        </header>
+                        <span class="cm-tags">l'infrastructure d'abord</span>
+                        <p><strong>FPT AI Factory</strong> : première infrastructure nationale —
+                            plus de 1 000 GPU NVIDIA, top 40 mondial. <em>ViGPT</em> (LLM vietnamien
+                            de FPT) et le fine-tune d'un Nemotron par Viettel pour une application
+                            juridique nationale. Loi sur l'IA la plus contraignante de la région.</p>
+                        <div class="cm-links"><a href="https://fpt.ai" target="_blank"
+                                rel="noopener">fpt.ai</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-kazakhstan">
+                        <header>
+                            <h3>Kazakhstan</h3>
+                            <span class="cm-badge cm-badge-dispo">v1 en service</span>
+                        </header>
+                        <span class="cm-tags">sauvegarde de la langue</span>
+                        <p><strong>KazLLM</strong> : premier LLM kazakh, développé par l'ISSAI
+                            (université Nazarbayev) et QazCode — plateforme nationale pour les
+                            services publics et les entreprises, pour sauvegarder la présence
+                            numérique du kazakh. Versions suivantes en cours.</p>
+                        <div class="cm-links"><a href="https://issai.nu.edu.kz" target="_blank"
+                                rel="noopener">issai.nu.edu.kz</a></div>
+                    </article>
+
+                    <article class="cm-card" id="c-australie">
+                        <header>
+                            <h3>Australie</h3>
+                            <span class="cm-badge cm-badge-dispo">En service</span>
+                        </header>
+                        <span class="cm-tags">l'image plutôt que le texte</span>
+                        <p>Pas de LLM textuel majeur — mais <strong>Leonardo.Ai</strong> (Sydney) :
+                            <em>Phoenix</em>, première fondation générative australienne, orientée
+                            images, racheté par <strong>Canva</strong> (également australien) dont
+                            Magic Studio agrège des modèles tiers dans la suite bureautique.</p>
+                        <div class="cm-links"><a href="https://leonardo.ai" target="_blank"
+                                rel="noopener">leonardo.ai</a> <a href="https://www.canva.com"
+                                target="_blank" rel="noopener">canva.com</a></div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Les quatre stratégies -->
+        <section class="cm-strategies">
+            <div class="container">
+                <h2>Quatre stratégies, une même logique</h2>
+                <p class="cm-lead">Derrière la diversité, presque tous ces pays suivent l'une de
+                    quatre voies — et presque tous pilotent par la même boussole : la langue et
+                    les données.</p>
+                <div class="cm-strat-grid">
+                    <article class="cm-strat">
+                        <span class="cm-strat-n">1</span>
+                        <h3>From scratch souverain</h3>
+                        <p>Construire un modèle national complet. Rares, coûteux (centaines de
+                            millions) : Égypte, Nigéria, Inde, Émirats, Qatar, Arabie saoudite.
+                            Motivations : langue + contrôle. Attention — plusieurs de ces projets
+                            sont très récents.</p>
+                    </article>
+                    <article class="cm-strat">
+                        <span class="cm-strat-n">2</span>
+                        <h3>Adaptation d'un modèle ouvert</h3>
+                        <p>La norme : pré-entraînement continu ou fine-tuning d'une base Llama,
+                            Mistral ou Qwen. Coût : quelques millions. Brésil, Pologne, Maroc,
+                            Algérie, Vietnam, Kazakhstan, Singapour, Finlande. La voie la plus
+                            rapide pour livrer un produit réel.</p>
+                    </article>
+                    <article class="cm-strat">
+                        <span class="cm-strat-n">3</span>
+                        <h3>Souveraineté d'interface ou d'hébergement</h3>
+                        <p>Pas de modèle : agrégation, hébergement local, conformité. Norvège
+                            (Opera), Australie (Canva), Allemagne (PhariaAI). La valeur est
+                            juridique et d'orchestration, pas technologique.</p>
+                    </article>
+                    <article class="cm-strat">
+                        <span class="cm-strat-n">4</span>
+                        <h3>Institutionnalisation</h3>
+                        <p>Poser les fondations avant même d'avoir des ingénieurs ou des corpus :
+                            instituts, data centers, lois, fonds. Namibie, Mexique, Royaume-Uni
+                            (pour sa part souveraine).</p>
+                    </article>
+                </div>
+
+                <div class="cm-drivers">
+                    <h3>Les moteurs communs</h3>
+                    <ul>
+                        <li><strong>La langue</strong> — la motivation n°1 presque partout :
+                            darja, darija, finnois, tamoul, kazakh…</li>
+                        <li><strong>Les données</strong> — garder les données citoyennes sous
+                            juridiction nationale (RGPD ou équivalent).</li>
+                        <li><strong>Le coût des GPU</strong> — le vrai goulot, d'où le triomphe du
+                            fine-tuning et des supercalculateurs publics (LUMI en Finlande, UM6P au
+                            Maroc).</li>
+                        <li><strong>Les écueils documentés</strong> — financement qui s'arrête
+                            (Teuken en Allemagne), régulation en retard (Namibie), concurrence
+                            frontale quasi impossible avec les géants.</li>
+                    </ul>
+                    <div class="cm-chain">
+                        <p><strong>La chaîne de valeur type :</strong>
+                            base ouverte (Llama / Mistral) → pré-entraînement continu (langue) →
+                            fine-tune (domaine) → hébergement souverain (à la PhariaAI) → interface
+                            nationale. C'est exactement le parcours de Bielik (Pologne) et de Sabiá
+                            (Brésil).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pour aller plus loin -->
+        <section class="cm-more">
+            <div class="container">
+                <h2>Pour aller plus loin</h2>
+                <div class="cm-more-grid">
+                    <a class="cm-more-card" href="ia-modeles.html">
+                        <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+                        <div>
+                            <h3>IA et modèles</h3>
+                            <p>Qui fait tourner quoi, entre les modèles et les interfaces :
+                                le grand schéma du paysage.</p>
+                        </div>
+                    </a>
+                    <a class="cm-more-card" href="offline.html">
+                        <i class="fa-solid fa-plug-circle-xmark" aria-hidden="true"></i>
+                        <div>
+                            <h3>L'IA offline</h3>
+                            <p>Faire tourner un modèle ouvert chez soi, sans cloud ni abonnement —
+                                le point de départ de plusieurs souverainetés.</p>
+                        </div>
+                    </a>
+                </div>
+                <p class="cm-source">Données : panorama « L'IA hors des États-Unis et de Chine »,
+                    compilé le 3 novembre 2026 (Wikipédia, sites officiels, presse spécialisée).
+                    Les statuts « en service / en construction » et les liens reflètent cette date.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <site-footer></site-footer>
+
+    <script src="components.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    <script src="carte-mondiale.js"></script>
+    <script
+        src="https://websites-monitoring.vercel.app/tracking.js?siteId=génération-ia&key=ac5f777f63c2dd5795c39e0b5034eeed68659c292c2fe7aaa18a1b02ac3482f3"></script>
+</body>
+
+</html>

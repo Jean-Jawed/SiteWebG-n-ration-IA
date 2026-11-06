@@ -1,8 +1,28 @@
+const EN = document.documentElement.lang === 'en';
+const T = (fr, en) => (EN ? (en !== undefined ? en : fr) : fr);
+
+const EN_NAV = {
+    'Accueil': 'Home',
+    'IA et modèles': 'AI & models',
+    'Carte mondiale': 'World map',
+    'Comment ça marche ?': 'How does it work?',
+    'Multimédia': 'Multimedia',
+    'Prompting': 'Prompting',
+    'Art & IA': 'AI & Art',
+    'Énergie': 'Energy',
+    "L'IA offline": 'Offline AI',
+    'Développeurs': 'Developers',
+    'Enseignants': 'Teachers',
+    'Archipelle': 'Archipelle',
+    'À propos': 'About'
+};
+
 const SITE_NAV = [
     {
         label: 'Découvrir', items: [
             { href: 'index.html', text: 'Accueil', icon: 'fa-house' },
             { href: 'ia-modeles.html', text: 'IA et modèles', icon: 'fa-layer-group' },
+            { href: 'carte-mondiale.html', text: 'Carte mondiale', icon: 'fa-globe' },
             { href: 'howitworks.html', text: 'Comment ça marche ?', icon: 'fa-diagram-project' },
             { href: 'multimedia.html', text: 'Multimédia', icon: 'fa-photo-film' },
             { href: 'prompting.html', text: 'Prompting', icon: 'fa-terminal' },
@@ -31,14 +51,15 @@ class SiteHeader extends HTMLElement {
         let n = 0;
         const groups = SITE_NAV.map(group => `
             <div class="snav-group">
-                <p class="snav-label">${group.label}</p>
+                <p class="snav-label">${T(group.label, { 'Découvrir': 'Discover', 'Approfondir': 'Go deeper', 'Le studio': 'The studio' }[group.label])}</p>
                 <ul>
                     ${group.items.map(item => {
                         n++;
+                        const label = T(item.text, EN_NAV[item.text]);
                         const active = item.href.replace(/\.html$/, '') === current;
-                        return `<li style="--i:${n}"><a href="${item.href}"${active ? ' class="is-active" aria-current="page"' : ''} title="${item.text}">
+                        return `<li style="--i:${n}"><a href="${item.href}"${active ? ' class="is-active" aria-current="page"' : ''} title="${label}">
                             <span class="snav-num">${String(n).padStart(2, '0')}</span>
-                            <span class="snav-text">${item.text}</span>
+                            <span class="snav-text">${label}</span>
                             <i class="fa-solid ${item.icon} snav-icon" aria-hidden="true"></i>
                         </a></li>`;
                     }).join('')}
@@ -57,7 +78,7 @@ class SiteHeader extends HTMLElement {
     <nav class="snav" id="snav-panel" aria-label="Navigation principale">
         <div class="snav-head">
             <a href="index.html" class="logo snav-logo"><span class="logo-full">GÉNÉRATION</span><span>-IA</span></a>
-            <p class="snav-tagline">Comprendre l'IA générative</p>
+            <p class="snav-tagline">${T("Comprendre l'IA générative", 'Understanding generative AI')}</p>
         </div>
         <button class="snav-collapse" type="button" aria-expanded="true" aria-controls="snav-panel">
             <i class="fa-solid fa-angles-left" aria-hidden="true"></i>
@@ -65,7 +86,8 @@ class SiteHeader extends HTMLElement {
         <div class="snav-groups">${groups}</div>
         <div class="snav-foot">
             <span class="snav-dot" aria-hidden="true"></span>
-            <span class="snav-foot-link">Une agence <a href="https://virgule-studio.fr" target="_blank" rel="noopener noreferrer">Virgule-Studio</a></span>
+            <span class="snav-foot-link">${T('Une agence', 'A')} <a href="https://virgule-studio.fr" target="_blank" rel="noopener noreferrer">Virgule-Studio</a></span>
+            <a class="snav-lang" href="/en/" hreflang="en">EN</a>
         </div>
     </nav>
         `;
@@ -78,7 +100,7 @@ class SiteHeader extends HTMLElement {
             toggle.setAttribute('aria-expanded', String(open));
             if (open) backdrop.hidden = false;
             else setTimeout(() => { if (!document.body.classList.contains('snav-open')) backdrop.hidden = true; }, 400);
-            toggle.querySelector('.snav-toggle-text').textContent = open ? 'Fermer' : 'Menu';
+            toggle.querySelector('.snav-toggle-text').textContent = open ? T('Fermer', 'Close') : 'Menu';
         };
         toggle.addEventListener('click', () => setOpen(!document.body.classList.contains('snav-open')));
         backdrop.addEventListener('click', () => setOpen(false));
@@ -108,6 +130,21 @@ class SiteHeader extends HTMLElement {
         });
 
         const bar = this.querySelector('.snav-bar');
+
+        // Lien de changement de langue (FR <-> EN)
+        const path = window.location.pathname;
+        const isEn = path.includes('/en/');
+        const file = (path.split('/').pop() || 'index.html');
+        const other = isEn
+            ? (file === 'index.html' ? '/' : '/' + file)
+            : '/en/' + (file === 'index.html' ? '' : file);
+        const langLink = this.querySelector('.snav-lang');
+        langLink.href = other;
+        langLink.textContent = isEn ? 'FR' : 'EN';
+        langLink.setAttribute('aria-label', isEn
+            ? 'Switch to the French version'
+            : 'Passer \u00e0 la version anglaise');
+
         const onScroll = () => bar.classList.toggle('scrolled', window.scrollY > 30);
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
@@ -122,22 +159,23 @@ class SiteFooter extends HTMLElement {
             <div class="footer-content">
                 <div class="footer-section about">
                     <h3>Génération-IA</h3>
-                    <p>Explorer le futur de l'intelligence artificielle et ses applications dans tous les domaines.</p>
+                    <p>${T("Explorer le futur de l'intelligence artificielle et ses applications dans tous les domaines.", 'Exploring the future of artificial intelligence and its applications across all fields.')}</p>
                 </div>
                 <div class="footer-section links">
-                    <h3>Liens rapides</h3>
+                    <h3>${T('Liens rapides', 'Quick links')}</h3>
                     <ul>
-                        <li><a href="index.html">Accueil</a></li>
-                        <li><a href="ia-modeles.html">IA et modèles</a></li>
-                        <li><a href="multimedia.html">Multimédia</a></li>
-                        <li><a href="enseignants.html">Enseignants</a></li>
-                        <li><a href="offline.html">L'IA offline</a></li>
-                        <li><a href="archipelle.html">Archipelle</a></li>
+                        <li><a href="index.html">${T('Accueil', 'Home')}</a></li>
+                        <li><a href="ia-modeles.html">${T('IA et modèles', 'AI & models')}</a></li>
+                        <li><a href="carte-mondiale.html">${T('Carte mondiale', 'World map')}</a></li>
+                        <li><a href="multimedia.html">${T('Multimédia', 'Multimedia')}</a></li>
+                        <li><a href="enseignants.html">${T('Enseignants', 'Teachers')}</a></li>
+                        <li><a href="offline.html">${T("L'IA offline", 'Offline AI')}</a></li>
+                        <li><a href="archipelle.html">${T('Archipelle', 'Archipelle')}</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Génération-IA. Tous droits réservés. Conception et contenu du site par <a href="https://virgule-studio.fr" target="_blank" rel="noopener noreferrer">Virgule-Studio</a>.</p>
+                <p>&copy; 2025 Génération-IA. ${T('Tous droits réservés. Conception et contenu du site par', 'All rights reserved. Site design and content by')} <a href="https://virgule-studio.fr" target="_blank" rel="noopener noreferrer">Virgule-Studio</a>.</p>
             </div>
         </div>
     </footer>

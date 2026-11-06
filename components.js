@@ -69,11 +69,15 @@ class SiteHeader extends HTMLElement {
         this.innerHTML = `
     <header class="snav-bar">
         <a href="index.html" class="logo"><span class="logo-full">GÉNÉRATION</span><span>-IA</span></a>
-        <button class="snav-toggle" type="button" aria-expanded="false" aria-controls="snav-panel">
-            <span class="snav-toggle-text">Menu</span>
-            <span class="snav-toggle-icon" aria-hidden="true"><span></span><span></span></span>
-        </button>
+        <div class="snav-bar-right">
+            <a class="snav-lang snav-lang-mobile" href="/en/" hreflang="en">EN</a>
+            <button class="snav-toggle" type="button" aria-expanded="false" aria-controls="snav-panel">
+                <span class="snav-toggle-text">Menu</span>
+                <span class="snav-toggle-icon" aria-hidden="true"><span></span><span></span></span>
+            </button>
+        </div>
     </header>
+    <a class="snav-lang snav-lang-desktop" href="/en/" hreflang="en">EN</a>
     <div class="snav-backdrop" hidden></div>
     <nav class="snav" id="snav-panel" aria-label="Navigation principale">
         <div class="snav-head">
@@ -87,7 +91,6 @@ class SiteHeader extends HTMLElement {
         <div class="snav-foot">
             <span class="snav-dot" aria-hidden="true"></span>
             <span class="snav-foot-link">${T('Une agence', 'A')} <a href="https://virgule-studio.fr" target="_blank" rel="noopener noreferrer">Virgule-Studio</a></span>
-            <a class="snav-lang" href="/en/" hreflang="en">EN</a>
         </div>
     </nav>
         `;
@@ -138,12 +141,14 @@ class SiteHeader extends HTMLElement {
         const other = isEn
             ? (file === 'index.html' ? '/' : '/' + file)
             : '/en/' + (file === 'index.html' ? '' : file);
-        const langLink = this.querySelector('.snav-lang');
-        langLink.href = other;
-        langLink.textContent = isEn ? 'FR' : 'EN';
-        langLink.setAttribute('aria-label', isEn
-            ? 'Switch to the French version'
-            : 'Passer \u00e0 la version anglaise');
+        const langLinks = this.querySelectorAll('.snav-lang');
+        langLinks.forEach(link => {
+            link.href = other;
+            link.textContent = isEn ? 'FR' : 'EN';
+            link.setAttribute('aria-label', isEn
+                ? 'Switch to the French version'
+                : 'Passer \u00e0 la version anglaise');
+        });
 
         const onScroll = () => bar.classList.toggle('scrolled', window.scrollY > 30);
         window.addEventListener('scroll', onScroll, { passive: true });

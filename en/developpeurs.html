@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <title>Developers: the AI tools that actually matter in 2026 — Génération-IA</title>
+    <meta name="description"
+        content="What developers actually need from AI in 2026: completion, code review, repo-wired agents — and the rules for using them without sacrificing security or data privacy.">
+    <link rel="canonical" href="https://xn--gnration-ia-bbbb.fr/en/developpeurs.html">
+    <link rel="alternate" hreflang="fr" href="https://xn--gnration-ia-bbbb.fr/developpeurs.html">
+    <link rel="alternate" hreflang="en" href="https://xn--gnration-ia-bbbb.fr/en/developpeurs.html">
+    <link rel="alternate" hreflang="x-default" href="https://xn--gnration-ia-bbbb.fr/developpeurs.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../developpeurs.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+
+<body>
+    <!-- Background animation -->
+    <div id="particles-js"></div>
+
+    <!-- Header -->
+    <site-header></site-header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>DEVELOP<span class="blink">E</span>RS</h1>
+                <p class="subtitle">AI that's useful in 2026: the broad strokes, nothing else</p>
+            </div>
+        </section>
+
+        <section class="dev-content">
+            <div class="container">
+
+                <div class="dev-lead">
+                    <p>Forget API lists and gadgets. In 2026, AI concretely serves a developer in
+                        three ways: <strong>writing less</strong> (completion), <strong>reviewing
+                        better</strong> (review and refactor), and <strong>documenting</strong> what
+                        the code already does. The rest is noise.</p>
+                </div>
+
+                <h2 class="dev-section-title">Three families of tools</h2>
+                <div class="tools-grid">
+                    <article class="tool-card">
+                        <div class="tool-icon"><i class="fa-solid fa-terminal" aria-hidden="true"></i></div>
+                        <h3>Completion in the editor</h3>
+                        <p class="tool-sub">Write less</p>
+                        <p>Lines completing themselves as you type. It has become a standard:
+                            <strong>Cursor</strong>, <strong>GitHub Copilot</strong>,
+                            <strong>Windsurf</strong>, or JetBrains' built-in autocompletion.</p>
+                        <p>The right way to use it: accept suggestions when they match your intent,
+                            reject them when they drift — you are the one coding, the tool merely
+                            proposes.</p>
+                    </article>
+                    <article class="tool-card">
+                        <div class="tool-icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></div>
+                        <h3>Source-code agents</h3>
+                        <p class="tool-sub">Review, explain, refactor</p>
+                        <p>Wired directly into your repository: <strong>Claude Code</strong>,
+                            <strong>Codex CLI</strong> (OpenAI), <strong>Gemini CLI</strong> (Google),
+                            or <strong>Aider</strong> (open source). They read the code, answer
+                            questions, propose diffs and run tasks.</p>
+                        <p>This is the most powerful family — and the most sensitive. The rest of
+                            this page explains how to wire it in without getting burned.</p>
+                    </article>
+                    <article class="tool-card">
+                        <div class="tool-icon"><i class="fa-solid fa-code-pull-request" aria-hidden="true"></i></div>
+                        <h3>PR reviewers</h3>
+                        <p class="tool-sub">A second pair of eyes</p>
+                        <p>Tools like <strong>CodeRabbit</strong> or <strong>Qodo</strong>
+                            automatically review pull requests: consistency, edge cases, missing
+                            tests. Useful on a small team with no senior reviewer available.</p>
+                        <p>They don't replace a human: they flag, you decide.</p>
+                    </article>
+                </div>
+
+                <h2 class="dev-section-title">Wiring an agent into your code without letting it run wild</h2>
+                <p class="dev-lead">A code agent reads your repository, proposes changes and sometimes runs
+                    commands. Two real risks to manage: <strong>where your data goes</strong>, and
+                    <strong>what the agent is allowed to do</strong>. Six rules are enough.</p>
+
+                <div class="dev-rules">
+                    <div class="rule-item">
+                        <span class="rule-n">1</span>
+                        <div>
+                            <h3>Read-only by default</h3>
+                            <p>Start the agent with minimal permissions: repository read, no execution,
+                                no network access. The "do everything by itself" mode is earned, not
+                                granted.</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-n">2</span>
+                        <div>
+                            <h3>A dedicated branch, human review per diff</h3>
+                            <p>The agent works on its own branch. Nothing ships without you having read
+                                every line it proposes — same as any human contribution.</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-n">3</span>
+                        <div>
+                            <h3>Know where your code goes</h3>
+                            <p>For proprietary code, check where the agent sends its context: European
+                                provider, contractual no-training commitment, or a <strong>local</strong>
+                                server (see below). This is a contractual question, not a config
+                                option.</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-n">4</span>
+                        <div>
+                            <h3>No secrets in scope</h3>
+                            <p>API keys in environment variables, never in the repository. An agent
+                                reading the code will also read what's lying around: keep .env files
+                                out of the context and sensitive files out of the working folder.</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-n">5</span>
+                        <div>
+                            <h3>A sandbox, not your machine</h3>
+                            <p>If the agent runs commands (tests, builds), run them in a container or a
+                                disposable environment — not on the machine holding your SSH keys and
+                                your history.</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-n">6</span>
+                        <div>
+                            <h3>Read commands before execution</h3>
+                            <p>The best agents ask for confirmation before every destructive command.
+                                Keep that reflex on: two seconds of reading beat an afternoon of
+                                restoration.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dev-flow">
+                    <h3>The healthy path for a code agent</h3>
+                    <div class="flow-line">
+                        <span class="flow-chip"><i class="fa-solid fa-book" aria-hidden="true"></i> The agent reads the repo</span>
+                        <i class="fa-solid fa-angles-right" aria-hidden="true"></i>
+                        <span class="flow-chip"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i> It proposes a diff</span>
+                        <i class="fa-solid fa-angles-right" aria-hidden="true"></i>
+                        <span class="flow-chip flow-chip-human"><i class="fa-solid fa-user-check" aria-hidden="true"></i> You review</span>
+                        <i class="fa-solid fa-angles-right" aria-hidden="true"></i>
+                        <span class="flow-chip"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> You merge</span>
+                    </div>
+                </div>
+
+                <h2 class="dev-section-title">The sovereign option: offline AI</h2>
+                <p class="dev-lead">Your most sensitive code only leaves the machine if you decide so:
+                    running a model locally removes the destination question entirely. The trade-off
+                    is hardware — above all <strong>VRAM</strong>, the graphics card's memory, which
+                    determines which model sizes run on your machine.</p>
+
+                <div class="vram-table-wrap">
+                    <table class="vram-table">
+                        <thead>
+                            <tr>
+                                <th>Model size</th>
+                                <th>VRAM needed (quantized)</th>
+                                <th>What it means in practice</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>7-9 billion parameters</td>
+                                <td>6-8 GB</td>
+                                <td>Completion, simple questions on a small repository. Runs on a
+                                    recent laptop.</td>
+                            </tr>
+                            <tr>
+                                <td>14-32 billion</td>
+                                <td>12-24 GB</td>
+                                <td>Credible review and refactoring on real code. Mid-range graphics
+                                    card.</td>
+                            </tr>
+                            <tr>
+                                <td>70 billion and up</td>
+                                <td>40 GB and up</td>
+                                <td>The level of serious code agents. A dedicated workstation or
+                                    several cards.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="vram-note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                        "Quantized" = a compressed version of the model, slightly less precise but
+                        much lighter. Find the complete guide on the <a href="offline.html">Offline
+                        AI</a> page.</p>
+                </div>
+
+                <h2 class="dev-section-title">What AI does not do for you</h2>
+                <p class="dev-lead">The agent writes fast, but it does not carry responsibility.
+                    Architecture choices, security, acceptable technical debt and the meaning of the
+                    product remain human decisions. An agent will execute a bad specification
+                    remarkably well — watching over the <em>meaning</em> is still your job.</p>
+
+                <div class="resources-section">
+                    <h2 class="dev-section-title">Going further</h2>
+                    <div class="resources-grid">
+                        <div class="resource-card">
+                            <h3>Aider</h3>
+                            <p>An open-source command-line code agent that also works with local models</p>
+                            <a href="https://aider.chat" target="_blank" rel="noopener">Visit</a>
+                        </div>
+                        <div class="resource-card">
+                            <h3>Claude Code</h3>
+                            <p>Anthropic's command-line code agent, wired into the repository</p>
+                            <a href="https://claude.com/product/claude-code" target="_blank" rel="noopener">Visit</a>
+                        </div>
+                        <div class="resource-card">
+                            <h3>Ollama</h3>
+                            <p>The starting point of offline AI for developers</p>
+                            <a href="https://ollama.com" target="_blank" rel="noopener">Visit</a>
+                        </div>
+                        <div class="resource-card">
+                            <h3>AI &amp; models</h3>
+                            <p>Who runs what — the big landscape diagram, handy for choosing a provider
+                                with full knowledge</p>
+                            <a href="ia-modeles.html">Read</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <site-footer></site-footer>
+
+    <script src="../components.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../script.js"></script>
+    <script
+        src="https://websites-monitoring.vercel.app/tracking.js?siteId=génération-ia&key=ac5f777f63c2dd5795c39e0b5034eeed68659c292c2fe7aaa18a1b02ac3482f3"></script>
+</body>
+
+</html>

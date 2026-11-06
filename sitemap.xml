@@ -93,6 +93,18 @@
     <lastmod>2026-11-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xn--gnration-ia-bbbb.fr/developpeurs.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xn--gnration-ia-bbbb.fr/en/developpeurs.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xn--gnration-ia-bbbb.fr/developpeurs.html"/>
+  </url>
+  <url>
+    <loc>https://xn--gnration-ia-bbbb.fr/en/developpeurs.html</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://xn--gnration-ia-bbbb.fr/developpeurs.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://xn--gnration-ia-bbbb.fr/en/developpeurs.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://xn--gnration-ia-bbbb.fr/developpeurs.html"/>
   </url>
   <url>
     <loc>https://xn--gnration-ia-bbbb.fr/enseignants.html</loc>

@@ -5,9 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>Développeurs - Génération-IA.fr</title>
+    <title>Développeurs : les outils IA vraiment utiles en 2026 — Génération-IA.fr</title>
+    <meta name="description"
+        content="Les grandes lignes de l'IA pour les développeurs en 2026 : complétion, relecture de code, agents branchés sur le dépôt — et les règles pour le faire sans sacrifier la sécurité ni la confidentialité des données.">
+    <link rel="canonical" href="https://xn--gnration-ia-bbbb.fr/developpeurs.html">
+    <link rel="alternate" hreflang="fr" href="https://xn--gnration-ia-bbbb.fr/developpeurs.html">
+    <link rel="alternate" hreflang="en" href="https://xn--gnration-ia-bbbb.fr/en/developpeurs.html">
+    <link rel="alternate" hreflang="x-default" href="https://xn--gnration-ia-bbbb.fr/developpeurs.html">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="developpeurs.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -31,136 +38,203 @@
         <section class="page-hero">
             <div class="container">
                 <h1>DÉVELOPP<span class="blink">E</span>URS</h1>
-                <p class="subtitle">Ressources et outils pour intégrer l'IA dans vos projets</p>
+                <p class="subtitle">L'IA utile en 2026 : les grandes lignes, rien d'autre</p>
             </div>
         </section>
 
         <section class="dev-content">
             <div class="container">
-                <h2>Guide des API IA pour développeurs</h2>
-                <p>Intégrez facilement des fonctionnalités d'IA dans vos applications grâce à ces API et plateformes :
-                </p>
 
-                <div class="api-guide">
-                    <div class="api-step">
-                        <h3>1. Choix de l'API</h3>
-                        <p>Plusieurs fournisseurs offrent des API pour différents besoins :</p>
-                        <ul>
-                            <li><strong>OpenAI API</strong> : Accès à GPT-4, DALL·E, Whisper</li>
-                            <li><strong>Google Cloud AI</strong> : Vertex AI, Gemini API</li>
-                            <li><strong>Anthropic Claude API</strong> : Modèles conversationnels</li>
-                            <li><strong>HuggingFace</strong> : Modèles open-source</li>
-                            <li><strong>Stability AI</strong> : Génération d'images</li>
-                        </ul>
-                    </div>
+                <div class="dev-lead">
+                    <p>Oubliez les listes d'API et les gadgets. En 2026, l'IA sert concrètement un
+                        développeur à trois choses : <strong>écrire moins</strong> (complétion),
+                        <strong>relire mieux</strong> (revue et refactor), et <strong>documenter</strong>
+                        ce que le code fait déjà. Le reste est du bruit.</p>
+                </div>
 
-                    <div class="api-step">
-                        <h3>2. Authentification</h3>
-                        <p>La plupart des API utilisent des clés secrètes :</p>
-                        <div class="code-block">
-                            // Exemple d'authentification avec OpenAI
-                            const OpenAI = require('openai');
+                <h2 class="dev-section-title">Trois familles d'outils</h2>
+                <div class="tools-grid">
+                    <article class="tool-card">
+                        <div class="tool-icon"><i class="fa-solid fa-terminal" aria-hidden="true"></i></div>
+                        <h3>La complétion dans l'éditeur</h3>
+                        <p class="tool-sub">Écrire moins</p>
+                        <p>Des lignes qui se complètent pendant qu'on tape. C'est devenu un standard :
+                            <strong>Cursor</strong>, <strong>GitHub Copilot</strong>,
+                            <strong>Windsurf</strong> ou encore l'autocomplétion de JetBrains.</p>
+                        <p>Le bon usage : accepter les suggestions quand elles vont dans votre sens,
+                            les refuser quand elles dévient — c'est vous qui codez, l'outil propose.</p>
+                    </article>
+                    <article class="tool-card">
+                        <div class="tool-icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></div>
+                        <h3>Les agents de code source</h3>
+                        <p class="tool-sub">Relire, expliquer, refactorer</p>
+                        <p>Branchés directement sur le dépôt : <strong>Claude Code</strong>,
+                            <strong>Codex CLI</strong> (OpenAI), <strong>Gemini CLI</strong> (Google)
+                            ou <strong>Aider</strong> (open source). Ils lisent le code, répondent
+                            à des questions, proposent des diffs et exécutent des tâches.</p>
+                        <p>C'est la famille la plus puissante — et la plus sensible. Le reste de cette
+                            page explique comment la brancher sans se brûler.</p>
+                    </article>
+                    <article class="tool-card">
+                        <div class="tool-icon"><i class="fa-solid fa-code-pull-request" aria-hidden="true"></i></div>
+                        <h3>Les relecteurs de PR</h3>
+                        <p class="tool-sub">Une deuxième paire d'yeux</p>
+                        <p>Des outils comme <strong>CodeRabbit</strong> ou <strong>Qodo</strong>
+                            relisent les pull requests automatiquement : cohérence, cas limites,
+                            tests manquants. Utile sur une petite équipe sans relecteur senior
+                            disponible.</p>
+                        <p>Ils ne remplacent pas un humain : ils signalent, vous décidez.</p>
+                    </article>
+                </div>
 
-                            const openai = new OpenAI({
-                            apiKey: 'votre-cle-api', // Stockez ça en sécurité!
-                            });
-                        </div>
-                        <p>Ne commitez jamais vos clés API dans le code source. Utilisez des variables d'environnement.
-                        </p>
-                    </div>
+                <h2 class="dev-section-title">Brancher un agent sur son code, sans le laisser faire n'importe quoi</h2>
+                <p class="dev-lead">Un agent de code lit votre dépôt, propose des modifications et parfois exécute
+                    des commandes. Deux vrais risques à gérer : <strong>où partent vos données</strong>, et
+                    <strong>ce que l'agent a le droit de faire</strong>. Six règles suffisent.</p>
 
-                    <div class="api-step">
-                        <h3>3. Appel basique</h3>
-                        <p>Exemple d'appel à l'API de chat :</p>
-                        <div class="code-block">
-                            async function getAIResponse(prompt) {
-                            const completion = await openai.chat.completions.create({
-                            messages: [{ role: "user", content: prompt }],
-                            model: "gpt-4",
-                            });
-
-                            return completion.choices[0].message.content;
-                            }
-                        </div>
-                    </div>
-
-                    <div class="api-step">
-                        <h3>4. Gestion des erreurs</h3>
-                        <p>Toujours implémenter une gestion robuste des erreurs :</p>
-                        <div class="code-block">
-                            try {
-                            const response = await getAIResponse(userInput);
-                            // Traiter la réponse
-                            } catch (error) {
-                            console.error("Erreur API:", error.response?.status, error.message);
-                            // Fallback ou message utilisateur
-                            }
+                <div class="dev-rules">
+                    <div class="rule-item">
+                        <span class="rule-n">1</span>
+                        <div>
+                            <h3>Lecture seule par défaut</h3>
+                            <p>Démarrez l'agent avec les permissions minimales : lecture du dépôt,
+                                aucune exécution, aucun accès réseau. Le mode « fait tout tout seul »
+                                se mérite, il ne se donne pas.</p>
                         </div>
                     </div>
-
-                    <div class="api-step">
-                        <h3>5. Optimisation</h3>
-                        <p>Techniques pour améliorer performances et coûts :</p>
-                        <ul>
-                            <li>Mise en cache des réponses similaires</li>
-                            <li>Streaming pour les réponses longues</li>
-                            <li>Limitation du nombre de tokens</li>
-                            <li>Utilisation de modèles plus petits quand possible</li>
-                        </ul>
+                    <div class="rule-item">
+                        <span class="rule-n">2</span>
+                        <div>
+                            <h3>Une branche dédiée, une revue humaine par diff</h3>
+                            <p>L'agent travaille sur sa branche. Rien ne part en production sans que
+                                vous ayez lu chaque ligne qu'il propose — comme pour n'importe quelle
+                                contribution humaine.</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-n">3</span>
+                        <div>
+                            <h3>Sachez où va votre code</h3>
+                            <p>Pour un code propriétaire, vérifiez où l'agent envoie son contexte :
+                                fournisseur européen, engagement contractuel de non-entraînement, ou
+                                serveur <strong>local</strong> (voir plus bas). C'est une question
+                                contractuelle, pas une option de configuration.</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-n">4</span>
+                        <div>
+                            <h3>Aucun secret dans le périmètre</h3>
+                            <p>Clés API en variables d'environnement, jamais dans le dépôt. Un agent
+                                qui lit le code lira aussi ce qui traîne : .env exclus du contexte,
+                                fichiers sensibles hors du dossier de travail.</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-n">5</span>
+                        <div>
+                            <h3>Une sandbox, pas votre machine</h3>
+                            <p>Si l'agent exécute des commandes (tests, builds), faites-le tourner
+                                dans un conteneur ou un environnement jetable — pas sur la machine
+                                qui contient vos clés SSH et votre historique.</p>
+                        </div>
+                    </div>
+                    <div class="rule-item">
+                        <span class="rule-n">6</span>
+                        <div>
+                            <h3>Relisez les commandes avant exécution</h3>
+                            <p>Les meilleurs agents demandent confirmation avant chaque commande
+                                destructive. Gardez ce réflexe activé : c'est deux secondes de
+                                lecture contre uneaprès-midi de restauration.</p>
+                        </div>
                     </div>
                 </div>
 
-                <h2>Plateformes de développement IA</h2>
-                <div class="platforms-grid">
-                    <div class="platform-card">
-                        <h3>Bolt.new</h3>
-                        <p>Environnement de développement rapide pour applications IA</p>
-                        <a href="https://bolt.new" target="_blank">Visiter</a>
-                    </div>
-                    <div class="platform-card">
-                        <h3>Emergent.sh</h3>
-                        <p>Plateforme collaborative pour prototypes IA</p>
-                        <a href="https://emergent.sh" target="_blank">Visiter</a>
-                    </div>
-                    <div class="platform-card">
-                        <h3>Blackbox.ai</h3>
-                        <p>Assistant de codage avec IA en temps réel</p>
-                        <a href="https://blackbox.ai" target="_blank">Visiter</a>
-                    </div>
-                    <div class="platform-card">
-                        <h3>Webwave.me</h3>
-                        <p>Création de sites web avec intégration IA</p>
-                        <a href="https://webwave.me" target="_blank">Visiter</a>
-                    </div>
-                    <div class="platform-card">
-                        <h3>Replit</h3>
-                        <p>IDE en ligne avec support IA intégré</p>
-                        <a href="https://replit.com" target="_blank">Visiter</a>
-                    </div>
-                    <div class="platform-card">
-                        <h3>HuggingFace Spaces</h3>
-                        <p>Déploiement facile de modèles IA</p>
-                        <a href="https://huggingface.co/spaces" target="_blank">Visiter</a>
+                <div class="dev-flow">
+                    <h3>Le circuit sain d'un agent de code</h3>
+                    <div class="flow-line">
+                        <span class="flow-chip"><i class="fa-solid fa-book" aria-hidden="true"></i> L'agent lit le dépôt</span>
+                        <i class="fa-solid fa-angles-right" aria-hidden="true"></i>
+                        <span class="flow-chip"><i class="fa-solid fa-pen-ruler" aria-hidden="true"></i> Il propose un diff</span>
+                        <i class="fa-solid fa-angles-right" aria-hidden="true"></i>
+                        <span class="flow-chip flow-chip-human"><i class="fa-solid fa-user-check" aria-hidden="true"></i> Vous relisez</span>
+                        <i class="fa-solid fa-angles-right" aria-hidden="true"></i>
+                        <span class="flow-chip"><i class="fa-solid fa-code-branch" aria-hidden="true"></i> Vous mergez</span>
                     </div>
                 </div>
+
+                <h2 class="dev-section-title">L'option souveraine : l'IA offline</h2>
+                <p class="dev-lead">Le code le plus sensible ne quitte la machine que si vous le décidez :
+                    faire tourner un modèle en local supprime la question de la destination des données.
+                    La contrepartie est le matériel — et surtout la <strong>VRAM</strong>, la mémoire de
+                    la carte graphique qui détermine quelle taille de modèle tourne chez vous.</p>
+
+                <div class="vram-table-wrap">
+                    <table class="vram-table">
+                        <thead>
+                            <tr>
+                                <th>Taille du modèle</th>
+                                <th>VRAM nécessaire (quantifié)</th>
+                                <th>Ce que ça donne en pratique</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>7-9 milliards de paramètres</td>
+                                <td>6-8 Go</td>
+                                <td>Complétion, questions simples sur un petit dépôt. Tourne sur un
+                                    ordinateur portable récent.</td>
+                            </tr>
+                            <tr>
+                                <td>14-32 milliards</td>
+                                <td>12-24 Go</td>
+                                <td>Relecture et refactor crédibles sur du code réel. Carte
+                                    graphique intermédiaire.</td>
+                            </tr>
+                            <tr>
+                                <td>70 milliards et plus</td>
+                                <td>40 Go et +</td>
+                                <td>Le niveau des agents de code sérieux. Station dédiée ou
+                                    plusieurs cartes.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="vram-note"><i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                        « Quantifié » = version compressée du modèle, légèrement moins précise mais
+                        beaucoup plus légère. Retrouvez le guide complet sur la page
+                        <a href="offline.html">L'IA offline</a>.</p>
+                </div>
+
+                <h2 class="dev-section-title">Ce que l'IA ne fait pas à votre place</h2>
+                <p class="dev-lead">L'agent écrit vite, mais il ne porte pas la responsabilité. Les choix
+                    d'architecture, la sécurité, la dette technique acceptable et le sens du produit
+                    restent des décisions humaines. Un agent exécutera remarquablement bien une
+                    mauvaise spécification — la vigilance sur le <em>sens</em> reste votre métier.</p>
 
                 <div class="resources-section">
-                    <h2>Ressources d'apprentissage</h2>
+                    <h2 class="dev-section-title">Aller plus loin</h2>
                     <div class="resources-grid">
                         <div class="resource-card">
-                            <h3>OpenAI Cookbook</h3>
-                            <p>Exemples de code et bonnes pratiques</p>
-                            <a href="https://github.com/openai/openai-cookbook" target="_blank">Visiter</a>
+                            <h3>Aider</h3>
+                            <p>Agent de code open source, en ligne de commande, qui fonctionne aussi
+                                avec des modèles locaux</p>
+                            <a href="https://aider.chat" target="_blank" rel="noopener">Visiter</a>
                         </div>
                         <div class="resource-card">
-                            <h3>LangChain Docs</h3>
-                            <p>Framework pour applications IA complexes</p>
-                            <a href="https://python.langchain.com" target="_blank">Visiter</a>
+                            <h3>Claude Code</h3>
+                            <p>L'agent de code d'Anthropic, en ligne de commande, branché sur le dépôt</p>
+                            <a href="https://claude.com/product/claude-code" target="_blank" rel="noopener">Visiter</a>
                         </div>
                         <div class="resource-card">
-                            <h3>AI For Devs</h3>
-                            <p>Cours sur l'intégration d'IA</p>
-                            <a href="https://aifordevs.com" target="_blank">Visiter</a>
+                            <h3>Ollama</h3>
+                            <p>Le point de départ de l'IA offline côté développeur</p>
+                            <a href="https://ollama.com" target="_blank" rel="noopener">Visiter</a>
+                        </div>
+                        <div class="resource-card">
+                            <h3>IA et modèles</h3>
+                            <p>Qui fait tourner quoi — le grand schéma du paysage, utile pour choisir
+                                un fournisseur en connaissance de cause</p>
+                            <a href="ia-modeles.html">Lire</a>
                         </div>
                     </div>
                 </div>

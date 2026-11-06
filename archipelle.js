@@ -17,7 +17,8 @@ document.addEventListener('DOMContentLoaded', function () {
             const text = clone.textContent.replace(/[ \t]+$/gm, '').trim();
 
             copyText(text).then(function (ok) {
-                button.textContent = ok ? 'Copié' : 'Échec';
+                const isEn = document.documentElement.lang === 'en';
+                button.textContent = ok ? (isEn ? 'Copied' : 'Copié') : (isEn ? 'Failed' : 'Échec');
                 button.classList.toggle('is-done', ok);
 
                 setTimeout(function () {

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <title>Prompting — Génération-IA</title>
+    <meta name="description"
+        content="Master the art of communicating with AI: prompt engineering basics, advanced techniques, useful tools and learning resources.">
+    <link rel="canonical" href="https://xn--gnration-ia-bbbb.fr/en/prompting.html">
+    <link rel="alternate" hreflang="fr" href="https://xn--gnration-ia-bbbb.fr/prompting.html">
+    <link rel="alternate" hreflang="en" href="https://xn--gnration-ia-bbbb.fr/en/prompting.html">
+    <link rel="alternate" hreflang="x-default" href="https://xn--gnration-ia-bbbb.fr/prompting.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+
+<body>
+    <!-- Background animation -->
+    <div id="particles-js"></div>
+
+    <!-- Header -->
+    <site-header></site-header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>PROMPT<span class="blink">I</span>NG</h1>
+                <p class="subtitle">Master the art of communicating with AI</p>
+            </div>
+        </section>
+
+        <section class="prompting-content">
+            <div class="container">
+
+
+                <div class="prompt-templates">
+                    <h2>A sample of quality prompts</h2>
+                    <p>Choose a situation from the dropdown to get a complete, optimized prompt:</p>
+                    <p class="template-note" style="color:rgba(240,240,240,.6); font-size:.85rem;">Note: the sample
+                        prompts generated below are written in French — what matters is the
+                        <em>structure</em> (role, context, task, constraints, format), which transfers directly
+                        to English.</p>
+
+                    <div class="template-selector">
+                        <select id="templateSelector">
+                            <option value="">-- Select a situation --</option>
+                            <option value="nouvelleBesan">Write a 45-page novel set in Besançon</option>
+                            <option value="appBudget">Build an Android app to better manage my budget</option>
+                            <option value="entretienEmbauche">Prepare me for a job interview coming up soon</option>
+                            <option value="reparationBaignoire">Help me fix my leaking bathtub</option>
+                            <option value="marketingJusPomme">Grow a marketing strategy for my aunt's apple
+                                juice business</option>
+                            <option value="articleIAChine">Write an article about Chinese AIs for my blog
+                            </option>
+                            <option value="techniqueRespiration">Guide me through learning breathing techniques
+                            </option>
+                            <option value="planMaison">Design the plans of a 120 sqm eco-friendly house</option>
+                            <option value="recetteVegan">Create a vegan cookbook for beginners</option>
+                            <option value="apprendrePiano">Learn to play the piano in 6 months at age 35</option>
+                            <option value="startupFintech">Launch a fintech startup focused on
+                                cryptocurrencies</option>
+                            <option value="podcastHistoire">Create a podcast about French medieval history
+                            </option>
+                            <option value="jardinBalcon">Make the most of my small 6 sqm balcony garden</option>
+                            <option value="reorganiserCV">Rework my CV to apply in the gaming industry</option>
+                            <option value="coursYoutube">Build an online YouTube course teaching photography
+                            </option>
+                            <option value="ecommerceArtisanat">Open an online shop to sell my macramé
+                                handcrafts</option>
+                            <option value="appMeditation">Design a meditation app for 8-12 year olds</option>
+                            <option value="romanSciFi">Write a science-fiction novel about colonizing Mars
+                            </option>
+                            <option value="chaineRestaurant">Open a chain of Asian street-food restaurants
+                            </option>
+                            <option value="formationIA">Create a complete AI training course for SMBs</option>
+                            <option value="blogVoyage">Monetize my travel blog focused on sustainable tourism
+                            </option>
+                            <option value="jeuMobile">Develop an educational mobile game about marine ecology
+                            </option>
+                            <option value="consultingRH">Launch my human resources consulting business</option>
+                            <option value="documentaireClima">Make a documentary about climate change in the
+                                Arctic</option>
+                            <option value="associationAnimaux">Create an association to protect local wild
+                                animals</option>
+                        </select>
+                        <button id="displayButton" class="display-btn" disabled>
+                            <i class="fas fa-eye"></i> Show the prompt
+                        </button>
+                    </div>
+
+                    <div class="template-output" id="templateOutput">
+                        <h4>Generated prompt:</h4>
+                        <div class="prompt-display">
+                            <textarea id="generatedPrompt" readonly></textarea>
+                            <button id="copyButton" class="copy-btn">
+                                <i class="fas fa-copy"></i> Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <h2>Prompt engineering basics</h2>
+                <p>Prompting is the art of phrasing instructions for generative AIs to get the best possible
+                    results. Here are the fundamental principles:</p>
+
+
+                <div class="prompt-categories">
+                    <div class="prompt-category">
+                        <h3>Basic structure</h3>
+                        <ul>
+                            <li>Start with a clear action verb</li>
+                            <li>Give the context and the desired format</li>
+                            <li>Add relevant details</li>
+                            <li>State the style or tone you want</li>
+                            <li>Specify length or complexity</li>
+                        </ul>
+                    </div>
+
+                    <div class="prompt-category">
+                        <h3>Advanced techniques</h3>
+                        <ul>
+                            <li>Prompt chaining (breaking into steps)</li>
+                            <li>Few-shot prompting (included examples)</li>
+                            <li>Role prompting (assigning a role)</li>
+                            <li>Template prompting (using templates)</li>
+                            <li>Iterative prompting (progressive refinement)</li>
+                        </ul>
+                    </div>
+
+                    <div class="prompt-category">
+                        <h3>Useful tools</h3>
+                        <ul>
+                            <li>PromptPerfect — prompt optimization</li>
+                            <li>PromptBase — prompt marketplace</li>
+                            <li>PromptHero — prompt library</li>
+                            <li>ChatGPT Prompt Generator</li>
+                            <li>Midjourney Prompt Helper</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <div class="resources-section">
+                    <h2>Resources to learn</h2>
+                    <div class="resources-grid">
+                        <div class="resource-card">
+                            <h3>Prompting Guide</h3>
+                            <p>A complete guide to prompting techniques</p>
+                            <a href="https://www.promptingguide.ai" target="_blank">Visit</a>
+                        </div>
+                        <div class="resource-card">
+                            <h3>LearnPrompting</h3>
+                            <p>Free prompt engineering course</p>
+                            <a href="https://learnprompting.org" target="_blank">Visit</a>
+                        </div>
+                        <div class="resource-card">
+                            <h3>Awesome Prompts</h3>
+                            <p>A collection of prompts for various AIs</p>
+                            <a href="https://prompts.chat/" target="_blank">Visit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <site-footer></site-footer>
+
+    <script src="../components.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../script.js"></script>
+    <script
+        src="https://websites-monitoring.vercel.app/tracking.js?siteId=génération-ia&key=ac5f777f63c2dd5795c39e0b5034eeed68659c292c2fe7aaa18a1b02ac3482f3"></script>
+</body>
+
+</html>

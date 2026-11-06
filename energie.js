@@ -1,5 +1,7 @@
 /* ===== SCRIPTS POUR LA PAGE ÉNERGIE ===== */
 
+const E = document.documentElement.lang === 'en';
+
 document.addEventListener('DOMContentLoaded', function() {
     // Animation des nombres au chargement
     animateNumbers();
@@ -85,7 +87,7 @@ function initCharts() {
             data: {
                 labels: ['BERT (2018)', 'GPT-1 (2018)', 'GPT-2 (2019)', 'GPT-3 (2020)', 'GPT-4 (2023)', 'GPT-5 (Est.)'],
                 datasets: [{
-                    label: 'Consommation d\'entraînement (MWh)',
+                    label: E ? 'Training consumption (MWh)' : 'Consommation d\'entraînement (MWh)',
                     data: [300, 450, 650, 1287, 1750, 3500],
                     backgroundColor: [
                         'rgba(102, 187, 106, 0.8)',
@@ -156,7 +158,7 @@ function initCharts() {
         new Chart(waterCtx, {
             type: 'doughnut',
             data: {
-                labels: ['GPT-4 (par requête)', 'Data center moyen/jour', 'Hyperscale/jour'],
+                labels: E ? ['GPT-4 (per request)', 'Average data center/day', 'Hyperscale/day'] : ['GPT-4 (par requête)', 'Data center moyen/jour', 'Hyperscale/jour'],
                 datasets: [{
                     data: [0.519, 1135000, 2082000], // en litres
                     backgroundColor: [

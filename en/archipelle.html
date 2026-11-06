@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <title>Archipelle — Query your documents without indexing them — Génération-IA</title>
+    <meta name="description"
+        content="Archipelle is a desktop application that answers questions about your own documents — no vector database, no prior indexing — citing sources verified by the program itself.">
+    <link rel="canonical" href="https://xn--gnration-ia-bbbb.fr/en/archipelle.html">
+    <link rel="alternate" hreflang="fr" href="https://xn--gnration-ia-bbbb.fr/archipelle.html">
+    <link rel="alternate" hreflang="en" href="https://xn--gnration-ia-bbbb.fr/en/archipelle.html">
+    <link rel="alternate" hreflang="x-default" href="https://xn--gnration-ia-bbbb.fr/archipelle.html">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Archipelle — query your documents, without indexing them">
+    <meta property="og:description"
+        content="A desktop application that explores your files on demand, reads what is useful, and answers while citing sources verified by the program itself.">
+    <meta property="og:image" content="https://xn--gnration-ia-bbbb.fr/images/archipelle/logo-archipelle.jpg">
+    <meta property="og:url" content="https://xn--gnration-ia-bbbb.fr/en/archipelle.html">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../archipelle.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+
+<body>
+    <!-- Background animation -->
+    <div id="particles-js"></div>
+
+    <!-- Header -->
+    <site-header></site-header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <div class="arch-logo-frame">
+                    <img src="../images/archipelle/logo-archipelle.jpg" width="780" height="524"
+                        alt="Archipelle logo: a stylized navy-blue house above the software's name.">
+                </div>
+                <h1>Archipelle</h1>
+                <p class="subtitle">Query your documents, without indexing them.</p>
+                <p class="arch-status"><i class="fas fa-code-branch" aria-hidden="true"></i> Available in early
+                    access</p>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="container">
+                <article class="arch-article">
+
+                    <div class="arch-lead">
+                        <p>Finding a piece of information in your own files is a mundane problem, and a curiously
+                            unsolved one. Operating-system search engines look for file names; AI tools almost all
+                            require building a copy of your documents in a specialized database first.</p>
+                        <p>Archipelle takes the problem from another angle. It is a desktop application you ask a
+                            plain-language question about a folder on your computer. It looks for the answer right
+                            when you ask, reads the documents that seem relevant, and replies while citing the
+                            files it used.</p>
+                    </div>
+
+                    <figure class="arch-figure">
+                        <img src="../images/archipelle/anim-demo.gif" width="1000" height="600" loading="lazy"
+                            alt="Animated demo of Archipelle: a question is asked, the application explores the folder, shows the files it consulted, then composes a sourced answer.">
+                        <figcaption>A question, a visible exploration, an answer together with its sources.
+                        </figcaption>
+                    </figure>
+
+                    <section class="arch-section">
+                        <h2>Searching instead of indexing</h2>
+                        <p>Most tools that "chat with your documents" rely on the same mechanism: an indexing
+                            phase splits every file into fragments, converts them into numerical vectors and stores
+                            them in a dedicated database. The search then happens in that database — never in the
+                            original files.</p>
+                        <p>This has practical consequences. You must wait for indexing to finish before asking
+                            your first question. You must re-run it after every modification, or work from a
+                            stale image of the folder. And somewhere on your disk, there now exists a second copy
+                            of your documents' content.</p>
+                        <p>Archipelle has no vector database. An agent walks the working folder's tree, searches
+                            inside file contents, opens the ones that look useful and reads the passages that
+                            answer the question. Nothing is prepared in advance, nothing is copied elsewhere. The
+                            folder you point it at is read as it is, at the moment you ask the question.</p>
+                    </section>
+
+                    <section class="arch-section">
+                        <h2>Sources verified by the program, not by the model</h2>
+                        <p>A language model asked to cite its sources produces plausible references — which is not
+                            the same as accurate ones. It is one of the most common forms of hallucination, and one
+                            of the hardest to spot, because an invented file name looks a lot like a real one.</p>
+                        <p>Archipelle does not trust the model on this point. The program keeps the list of files it
+                            actually opened and read during the search. When the answer cites a source, that
+                            citation is checked against this list: if the file is not in it, it is displayed as
+                            <strong>unverified</strong>. The verification is done by the software, from what it
+                            actually did — not by the model, from what it claims.</p>
+                        <p>That is a difference in nature. The reader does not have to take the answer at face
+                            value: every source is a clickable file, which can be opened to check by hand.</p>
+                    </section>
+
+                    <section class="arch-section">
+                        <h2>What Archipelle does</h2>
+                        <ul class="arch-points">
+                            <li><b>It explores on demand.</b> The agent walks the chosen folder's tree, searches the
+                                contents, and opens the documents that seem to hold the answer. No prior indexing,
+                                no copy of your files.</li>
+                            <li><b>It cites its sources.</b> Every statement links to a clickable file. A source
+                                the program did not actually read is flagged as unverified.</li>
+                            <li><b>It shows its work.</b> A transparency area displays live searches, the files
+                                consulted and the ones that were set aside, with the reason they were.</li>
+                            <li><b>It says what it did not do.</b> Search that hit its ceiling, unprocessed scanned
+                                document, protected file: these gaps are announced in the answer, never swept
+                                under the rug.</li>
+                            <li><b>It stops when asked.</b> A stop button immediately interrupts the ongoing
+                                search.</li>
+                        </ul>
+                        <p>That last point deserves a pause. A tool that announces its own limits is more useful
+                            than a tool that always answers: knowing a search only covered part of the folder
+                            changes the confidence you place in the answer, and lets you rephrase the question or
+                            narrow the working folder.</p>
+                    </section>
+
+                    <section class="arch-section">
+                        <h2>Two ways to search</h2>
+                        <p><strong>Fast</strong> mode suits everyday searches: it goes straight to the point and
+                            answers in few steps. <strong>Exploration</strong> mode pushes the search further,
+                            with more successive steps, and turns on text recognition for scanned documents. It is
+                            slower, and is best kept for questions that deserve it.</p>
+
+                        <h3>Formats it reads</h3>
+                        <ul class="arch-tags">
+                            <li><i class="fas fa-file-pdf" aria-hidden="true"></i>PDF, including scanned ones</li>
+                            <li><i class="fas fa-file-word" aria-hidden="true"></i>Word</li>
+                            <li><i class="fas fa-file-excel" aria-hidden="true"></i>Excel</li>
+                            <li><i class="fas fa-file-powerpoint" aria-hidden="true"></i>PowerPoint</li>
+                            <li><i class="fas fa-envelope" aria-hidden="true"></i>Emails</li>
+                            <li><i class="fas fa-code" aria-hidden="true"></i>HTML</li>
+                            <li><i class="fas fa-file-lines" aria-hidden="true"></i>Plain text and Markdown</li>
+                            <li><i class="fas fa-table" aria-hidden="true"></i>CSV</li>
+                            <li><i class="fas fa-image" aria-hidden="true"></i>Images</li>
+                            <li><i class="fas fa-terminal" aria-hidden="true"></i>Some thirty code and configuration
+                                formats</li>
+                        </ul>
+                    </section>
+
+                    <section class="arch-section">
+                        <h2>Installation</h2>
+                        <p>Archipelle installs from PyPI, the Python package repository. The only prerequisite is
+                            <strong>Python 3.12 or newer</strong>. Two commands are enough: the first installs the
+                            application, the second launches it.</p>
+
+                        <div class="arch-code">
+                            <div class="arch-code-head">
+                                <span class="arch-code-label">Terminal</span>
+                                <button class="arch-copy" type="button">Copy</button>
+                            </div>
+                            <pre><code><span class="tok-prompt">$ </span><span class="tok-cmd">pip</span> install archipelle
+<span class="tok-prompt">$ </span><span class="tok-cmd">archipelle</span></code></pre>
+                        </div>
+
+                        <p>If you use <a href="https://docs.astral.sh/uv/" target="_blank"
+                                rel="noopener noreferrer">uv</a>, the installation goes through an equivalent
+                            command. uv is a recent Python package manager, faster than <code>pip</code>, which
+                            installs every tool in its own isolated environment — handy if you already have several
+                            Python programs on your machine and would rather they not step on each other.</p>
+
+                        <div class="arch-code">
+                            <div class="arch-code-head">
+                                <span class="arch-code-label">Terminal</span>
+                                <button class="arch-copy" type="button">Copy</button>
+                            </div>
+                            <pre><code><span class="tok-prompt">$ </span><span class="tok-cmd">uv</span> tool install archipelle
+<span class="tok-prompt">$ </span><span class="tok-cmd">archipelle</span></code></pre>
+                        </div>
+
+                        <h3>Reading scanned documents</h3>
+                        <p>Optical character recognition — OCR, which reads a scanned PDF or a photo of a
+                            document — relies on Tesseract, a separate program to install once and for all.</p>
+
+                        <div class="arch-code">
+                            <div class="arch-code-head">
+                                <span class="arch-code-label">macOS</span>
+                                <button class="arch-copy" type="button">Copy</button>
+                            </div>
+                            <pre><code><span class="tok-prompt">$ </span><span class="tok-cmd">brew</span> install tesseract tesseract-lang</code></pre>
+                        </div>
+
+                        <div class="arch-code">
+                            <div class="arch-code-head">
+                                <span class="arch-code-label">Debian / Ubuntu</span>
+                                <button class="arch-copy" type="button">Copy</button>
+                            </div>
+                            <pre><code><span class="tok-prompt">$ </span><span class="tok-cmd">sudo</span> apt install tesseract-ocr tesseract-ocr-eng</code></pre>
+                        </div>
+
+                        <p>On Windows, use the UB Mannheim Tesseract installer, remembering to tick the language
+                            pack you need during installation.</p>
+
+                        <div class="arch-panel arch-panel--note">
+                            <p><i class="fas fa-circle-info" aria-hidden="true"></i>This step remains optional.
+                                Without Tesseract, Archipelle works normally: scanned documents are simply reported
+                                as unread in the answer. No error message, no blocking — you just know they were
+                                not taken into account.</p>
+                        </div>
+
+                        <h3>On Linux</h3>
+                        <p>Archipelle's interface relies on the system's rendering engine, which is not always
+                            installed by default.</p>
+
+                        <div class="arch-code">
+                            <div class="arch-code-head">
+                                <span class="arch-code-label">Debian / Ubuntu</span>
+                                <button class="arch-copy" type="button">Copy</button>
+                            </div>
+                            <pre><code><span class="tok-prompt">$ </span><span class="tok-cmd">sudo</span> apt install libwebkit2gtk-4.1-0 gir1.2-webkit2-4.1</code></pre>
+                        </div>
+                    </section>
+
+                    <section class="arch-section">
+                        <h2>First steps</h2>
+                        <ol class="arch-steps">
+                            <li><b>Choose a working folder.</b> On first launch, the home screen asks which folder
+                                Archipelle is allowed to search, and which AI provider to use. That folder, and it
+                                alone, will be explored.</li>
+                            <li><b>Enter your API key.</b> It goes into Settings. Archipelle stores it in a
+                                separate file with restricted access permissions, and never displays it in clear
+                                again.</li>
+                            <li><b>Ask your question.</b> In plain language. The transparency area shows the search
+                                progressing while the answer is being composed.</li>
+                        </ol>
+
+                        <figure class="arch-figure">
+                            <img src="../images/archipelle/capture1.png" width="985" height="533" loading="lazy"
+                                alt="Archipelle's home screen: the conversation list on the left, the working folder and selected model at the top, and the question input area.">
+                            <figcaption>The home screen: a working folder, a model, and a question.
+                            </figcaption>
+                        </figure>
+
+                        <h3>Accepted AI providers</h3>
+                        <p>Archipelle does not ship a model: it connects to the one of your choice, with your own
+                            key. Readers who care about data processing will note that <strong>Mistral</strong>
+                            handles requests within the European Union, and that the application can also talk to
+                            a local server — in which case no data leaves the machine, excerpts included.</p>
+
+                        <ul class="arch-tags">
+                            <li>Mistral <span style="opacity:.65">— processed in the EU</span></li>
+                            <li>OpenAI</li>
+                            <li>Anthropic</li>
+                            <li>DeepSeek</li>
+                            <li>Kimi</li>
+                            <li>Any OpenAI-compatible server <span style="opacity:.65">— Ollama, LM Studio</span></li>
+                        </ul>
+
+                        <figure class="arch-figure">
+                            <img src="../images/archipelle/capture2.png" width="822" height="389" loading="lazy"
+                                alt="Archipelle's Settings menu, listing the providers: Mistral, OpenAI, Anthropic, DeepSeek, Kimi and an OpenAI-compatible server with a custom address.">
+                            <figcaption>The provider is chosen in Settings, along with the matching API key.
+                            </figcaption>
+                        </figure>
+
+                        <div class="arch-panel arch-panel--note">
+                            <p><i class="fas fa-circle-info" aria-hidden="true"></i>With some free tiers, the most
+                                renowned models refuse requests and return a rate-limit error. At Mistral, the
+                                <strong>Ministral 3</strong> models work in that case. Advanced Settings also let
+                                you enter the identifier of the model of your choice directly.</p>
+                        </div>
+                    </section>
+
+                    <section class="arch-section">
+                        <h2>What happens to your documents</h2>
+                        <p>This is the question that decides what such a tool can be used for, so let's answer it
+                            precisely.</p>
+                        <ul class="arch-points">
+                            <li><b>Your files stay with you.</b> Only the excerpts needed for the answer are sent to
+                                the AI provider you chose. A warning flags providers located outside the European
+                                Union.</li>
+                            <li><b>Archipelle cannot write.</b> No writing tool exists in the program: it cannot
+                                modify, delete or create any file in your folder. Access is read-only — a clear
+                                contrast with agents granted write permissions.</li>
+                            <li><b>History stays local.</b> Conversations, the extraction cache and logs are stored
+                                on your machine, and can be erased from Settings.</li>
+                            <li><b>API keys are never logged.</b> They appear in no log file.</li>
+                        </ul>
+                    </section>
+
+                    <section class="arch-section arch-panel arch-panel--warn">
+                        <h2>Known limits</h2>
+                        <p>An honest tool announces what it does badly. Here are the four limits the project
+                            accepts.</p>
+                        <ul class="arch-points">
+                            <li><b>Very small models struggle.</b> Below eight billion parameters, a model has a
+                                hard time chaining the successive tool calls an exploration requires. A beefier
+                                model is better.</li>
+                            <li><b>The search is capped.</b> On a very large folder, the exploration stops before
+                                seeing everything, and the answer then states that coverage is partial. That is a
+                                design choice, not a defect: the ceiling exists so the search ends.</li>
+                            <li><b>OCR depends on an external program.</b> Tesseract installs separately, and its
+                                absence limits reading scanned documents.</li>
+                            <li><b>Answer quality depends on the model.</b> Archipelle organizes the search and
+                                verifies the sources; the quality of the final writing remains that of the model
+                                you chose.</li>
+                        </ul>
+                    </section>
+
+                    <section class="arch-section">
+                        <h2>An open project</h2>
+                        <p>Archipelle is free software, published under the <strong>MIT license</strong>: the code
+                            can be used, modified and redistributed freely, including commercially, with the only
+                            obligation of keeping the copyright notice. The source code is available on <a
+                                href="https://github.com/Jean-Jawed/archipelle/" target="_blank"
+                                rel="noopener noreferrer">GitHub</a>, and the package is published on PyPI.</p>
+
+                        <h3>Contributing</h3>
+                        <p>The project sets up with uv, and tests cover both the Python side and the web interface.
+                        </p>
+
+                        <div class="arch-code">
+                            <div class="arch-code-head">
+                                <span class="arch-code-label">Terminal</span>
+                                <button class="arch-copy" type="button">Copy</button>
+                            </div>
+                            <pre><code><span class="tok-prompt">$ </span><span class="tok-cmd">git</span> clone https://github.com/Jean-Jawed/archipelle
+<span class="tok-prompt">$ </span><span class="tok-cmd">cd</span> archipelle
+<span class="tok-prompt">$ </span><span class="tok-cmd">uv</span> sync                 <span class="tok-comment"># environment and dependencies</span>
+<span class="tok-prompt">$ </span><span class="tok-cmd">uv</span> run archipelle       <span class="tok-comment"># launch the application</span>
+<span class="tok-prompt">$ </span><span class="tok-cmd">uv</span> run pytest           <span class="tok-comment"># Python tests</span>
+<span class="tok-prompt">$ </span><span class="tok-cmd">npm</span> install <span class="tok-flag">&amp;&amp;</span> <span class="tok-cmd">npm</span> test <span class="tok-comment"># web interface tests</span>
+<span class="tok-prompt">$ </span><span class="tok-cmd">uv</span> run ruff check       <span class="tok-comment"># lint</span>
+<span class="tok-prompt">$ </span><span class="tok-cmd">uv</span> run pyright          <span class="tok-comment"># types</span></code></pre>
+                        </div>
+                    </section>
+
+                    <div class="arch-credits">
+                        <h2>Credits</h2>
+                        <p>Archipelle was developed in partnership with <a href="https://virgule-studio.fr"
+                                target="_blank" rel="noopener noreferrer">Virgule-Studio</a>, which provided the
+                            technical resources and the overall architecture of the project.</p>
+                        <p>Development is led by <a href="https://github.com/Jean-Jawed" target="_blank"
+                                rel="noopener noreferrer">Jean-Jawed</a>, who publishes the code and follows
+                            feedback on the project's GitHub repository.</p>
+                    </div>
+
+                    <div class="arch-cta">
+                        <p>The project is available today, and will open to a wider audience soon.</p>
+                        <a href="https://github.com/Jean-Jawed/archipelle/" target="_blank" rel="noopener noreferrer"
+                            class="cta-button">Discover Archipelle on GitHub</a>
+                        <span class="arch-cta-secondary">Or, if the terminal does not scare you:
+                            <code>pip install archipelle</code></span>
+                    </div>
+
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <site-footer></site-footer>
+
+    <script src="../components.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../script.js"></script>
+    <script src="../archipelle.js"></script>
+    <script
+        src="https://websites-monitoring.vercel.app/tracking.js?siteId=génération-ia&key=ac5f777f63c2dd5795c39e0b5034eeed68659c292c2fe7aaa18a1b02ac3482f3"></script>
+</body>
+
+</html>

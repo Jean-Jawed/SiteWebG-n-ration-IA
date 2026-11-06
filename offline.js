@@ -23,7 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // les autres alternent entre « En savoir plus » et « Réduire ».
             const inFaq = this.closest('.faq-item');
             if (!inFaq) {
-                this.textContent = isOpen ? 'Réduire' : this.getAttribute('data-expand');
+                const isEn = document.documentElement.lang === 'en';
+                this.textContent = isOpen ? (isEn ? 'Show less' : 'Réduire') : this.getAttribute('data-expand');
             }
         });
     });

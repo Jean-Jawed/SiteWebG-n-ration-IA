@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <title>Energy — Génération-IA</title>
+    <meta name="description"
+        content="The environmental impact of artificial intelligence: training consumption, per-request energy, data-center water use, comparisons with other sectors, and solutions for a more sustainable AI.">
+    <link rel="canonical" href="https://xn--gnration-ia-bbbb.fr/en/energie.html">
+    <link rel="alternate" hreflang="fr" href="https://xn--gnration-ia-bbbb.fr/energie.html">
+    <link rel="alternate" hreflang="en" href="https://xn--gnration-ia-bbbb.fr/en/energie.html">
+    <link rel="alternate" hreflang="x-default" href="https://xn--gnration-ia-bbbb.fr/energie.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.css">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../energie.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+
+<body>
+    <!-- Background animation -->
+    <div id="particles-js"></div>
+
+    <!-- Header -->
+    <site-header></site-header>
+
+    <main>
+        <br><br><br><br><br><br><br><br><br>
+        <section class="page-hero">
+            <div class="container">
+                <h1>ENER<span class="blink">G</span>Y</h1>
+                <p class="subtitle">The environmental impact of artificial intelligence</p>
+                <div class="hero-visual">
+                    <div class="energy-pulse"></div>
+                    <div class="stats-preview">
+                        <div class="preview-stat">
+                            <div class="preview-number" data-target="1750">0</div>
+                            <div class="preview-label">MWh for GPT-4</div>
+                        </div>
+                        <div class="preview-stat">
+                            <div class="preview-number" data-target="502">0</div>
+                            <div class="preview-label">Tonnes of CO2</div>
+                        </div>
+                        <div class="preview-stat">
+                            <div class="preview-number" data-target="519">0</div>
+                            <div class="preview-label">ml water/request</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br><br><br><br><br>
+        <section class="energy-content">
+            <div class="container">
+                <!-- Quick navigation -->
+                <div class="quick-nav">
+                    <a href="#training" class="nav-button"><i class="fas fa-graduation-cap"></i> Training</a>
+                    <a href="#inference" class="nav-button"><i class="fas fa-lightning"></i> Inference</a>
+                    <a href="#comparison" class="nav-button"><i class="fas fa-chart-bar"></i> Comparisons</a>
+                    <a href="#solutions" class="nav-button"><i class="fas fa-leaf"></i> Solutions</a>
+                </div>
+
+                <!-- Introduction -->
+                <div class="intro-section">
+                    <div class="section-header" onclick="toggleSection('intro')">
+                        <h2><i class="fas fa-lightbulb"></i> Understanding the environmental impact</h2>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="section-content" id="intro">
+                        <div class="impact-flow">
+                            <div class="flow-step">
+                                <div class="step-icon"><i class="fas fa-brain"></i></div>
+                                <h3>Training</h3>
+                                <p>Initial training of the model over months</p>
+                                <div class="step-metric">1,750 MWh for GPT-4</div>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-step">
+                                <div class="step-icon"><i class="fas fa-server"></i></div>
+                                <h3>Deployment</h3>
+                                <p>Hosting in data centers</p>
+                                <div class="step-metric">24/7 cooling</div>
+                            </div>
+                            <div class="flow-arrow">→</div>
+                            <div class="flow-step">
+                                <div class="step-icon"><i class="fas fa-user"></i></div>
+                                <h3>Usage</h3>
+                                <p>Every request consumes energy</p>
+                                <div class="step-metric">0.3-0.5 Wh/request</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Training phase -->
+                <section id="training" class="training-section">
+                    <div class="section-header" onclick="toggleSection('training-content')">
+                        <h2><i class="fas fa-graduation-cap"></i> The training phase</h2>
+                        <span class="toggle-icon">-</span>
+                    </div>
+                    <div class="section-content expanded" id="training-content">
+                        <div class="energy-stats">
+                            <div class="stat-card glow-effect">
+                                <div class="card-icon"><i class="fas fa-bolt"></i></div>
+                                <h3>GPT-4</h3>
+                                <div class="stat-value animate-number" data-target="1750">0</div>
+                                <div class="stat-unit">MWh</div>
+                                <div class="stat-label">Equivalent to 160 US households/year</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+
+                            <div class="stat-card glow-effect">
+                                <div class="card-icon"><i class="fas fa-leaf"></i></div>
+                                <h3>GPT-3</h3>
+                                <div class="stat-value animate-number" data-target="1287">0</div>
+                                <div class="stat-unit">MWh</div>
+                                <div class="stat-label">502 tonnes of CO2 emitted</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 70%"></div>
+                                </div>
+                            </div>
+
+                            <div class="stat-card glow-effect">
+                                <div class="card-icon"><i class="fas fa-microchip"></i></div>
+                                <h3>Claude 3</h3>
+                                <div class="stat-value animate-number" data-target="640">0</div>
+                                <div class="stat-unit">MWh*</div>
+                                <div class="stat-label">Estimate based on size</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 45%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Comparison chart -->
+                        <div class="chart-container">
+                            <h3><i class="fas fa-chart-line"></i> Training consumption over time</h3>
+                            <canvas id="trainingChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Inference phase -->
+                <section id="inference" class="inference-section">
+                    <div class="section-header" onclick="toggleSection('inference-content')">
+                        <h2><i class="fas fa-lightning"></i> Per-request consumption</h2>
+                        <span class="toggle-icon">-</span>
+                    </div>
+                    <div class="section-content expanded" id="inference-content">
+                        <div class="inference-grid">
+                            <div class="inference-card modern-card">
+                                <div class="card-header">
+                                    <h3>GPT-4o</h3>
+                                    <span class="efficiency-badge best">Optimized 2024</span>
+                                </div>
+                                <div class="energy-display">
+                                    <span class="energy-number">0.3</span>
+                                    <span class="energy-unit">Wh</span>
+                                </div>
+                                <div class="comparison-text">10x more efficient than in 2023</div>
+                                <div class="visual-comparison">
+                                    <div class="comparison-bar" style="width: 30%"></div>
+                                </div>
+                            </div>
+
+                            <div class="inference-card modern-card">
+                                <div class="card-header">
+                                    <h3>GPT-4</h3>
+                                    <span class="efficiency-badge good">Standard</span>
+                                </div>
+                                <div class="energy-display">
+                                    <span class="energy-number">0.5</span>
+                                    <span class="energy-unit">Wh</span>
+                                </div>
+                                <div class="comparison-text">3 minutes of LED lighting</div>
+                                <div class="visual-comparison">
+                                    <div class="comparison-bar" style="width: 50%"></div>
+                                </div>
+                            </div>
+
+                            <div class="inference-card modern-card">
+                                <div class="card-header">
+                                    <h3>Google search</h3>
+                                    <span class="efficiency-badge reference">Reference</span>
+                                </div>
+                                <div class="energy-display">
+                                    <span class="energy-number">0.3</span>
+                                    <span class="energy-unit">Wh</span>
+                                </div>
+                                <div class="comparison-text">For comparison</div>
+                                <div class="visual-comparison">
+                                    <div class="comparison-bar reference-bar" style="width: 30%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Interactive simulator -->
+                        <div class="simulator-container">
+                            <h3><i class="fas fa-calculator"></i> Consumption simulator</h3>
+                            <div class="simulator">
+                                <div class="input-group">
+                                    <label>Number of requests per day:</label>
+                                    <input type="range" id="requestsSlider" min="1" max="100" value="10">
+                                    <span id="requestsValue">10</span>
+                                </div>
+                                <div class="results-grid">
+                                    <div class="result-item">
+                                        <span class="result-label">Daily consumption</span>
+                                        <span class="result-value" id="dailyConsumption">5 Wh</span>
+                                    </div>
+                                    <div class="result-item">
+                                        <span class="result-label">CO2 equivalent</span>
+                                        <span class="result-value" id="co2Equivalent">0.002 kg</span>
+                                    </div>
+                                    <div class="result-item">
+                                        <span class="result-label">Annual energy cost</span>
+                                        <span class="result-value" id="annualCost">€0.30</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Water consumption -->
+                <section class="water-section">
+                    <div class="section-header" onclick="toggleSection('water-content')">
+                        <h2><i class="fas fa-tint"></i> The water footprint of data centers</h2>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="section-content" id="water-content">
+                        <div class="water-stats">
+                            <div class="water-visual">
+                                <div class="water-drop">
+                                    <div class="drop-content">
+                                        <span class="drop-number">519</span>
+                                        <span class="drop-unit">ml</span>
+                                    </div>
+                                    <div class="drop-label">Per 100-word email (GPT-4)</div>
+                                </div>
+                            </div>
+
+                            <div class="datacenter-comparison">
+                                <div class="dc-item">
+                                    <div class="dc-icon"><i class="fas fa-building"></i></div>
+                                    <h4>Average data center</h4>
+                                    <div class="dc-stat">300k gallons/day</div>
+                                    <div class="dc-equiv">= 100k households</div>
+                                </div>
+                                <div class="dc-item">
+                                    <div class="dc-icon"><i class="fas fa-city"></i></div>
+                                    <h4>Hyperscale (Google)</h4>
+                                    <div class="dc-stat">550k gallons/day</div>
+                                    <div class="dc-equiv">= a 10-50k inhabitant town</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="water-chart-container">
+                            <canvas id="waterChart"></canvas>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Sector comparisons -->
+                <section id="comparison" class="comparison-section">
+                    <div class="section-header" onclick="toggleSection('comparison-content')">
+                        <h2><i class="fas fa-chart-bar"></i> Putting things in perspective</h2>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="section-content" id="comparison-content">
+                        <div class="sector-grid">
+                            <div class="sector-card" data-impact="100">
+                                <div class="sector-icon beef"><i class="fas fa-cow"></i></div>
+                                <h3>Beef production</h3>
+                                <div class="impact-value">1,440 TWh/year</div>
+                                <div class="impact-percent">5% of world electricity</div>
+                                <div class="impact-bar">
+                                    <div class="impact-fill" style="width: 100%"></div>
+                                </div>
+                            </div>
+
+                            <div class="sector-card" data-impact="60">
+                                <div class="sector-icon aviation"><i class="fas fa-plane"></i></div>
+                                <h3>Aviation</h3>
+                                <div class="impact-value">2.5% of global</div>
+                                <div class="impact-percent">emissions</div>
+                                <div class="impact-bar">
+                                    <div class="impact-fill" style="width: 60%"></div>
+                                </div>
+                            </div>
+
+                            <div class="sector-card" data-impact="20">
+                                <div class="sector-icon datacenter"><i class="fas fa-server"></i></div>
+                                <h3>Data centers</h3>
+                                <div class="impact-value">3.7% of global</div>
+                                <div class="impact-percent">emissions</div>
+                                <div class="impact-bar">
+                                    <div class="impact-fill" style="width: 20%"></div>
+                                </div>
+                            </div>
+
+                            <div class="sector-card" data-impact="5">
+                                <div class="sector-icon ai"><i class="fas fa-brain"></i></div>
+                                <h3>Generative AI</h3>
+                                <div class="impact-value">228 GWh/year</div>
+                                <div class="impact-percent">0.0008% of the world</div>
+                                <div class="impact-bar">
+                                    <div class="impact-fill ai-fill" style="width: 5%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Detailed model ranking -->
+                <div class="models-ranking">
+                    <h2><i class="fas fa-trophy"></i> Detailed model ranking</h2>
+                    <div class="table-container">
+                        <table class="ranking-table modern-table">
+                            <thead>
+                                <tr>
+                                    <th><i class="fas fa-medal"></i></th>
+                                    <th>Model</th>
+                                    <th><i class="fas fa-bolt"></i> Training</th>
+                                    <th><i class="fas fa-chart-line"></i> Yearly usage</th>
+                                    <th><i class="fas fa-tint"></i> Water/request</th>
+                                    <th><i class="fas fa-leaf"></i> CO2</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="rank-1">
+                                    <td class="rank"><span class="medal gold">1</span></td>
+                                    <td class="model-name">
+                                        <div class="model-info">
+                                            <span class="model-title">GPT-4</span>
+                                            <span class="model-company">OpenAI</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="energy-value">1,750 MWh</span></td>
+                                    <td><span class="usage-value">391-463 GWh</span></td>
+                                    <td><span class="water-value">0.5 ml</span></td>
+                                    <td><span class="co2-value">550 t</span></td>
+                                </tr>
+                                <tr class="rank-2">
+                                    <td class="rank"><span class="medal silver">2</span></td>
+                                    <td class="model-name">
+                                        <div class="model-info">
+                                            <span class="model-title">GPT-3</span>
+                                            <span class="model-company">OpenAI</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="energy-value">1,287 MWh</span></td>
+                                    <td><span class="usage-value">227 GWh</span></td>
+                                    <td><span class="water-value">0.05 ml</span></td>
+                                    <td><span class="co2-value">502 t</span></td>
+                                </tr>
+                                <tr class="rank-3">
+                                    <td class="rank"><span class="medal bronze">3</span></td>
+                                    <td class="model-name">
+                                        <div class="model-info">
+                                            <span class="model-title">Claude 3</span>
+                                            <span class="model-company">Anthropic</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="energy-value">~640 MWh*</span></td>
+                                    <td><span class="usage-value">Not disclosed</span></td>
+                                    <td><span class="water-value">N/A</span></td>
+                                    <td><span class="co2-value">~200 t*</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="rank"><span class="rank-number">4</span></td>
+                                    <td class="model-name">
+                                        <div class="model-info">
+                                            <span class="model-title">Gemini</span>
+                                            <span class="model-company">Google</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="energy-value">~750 MWh</span></td>
+                                    <td><span class="usage-value">Not disclosed</span></td>
+                                    <td><span class="water-value">N/A</span></td>
+                                    <td><span class="co2-value">~250 t</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="rank"><span class="rank-number">5</span></td>
+                                    <td class="model-name">
+                                        <div class="model-info">
+                                            <span class="model-title">LLaMA 2</span>
+                                            <span class="model-company">Meta</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="energy-value">449 MWh</span></td>
+                                    <td><span class="usage-value">Limited</span></td>
+                                    <td><span class="water-value">Variable</span></td>
+                                    <td><span class="co2-value">180 t</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p class="table-note">* Estimates based on comparative data</p>
+                    </div>
+                </div>
+
+                <!-- Solutions -->
+                <section id="solutions" class="solutions-section">
+                    <div class="section-header" onclick="toggleSection('solutions-content')">
+                        <h2><i class="fas fa-leaf"></i> Solutions and innovations</h2>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="section-content" id="solutions-content">
+                        <div class="solutions-tabs">
+                            <div class="tab-buttons">
+                                <button class="tab-btn active" data-tab="optimization">
+                                    <i class="fas fa-microchip"></i> Optimization
+                                </button>
+                                <button class="tab-btn" data-tab="infrastructure">
+                                    <i class="fas fa-solar-panel"></i> Infrastructure
+                                </button>
+                                <button class="tab-btn" data-tab="practices">
+                                    <i class="fas fa-users"></i> Practices
+                                </button>
+                            </div>
+
+                            <div class="tab-content active" id="optimization">
+                                <div class="solution-grid">
+                                    <div class="solution-item">
+                                        <div class="solution-icon"><i class="fas fa-compress-arrows-alt"></i></div>
+                                        <h4>Specialized models</h4>
+                                        <p>Targeted AIs 10x more efficient than generalist models</p>
+                                        <div class="efficiency-gain">+90% efficiency</div>
+                                    </div>
+                                    <div class="solution-item">
+                                        <div class="solution-icon"><i class="fas fa-filter"></i></div>
+                                        <h4>Distillation</h4>
+                                        <p>Size reduction while keeping performance</p>
+                                        <div class="efficiency-gain">-90% size</div>
+                                    </div>
+                                    <div class="solution-item">
+                                        <div class="solution-icon"><i class="fas fa-network-wired"></i></div>
+                                        <h4>Sparse architecture</h4>
+                                        <p>MoE models activating only part of their parameters</p>
+                                        <div class="efficiency-gain">-1000% energy</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-content" id="infrastructure">
+                                <div class="solution-grid">
+                                    <div class="solution-item breakthrough">
+                                        <div class="solution-icon"><i class="fas fa-snowflake"></i></div>
+                                        <h4>Zero-evaporation cooling</h4>
+                                        <p>Microsoft: data centers with no water evaporation since August 2024</p>
+                                        <div class="efficiency-gain">125M liters saved/year</div>
+                                    </div>
+                                    <div class="solution-item">
+                                        <div class="solution-icon"><i class="fas fa-wind"></i></div>
+                                        <h4>Renewable energy</h4>
+                                        <p>Google and Microsoft aim for 100% renewable by 2030</p>
+                                        <div class="efficiency-gain">-80% CO2</div>
+                                    </div>
+                                    <div class="solution-item">
+                                        <div class="solution-icon"><i class="fas fa-thermometer-half"></i></div>
+                                        <h4>Optimal siting</h4>
+                                        <p>Data centers in cold regions</p>
+                                        <div class="efficiency-gain">-40% cooling</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-content" id="practices">
+                                <div class="practices-grid">
+                                    <div class="practice-card">
+                                        <h4><i class="fas fa-lightbulb"></i> Smart usage</h4>
+                                        <ul>
+                                            <li>Writing precise prompts</li>
+                                            <li>Reusing answers</li>
+                                            <li>Choosing the right-sized model</li>
+                                        </ul>
+                                        <div class="impact-reduction">-60% requests</div>
+                                    </div>
+                                    <div class="practice-card">
+                                        <h4><i class="fas fa-clock"></i> Optimal timing</h4>
+                                        <ul>
+                                            <li>Using off-peak hours</li>
+                                            <li>Scheduling training runs</li>
+                                            <li>Geographic location</li>
+                                        </ul>
+                                        <div class="impact-reduction">-30% emissions</div>
+                                    </div>
+                                    <div class="practice-card">
+                                        <h4><i class="fas fa-share-alt"></i> Sharing</h4>
+                                        <ul>
+                                            <li>Sharing pre-trained models</li>
+                                            <li>Reusing data</li>
+                                            <li>Research collaboration</li>
+                                        </ul>
+                                        <div class="impact-reduction">-70% redundancy</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Future projections -->
+                <div class="future-section">
+                    <h2><i class="fas fa-rocket"></i> Horizon 2030</h2>
+                    <div class="timeline-container">
+                        <div class="timeline">
+                            <div class="timeline-item active">
+                                <div class="timeline-year">2024</div>
+                                <div class="timeline-content">
+                                    <h4>Current state</h4>
+                                    <p>228 GWh/year for generative AI</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2027</div>
+                                <div class="timeline-content">
+                                    <h4>AI expansion</h4>
+                                    <p>85-134 TWh/year projected (3-5x Ireland)</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-year">2030</div>
+                                <div class="timeline-content">
+                                    <h4>Sustainability targets</h4>
+                                    <p>100% renewable energy (Microsoft/Google)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Resources -->
+                <div class="resources-section">
+                    <h2><i class="fas fa-tools"></i> Tools and resources</h2>
+                    <div class="resources-grid">
+                        <div class="resource-card featured">
+                            <div class="resource-icon"><i class="fas fa-chart-line"></i></div>
+                            <h3>AI Index Report</h3>
+                            <p>Stanford's report with up-to-date environmental data</p>
+                            <a href="https://aiindex.stanford.edu" target="_blank" rel="noopener" class="resource-link">
+                                Read it <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        <div class="resource-card">
+                            <div class="resource-icon"><i class="fas fa-calculator"></i></div>
+                            <h3>Green Algorithms</h3>
+                            <p>A carbon footprint calculator for your training runs</p>
+                            <a href="https://green-algorithms.org" target="_blank" rel="noopener" class="resource-link">
+                                Calculate <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        <div class="resource-card">
+                            <div class="resource-icon"><i class="fas fa-code"></i></div>
+                            <h3>Code Carbon</h3>
+                            <p>A Python package that tracks your emissions automatically</p>
+                            <a href="https://codecarbon.io" target="_blank" rel="noopener" class="resource-link">
+                                Install <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                        <div class="resource-card">
+                            <div class="resource-icon"><i class="fas fa-flask"></i></div>
+                            <h3>ML CO2 Impact</h3>
+                            <p>Real-time measurement of your models' impact</p>
+                            <a href="https://mlco2.github.io/impact" target="_blank" rel="noopener"
+                                class="resource-link">
+                                Measure <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to action -->
+                <div class="cta-section">
+                    <div class="cta-content">
+                        <h2>Let's act together for a responsible AI</h2>
+                        <p>Every request counts. Let's adopt sustainable practices today.</p>
+                        <div class="cta-buttons">
+                            <a href="#solutions" class="cta-btn primary">
+                                <i class="fas fa-leaf"></i> Discover the solutions
+                            </a>
+                            <a href="https://green-algorithms.org" target="_blank" class="cta-btn secondary">
+                                <i class="fas fa-calculator"></i> Calculate my impact
+                            </a>
+                        </div>
+                    </div>
+                    <div class="cta-visual">
+                        <div class="earth-icon">🌍</div>
+                        <div class="orbit-ring"></div>
+                        <div class="orbit-ring delay-1"></div>
+                        <div class="orbit-ring delay-2"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <site-footer></site-footer>
+
+    <!-- Scripts -->
+    <script src="../components.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="../script.js"></script>
+    <script src="../energie.js"></script>
+    <script
+        src="https://websites-monitoring.vercel.app/tracking.js?siteId=génération-ia&key=ac5f777f63c2dd5795c39e0b5034eeed68659c292c2fe7aaa18a1b02ac3482f3"></script>
+</body>
+
+</html>

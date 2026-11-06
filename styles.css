@@ -1659,3 +1659,106 @@ footer a:hover {
         margin-bottom: 20px;
     }
 }
+
+/* =========================================================
+   Barre latérale pliable (desktop >=1100px)
+   ========================================================= */
+:root { --snav-w-collapsed: 68px; }
+
+.snav-collapse { display: none; }
+
+@media (min-width: 1100px) {
+    body { transition: padding-left .35s var(--snav-ease); }
+
+    .snav { transition: width .35s var(--snav-ease); }
+
+    body.snav-collapsed { padding-left: var(--snav-w-collapsed); }
+
+    body.snav-collapsed .snav { width: var(--snav-w-collapsed); }
+
+    .snav-collapse {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 50%;
+        left: calc(var(--snav-w) - 14px);
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: #0d0c0a;
+        border: 1px solid rgba(var(--primary-rgb), .4);
+        color: var(--ui-cyan);
+        font-size: .7rem;
+        cursor: pointer;
+        transform: translateY(-50%);
+        z-index: 1003;
+        transition: left .35s var(--snav-ease), border-color .25s ease, color .25s ease;
+    }
+
+    body.snav-collapsed .snav-collapse { left: calc(var(--snav-w-collapsed) - 14px); }
+
+    .snav-collapse:hover {
+        border-color: var(--primary);
+        color: var(--light);
+    }
+
+    .snav-collapse i {
+        transition: transform .35s var(--snav-ease);
+    }
+
+    body.snav-collapsed .snav-collapse i { transform: rotate(180deg); }
+
+    .snav-collapse:focus-visible {
+        outline: 2px solid var(--primary);
+        outline-offset: 2px;
+    }
+
+    /* Contenu en mode réduit : icônes seules */
+    body.snav-collapsed .snav { padding: 30px 12px 20px; }
+
+    body.snav-collapsed .snav-head {
+        padding: 0 0 18px;
+        margin-bottom: 14px;
+    }
+
+    body.snav-collapsed .snav-logo .logo-full { display: none; }
+
+    body.snav-collapsed .snav-logo { font-size: .95rem; letter-spacing: 0; }
+
+    body.snav-collapsed .snav-tagline { display: none; }
+
+    body.snav-collapsed .snav-label { display: none; }
+
+    body.snav-collapsed .snav-group + .snav-group { margin-top: 16px; }
+
+    body.snav-collapsed .snav a:not(.logo) {
+        justify-content: center;
+        padding: 9px 0;
+    }
+
+    body.snav-collapsed .snav a:not(.logo):hover { transform: none; }
+
+    body.snav-collapsed .snav-num,
+    body.snav-collapsed .snav-text { display: none; }
+
+    body.snav-collapsed .snav-icon {
+        position: static;
+        opacity: .75;
+        transform: none;
+    }
+
+    body.snav-collapsed .snav a.is-active::before { display: none; }
+
+    body.snav-collapsed .snav-foot {
+        justify-content: center;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    body.snav-collapsed .snav-foot .snav-foot-link { display: none; }
+}
+
+/* =========================================================
+   Fin barre latérale pliable
+   ========================================================= */

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>IA et modèles : les grandes IA et ce qu'il y a derrière — Génération-IA.fr</title>
+    <meta name="description"
+        content="Toutes les grandes interfaces IA (ChatGPT, Claude, Gemini, Mistral, DeepSeek…) et le schéma clair du lien entre modèle, interface et données : qui fait tourner le modèle décide où vont vos échanges.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="ia-modeles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+
+<body>
+    <!-- Animation de fond -->
+    <div id="particles-js"></div>
+
+    <!-- Header -->
+    <site-header></site-header>
+
+    <!-- Contenu principal -->
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>IA <span class="highlight">ET</span> MODÈLES</h1>
+                <p class="subtitle">Toutes les interfaces IA — et ce qu'il y a vraiment derrière</p>
+            </div>
+        </section>
+
+        <!-- PARTIE 1 : les interfaces IA (ancienne page d'accueil) -->
+        <section class="aim-grid">
+            <div class="container">
+                <h2>Les principales IA génératives</h2>
+                <div class="grid">
+
+                    <div class="ai-card">
+                        <img src="images/openai_logo.png" alt="ChatGPT">
+                        <div class="ai-card-content">
+                            <h3>ChatGPT</h3>
+                            <p>Modèle de langage avancé développé par OpenAI</p>
+                            <a href="https://chat.openai.com" target="_blank" rel="noopener">Visiter</a>
+                        </div>
+                    </div>
+                    <div class="ai-card">
+                        <img src="images/claude_logo.png" alt="Claude">
+                        <div class="ai-card-content">
+                            <h3>Claude</h3>
+                            <p>IA conversationnelle développée par Anthropic</p>
+                            <a href="https://claude.ai" target="_blank" rel="noopener">Visiter</a>
+                        </div>
+                    </div>
+                    <div class="ai-card">
+                        <img src="images/gemini_logo.svg" alt="Gemini">
+                        <div class="ai-card-content">
+                            <h3>Gemini</h3>
+                            <p>Modèle multimodal développé par Google DeepMind</p>
+                            <a href="https://gemini.google.com" target="_blank" rel="noopener">Visiter</a>
+                        </div>
+                    </div>
+                    <div class="ai-card">
+                        <img src="images/mistral_logo.png" alt="Mistral">
+                        <div class="ai-card-content">
+                            <h3>Mistral</h3>
+                            <p>IA française créée en 2023. Modèles open-source performants</p>
+                            <a href="https://chat.mistral.ai/chat" target="_blank" rel="noopener">Visiter</a>
+                        </div>
+                    </div>
+                    <div class="ai-card">
+                        <img src="images/deepseek_logo.svg" alt="DeepSeek">
+                        <div class="ai-card-content">
+                            <h3>DeepSeek</h3>
+                            <p>Modèle chinois performant spécialisé dans la recherche d'information</p>
+                            <a href="https://www.deepseek.com/en" target="_blank" rel="noopener">Visiter</a>
+                        </div>
+                    </div>
+                    <div class="ai-card">
+                        <img src="images/meta_logo.jpg" alt="Meta AI">
+                        <div class="ai-card-content">
+                            <h3>Meta AI</h3>
+                            <p>IA basée sur les modèles de Meta : Llama, puis Muse Spark</p>
+                            <a href="https://www.meta.ai/" target="_blank" rel="noopener">Visiter</a>
+                        </div>
+                    </div>
+                    <div class="ai-card">
+                        <img src="images/perplexity_logo.svg" alt="Perplexity">
+                        <div class="ai-card-content">
+                            <h3>Perplexity</h3>
+                            <p>IA de recherche avec citations des sources</p>
+                            <a href="https://www.perplexity.ai" target="_blank" rel="noopener">Visiter</a>
+                        </div>
+                    </div>
+                    <div class="ai-card">
+                        <img src="images/venice_logo.png" alt="Venice">
+                        <div class="ai-card-content">
+                            <h3>Venice</h3>
+                            <p>L'IA révolutionnaire libre, privée, sécurisée et sans aucune censure</p>
+                            <a href="https://venice.ai/" target="_blank" rel="noopener">Visiter</a>
+                        </div>
+                    </div>
+                    <div class="ai-card">
+                        <img src="images/grok_logo.jpg" alt="Grok">
+                        <div class="ai-card-content">
+                            <h3>Grok</h3>
+                            <p>IA de recherche avancée développée par xAI (anciennement Twitter)</p>
+                            <a href="https://grok.com/" target="_blank" rel="noopener">Visiter</a>
+                        </div>
+                    </div>
+                    <div class="ai-card">
+                        <img src="images/kimi_logo.jpg" alt="Kimi">
+                        <div class="ai-card-content">
+                            <h3>Kimi</h3>
+                            <p>Assistant conversationnel chinois</p>
+                            <a href="https://kimi.moonshot.cn" target="_blank" rel="noopener">Visiter</a>
+                        </div>
+                    </div>
+                    <div class="ai-card">
+                        <img src="images/qwen_logo.svg" alt="Qwen">
+                        <div class="ai-card-content">
+                            <h3>Qwen</h3>
+                            <p>Modèles open-source d'Alibaba Cloud</p>
+                            <a href="https://chat.qwen.ai/" target="_blank" rel="noopener">Visiter</a>
+                        </div>
+                    </div>
+                    <div class="ai-card">
+                        <img src="images/copilot_logo.webp" alt="Copilot">
+                        <div class="ai-card-content">
+                            <h3>Microsoft Copilot</h3>
+                            <p>IA de Microsoft basée sur les modèles GPT. Omniprésente dans les outils Windows</p>
+                            <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener">Visiter</a>
+                        </div>
+                    </div>
+                    <div class="ai-card">
+                        <img src="images/poe_logo.png" alt="Poe">
+                        <div class="ai-card-content">
+                            <h3>Poe</h3>
+                            <p>Plateforme permettant d'accéder à divers modèles d'IA et d'utiliser de nombreux bots
+                                spécifiques</p>
+                            <a href="https://poe.com/" target="_blank" rel="noopener">Visiter</a>
+                        </div>
+                    </div>
+                    <div class="ai-card">
+                        <img src="images/yiaho_logo.jpg" alt="Yiaho">
+                        <div class="ai-card-content">
+                            <h3>Yiaho</h3>
+                            <p>Le site français pour l'IA gratuite et illimitée</p>
+                            <a href="https://www.yiaho.com/" target="_blank" rel="noopener">Visiter</a>
+                        </div>
+                    </div>
+                    <div class="ai-card">
+                        <img src="images/pi_logo.webp" alt="Pi">
+                        <div class="ai-card-content">
+                            <h3>Pi</h3>
+                            <p>IA conversationnelle personnelle, empathique et toujours disponible, conçue pour offrir
+                                soutien, conseils et échanges chaleureux</p>
+                            <a href="https://pi.ai/" target="_blank" rel="noopener">Visiter</a>
+                        </div>
+                    </div>
+                    <div class="ai-card">
+                        <img src="images/komo_logo.png" alt="Komo">
+                        <div class="ai-card-content">
+                            <h3>Komo</h3>
+                            <p>Un moteur de recherche alimenté par l'IA, sans publicité, permettant d'explorer des
+                                sujets</p>
+                            <a href="https://komo.ai/" target="_blank" rel="noopener">Visiter</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARTIE 2 : modèle, interface — le grand schéma -->
+        <section class="schema-intro" id="schema">
+            <div class="container">
+                <h2>Un modèle, une IA : de quoi parle-t-on ?</h2>
+                <p class="schema-lead">
+                    On confond souvent « une IA » et « un modèle ». En réalité, ce qu'on appelle
+                    couramment une IA — ChatGPT, Le Chat, Perplexity — est une <strong>interface</strong>.
+                    Derrière, tourne un ou plusieurs <strong>modèles</strong>. Le schéma ci-dessous
+                    montre qui fait quoi dans tout le paysage.
+                </p>
+
+                <div class="concepts">
+                    <article class="concept-card">
+                        <div class="concept-icon"><i class="fa-solid fa-microchip" aria-hidden="true"></i></div>
+                        <h3>Le modèle</h3>
+                        <p>C'est <strong>le moteur</strong>, ce qui « pense ». Un réseau de neurones géant
+                            entraîné sur d'immenses corpus de textes et de données. Un modèle est un fichier
+                            de poids — quelques gigaoctets à plusieurs centaines. S'il est
+                            <em>ouvert</em>, on peut le télécharger et le faire tourner soi-même&nbsp;;
+                            s'il est <em>fermé</em>, seul son éditeur peut l'exécuter.</p>
+                    </article>
+                    <article class="concept-card">
+                        <div class="concept-icon"><i class="fa-solid fa-window-restore" aria-hidden="true"></i></div>
+                        <h3>L'interface</h3>
+                        <p>C'est <strong>ce que vous voyez</strong> : le chat, la barre de recherche,
+                            l'assistant vocal. Une IA au sens courant, c'est presque toujours une interface
+                            qui dialogue avec un ou plusieurs modèles — les siens, ou ceux des autres.</p>
+                    </article>
+                    <article class="concept-card">
+                        <div class="concept-icon"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></div>
+                        <h3>Le lien entre les deux</h3>
+                        <p>Certains éditeurs font tout : leur modèle, leur interface (OpenAI, Anthropic,
+                            Mistral, DeepSeek). D'autres ne font qu'<strong>assembler</strong> :
+                            une interface élégante branchée sur les modèles des autres
+                            (Perplexity, Venice, Poe). Et un même modèle peut alimenter
+                            plusieurs interfaces concurrentes.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="schema-diagram">
+            <div class="container">
+                <h2>Qui fait quoi : le grand schéma</h2>
+                <p class="schema-lead">
+                    Les modèles en haut, les interfaces en bas, une flèche pour chaque lien.
+                    <strong>Flèches pleines</strong> : le moteur maison. <strong>Flèches pointillées
+                    dorées</strong> : un modèle tiers invité. Comptez les flèches qui entrent chez
+                    Perplexity ou Venice : c'est cela, un agrégateur.
+                </p>
+
+                <div class="diagram-wrap">
+                    <svg id="ia-diagram" viewBox="0 0 1240 1000" role="img"
+                        aria-label="Schéma du paysage IA : en haut les modèles ouverts et fermés, en bas les quatre types d'interfaces, reliés par des flèches"></svg>
+                </div>
+
+                <ul class="dg-legend">
+                    <li><span class="dg-line dg-line-solid"></span> Le modèle maison alimente sa propre
+                        interface</li>
+                    <li><span class="dg-line dg-line-dashed"></span> L'interface utilise un modèle tiers</li>
+                    <li><span class="dg-line dg-line-dotted"></span> Les modèles ouverts, téléchargeables
+                        par tous</li>
+                    <li><span class="dg-chip-sample dg-sample-open"></span> Modèle ouvert (poids
+                        téléchargeables)</li>
+                    <li><span class="dg-chip-sample dg-sample-closed"></span> Modèle fermé</li>
+                </ul>
+                <p class="legend-date">État du paysage au 3 novembre 2026 — les statuts ouverts/fermés
+                    dérivent vite : ils sont datés.</p>
+            </div>
+        </section>
+
+        <section class="schema-archetypes">
+            <div class="container">
+                <h2>Ouvert ou fermé : quatre philosophies</h2>
+                <p class="schema-lead">Peu d'entreprises publient tout ou rien. Les catalogues sont
+                    mélangés — la vraie question est <em>quelle partie</em> de la maison reste derrière
+                    la porte.</p>
+                <div class="archetype-grid">
+                    <article class="archetype-card">
+                        <span class="arch-tag">1</span>
+                        <h3>Ouvert par principe</h3>
+                        <p>Même le modèle phare est publié. Ses poids alimentent directement les
+                            autres interfaces.</p>
+                        <div class="arch-logos">
+                            <img src="images/deepseek_logo.svg" alt="DeepSeek">
+                            <img src="images/kimi_logo.jpg" alt="Moonshot">
+                            <img src="images/zai_logo.png" alt="Z.ai">
+                        </div>
+                    </article>
+                    <article class="archetype-card">
+                        <span class="arch-tag">2</span>
+                        <h3>Open core à paliers</h3>
+                        <p>Cœur ouvert (Apache 2.0), paliers commerciaux au-dessus d'un seuil de
+                            revenus.</p>
+                        <div class="arch-logos">
+                            <img src="images/mistral_logo.png" alt="Mistral AI">
+                        </div>
+                    </article>
+                    <article class="archetype-card">
+                        <span class="arch-tag">3</span>
+                        <h3>Fermé au sommet, ouvert en aval</h3>
+                        <p>La frontière reste fermée, les lignes de diffusion sont ouvertes — pour inonder
+                            l'écosystème sans livrer le phare.</p>
+                        <div class="arch-logos">
+                            <img src="images/gemini_logo.svg" alt="Google">
+                            <img src="images/meta_logo.jpg" alt="Meta">
+                            <img src="images/qwen_logo.svg" alt="Alibaba">
+                            <img src="images/grok_logo.jpg" alt="xAI">
+                        </div>
+                    </article>
+                    <article class="archetype-card">
+                        <span class="arch-tag">4</span>
+                        <h3>Fermé</h3>
+                        <p>Aucun poids téléchargeable aujourd'hui : les modèles ne tournent que sur les
+                            serveurs de l'éditeur.</p>
+                        <div class="arch-logos">
+                            <img src="images/openai_logo.png" alt="OpenAI">
+                            <img src="images/claude_logo.png" alt="Anthropic">
+                        </div>
+                    </article>
+                </div>
+                <p class="arch-note">Le statut d'un modèle est un fait daté : Mistral a ouvert son
+                    Medium, Alibaba a refermé son Max, xAI a refermé après Grok-1.</p>
+            </div>
+        </section>
+
+        <section class="schema-agregateurs">
+            <div class="container">
+                <h2>Zoom : Perplexity et Venice</h2>
+                <div class="agreg-grid">
+                    <article class="agreg-card">
+                        <div class="agreg-head">
+                            <img src="images/perplexity_logo.svg" alt="Perplexity">
+                            <h3>Perplexity</h3>
+                        </div>
+                        <p>Moteur de recherche augmenté. Son modèle Sonar (dérivé de Llama) cohabite avec
+                            GPT, Claude, Gemini, Grok et Kimi : le schéma ci-dessus montre les six flèches
+                            qui entrent.</p>
+                    </article>
+                    <article class="agreg-card">
+                        <div class="agreg-head">
+                            <img src="images/venice_logo.png" alt="Venice">
+                            <h3>Venice</h3>
+                        </div>
+                        <p>Aucun modèle maison : Venice route les modèles ouverts sur des GPU
+                            décentralisés, avec <strong>zéro rétention</strong> — rien n'est stocké
+                            sur leurs serveurs.</p>
+                    </article>
+                </div>
+                <div class="golden-rule">
+                    <p><strong>La règle à retenir :</strong> vos données restent là où tourne le modèle.
+                        Choisir une IA, c'est choisir <em>qui fait tourner le modèle</em> —
+                        l'apparence de l'interface ne dit rien de cette destination.</p>
+                </div>
+                <p class="schema-source">Sources et détail par acteur : synthèse structurelle
+                    « Modèles, interfaces, données », novembre 2026. Pour les écosystèmes nationaux hors
+                    États-Unis et Chine, rendez-vous sur la future page « Carte mondiale ».</p>
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <site-footer></site-footer>
+
+    <script src="components.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="script.js"></script>
+    <script src="ia-modeles.js"></script>
+    <script
+        src="https://websites-monitoring.vercel.app/tracking.js?siteId=génération-ia&key=ac5f777f63c2dd5795c39e0b5034eeed68659c292c2fe7aaa18a1b02ac3482f3"></script>
+</body>
+
+</html>

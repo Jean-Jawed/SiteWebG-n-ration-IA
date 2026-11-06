@@ -2,6 +2,7 @@ const SITE_NAV = [
     {
         label: 'Découvrir', items: [
             { href: 'index.html', text: 'Accueil', icon: 'fa-house' },
+            { href: 'ia-modeles.html', text: 'IA et modèles', icon: 'fa-layer-group' },
             { href: 'howitworks.html', text: 'Comment ça marche ?', icon: 'fa-diagram-project' },
             { href: 'multimedia.html', text: 'Multimédia', icon: 'fa-photo-film' },
             { href: 'prompting.html', text: 'Prompting', icon: 'fa-terminal' },
@@ -35,7 +36,7 @@ class SiteHeader extends HTMLElement {
                     ${group.items.map(item => {
                         n++;
                         const active = item.href.replace(/\.html$/, '') === current;
-                        return `<li style="--i:${n}"><a href="${item.href}"${active ? ' class="is-active" aria-current="page"' : ''}>
+                        return `<li style="--i:${n}"><a href="${item.href}"${active ? ' class="is-active" aria-current="page"' : ''} title="${item.text}">
                             <span class="snav-num">${String(n).padStart(2, '0')}</span>
                             <span class="snav-text">${item.text}</span>
                             <i class="fa-solid ${item.icon} snav-icon" aria-hidden="true"></i>
@@ -46,7 +47,7 @@ class SiteHeader extends HTMLElement {
 
         this.innerHTML = `
     <header class="snav-bar">
-        <a href="index.html" class="logo">GÉNÉRATION<span>-IA</span></a>
+        <a href="index.html" class="logo"><span class="logo-full">GÉNÉRATION</span><span>-IA</span></a>
         <button class="snav-toggle" type="button" aria-expanded="false" aria-controls="snav-panel">
             <span class="snav-toggle-text">Menu</span>
             <span class="snav-toggle-icon" aria-hidden="true"><span></span><span></span></span>
@@ -55,13 +56,16 @@ class SiteHeader extends HTMLElement {
     <div class="snav-backdrop" hidden></div>
     <nav class="snav" id="snav-panel" aria-label="Navigation principale">
         <div class="snav-head">
-            <a href="index.html" class="logo snav-logo">GÉNÉRATION<span>-IA</span></a>
+            <a href="index.html" class="logo snav-logo"><span class="logo-full">GÉNÉRATION</span><span>-IA</span></a>
             <p class="snav-tagline">Comprendre l'IA générative</p>
         </div>
+        <button class="snav-collapse" type="button" aria-expanded="true" aria-controls="snav-panel">
+            <i class="fa-solid fa-angles-left" aria-hidden="true"></i>
+        </button>
         <div class="snav-groups">${groups}</div>
         <div class="snav-foot">
             <span class="snav-dot" aria-hidden="true"></span>
-            Une agence <a href="https://virgule-studio.fr" target="_blank" rel="noopener noreferrer">Virgule-Studio</a>
+            <span class="snav-foot-link">Une agence <a href="https://virgule-studio.fr" target="_blank" rel="noopener noreferrer">Virgule-Studio</a></span>
         </div>
     </nav>
         `;
@@ -84,6 +88,25 @@ class SiteHeader extends HTMLElement {
         });
         window.matchMedia('(min-width: 1100px)').addEventListener('change', e => { if (e.matches) setOpen(false); });
 
+        // Repli / déploiement de la barre latérale (desktop)
+        const collapseBtn = this.querySelector('.snav-collapse');
+        const readStored = () => {
+            try { return localStorage.getItem('snav-collapsed'); }
+            catch (e) { return null; }
+        };
+        const setCollapsed = c => {
+            document.body.classList.toggle('snav-collapsed', c);
+            collapseBtn.setAttribute('aria-expanded', String(!c));
+            collapseBtn.setAttribute('aria-label', c ? 'Déplier la barre de navigation' : 'Replier la barre de navigation');
+        };
+        setCollapsed(readStored() === '1');
+        collapseBtn.addEventListener('click', () => {
+            setCollapsed(!document.body.classList.contains('snav-collapsed'));
+            try {
+                localStorage.setItem('snav-collapsed', document.body.classList.contains('snav-collapsed') ? '1' : '0');
+            } catch (e) { /* stockage indisponible : on ignore */ }
+        });
+
         const bar = this.querySelector('.snav-bar');
         const onScroll = () => bar.classList.toggle('scrolled', window.scrollY > 30);
         window.addEventListener('scroll', onScroll, { passive: true });
@@ -105,6 +128,7 @@ class SiteFooter extends HTMLElement {
                     <h3>Liens rapides</h3>
                     <ul>
                         <li><a href="index.html">Accueil</a></li>
+                        <li><a href="ia-modeles.html">IA et modèles</a></li>
                         <li><a href="multimedia.html">Multimédia</a></li>
                         <li><a href="enseignants.html">Enseignants</a></li>
                         <li><a href="offline.html">L'IA offline</a></li>

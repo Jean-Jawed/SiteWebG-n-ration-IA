@@ -28,6 +28,11 @@
     margin-bottom: 4rem;
 }
 
+.intro-section > div:only-child,
+.impact-content > div:only-child {
+    grid-column: 1 / -1;
+}
+
 .intro-text h2 {
     color: #fff;
     margin-bottom: 1.5rem;

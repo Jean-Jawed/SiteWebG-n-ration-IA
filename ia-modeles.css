@@ -1,0 +1,436 @@
+/* =========================================================
+   Page IA et modèles — cards + grand schéma SVG
+   ========================================================= */
+
+.aim-grid h2 {
+    margin-bottom: 2rem;
+}
+
+/* Tuile claire et uniforme pour les logos, quel que soit le format d'origine */
+.aim-grid .ai-card img {
+    background: #f5f3ee;
+    object-fit: contain;
+}
+
+/* Wording */
+.schema-intro,
+.schema-diagram,
+.schema-archetypes,
+.schema-agregateurs {
+    padding: 4.5rem 0;
+    position: relative;
+}
+
+.schema-diagram {
+    background:
+        radial-gradient(80% 50% at 50% 0%, rgba(var(--primary-rgb), .07), transparent 70%);
+}
+
+.schema-archetypes {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.schema-intro h2,
+.schema-diagram h2,
+.schema-archetypes h2,
+.schema-agregateurs h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.schema-lead {
+    color: rgba(240, 240, 240, .75);
+    max-width: 720px;
+    margin-bottom: 2.5rem;
+}
+
+.schema-lead strong {
+    color: var(--light);
+}
+
+/* --- Trois cartes concept --- */
+.concepts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.concept-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.8rem;
+    transition: transform .3s ease, border-color .3s ease;
+}
+
+.concept-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(var(--primary-rgb), .5);
+}
+
+.concept-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gradient);
+    color: #14100a;
+    font-size: 1.15rem;
+    margin-bottom: 1.1rem;
+}
+
+.concept-card h3 {
+    margin-bottom: .6rem;
+    font-size: 1.15rem;
+}
+
+.concept-card p {
+    color: rgba(240, 240, 240, .7);
+    font-size: .95rem;
+}
+
+.concept-card p strong {
+    color: var(--light);
+}
+
+/* =========================================================
+   Le grand schéma SVG
+   ========================================================= */
+.diagram-wrap {
+    background: rgba(10, 10, 10, .55);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 1.2rem;
+    overflow-x: auto;
+}
+
+#ia-diagram {
+    display: block;
+    width: 100%;
+    min-width: 900px;
+    height: auto;
+    font-family: 'Roboto', sans-serif;
+}
+
+.dg-band-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 15px;
+    letter-spacing: .1em;
+    fill: var(--light);
+}
+
+.dg-cluster {
+    fill: rgba(255, 255, 255, .02);
+}
+
+.dg-cluster-open {
+    stroke: rgba(123, 196, 127, .4);
+}
+
+.dg-cluster-closed {
+    stroke: rgba(217, 113, 74, .4);
+}
+
+.dg-cluster-title {
+    font: 700 13px 'Orbitron', sans-serif;
+    letter-spacing: .08em;
+}
+
+.dg-cluster-title-open { fill: #7bc47f; }
+
+.dg-cluster-title-closed { fill: #d9714a; }
+
+.dg-cluster-sub {
+    fill: rgba(240, 240, 240, .5);
+    font-size: 11px;
+}
+
+.dg-chip-rect {
+    fill: #1c1913;
+    stroke: rgba(255, 255, 255, .1);
+}
+
+.dg-model-open .dg-chip-rect {
+    stroke: rgba(123, 196, 127, .55);
+}
+
+.dg-model-closed .dg-chip-rect {
+    stroke: rgba(217, 113, 74, .55);
+}
+
+.dg-iface .dg-chip-rect {
+    stroke: rgba(224, 192, 104, .6);
+}
+
+.dg-tile {
+    fill: #f5f3ee;
+}
+
+.dg-name {
+    fill: #f0f0f0;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.dg-sub {
+    fill: rgba(240, 240, 240, .55);
+    font-size: 10px;
+}
+
+.dg-group-rect {
+    fill: rgba(224, 192, 104, .04);
+    stroke: rgba(224, 192, 104, .18);
+}
+
+.dg-group-title {
+    font: 700 12px 'Orbitron', sans-serif;
+    letter-spacing: .07em;
+    fill: var(--ui-cyan);
+}
+
+.dg-group-sub {
+    fill: rgba(240, 240, 240, .5);
+    font-size: 10px;
+}
+
+.dg-edge {
+    fill: none;
+}
+
+.dg-edge-solid {
+    stroke: #E0C068;
+    stroke-width: 1.8;
+    opacity: .85;
+    marker-end: url(#dg-arr-solid);
+}
+
+.dg-edge-dashed {
+    stroke: rgba(224, 192, 104, .7);
+    stroke-width: 1.4;
+    stroke-dasharray: 6 5;
+    opacity: .75;
+    marker-end: url(#dg-arr-dashed);
+}
+
+.dg-edge-cluster {
+    stroke: rgba(240, 240, 240, .45);
+    stroke-width: 2;
+    stroke-dasharray: 2 7;
+    stroke-linecap: round;
+    marker-end: url(#dg-arr-cluster);
+}
+
+.dg-flow-label {
+    fill: rgba(240, 240, 240, .55);
+    font-size: 10.5px;
+    font-style: italic;
+}
+
+/* --- Légende sous le schéma --- */
+.dg-legend {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .7rem 1.8rem;
+    margin-top: 1.8rem;
+}
+
+.dg-legend li {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    color: rgba(240, 240, 240, .7);
+    font-size: .85rem;
+}
+
+.dg-line {
+    display: inline-block;
+    width: 34px;
+    height: 0;
+    border-top: 2px solid #E0C068;
+}
+
+.dg-line-dashed {
+    border-top-style: dashed;
+    border-top-color: rgba(224, 192, 104, .8);
+}
+
+.dg-line-dotted {
+    border-top-style: dotted;
+    border-top-width: 3px;
+    border-top-color: rgba(240, 240, 240, .5);
+}
+
+.dg-chip-sample {
+    display: inline-block;
+    width: 18px;
+    height: 12px;
+    border-radius: 3px;
+    background: #1c1913;
+}
+
+.dg-sample-open {
+    border: 1px solid rgba(123, 196, 127, .8);
+}
+
+.dg-sample-closed {
+    border: 1px solid rgba(217, 113, 74, .8);
+}
+
+.legend-date {
+    margin-top: 1rem;
+    color: rgba(240, 240, 240, .45);
+    font-size: .82rem;
+    font-style: italic;
+}
+
+/* --- Archétypes --- */
+.archetype-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.3rem;
+}
+
+.archetype-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform .3s ease, border-color .3s ease;
+}
+
+.archetype-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(var(--primary-rgb), .5);
+}
+
+.arch-tag {
+    display: inline-flex;
+    width: 28px;
+    height: 28px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font: 700 .8rem 'Orbitron', sans-serif;
+    background: var(--gradient);
+    color: #14100a;
+    margin-bottom: .8rem;
+}
+
+.archetype-card p {
+    color: rgba(240, 240, 240, .68);
+    font-size: .9rem;
+}
+
+.arch-logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .5rem;
+    margin-top: 1rem;
+    padding-top: .8rem;
+    border-top: 1px dashed rgba(255, 255, 255, 0.12);
+}
+
+.arch-logos img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    background: #f5f3ee;
+    border-radius: 7px;
+    padding: 3px;
+}
+
+.arch-note {
+    margin-top: 1.6rem;
+    color: rgba(240, 240, 240, .5);
+    font-size: .87rem;
+    font-style: italic;
+}
+
+/* --- Zoom agrégateurs --- */
+.agreg-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.2rem;
+}
+
+.agreg-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.agreg-head {
+    display: flex;
+    align-items: center;
+    gap: .9rem;
+    margin-bottom: .8rem;
+}
+
+.agreg-head img {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+    background: #f5f3ee;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.agreg-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0;
+    color: var(--ui-cyan);
+}
+
+.agreg-card p {
+    color: rgba(240, 240, 240, .72);
+    font-size: .93rem;
+    margin-bottom: 0;
+}
+
+.agreg-card p strong {
+    color: var(--light);
+}
+
+.golden-rule {
+    background: var(--gradient);
+    border-radius: 12px;
+    padding: 1.4rem 1.8rem;
+    color: #14100a;
+    font-size: 1.05rem;
+}
+
+.golden-rule strong {
+    font-weight: 700;
+}
+
+.golden-rule em {
+    font-style: normal;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(20, 16, 10, .4);
+    text-underline-offset: 3px;
+}
+
+.schema-source {
+    margin-top: 1.6rem;
+    color: rgba(240, 240, 240, .45);
+    font-size: .85rem;
+    max-width: 720px;
+}
+
+@media (max-width: 640px) {
+    .schema-intro,
+    .schema-diagram,
+    .schema-archetypes,
+    .schema-agregateurs {
+        padding: 3rem 0;
+    }
+}

@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>Génération-IA.fr - L'avenir de l'intelligence artificielle</title>
+    <title>Génération-IA.fr — Comprendre l'intelligence artificielle générative</title>
+    <meta name="description"
+        content="Génération-IA : un site clair et pédagogique pour comprendre l'intelligence artificielle générative — les modèles, les interfaces, le multimédia, le prompting, l'énergie, l'IA offline, et l'IA pour les développeurs et les enseignants.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="home.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -20,160 +23,164 @@
 </head>
 
 <body>
-    <!-- Animation de fond -->
-    <div id="particles-js"></div>
-
     <!-- Header -->
     <site-header></site-header>
 
     <!-- Contenu principal -->
     <main>
-        <section class="hero">
+        <!-- Hero : image pleine largeur, fond clair, texte par-dessus, parallaxe -->
+        <section class="home-hero">
+            <div class="home-hero-media" aria-hidden="true">
+                <img src="images/home-hero.webp" alt=""
+                    onerror="this.closest('.home-hero').classList.add('no-hero-img');this.remove();">
+            </div>
+            <div class="home-hero-inner">
+                <p class="home-hero-kicker">Génération-IA</p>
+                <h1>Comprendre l'intelligence<br>artificielle générative</h1>
+                <p class="home-hero-sub">Les modèles, les interfaces, les usages — expliqués clairement,
+                    sans jargon, avec du recul.</p>
+                <div class="home-hero-cta">
+                    <a class="home-btn home-btn-solid" href="ia-modeles.html">Explorer les IA et modèles</a>
+                    <a class="home-btn home-btn-ghost" href="howitworks.html">Comment ça marche ?</a>
+                </div>
+            </div>
+            <div class="home-hero-scroll" aria-hidden="true"><i class="fa-solid fa-angles-down"></i></div>
+        </section>
+
+        <!-- Objectifs -->
+        <section class="home-section home-goal">
             <div class="container">
-                <h1>QU<span class="blink">E</span>LLES <span class="highlight">IA</span> ?</h1>
-                <p class="subtitle">Découvrez l'univers des intelligences artificielles génératives</p>
+                <h2 class="home-title reveal">Pourquoi ce site ?</h2>
+                <p class="home-goal-text reveal">
+                    L'IA générative est partout — dans les actualités, dans les outils, dans les métiers.
+                    Mais entre le battage médiatique et le jargon technique, difficile de savoir
+                    <em>ce qui se passe vraiment</em>. Génération-IA pose un regard clair et documenté
+                    sur tout l'écosystème : ce qu'est un modèle, qui fait tourner quoi, ce que ça coûte,
+                    et ce que ça change réellement — dans le travail, à l'école, dans la création.
+                </p>
             </div>
         </section>
 
-        <section class="ai-grid">
+        <!-- Aperçu des rubriques -->
+        <section class="home-section">
             <div class="container">
-                <h2>Les principales IA génératives</h2>
-                <div class="grid">
-                    <div class="ai-card">
-                        <img src="images/openai_logo.png" alt="ChatGPT">
-                        <div class="ai-card-content">
-                            <h3>ChatGPT</h3>
-                            <p>Modèle de langage avancé développé par OpenAI</p>
-                            <a href="https://chat.openai.com" target="_blank">Visiter</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="https://www.anthropic.com/images/icons/apple-touch-icon.png" alt="Claude">
-                        <div class="ai-card-content">
-                            <h3>Claude</h3>
-                            <p>IA conversationnelle développée par Anthropic</p>
-                            <a href="https://claude.ai" target="_blank">Visiter</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg"
-                            alt="Gemini">
-                        <div class="ai-card-content">
-                            <h3>Gemini</h3>
-                            <p>Modèle multimodal développé par Google DeepMind</p>
-                            <a href="https://gemini.google.com" target="_blank">Visiter</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="images/mistral_logo.png" alt="Mistral">
-                        <div class="ai-card-content">
-                            <h3>Mistral</h3>
-                            <p>IA française créée en 2023. Modèles open-source performants</p>
-                            <a href="https://chat.mistral.ai/chat" target="_blank">Visiter</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/DeepSeek_logo.svg" alt="Deepseek">
-                        <div class="ai-card-content">
-                            <h3>Deepseek</h3>
-                            <p>Modèle chinois performant spécialisé dans la recherche d'information</p>
-                            <a href="https://www.deepseek.com/en" target="_blank">Visiter</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="images/meta_logo.jpg" alt="Meta AI">
-                        <div class="ai-card-content">
-                            <h3>Meta AI</h3>
-                            <p>IA basée sur le modèle de Meta : Llama</p>
-                            <a href="https://www.meta.ai/" target="_blank">Visiter</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Perplexity_AI_logo.svg"
-                            alt="Perplexity">
-                        <div class="ai-card-content">
-                            <h3>Perplexity</h3>
-                            <p>IA de recherche avec citations des sources</p>
-                            <a href="https://www.perplexity.ai" target="_blank">Visiter</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="images/venice_logo.png" alt="Venice">
-                        <div class="ai-card-content">
-                            <h3>Venice</h3>
-                            <p>L'IA révolutionnaire libre, privée, sécurisée et sans aucune censure</p>
-                            <a href="https://venice.ai/" target="_blank">Visiter</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="images/grok_logo.jpg" alt="Grok">
-                        <div class="ai-card-content">
-                            <h3>Grok</h3>
-                            <p>IA de recherche avancée développée par xAI (anciennement Twitter)</p>
-                            <a href="https://grok.com/" target="_blank">Visiter</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="images/kimi_logo.jpg" alt="Kimi">
-                        <div class="ai-card-content">
-                            <h3>Kimi</h3>
-                            <p>Assistant conversationnel chinois</p>
-                            <a href="https://kimi.moonshot.cn" target="_blank">Visiter</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Qwen_logo.svg" alt="Qwen">
-                        <div class="ai-card-content">
-                            <h3>Qwen</h3>
-                            <p>Modèles open-source d'Alibaba Cloud</p>
-                            <a href="https://chat.qwen.ai/" target="_blank">Visiter</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="images/copilot_logo.png" alt="Copilot">
-                        <div class="ai-card-content">
-                            <h3>Microsoft Copilot</h3>
-                            <p>IA de Microsoft basée sur les modèles GPT. Omniprésente dans les outils Windows</p>
-                            <a href="https://copilot.microsoft.com/" target="_blank">Visiter</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="images/poe_logo.png" alt="Poe">
-                        <div class="ai-card-content">
-                            <h3>Poe</h3>
-                            <p>Plateforme permettant d'accéder à divers modèles d'IA et d'utiliser de nombreux bots
-                                spécifiques</p>
-                            <a href="https://poe.com/" target="_blank">Visiter</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="https://www.yiaho.com/wp-content/uploads/2023/03/yiaho-intelligence-artificielle-gratuite-en-ligne.jpg"
-                            alt="Yiaho">
-                        <div class="ai-card-content">
-                            <h3>Yiaho</h3>
-                            <p>Le site français pour l'IA gratuite et illimitée</p>
-                            <a href="https://www.yiaho.com/" target="_blank">Visiter</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="images/pi_logo.png" alt="Pi">
-                        <div class="ai-card-content">
-                            <h3>Pi</h3>
-                            <p>IA conversationnelle personnelle, empathique et toujours disponible, conçue pour offrir
-                                soutien, conseils et échanges chaleureux</p>
-                            <a href="https://pi.ai/" target="_blank">Visiter</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="images/komo_logo.png" alt="Komo">
-                        <div class="ai-card-content">
-                            <h3>Komo</h3>
-                            <p>un moteur de recherche alimenté par l’IA, sans publicité, permettant d’explorer des
-                                sujets</p>
-                            <a href="https://komo.ai/" target="_blank">Visiter</a>
-                        </div>
-                    </div>
+                <h2 class="home-title reveal">Découvrir</h2>
+                <div class="home-cards">
+                    <a class="home-card reveal" href="ia-modeles.html">
+                        <span class="home-card-icon"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></span>
+                        <h3>IA et modèles</h3>
+                        <p>Toutes les interfaces IA — ChatGPT, Claude, Gemini, Mistral, DeepSeek, Perplexity… —
+                            et le schéma clair du lien entre modèle, interface et données.</p>
+                        <span class="home-card-more">Explorer <i class="fa-solid fa-arrow-right"
+                                aria-hidden="true"></i></span>
+                    </a>
+                    <a class="home-card reveal" href="howitworks.html">
+                        <span class="home-card-icon"><i class="fa-solid fa-diagram-project"
+                                aria-hidden="true"></i></span>
+                        <h3>Comment ça marche ?</h3>
+                        <p>L'entraînement, les poids, les vecteurs : ce qui se passe réellement dans un
+                            grand modèle de langage, expliqué étape par étape.</p>
+                        <span class="home-card-more">Explorer <i class="fa-solid fa-arrow-right"
+                                aria-hidden="true"></i></span>
+                    </a>
+                    <a class="home-card reveal" href="multimedia.html">
+                        <span class="home-card-icon"><i class="fa-solid fa-photo-film" aria-hidden="true"></i></span>
+                        <h3>Multimédia</h3>
+                        <p>Créer de la musique, des images et des vidéos par IA : les outils qui comptent,
+                            classés par usage.</p>
+                        <span class="home-card-more">Explorer <i class="fa-solid fa-arrow-right"
+                                aria-hidden="true"></i></span>
+                    </a>
+                    <a class="home-card reveal" href="prompting.html">
+                        <span class="home-card-icon"><i class="fa-solid fa-terminal" aria-hidden="true"></i></span>
+                        <h3>Prompting</h3>
+                        <p>Bien parler à une IA : techniques, structures et bonnes pratiques pour obtenir
+                            des résultats fiables.</p>
+                        <span class="home-card-more">Explorer <i class="fa-solid fa-arrow-right"
+                                aria-hidden="true"></i></span>
+                    </a>
+                    <a class="home-card reveal" href="art.html">
+                        <span class="home-card-icon"><i class="fa-solid fa-palette" aria-hidden="true"></i></span>
+                        <h3>Art &amp; IA</h3>
+                        <p>Ce que l'image générée bouleverse dans la création artistique — les pratiques,
+                            les débats, les outils.</p>
+                        <span class="home-card-more">Explorer <i class="fa-solid fa-arrow-right"
+                                aria-hidden="true"></i></span>
+                    </a>
                 </div>
+            </div>
+        </section>
+
+        <section class="home-section home-section-alt">
+            <div class="container">
+                <h2 class="home-title reveal">Approfondir</h2>
+                <div class="home-cards">
+                    <a class="home-card reveal" href="energie.html">
+                        <span class="home-card-icon"><i class="fa-solid fa-bolt" aria-hidden="true"></i></span>
+                        <h3>Énergie</h3>
+                        <p>Le coût énergétique réel de l'IA : entraînement, requêtes, data centers.
+                            Des ordres de grandeur, pas des mythes.</p>
+                        <span class="home-card-more">Explorer <i class="fa-solid fa-arrow-right"
+                                aria-hidden="true"></i></span>
+                    </a>
+                    <a class="home-card reveal" href="offline.html">
+                        <span class="home-card-icon"><i class="fa-solid fa-plug-circle-xmark"
+                                aria-hidden="true"></i></span>
+                        <h3>L'IA offline</h3>
+                        <p>Faire tourner un modèle chez soi, sans cloud ni abonnement : matériel,
+                            logiciels et cas d'usage.</p>
+                        <span class="home-card-more">Explorer <i class="fa-solid fa-arrow-right"
+                                aria-hidden="true"></i></span>
+                    </a>
+                    <a class="home-card reveal" href="developpeurs.html">
+                        <span class="home-card-icon"><i class="fa-solid fa-code" aria-hidden="true"></i></span>
+                        <h3>Développeurs</h3>
+                        <p>Les assistants de code utiles en 2026, comment les brancher sur un projet
+                            en conservant la confidentialité.</p>
+                        <span class="home-card-more">Explorer <i class="fa-solid fa-arrow-right"
+                                aria-hidden="true"></i></span>
+                    </a>
+                    <a class="home-card reveal" href="enseignants.html">
+                        <span class="home-card-icon"><i class="fa-solid fa-graduation-cap"
+                                aria-hidden="true"></i></span>
+                        <h3>Enseignants</h3>
+                        <p>L'IA au service de l'éducation : gagner du temps, différencier, et aborder
+                            l'évaluation autrement.</p>
+                        <span class="home-card-more">Explorer <i class="fa-solid fa-arrow-right"
+                                aria-hidden="true"></i></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="home-section">
+            <div class="container">
+                <h2 class="home-title reveal">Le studio</h2>
+                <div class="home-cards home-cards-studio">
+                    <a class="home-card reveal" href="archipelle.html">
+                        <span class="home-card-icon"><i class="fa-solid fa-water" aria-hidden="true"></i></span>
+                        <h3>Archipelle</h3>
+                        <p>Le projet créatif du studio : une exploration originale de l'IA générative.</p>
+                        <span class="home-card-more">Explorer <i class="fa-solid fa-arrow-right"
+                                aria-hidden="true"></i></span>
+                    </a>
+                    <a class="home-card reveal" href="about.html">
+                        <span class="home-card-icon"><i class="fa-solid fa-circle-info" aria-hidden="true"></i></span>
+                        <h3>À propos</h3>
+                        <p>Qui est derrière Génération-IA, et pourquoi ce site existe.</p>
+                        <span class="home-card-more">Explorer <i class="fa-solid fa-arrow-right"
+                                aria-hidden="true"></i></span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bandeau final -->
+        <section class="home-final">
+            <div class="container">
+                <p>Une agence <a href="https://virgule-studio.fr" target="_blank"
+                        rel="noopener noreferrer">Virgule-Studio</a><br>explique l'intelligence
+                    artificielle, simplement.</p>
             </div>
         </section>
     </main>
@@ -182,8 +189,7 @@
     <site-footer></site-footer>
 
     <script src="components.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="script.js"></script>
+    <script src="home.js"></script>
     <script
         src="https://websites-monitoring.vercel.app/tracking.js?siteId=génération-ia&key=ac5f777f63c2dd5795c39e0b5034eeed68659c292c2fe7aaa18a1b02ac3482f3"></script>
 </body>

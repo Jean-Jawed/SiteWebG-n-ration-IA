@@ -317,19 +317,60 @@ body:has(.home-hero) .snav-bar {
     }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
+
+    /* Design mobile distinct : l'image devient une bande visible,
+       le texte passe SOUS l'image, comme un bloc de contenu. */
     .home-hero {
-        min-height: 88vh;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        min-height: 0;
         padding-top: 64px;
-        align-items: flex-start;
+    }
+
+    .home-hero-media {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 5 / 4;
+        overflow: hidden;
+    }
+
+    .home-hero-media img {
+        width: 100%;
+        height: 100%;
+        margin-top: 0;
+        object-fit: cover;
+        object-position: center;
     }
 
     .home-hero-inner {
-        margin: 32px 20px 0;
+        position: static;
         width: auto;
-        padding: 2rem 1.5rem 1.8rem;
+        margin: 20px 16px 28px;
+        padding: 1.7rem 1.4rem 1.6rem;
+        border-radius: 16px;
     }
 
+    .home-hero h1 {
+        font-size: 1.65rem;
+    }
+
+    .home-hero-sub {
+        font-size: 1rem;
+    }
+
+    .home-hero-scroll {
+        display: none;
+    }
+
+    /* Fallback sans image : le fond dégradé remplit la zone média */
+    .home-hero.no-hero-img {
+        background: linear-gradient(120deg, #efe8da 0%, #f6f2e9 55%, #ece2cf 100%);
+    }
+}
+
+@media (max-width: 640px) {
     .home-hero-cta .home-btn {
         width: 100%;
     }

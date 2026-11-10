@@ -418,20 +418,10 @@ body.snav-open .snav li {
     color: transparent;
 }
 
+/* Ancien effet de clignotement des titres retiré : la lettre disparaissait
+   et le titre se lisait « PROMPT NG », « ÉNERG E »… */
 .blink {
-    animation: blink 1.5s infinite;
-}
-
-@keyframes blink {
-
-    0%,
-    100% {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0;
-    }
+    animation: none;
 }
 
 .subtitle {
@@ -1820,4 +1810,30 @@ footer a:hover {
         z-index: 900;
         padding: .42rem .95rem;
     }
+}
+
+/* =========================================================
+   Correctifs mobile
+   ========================================================= */
+
+/* Titres d'en-tête de page : restaient à 64px en mobile et débordaient
+   (« DÉVELOPPEURS », « MULTIMÉDIA »…). Taille proportionnelle à l'écran. */
+@media (max-width: 600px) {
+    body .hero h1,
+    body .page-hero h1 {
+        font-size: clamp(1.6rem, 8vw, 2.6rem);
+        overflow-wrap: break-word;
+    }
+}
+
+/* Barre supérieure : le logo touchait le bloc EN / Menu */
+@media (max-width: 480px) {
+    .snav-bar { padding: 0 12px 0 16px; }
+    .snav-bar .logo { font-size: 1.05rem; letter-spacing: 0; }
+    .snav-bar-right { gap: 8px; }
+}
+
+@media (max-width: 370px) {
+    .snav-bar .logo { font-size: .95rem; }
+    .snav-toggle { padding-left: 14px; gap: 8px; }
 }

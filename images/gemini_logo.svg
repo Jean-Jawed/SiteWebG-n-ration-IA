@@ -1,16 +1,11 @@
-<svg width="220" height="216" viewBox="205 0 55 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-<mask id="mask0_958_15881" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="-1000" y="-1000" width="3000" height="3000">
-
-</mask>
-<g mask="url(#mask0_958_15881)">
-<rect x="-158.25" y="-455.443" width="832.09" height="685.324" fill="url(#paint0_linear_958_15881)"/>
-</g>
+<svg width="216" height="216" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 24A14.3 14.3 0 0 0 0 12 14.3 14.3 0 0 0 12 0a14.3 14.3 0 0 0 12 12 14.3 14.3 0 0 0-12 12Z" fill="url(#gemini_grad)"/>
 <defs>
-<linearGradient id="paint0_linear_958_15881" x1="-57.4049" y1="130.441" x2="354.97" y2="30.369" gradientUnits="userSpaceOnUse">
+<linearGradient id="gemini_grad" x1="2" y1="16" x2="22" y2="6" gradientUnits="userSpaceOnUse">
 <stop stop-color="#439DDF"/>
-<stop offset="0.524208" stop-color="#4F87ED"/>
-<stop offset="0.781452" stop-color="#9476C5"/>
-<stop offset="0.888252" stop-color="#BC688E"/>
+<stop offset="0.52" stop-color="#4F87ED"/>
+<stop offset="0.78" stop-color="#9476C5"/>
+<stop offset="0.89" stop-color="#BC688E"/>
 <stop offset="1" stop-color="#D6645D"/>
 </linearGradient>
 </defs>

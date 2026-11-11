@@ -114,11 +114,11 @@ document.addEventListener('DOMContentLoaded', function() {
         neuron.addEventListener('mouseleave', () => {
             neuron.style.transform = 'scale(1)';
             if (neuron.closest('.input-layer')) {
-                neuron.style.boxShadow = '0 0 15px rgba(247, 255, 106, 0.5)';
+                neuron.style.boxShadow = '0 0 15px rgba(224, 192, 104, 0.5)';
             } else if (neuron.closest('.output-layer')) {
-                neuron.style.boxShadow = '0 0 15px rgba(255, 106, 167, 0.5)';
+                neuron.style.boxShadow = '0 0 15px rgba(217, 113, 74, 0.5)';
             } else {
-                neuron.style.boxShadow = '0 0 15px rgba(109, 213, 237, 0.5)';
+                neuron.style.boxShadow = '0 0 15px rgba(201, 162, 74, 0.5)';
             }
         });
     });

@@ -1083,11 +1083,11 @@ footer a:hover {
 }
 
 .debate-card.pro {
-    border-top: 3px solid #00ff00;
+    border-top: 3px solid var(--primary);
 }
 
 .debate-card.con {
-    border-top: 3px solid #ff0000;
+    border-top: 3px solid var(--secondary);
 }
 
 .debate-card h3 {
@@ -1421,7 +1421,7 @@ footer a:hover {
     width: 100%;
     padding: 15px;
     border-radius: 8px;
-    background: rgba(42, 42, 58, 0.8);
+    background: rgba(26, 26, 26, 0.9);
     color: #fff;
     border: 1px solid rgba(var(--primary-rgb), 0.3);
     font-size: 16px;
@@ -1524,7 +1524,7 @@ footer a:hover {
     width: 100%;
     min-height: 250px;
     padding: 20px;
-    background: rgba(30, 30, 42, 0.8);
+    background: rgba(20, 20, 20, 0.9);
     color: #e0e0e0;
     border-radius: 8px;
     border: 1px solid rgba(var(--primary-rgb), 0.3);
@@ -1836,4 +1836,36 @@ footer a:hover {
 @media (max-width: 370px) {
     .snav-bar .logo { font-size: .95rem; }
     .snav-toggle { padding-left: 14px; gap: 8px; }
+}
+
+/* =========================================================
+   Grilles de 4 cartes : 2 × 2 au lieu de 3 + 1 carte isolée
+   ========================================================= */
+@media (min-width: 900px) {
+    .home-cards:has(> :nth-child(4):last-child),
+    .archetype-grid:has(> :nth-child(4):last-child),
+    .sector-grid:has(> :nth-child(4):last-child),
+    .usecase-cards:has(> :nth-child(4):last-child),
+    .platform-cards:has(> :nth-child(4):last-child),
+    .limit-cards:has(> :nth-child(4):last-child),
+    .resources-grid:has(> :nth-child(4):last-child),
+    .benefits-cards:has(> :nth-child(4):last-child),
+    .cm-strat-grid:has(> :nth-child(4):last-child) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Étapes numérotées : les 4 sur une ligne dès que la place le permet */
+@media (min-width: 1100px) {
+    .steps-container:has(> :nth-child(4):last-child) {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+/* IA et modèles : 16 cartes -> 4 × 4 en grand écran */
+@media (min-width: 1300px) {
+    .aim-grid .grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 24px;
+    }
 }

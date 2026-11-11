@@ -63,22 +63,39 @@ function toggleSection(sectionId) {
     const header = content.previousElementSibling;
     const icon = header.querySelector('.toggle-icon');
     
-    if (content.classList.contains('expanded')) {
-        content.classList.remove('expanded');
-        header.classList.remove('expanded');
-        icon.textContent = '+';
-    } else {
-        content.classList.add('expanded');
-        header.classList.add('expanded');
-        icon.textContent = '−';
-    }
+    const open = !content.classList.contains('expanded');
+    content.classList.toggle('expanded', open);
+    header.classList.toggle('expanded', open);
+    header.setAttribute('aria-expanded', String(open));
+    if (icon) icon.textContent = '+'; // le « + » pivote en « × » via le CSS
 }
+
+// Accordéons : état initial cohérent + accessibilité clavier
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.section-header').forEach(header => {
+        const content = header.nextElementSibling;
+        const open = !!(content && content.classList.contains('expanded'));
+        header.classList.toggle('expanded', open);
+        header.setAttribute('role', 'button');
+        header.setAttribute('tabindex', '0');
+        header.setAttribute('aria-expanded', String(open));
+        const icon = header.querySelector('.toggle-icon');
+        if (icon) { icon.textContent = '+'; icon.setAttribute('aria-hidden', 'true'); }
+        header.addEventListener('keydown', e => {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); header.click(); }
+        });
+    });
+});
 
 // Rendre la fonction accessible globalement
 window.toggleSection = toggleSection;
 
 // Initialisation des graphiques
 function initCharts() {
+    if (window.Chart) {
+        Chart.defaults.font.family = "'Roboto', sans-serif";
+        Chart.defaults.color = '#bbb';
+    }
     // Graphique d'évolution des consommations d'entraînement
     const trainingCtx = document.getElementById('trainingChart');
     if (trainingCtx) {
@@ -90,20 +107,20 @@ function initCharts() {
                     label: E ? 'Training consumption (MWh)' : 'Consommation d\'entraînement (MWh)',
                     data: [300, 450, 650, 1287, 1750, 3500],
                     backgroundColor: [
-                        'rgba(102, 187, 106, 0.8)',
-                        'rgba(66, 165, 245, 0.8)',
-                        'rgba(255, 193, 7, 0.8)',
-                        'rgba(255, 138, 101, 0.8)',
-                        'rgba(186, 104, 200, 0.8)',
-                        'rgba(239, 83, 80, 0.8)'
+                        'rgba(201, 162, 74, 0.35)',
+                        'rgba(201, 162, 74, 0.5)',
+                        'rgba(201, 162, 74, 0.65)',
+                        'rgba(201, 162, 74, 0.8)',
+                        'rgba(217, 113, 74, 0.8)',
+                        'rgba(217, 113, 74, 0.95)'
                     ],
                     borderColor: [
-                        'rgb(76, 175, 80)',
-                        'rgb(33, 150, 243)',
-                        'rgb(255, 193, 7)',
-                        'rgb(255, 87, 34)',
-                        'rgb(156, 39, 176)',
-                        'rgb(244, 67, 54)'
+                        'rgb(201, 162, 74)',
+                        'rgb(201, 162, 74)',
+                        'rgb(201, 162, 74)',
+                        'rgb(201, 162, 74)',
+                        'rgb(217, 113, 74)',
+                        'rgb(217, 113, 74)'
                     ],
                     borderWidth: 2,
                     borderRadius: 8
@@ -115,7 +132,7 @@ function initCharts() {
                 plugins: {
                     legend: {
                         labels: {
-                            color: '#00ff88',
+                            color: '#C9A24A',
                             font: {
                                 family: 'Roboto'
                             }
@@ -146,7 +163,7 @@ function initCharts() {
                 },
                 animation: {
                     duration: 2000,
-                    easing: 'easeOutBounce'
+                    easing: 'easeOutQuart'
                 }
             }
         });
@@ -162,14 +179,14 @@ function initCharts() {
                 datasets: [{
                     data: [0.519, 1135000, 2082000], // en litres
                     backgroundColor: [
-                        'rgba(0, 153, 255, 0.8)',
-                        'rgba(0, 204, 255, 0.8)',
-                        'rgba(0, 102, 204, 0.8)'
+                        'rgba(201, 162, 74, 0.85)',
+                        'rgba(224, 192, 104, 0.85)',
+                        'rgba(217, 113, 74, 0.85)'
                     ],
                     borderColor: [
-                        'rgb(0, 153, 255)',
-                        'rgb(0, 204, 255)',
-                        'rgb(0, 102, 204)'
+                        '#141414',
+                        '#141414',
+                        '#141414'
                     ],
                     borderWidth: 3
                 }]
@@ -408,10 +425,10 @@ document.addEventListener('DOMContentLoaded', function() {
         energyPulse.addEventListener('click', function() {
             clickCount++;
             if (clickCount === 5) {
-                this.style.background = 'radial-gradient(circle, #ffd700 0%, #ff6b6b 100%)';
+                this.style.background = 'radial-gradient(circle, #f0d68c 0%, #D9714A 100%)';
                 this.querySelector('::before') && (this.querySelector('::before').textContent = '🌱');
                 setTimeout(() => {
-                    this.style.background = 'radial-gradient(circle, #00ff88 0%, #0066ff 100%)';
+                    this.style.background = 'radial-gradient(circle, #E0C068 0%, #D9714A 100%)';
                 }, 3000);
                 clickCount = 0;
             }

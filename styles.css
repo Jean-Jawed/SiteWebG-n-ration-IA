@@ -1869,3 +1869,38 @@ footer a:hover {
         gap: 24px;
     }
 }
+
+/* ===== Grandes illustrations éditoriales (figures pleine largeur) ===== */
+.wide-figure {
+    margin: 3.5rem auto;
+    max-width: 1080px;
+}
+.wide-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    border: 1px solid rgba(var(--primary-rgb), 0.18);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    background: #141414;
+}
+.wide-figure figcaption {
+    margin: 0.9rem auto 0;
+    max-width: 760px;
+    text-align: center;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: #a39c8c;
+}
+.wide-figure figcaption .credit {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    color: #7d776b;
+}
+.wide-figure figcaption .credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+@media (max-width: 700px) {
+    .wide-figure { margin: 2.25rem auto; }
+    .wide-figure img { border-radius: 12px; }
+    .wide-figure figcaption { font-size: 0.82rem; padding: 0 4px; }
+}

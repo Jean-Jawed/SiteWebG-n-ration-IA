@@ -297,6 +297,7 @@ body:has(.cm-atlas) .snav-bar {
 }
 
 .cm-map noscript img { width: 100%; display: block; }
+.cm-scroll-hint { display: none; }
 
 .cm-map-canvas {
     position: relative;
@@ -305,6 +306,7 @@ body:has(.cm-atlas) .snav-bar {
 }
 
 #cm-world { container-name: cmworld; }
+#cm-zoom { container-name: cmzoom; }
 
 .cm-svg {
     position: absolute;
@@ -1185,7 +1187,7 @@ body:has(.cm-atlas) .snav-bar {
 
 /* ---------- Carte : densité selon la largeur réelle ---------- */
 @container cmworld (max-width: 820px) {
-    .cm-callout { display: none; }
+    .cm-callout, .cm-leader, .cm-leader-dot { display: none; }
     .cm-pin.t1 .cm-pin-lbl,
     .cm-pin.t2 .cm-pin-lbl small { display: none; }
     .cm-pin-lbl { font-size: 11px; }
@@ -1195,6 +1197,10 @@ body:has(.cm-atlas) .snav-bar {
 @container cmworld (max-width: 520px) {
     .cm-pin-lbl small { display: none; }
     .cm-pin.t2 .cm-pin-lbl { display: none; }
+}
+
+@container cmzoom (max-width: 600px) {
+    .cm-pin-lbl small { display: none; }
 }
 
 /* ---------- Responsive ---------- */
@@ -1238,6 +1244,25 @@ body:has(.cm-atlas) .snav-bar {
     .cm-filter { flex-wrap: nowrap; overflow-x: auto; padding-bottom: .3rem; scrollbar-width: thin; }
     .cm-filter .cm-chip { flex: none; }
     .cm-inset { padding: .7rem .5rem .3rem; }
+
+    /* Carte plus large que l'écran : on la fait défiler dans son cadre */
+    .cm-scroll {
+        overflow-x: auto;
+        margin: 0 -16px;
+        padding: 0 16px;
+        scrollbar-width: thin;
+        -webkit-overflow-scrolling: touch;
+    }
+    #cm-world { width: 760px; }
+    #cm-zoom { width: 620px; }
+    .cm-scroll-hint {
+        display: flex;
+        align-items: center;
+        gap: .4rem;
+        margin-top: .5rem;
+        font-size: .76rem;
+        color: var(--ink-3);
+    }
     .cm-tip { display: none !important; }
 }
 

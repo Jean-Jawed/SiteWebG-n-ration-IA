@@ -279,6 +279,9 @@
                 buildView(world, src, 'world');
                 if (zoom) buildView(zoom, src, 'zoom');
                 fig.classList.add('is-ready');
+                /* Sur mobile la carte défile : on démarre centré sur l'Europe et l'Afrique */
+                const sc = world.parentElement;
+                if (sc && sc.scrollWidth > sc.clientWidth) sc.scrollLeft = (sc.scrollWidth - sc.clientWidth) * .48;
             })
             .catch(() => { fig.classList.add('is-error'); });
     }

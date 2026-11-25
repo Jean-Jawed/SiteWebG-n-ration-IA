@@ -544,7 +544,10 @@ body:has(.cm-atlas) .snav-bar {
     align-items: start;
 }
 
+.cm-map-foot > * { min-width: 0; }
+
 .cm-inset {
+    min-width: 0;
     border: 1px solid var(--rule);
     background: var(--paper);
     padding: 1rem 1rem .5rem;

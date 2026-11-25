@@ -1251,6 +1251,7 @@ body:has(.cm-atlas) .snav-bar {
     /* Carte plus large que l'écran : on la fait défiler dans son cadre */
     .cm-scroll {
         overflow-x: auto;
+        overflow-y: hidden;
         margin: 0 -16px;
         padding: 0 16px;
         scrollbar-width: thin;

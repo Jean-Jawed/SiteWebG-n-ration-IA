@@ -78,7 +78,8 @@
         });
         DATA.giants.forEach(g => {
             const p = land.querySelector('#' + g.iso3);
-            if (p) { p.setAttribute('class', 'is-giant'); p.setAttribute('fill', 'url(#cm-hatch-' + viewName + ')'); }
+            /* style inline : la règle CSS .cm-land path écraserait un attribut fill */
+            if (p) { p.setAttribute('class', 'is-giant'); p.style.fill = 'url(#cm-hatch-' + viewName + ')'; }
         });
         /* Les ids des pays doivent rester uniques dans le document */
         land.querySelectorAll('[id]').forEach(n => { n.dataset.iso = n.id; n.removeAttribute('id'); });

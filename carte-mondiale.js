@@ -1,70 +1,284 @@
-/* Page Carte mondiale — placement des points (lat/lon → equirectangulaire)
-   Le fond de carte couvre 90°N -> 60°S (le bas de l'Antarctique est coupé). */
+/* =========================================================
+   Page Carte mondiale — atlas : carte monde + zoom Europe/Moyen-Orient,
+   symboles proportionnels, filtres des fiches.
+   Données : <script type="application/json" id="cm-data"> (généré avec la page).
+   Fond : world-map.svg, projection équirectangulaire 1024 × 427,
+   de 90°N à 60°S.
+   ========================================================= */
+(function () {
+    'use strict';
 
-/* i18n léger : la page EN recharge le même script */
-const I18N_EN = document.documentElement.lang === 'en';
-const S = (fr, en) => (I18N_EN ? (en !== undefined ? en : fr) : fr);
+    const dataEl = document.getElementById('cm-data');
+    if (!dataEl) return;
+    const DATA = JSON.parse(dataEl.textContent);
+    const NS = 'http://www.w3.org/2000/svg';
 
-const CM_DOTS = [
-    { id: 'c-france',     name: 'France',            actor: 'Mistral AI',          lat: 46.6,  lon: 2.4,    st: 'dispo' },
-    { id: 'c-suisse',     name: S('Suisse', 'Switzerland'),            actor: 'Apertus',             lat: 46.8,  lon: 8.2,    st: 'dispo' },
-    { id: 'c-allemagne',  name: S('Allemagne', 'Germany'),         actor: 'Aleph Alpha, Flux',   lat: 50.4,  lon: 9.6,    st: 'dispo' },
-    { id: 'c-royaume-uni', name: S('Royaume-Uni', 'United Kingdom'),      actor: 'DeepMind',            lat: 52.5,  lon: -1.6,   st: 'dispo' },
-    { id: 'c-finlande',   name: S('Finlande', 'Finland'),         actor: 'Silo AI',             lat: 61.5,  lon: 24.9,   st: 'dispo' },
-    { id: 'c-norvege',   name: S('Norvège', 'Norway'),           actor: 'Opera',               lat: 60.0,  lon: 10.5,   st: 'dispo' },
-    { id: 'c-pologne',    name: 'Pologne',           actor: 'Bielik',              lat: 52.1,  lon: 19.5,   st: 'dispo' },
-    { id: 'c-italie',     name: S('Italie', 'Italy'),            actor: 'Minerva',             lat: 42.6,  lon: 12.6,   st: 'dispo' },
-    { id: 'c-canada',     name: 'Canada',           actor: 'Cohere',              lat: 43.7,  lon: -79.4,  st: 'dispo' },
-    { id: 'c-bresil',     name: S('Brésil', 'Brazil'),            actor: 'Sabiá — Maritaca',    lat: -23.6, lon: -46.6,  st: 'dispo' },
-    { id: 'c-argentine',  name: S('Argentine', 'Argentina'),         actor: 'Latam-GPT',           lat: -34.6, lon: -58.4,  st: 'endev' },
-    { id: 'c-mexique',    name: S('Mexique', 'Mexico'),           actor: 'Mexico IA',           lat: 19.4,  lon: -99.1,  st: 'endev' },
-    { id: 'c-emirats',    name: S('Émirats', 'UAE'),           actor: 'Falcon, Jais',        lat: 24.5,  lon: 54.4,   st: 'dispo' },
-    { id: 'c-qatar',      name: 'Qatar',             actor: 'Fanar',               lat: 25.3,  lon: 51.5,   st: 'dispo' },
-    { id: 'c-arabie',     name: S('Arabie saoudite', 'Saudi Arabia'),   actor: 'ALLaM, HUMAIN',       lat: 24.7,  lon: 46.7,   st: 'dispo' },
-    { id: 'c-afsu',       name: S('Afrique du Sud', 'South Africa'),    actor: 'Lelapa AI',           lat: -26.2, lon: 28.0,   st: 'dispo' },
-    { id: 'c-egypte',     name: S('Égypte', 'Egypt'),            actor: 'Karnak',              lat: 30.0,  lon: 31.2,   st: 'dispo' },
-    { id: 'c-maroc',      name: S('Maroc', 'Morocco'),             actor: 'Maroc IA 2030',       lat: 31.8,  lon: -7.9,   st: 'endev' },
-    { id: 'c-algerie',    name: S('Algérie', 'Algeria'),            actor: 'DziriBOT',            lat: 36.7,  lon: 3.1,    st: 'endev' },
-    { id: 'c-nigeria',    name: S('Nigéria', 'Nigeria'),            actor: 'N-ATLAS',             lat: 9.1,   lon: 7.4,    st: 'endev' },
-    { id: 'c-rwanda',     name: 'Rwanda',            actor: 'Digital Umuganda',    lat: -1.95, lon: 30.06,  st: 'dispo' },
-    { id: 'c-namibie',    name: S('Namibie', 'Namibia'),            actor: 'Institut nat. d\u2019IA', lat: -22.6, lon: 17.08, st: 'endev' },
-    { id: 'c-russie',     name: S('Russie', 'Russia'),            actor: 'Alice / GigaChat',    lat: 55.75, lon: 37.6,   st: 'dispo' },
-    { id: 'c-japon',      name: S('Japon', 'Japan'),             actor: 'tsuzumi, Sakana AI',  lat: 35.7,  lon: 139.7,  st: 'dispo' },
-    { id: 'c-coree',      name: S('Corée du Sud', 'South Korea'),       actor: 'HyperCLOVA, EXAONE', lat: 37.2,  lon: 127.0,  st: 'dispo' },
-    { id: 'c-inde',       name: S('Inde', 'India'),              actor: 'Sarvam, Krutrim',     lat: 13.0,  lon: 77.6,   st: 'dispo' },
-    { id: 'c-singapour',  name: 'Singapour',         actor: 'SEA-LION',            lat: 1.35,  lon: 103.82, st: 'dispo' },
-    { id: 'c-vietnam',    name: 'Vietnam',           actor: 'FPT AI Factory',      lat: 21.0,  lon: 105.8,  st: 'dispo' },
-    { id: 'c-kazakhstan', name: 'Kazakhstan',        actor: 'KazLLM',              lat: 51.1,  lon: 71.4,   st: 'dispo' },
-    { id: 'c-australie',  name: S('Australie', 'Australia'),         actor: 'Leonardo.Ai',         lat: -33.9, lon: 151.2,  st: 'dispo' }
-];
+    /* --- Projection --- */
+    const X = lon => (lon + 180) / 360 * 1024;
+    const Y = lat => (90 - lat) / 150 * 427;
 
-document.addEventListener('DOMContentLoaded', () => {
-    const holder = document.getElementById('cm-dots');
-    if (!holder) return;
+    /* Rayon (unités du fond) par niveau d'envergure : surface ~ ×2 par niveau,
+       les deux mastodontes nettement au-dessus. */
+    const R = { 5: 23, 4: 9.5, 3: 7, 2: 5, 1: 3.8 };
 
-    const LAT_TOP = 90, LAT_BOT = -60;
+    const VIEWS = {
+        world: { vb: [0, 17, 1024, 384], k: 1, labels: 'lw' },
+        zoom: { vb: [X(-14), Y(67), X(62) - X(-14), Y(10) - Y(67)], k: .5, labels: 'li' }
+    };
+    const ZOOM_BOX = VIEWS.zoom.vb;
 
-    CM_DOTS.forEach(d => {
-        const x = (d.lon + 180) / 360 * 100;
-        const y = (LAT_TOP - d.lat) / (LAT_TOP - LAT_BOT) * 100;
-        const a = document.createElement('a');
-        a.className = 'cm-dot-link st-' + d.st;
-        a.href = '#' + d.id;
-        a.style.left = x + '%';
-        a.style.top = y + '%';
-        a.setAttribute('aria-label', d.name + ' : ' + d.actor);
-        a.innerHTML = '<span class="cm-dot-core"></span>' +
-            '<span class="cm-tip"><strong>' + d.name + '</strong> — ' + d.actor + '</span>';
-        a.addEventListener('click', e => {
-            const target = document.getElementById(d.id);
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                target.classList.add('cm-flash');
-                setTimeout(() => target.classList.remove('cm-flash'), 2200);
-                history.replaceState(null, '', '#' + d.id);
-            }
+    const pinsById = {};   // id -> [pins]
+    const symsById = {};   // id -> [circles]
+
+    const el = (tag, attrs, parent) => {
+        const n = document.createElementNS(NS, tag);
+        for (const k in attrs) n.setAttribute(k, attrs[k]);
+        if (parent) parent.appendChild(n);
+        return n;
+    };
+    const escapeHtml = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+    /* ---------- Construction d'une vue ---------- */
+    function buildView(holder, srcSvg, viewName) {
+        const view = VIEWS[viewName];
+        const [vx, vy, vw, vh] = view.vb;
+        const svg = srcSvg.cloneNode(true);
+        svg.removeAttribute('width');
+        svg.removeAttribute('height');
+        svg.setAttribute('viewBox', view.vb.join(' '));
+        svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+        svg.setAttribute('aria-hidden', 'true');
+        svg.removeAttribute('role');
+        svg.classList.add('cm-svg');
+        holder.style.setProperty('--ar', vw / vh);
+        holder.style.setProperty('--vw', vw);
+
+        const land = svg.querySelector('g');
+        land.removeAttribute('fill');
+        land.removeAttribute('stroke');
+        land.setAttribute('class', 'cm-land');
+
+        /* Hachures pour les deux mastodontes */
+        const defs = el('defs', {}, null);
+        svg.insertBefore(defs, svg.firstChild);
+        const pat = el('pattern', { id: 'cm-hatch-' + viewName, patternUnits: 'userSpaceOnUse', width: 3.2, height: 3.2, patternTransform: 'rotate(45)' }, defs);
+        el('rect', { width: 3.2, height: 3.2, class: 'cm-hatch-bg' }, pat);
+        el('line', { x1: 0, y1: 0, x2: 0, y2: 3.2, class: 'cm-hatch-line' }, pat);
+
+        /* Graticule tous les 30° (sous les terres) */
+        const grat = el('g', { class: 'cm-grat' }, null);
+        svg.insertBefore(grat, land);
+        for (let lon = -150; lon <= 150; lon += 30) el('line', { x1: X(lon), x2: X(lon), y1: 0, y2: 427 }, grat);
+        for (let lat = -60; lat <= 90; lat += 30) el('line', { x1: 0, x2: 1024, y1: Y(lat), y2: Y(lat), class: lat === 0 ? 'eq' : '' }, grat);
+
+        /* Teinte des pays actifs */
+        DATA.countries.forEach(c => {
+            const p = c.iso3 && land.querySelector('#' + c.iso3);
+            if (p) p.setAttribute('class', 'is-active s-' + c.strat);
         });
-        holder.appendChild(a);
+        DATA.giants.forEach(g => {
+            const p = land.querySelector('#' + g.iso3);
+            if (p) { p.setAttribute('class', 'is-giant'); p.setAttribute('fill', 'url(#cm-hatch-' + viewName + ')'); }
+        });
+        /* Les ids des pays doivent rester uniques dans le document */
+        land.querySelectorAll('[id]').forEach(n => { n.dataset.iso = n.id; n.removeAttribute('id'); });
+
+        /* Cadre du zoom sur la carte monde */
+        if (viewName === 'world') {
+            el('rect', { x: ZOOM_BOX[0], y: ZOOM_BOX[1], width: ZOOM_BOX[2], height: ZOOM_BOX[3], rx: 3, class: 'cm-zoom-frame' }, svg);
+        }
+
+        /* Symboles : du plus gros au plus petit, pour que les petits restent visibles */
+        const syms = el('g', { class: 'cm-syms' }, svg);
+        const all = DATA.giants.map(g => Object.assign({ tier: 5, strat: 'giant', st: 'dispo', giant: true }, g))
+            .concat(DATA.countries)
+            .sort((a, b) => b.tier - a.tier);
+
+        const overlay = document.createElement('div');
+        overlay.className = 'cm-pins';
+
+        all.forEach(c => {
+            const cx = X(c.lon), cy = Y(c.lat);
+            if (cx < vx - 10 || cx > vx + vw + 10 || cy < vy - 10 || cy > vy + vh + 10) return;
+            const r = R[c.tier] * (c.giant ? (viewName === 'zoom' ? .5 : 1) : view.k);
+            const circ = el('circle', { cx, cy, r, class: 'cm-sym s-' + c.strat + ' st-' + c.st + ' t' + c.tier }, syms);
+            (symsById[c.id] = symsById[c.id] || []).push(circ);
+
+            /* Point d'interaction + libellé (HTML, accessible au clavier) */
+            const inZoomBox = cx >= ZOOM_BOX[0] && cx <= ZOOM_BOX[0] + ZOOM_BOX[2] && cy >= ZOOM_BOX[1] && cy <= ZOOM_BOX[1] + ZOOM_BOX[3];
+            let pos = c.giant ? 'none' : c[view.labels];
+            if (viewName === 'world' && inZoomBox && !c.giant) pos = 'none';
+
+            const a = document.createElement('a');
+            a.className = 'cm-pin t' + c.tier + ' s-' + c.strat + ' lbl-' + pos;
+            a.href = '#' + c.id;
+            a.style.left = ((cx - vx) / vw * 100) + '%';
+            a.style.top = ((cy - vy) / vh * 100) + '%';
+            a.style.setProperty('--r', (r / vw * 100));
+            a.dataset.id = c.id;
+            a.dataset.strat = c.strat;
+            a.setAttribute('aria-label', c.name + ' — ' + DATA.tiers[c.tier] + (c.actors ? ' — ' + c.actors.join(', ') : ''));
+            let lbl = '';
+            if (pos !== 'none') {
+                lbl = '<span class="cm-pin-lbl"><b>' + escapeHtml(c.short || c.name) + '</b>' +
+                    (c.tier >= 2 && c.actors ? '<small>' + escapeHtml(c.actors[0]) + '</small>' : '') + '</span>';
+            }
+            a.innerHTML = '<span class="cm-pin-hit"></span>' + lbl;
+            overlay.appendChild(a);
+            (pinsById[c.id] = pinsById[c.id] || []).push(a);
+            bindPin(a, c);
+        });
+
+        /* Les deux mastodontes : encadrés avec logos, reliés par un filet */
+        if (viewName === 'world') {
+            const CALL = {
+                'c-usa': { lon: -177, lat: 13, w: 21, side: 'tl', to: [-127, 13] },
+                'c-chine': { lon: 76, lat: 83, w: 22, side: 'tl', to: [104, 57] }
+            };
+            DATA.giants.forEach(g => {
+                const cfg = CALL[g.id];
+                if (!cfg) return;
+                const gx = X(g.lon), gy = Y(g.lat);
+                const tx = X(cfg.to[0]), ty = Y(cfg.to[1]);
+                const ang = Math.atan2(ty - gy, tx - gx);
+                el('path', {
+                    d: 'M' + (gx + Math.cos(ang) * (R[5] + 1.5)) + ' ' + (gy + Math.sin(ang) * (R[5] + 1.5)) + ' L' + tx + ' ' + ty,
+                    class: 'cm-leader'
+                }, svg);
+                el('circle', { cx: tx, cy: ty, r: 1.6, class: 'cm-leader-dot' }, svg);
+                const box = document.createElement('a');
+                box.className = 'cm-callout';
+                box.href = '#' + g.id;
+                box.style.left = ((X(cfg.lon) - vx) / vw * 100) + '%';
+                box.style.top = ((Y(cfg.lat) - vy) / vh * 100) + '%';
+                box.style.width = cfg.w + '%';
+                box.innerHTML = '<span class="cm-callout-head"><span class="fi fi-' + g.iso2 + '"></span><b>' + escapeHtml(g.name) +
+                    '</b><small>' + escapeHtml(DATA.tiers[5]) + '</small></span><span class="cm-callout-logos">' +
+                    g.logos.map(l => '<img src="' + PRE + 'images/carte/logos/' + l[1] + '.webp" alt="' + escapeHtml(l[0]) + '" title="' + escapeHtml(l[0]) + '" width="64" height="64">').join('') +
+                    '</span>';
+                overlay.appendChild(box);
+            });
+        }
+
+        holder.appendChild(svg);
+        holder.appendChild(overlay);
+    }
+
+    /* ---------- Infobulle ---------- */
+    const fig = document.getElementById('cm-map');
+    const PRE = fig ? fig.dataset.pre || '' : '';
+    const tip = document.getElementById('cm-tip');
+    const byId = {};
+    DATA.countries.forEach(c => { byId[c.id] = c; });
+
+    function hot(id, on) {
+        (symsById[id] || []).forEach(s => s.classList.toggle('is-hot', on));
+        (pinsById[id] || []).forEach(p => p.classList.toggle('is-hot', on));
+    }
+
+    function showTip(a, c) {
+        if (!tip || c.giant) return;
+        const stLabel = c.st === 'endev' ? DATA.st.endev : DATA.st.dispo;
+        tip.innerHTML =
+            '<span class="cm-tip-head"><span class="fi fi-' + c.iso2 + '"></span><b>' + escapeHtml(c.name) + '</b></span>' +
+            '<span class="cm-tip-row"><span class="cm-pips">' + [1, 2, 3, 4, 5].map(i => '<i class="' + (i <= c.tier ? 'on' : '') + '"></i>').join('') + '</span>' + escapeHtml(DATA.tiers[c.tier]) + '</span>' +
+            '<span class="cm-tip-actors">' + c.actors.map(escapeHtml).join(' · ') + '</span>' +
+            '<span class="cm-tip-row"><span class="cm-tip-sw s-' + c.strat + '"></span>' + escapeHtml(DATA.strats[c.strat]) +
+            ' <span class="cm-tip-sep">·</span> ' + escapeHtml(c.badge || stLabel) + '</span>' +
+            '<span class="cm-tip-hint">' + escapeHtml(DATA.hint) + ' →</span>';
+        tip.hidden = false;
+        const fr = fig.getBoundingClientRect();
+        const ar = a.getBoundingClientRect();
+        const tw = tip.offsetWidth, th = tip.offsetHeight;
+        let left = ar.left + ar.width / 2 - fr.left - tw / 2;
+        left = Math.max(8, Math.min(left, fr.width - tw - 8));
+        let top = ar.top - fr.top - th - 10;
+        if (top < 8) top = ar.bottom - fr.top + 10;
+        tip.style.left = left + 'px';
+        tip.style.top = top + 'px';
+    }
+
+    function hideTip() { if (tip) tip.hidden = true; }
+
+    function bindPin(a, c) {
+        a.addEventListener('pointerenter', () => { hot(c.id, true); showTip(a, c); });
+        a.addEventListener('pointerleave', () => { hot(c.id, false); hideTip(); });
+        a.addEventListener('focus', () => { hot(c.id, true); showTip(a, c); });
+        a.addEventListener('blur', () => { hot(c.id, false); hideTip(); });
+    }
+
+    /* ---------- Aller à une fiche ---------- */
+    function goTo(id, e) {
+        const target = document.getElementById(id);
+        if (!target) return;
+        if (e) e.preventDefault();
+        if (target.classList.contains('cm-card') && target.hidden) resetFilters();
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        target.classList.remove('cm-flash');
+        void target.offsetWidth;
+        target.classList.add('cm-flash');
+        history.replaceState(null, '', '#' + id);
+    }
+
+    document.addEventListener('click', e => {
+        const a = e.target.closest('.cm-pin, .cm-callout, .cm-lchip, .cm-mini');
+        if (!a) return;
+        goTo(a.getAttribute('href').slice(1), e);
     });
-});
+
+    /* ---------- Mise en avant d'une stratégie sur la carte ---------- */
+    const hlBtns = document.querySelectorAll('.cm-map-head .cm-chip');
+    hlBtns.forEach(b => b.addEventListener('click', () => {
+        const on = b.getAttribute('aria-pressed') !== 'true';
+        hlBtns.forEach(o => o.setAttribute('aria-pressed', 'false'));
+        b.setAttribute('aria-pressed', on ? 'true' : 'false');
+        document.querySelectorAll('.cm-map-section').forEach(s => {
+            if (on) s.dataset.hl = b.dataset.strat; else delete s.dataset.hl;
+        });
+    }));
+
+    /* ---------- Filtres des fiches ---------- */
+    const state = { region: 'all', strat: 'all' };
+    const regionBtns = document.querySelectorAll('.cm-filters [data-region]');
+    const stratBtns = document.querySelectorAll('.cm-filters [data-fstrat]');
+    const empty = document.querySelector('.cm-empty');
+
+    function applyFilters() {
+        let total = 0;
+        document.querySelectorAll('.cm-region').forEach(sec => {
+            let n = 0;
+            sec.querySelectorAll('.cm-card').forEach(card => {
+                const ok = (state.region === 'all' || card.dataset.region === state.region) &&
+                    (state.strat === 'all' || card.dataset.strat === state.strat);
+                card.hidden = !ok;
+                if (ok) n++;
+            });
+            sec.hidden = n === 0;
+            total += n;
+        });
+        if (empty) empty.hidden = total > 0;
+        regionBtns.forEach(b => { const on = b.dataset.region === state.region; b.classList.toggle('is-on', on); b.setAttribute('aria-pressed', on); });
+        stratBtns.forEach(b => { const on = b.dataset.fstrat === state.strat; b.classList.toggle('is-on', on); b.setAttribute('aria-pressed', on); });
+    }
+
+    function resetFilters() { state.region = 'all'; state.strat = 'all'; applyFilters(); }
+
+    regionBtns.forEach(b => b.addEventListener('click', () => { state.region = b.dataset.region; applyFilters(); }));
+    stratBtns.forEach(b => b.addEventListener('click', () => { state.strat = b.dataset.fstrat; applyFilters(); }));
+
+    /* ---------- Chargement du fond de carte ---------- */
+    const world = document.getElementById('cm-world');
+    const zoom = document.getElementById('cm-zoom');
+    if (fig && world) {
+        fetch(fig.dataset.src)
+            .then(r => r.text())
+            .then(txt => {
+                const doc = new DOMParser().parseFromString(txt, 'image/svg+xml');
+                const src = doc.documentElement;
+                buildView(world, src, 'world');
+                if (zoom) buildView(zoom, src, 'zoom');
+                fig.classList.add('is-ready');
+            })
+            .catch(() => { fig.classList.add('is-error'); });
+    }
+})();

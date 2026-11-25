@@ -5,29 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
-    <title>World AI Map: artificial intelligence beyond the US and China — Génération-IA</title>
+    <title>World AI Map: who builds artificial intelligence, country by country — Génération-IA</title>
     <meta name="description"
-        content="Who develops AI around the world? More than 25 countries are building their own models: Mistral in France, Falcon in the UAE, Sarvam in India, Bielik in Poland, Cohere in Canada… Strategies, models and access, country by country.">
+        content="An atlas of AI around the world: the two giants, the US and China, and 30+ countries building their own models — Mistral, Cohere, Falcon, Yandex, Sarvam, Apertus… Scale, strategies and dates, country by country.">
     <link rel="canonical" href="https://xn--gnration-ia-bbbb.fr/en/carte-mondiale.html">
     <link rel="alternate" hreflang="fr" href="https://xn--gnration-ia-bbbb.fr/carte-mondiale.html">
     <link rel="alternate" hreflang="en" href="https://xn--gnration-ia-bbbb.fr/en/carte-mondiale.html">
     <link rel="alternate" hreflang="x-default" href="https://xn--gnration-ia-bbbb.fr/carte-mondiale.html">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../carte-mondiale.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap"
         rel="stylesheet">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebPage",
-      "name": "World AI Map — the landscape beyond the US and China",
-      "description": "A world panorama of AI development beyond the US-China duopoly: national models, interfaces and sovereignty strategies, country by country.",
+      "name": "World AI Map — who builds artificial intelligence, country by country",
+      "description": "A world atlas of AI development: the American and Chinese giants, and the models, interfaces and sovereignty strategies of more than 30 other countries.",
       "inLanguage": "en",
-      "about": ["Artificial intelligence", "Language models", "Digital sovereignty"]
+      "about": ["Artificial intelligence", "Language models", "Digital sovereignty", "AI geopolitics"]
     }
     </script>
     <script>
@@ -37,602 +38,845 @@
 </head>
 
 <body>
-    <!-- Background animation -->
+    <!-- Animation de fond (masquée par la feuille claire de l'atlas) -->
     <div id="particles-js"></div>
 
-    <!-- Header -->
     <site-header></site-header>
 
-    <main>
-        <section class="page-hero">
+    <main class="cm-atlas">
+        <header class="cm-hero">
             <div class="container">
-                <h1>WORLD <span class="highlight">MAP</span></h1>
-                <p class="subtitle">AI does not only come from the US or China</p>
+                <p class="cm-kicker">Atlas of AI · November 2026 edition</p>
+                <h1>World map <span>of AI</span></h1>
+                <p class="cm-dek">Two giants, the United States and China, hold the frontier models, the chips and the cloud. But they are far from alone: from Paris to Abu Dhabi, from Moscow to Seoul, more than thirty countries are building their own models. Almost always for the same reason: <strong>speaking their own language</strong> and keeping their data at home.</p>
+                <div class="cm-kpis"><div class="cm-kpi"><span class="cm-kpi-n">2</span><span class="cm-kpi-l">superpowers</span></div><div class="cm-kpi"><span class="cm-kpi-n">30</span><span class="cm-kpi-l">other countries mapped</span></div><div class="cm-kpi"><span class="cm-kpi-n">64</span><span class="cm-kpi-l">organisations cited</span></div><div class="cm-kpi"><span class="cm-kpi-n">4</span><span class="cm-kpi-l">national strategies</span></div></div>
+            </div>
+        </header>
+
+        <!-- La carte -->
+        <section class="cm-map-section" id="carte" aria-labelledby="cm-map-h2">
+            <div class="container cm-wide">
+                <div class="cm-map-head">
+                    <div>
+                        <h2 id="cm-map-h2">Who builds AI, and at what scale?</h2>
+                        <p class="cm-section-lead">Circle size shows the player's scale, its colour the strategy followed. A solid circle is in service, a hollow one still under construction.</p>
+                    </div>
+                    <div class="cm-filter" role="group" aria-label="Highlight">
+                        <span class="cm-filter-label">Highlight</span>
+                        <button type="button" class="cm-chip s-maison" data-strat="maison" aria-pressed="false"><i aria-hidden="true"></i>Home-grown model</button><button type="button" class="cm-chip s-adapt" data-strat="adapt" aria-pressed="false"><i aria-hidden="true"></i>Adaptation</button><button type="button" class="cm-chip s-interface" data-strat="interface" aria-pressed="false"><i aria-hidden="true"></i>Interface &amp; hosting</button><button type="button" class="cm-chip s-fondation" data-strat="fondation" aria-pressed="false"><i aria-hidden="true"></i>Foundations</button>
+                    </div>
+                </div>
+                <figure class="cm-map" id="cm-map" data-src="../world-map.svg" data-pre="../">
+                    <div class="cm-map-canvas" id="cm-world"></div>
+                    <noscript><img src="../world-map.svg" alt="World map of artificial intelligence players"><p>The interactive map requires JavaScript; all the information is repeated in the profiles below.</p></noscript>
+                    <div class="cm-tip" id="cm-tip" role="status" aria-live="polite" hidden></div>
+                </figure>
+                <div class="cm-map-foot">
+                    <div class="cm-inset">
+                        <div class="cm-inset-head">
+                            <h3>Zoom · Europe and the Middle East</h3>
+                            <p>The densest part of the map, at a larger scale.</p>
+                        </div>
+                        <div class="cm-map-canvas" id="cm-zoom"></div>
+                    </div>
+                    <aside class="cm-key" aria-label="Legend">
+                        <div>
+                            <h4>Scale</h4>
+                            <ul class="cm-key-size"><li><span class="cm-key-circle" style="--d:34px"></span>Superpower</li><li><span class="cm-key-circle" style="--d:18px"></span>Global power</li><li><span class="cm-key-circle" style="--d:13px"></span>Sovereign player</li><li><span class="cm-key-circle" style="--d:9px"></span>National model</li><li><span class="cm-key-circle" style="--d:7px"></span>Foundations</li></ul>
+                        </div>
+                        <div>
+                            <h4>Strategy</h4>
+                            <ul class="cm-key-color"><li><span class="cm-key-sw s-giant"></span><span><strong>The giants</strong><small>United States, China</small></span></li><li><span class="cm-key-sw s-maison"></span><span><strong>Home-grown model</strong><small>Trained from scratch</small></span></li><li><span class="cm-key-sw s-adapt"></span><span><strong>Adaptation</strong><small>An open model retrained for a language</small></span></li><li><span class="cm-key-sw s-interface"></span><span><strong>Interface &amp; hosting</strong><small>No model: orchestration, compliance</small></span></li><li><span class="cm-key-sw s-fondation"></span><span><strong>Foundations</strong><small>Institutions, data, community</small></span></li></ul>
+                        </div>
+                        <div>
+                            <h4>Status</h4>
+                            <ul class="cm-key-status">
+                                <li><span class="cm-key-dot is-full"></span>In service</li>
+                                <li><span class="cm-key-dot is-ring"></span>Under construction</li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
             </div>
         </section>
 
-        <section class="cm-intro">
+        <!-- 01 Les mastodontes -->
+        <section class="cm-block cm-giants" aria-labelledby="cm-giants-h2">
             <div class="container">
-                <p class="cm-lead">
-                    Between the big American labs and the Chinese giants, the rest of the world is
-                    often forgotten. Yet more than <strong>25 countries</strong> are today building
-                    their own models, interfaces or AI infrastructure — from France to Qatar, from
-                    Brazil to Kazakhstan. Almost always for the same reason: <strong>speaking
-                    their own language</strong>, and keeping their data at home.
-                </p>
-                <div class="cm-stats">
-                    <div class="cm-stat"><span class="cm-stat-n">25+</span><span>active countries</span></div>
-                    <div class="cm-stat"><span class="cm-stat-n">4</span><span>strategies</span></div>
-                    <div class="cm-stat"><span class="cm-stat-n">5</span><span>regions</span></div>
-                </div>
-            </div>
-        </section>
-
-        <!-- The map -->
-        <section class="cm-map-section">
-            <div class="container">
-                <h2>The world of AI at a glance</h2>
-                <p class="cm-hint">Every dot is a country developing AI. Hover to see who, click to
-                    read the details.</p>
-                <div class="cm-map-stage">
-                    <img src="../world-map.svg" alt="World map showing the countries that develop artificial intelligence" class="cm-map-bg" draggable="false">
-                    <div class="cm-dots" id="cm-dots"></div>
-                </div>
-                <div class="cm-map-legend">
-                    <span class="cm-legend-item"><span class="cm-dot cm-dot-dispo"></span> In service</span>
-                    <span class="cm-legend-item"><span class="cm-dot cm-dot-endev"></span> Under construction</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Details by region -->
-        <section class="cm-regions">
-            <div class="container">
-
-                <h2 class="cm-region-title" id="europe"><i class="fa-solid fa-earth-europe" aria-hidden="true"></i>
-                    Europe</h2>
-                <div class="cm-cards">
-
-                    <article class="cm-card" id="c-france">
+                <p class="cm-section-kicker">01 · The two giants</p>
+                <h2 id="cm-giants-h2">Two giants, dozens of organisations</h2>
+                <p class="cm-section-lead">Each of them alone outweighs the rest of the map combined: frontier labs, tech giants, chipmakers, clouds. The difference between them shows in the last column.</p>
+                <div class="cm-giants-grid">
+                    <article class="cm-giant" id="c-usa">
                         <header>
-                            <h3>France</h3>
-                            <span class="cm-badge cm-badge-dispo">In service</span>
+                            <span class="cm-flag fi fi-us cm-flag-xl" aria-hidden="true"></span>
+                            <div>
+                                <h3>United States</h3>
+                                <span class="cm-card-meta">Superpower</span>
+                            </div>
+                            <span class="cm-pips" title="Scale 5/5" aria-label="Scale 5/5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
                         </header>
-                        <span class="cm-tags">from scratch · vertical interface</span>
-                        <p><strong>Mistral AI</strong>: world-class open-weight models with the
-                            consumer interface <strong>Le Chat / Vibe</strong> — which also embeds
-                            Z.ai's GLM models. Mistral powers the French of Amazon's Alexa+ and its
-                            weights also feed third parties like Bielik in Poland.</p>
-                        <div class="cm-links"><a href="https://chat.mistral.ai" target="_blank"
-                                rel="noopener">chat.mistral.ai</a> <a href="https://mistral.ai"
-                                target="_blank" rel="noopener">mistral.ai</a></div>
+                        <p class="cm-giant-lede">The frontier models, almost all closed, and most of the world’s chips and cloud.</p>
+                        <ul class="cm-giant-list"><li><img class="cm-logo " src="../images/carte/logos/openai.webp" alt="" width="64" height="64" loading="lazy"><strong>OpenAI</strong><span class="cm-g-model">GPT-6 · ChatGPT</span><span class="cm-open o-f">closed</span></li><li><img class="cm-logo " src="../images/carte/logos/anthropic.webp" alt="" width="64" height="64" loading="lazy"><strong>Anthropic</strong><span class="cm-g-model">Claude 5</span><span class="cm-open o-f">closed</span></li><li><img class="cm-logo " src="../images/carte/logos/google.webp" alt="" width="64" height="64" loading="lazy"><strong>Google</strong><span class="cm-g-model">Gemini · Gemma</span><span class="cm-open o-m">closed + open</span></li><li><img class="cm-logo " src="../images/carte/logos/meta.webp" alt="" width="64" height="64" loading="lazy"><strong>Meta</strong><span class="cm-g-model">Muse Spark · Llama</span><span class="cm-open o-m">closed + open</span></li><li><img class="cm-logo " src="../images/carte/logos/xai.webp" alt="" width="64" height="64" loading="lazy"><strong>xAI</strong><span class="cm-g-model">Grok 4.x</span><span class="cm-open o-f">closed</span></li><li><img class="cm-logo " src="../images/carte/logos/microsoft.webp" alt="" width="64" height="64" loading="lazy"><strong>Microsoft</strong><span class="cm-g-model">Copilot · MAI</span></li><li><img class="cm-logo " src="../images/carte/logos/nvidia.webp" alt="" width="64" height="64" loading="lazy"><strong>NVIDIA</strong><span class="cm-g-model">Nemotron</span><span class="cm-open o-o">open weights</span></li><li><img class="cm-logo " src="../images/carte/logos/amazon.webp" alt="" width="64" height="64" loading="lazy"><strong>Amazon</strong><span class="cm-g-model">Nova · Alexa+</span></li></ul>
+                        <p class="cm-giant-more">… and dozens of other labs, start-ups and universities.</p>
                     </article>
-
-                    <article class="cm-card" id="c-suisse">
+                    <article class="cm-giant" id="c-chine">
                         <header>
-                            <h3>Switzerland</h3>
-                            <span class="cm-badge cm-badge-dispo">In service</span>
+                            <span class="cm-flag fi fi-cn cm-flag-xl" aria-hidden="true"></span>
+                            <div>
+                                <h3>China</h3>
+                                <span class="cm-card-meta">Superpower</span>
+                            </div>
+                            <span class="cm-pips" title="Scale 5/5" aria-label="Scale 5/5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
                         </header>
-                        <span class="cm-tags">from scratch · public good</span>
-                        <p><strong>Apertus</strong>: a fully public, open-source LLM (Apache 2.0)
-                            launched by the Swiss AI Initiative (EPFL, ETH Zurich, Swiss National
-                            Supercomputing Centre). Multilingual, transparent training data.</p>
-                        <div class="cm-links"><a href="https://swiss-ai.ch" target="_blank"
-                                rel="noopener">swiss-ai.ch</a></div>
-                    </article>
-
-                    <article class="cm-card" id="c-allemagne">
-                        <header>
-                            <h3>Germany</h3>
-                            <span class="cm-badge cm-badge-dispo">In service</span>
-                        </header>
-                        <span class="cm-tags">sovereignty · open-source images</span>
-                        <p><strong>Aleph Alpha</strong> (Heidelberg): the sovereign platform
-                            <em>PhariaAI</em> — data under exclusive German jurisdiction, deployed
-                            in federal ministries; merged with Canada's Cohere. <strong>Teuken-7B</strong>
-                            (public consortium OpenGPT-X) covers all 24 EU languages, though federal
-                            funding stopped in early 2025. <strong>Black Forest Labs</strong>
-                            (Freiburg): <em>Flux</em>, the open-source image generator used
-                            worldwide.</p>
-                        <div class="cm-links"><a href="https://aleph-alpha.com" target="_blank"
-                                rel="noopener">aleph-alpha.com</a> <a
-                                href="https://blackforestlabs.ai" target="_blank"
-                                rel="noopener">blackforestlabs.ai</a></div>
-                    </article>
-
-                    <article class="cm-card" id="c-royaume-uni">
-                        <header>
-                            <h3>United Kingdom</h3>
-                            <span class="cm-badge cm-badge-mixte">Research ++ / sovereignty in progress</span>
-                        </header>
-                        <span class="cm-tags">global research · state programmes</span>
-                        <p><strong>DeepMind</strong> (London): a world-class research lab, but owned
-                            by Google. The <em>UK Sovereign AI</em> programme (under construction)
-                            backs 11 startups and targets a 20x AI Research Resource by 2030, with
-                            AI Growth Zones. <strong>Stability AI</strong>: the historic pioneer of
-                            open models (Stable Diffusion), now weakened.</p>
-                        <div class="cm-links"><a href="https://deepmind.google" target="_blank"
-                                rel="noopener">deepmind.google</a> <a href="https://stability.ai"
-                                target="_blank" rel="noopener">stability.ai</a></div>
-                    </article>
-
-                    <article class="cm-card" id="c-finlande">
-                        <header>
-                            <h3>Finland</h3>
-                            <span class="cm-badge cm-badge-dispo">In service</span>
-                        </header>
-                        <span class="cm-tags">linguistic grounding · supercomputing</span>
-                        <p><strong>Silo AI</strong>: the open <em>Poro</em> then <em>Viking</em>
-                            families, the first LLMs dedicated to Nordic languages, trained on the
-                            European <strong>LUMI</strong> supercomputer with the University of
-                            Turku. Acquired by AMD, Silo AI is now its AI lab.</p>
-                        <div class="cm-links"><a href="https://huggingface.co/LumiOpen"
-                                target="_blank" rel="noopener">Hugging Face — LumiOpen</a> <a
-                                href="https://www.siloai.com" target="_blank"
-                                rel="noopener">siloai.com</a></div>
-                    </article>
-
-                    <article class="cm-card" id="c-norvege">
-                        <header>
-                            <h3>Norway</h3>
-                            <span class="cm-badge cm-badge-dispo">In service</span>
-                        </header>
-                        <span class="cm-tags">interface without a model · local AI</span>
-                        <p>No major Norwegian LLM — but <strong>Opera</strong> (Oslo) pursues an
-                            interface strategy: the <em>Aria</em> AI built on OpenAI and Google
-                            models, and the first browser to support <strong>150 local LLMs</strong>
-                            running directly on the user's machine.</p>
-                        <div class="cm-links"><a href="https://www.opera.com" target="_blank"
-                                rel="noopener">opera.com</a> <a href="offline.html">See "Offline AI"</a></div>
-                    </article>
-
-                    <article class="cm-card" id="c-pologne">
-                        <header>
-                            <h3>Poland</h3>
-                            <span class="cm-badge cm-badge-dispo">In service</span>
-                        </header>
-                        <span class="cm-tags">continued pre-training · community</span>
-                        <p><strong>Bielik</strong> (SpeakLeash foundation): a Mistral base
-                            deeply re-trained (1.5B / 4.5B / 11B) that beats much larger models in
-                            Polish. Compliant with EU copyright, maintained by its community. The
-                            textbook example of a complete value chain.</p>
-                        <div class="cm-links"><a href="https://huggingface.co/speakleash"
-                                target="_blank" rel="noopener">Hugging Face — SpeakLeash</a></div>
-                    </article>
-
-                    <article class="cm-card" id="c-italie">
-                        <header>
-                            <h3>Italy</h3>
-                            <span class="cm-badge cm-badge-dispo">In service</span>
-                        </header>
-                        <span class="cm-tags">national research</span>
-                        <p><strong>Minerva</strong>: the national research LLM developed at
-                            Sapienza (Rome), funded by the European recovery plan (PNRR) as part of
-                            Italy's national AI strategy.</p>
-                        <div class="cm-links"><a
-                                href="https://huggingface.co/DeepSenseAI-Studio" target="_blank"
-                                rel="noopener">Hugging Face — DeepSense</a></div>
-                    </article>
-                </div>
-
-                <h2 class="cm-region-title" id="ameriques"><i class="fa-solid fa-earth-americas"
-                        aria-hidden="true"></i> Americas</h2>
-                <div class="cm-cards">
-
-                    <article class="cm-card" id="c-canada">
-                        <header>
-                            <h3>Canada</h3>
-                            <span class="cm-badge cm-badge-dispo">In service</span>
-                        </header>
-                        <span class="cm-tags">from scratch · sovereign AI</span>
-                        <p><strong>Cohere</strong> (Toronto): founded by ex-Google Brain. The
-                            <em>Command A</em> (111B) and <em>Command A+</em> (open source,
-                            Apache 2.0) models, positioned as "sovereign AI" for governments and
-                            regulated industries, with 4 billion CAD invested in Canada. Absorbed
-                            Aleph Alpha.</p>
-                        <div class="cm-links"><a href="https://cohere.com" target="_blank"
-                                rel="noopener">cohere.com</a> <a
-                                href="https://huggingface.co/CohereLabs" target="_blank"
-                                rel="noopener">Hugging Face — CohereLabs</a></div>
-                    </article>
-
-                    <article class="cm-card" id="c-bresil">
-                        <header>
-                            <h3>Brazil</h3>
-                            <span class="cm-badge cm-badge-dispo">In service</span>
-                        </header>
-                        <span class="cm-tags">Portuguese · legal corpus</span>
-                        <p><strong>Maritaca AI</strong>: the <em>Sabiá</em> family (up to Sabiá 4) —
-                            a generalist base followed by continued pre-training on Brazilian
-                            Portuguese and legal corpora, 128k context, and the consumer app
-                            <em>MariTalk</em>.</p>
-                        <div class="cm-links"><a href="https://maritaca.ai" target="_blank"
-                                rel="noopener">maritaca.ai</a></div>
-                    </article>
-
-                    <article class="cm-card" id="c-argentine">
-                        <header>
-                            <h3>Argentina</h3>
-                            <span class="cm-badge cm-badge-endev">Under construction</span>
-                        </header>
-                        <span class="cm-tags">Latin American Spanish</span>
-                        <p><strong>Latam-GPT</strong>: an academic initiative for a Latin American
-                            Spanish LLM, on the path of adapting existing models (access to the
-                            European LUMI supercomputer). Atypical political context: in 2026 the
-                            government proposed a bill on "non-human societies" — legal entities
-                            owned and operated by AIs.</p>
-                    </article>
-
-                    <article class="cm-card" id="c-mexique">
-                        <header>
-                            <h3>Mexico</h3>
-                            <span class="cm-badge cm-badge-endev">Under construction</span>
-                        </header>
-                        <span class="cm-tags">regional Spanish · data centers</span>
-                        <p><strong>Mexico IA</strong>: a national initiative led by employers
-                            (CCE) with NVIDIA — aiming for a "Spanish, made in Mexico" LLM adapted
-                            to regional variants. A parallel data center boom: $18B of expected
-                            investments, and Google's first AI lab in Latin America announced in
-                            Puebla for 2026.</p>
-                    </article>
-                </div>
-
-                <h2 class="cm-region-title" id="moyen-orient"><i class="fa-solid fa-earth-africa"
-                        aria-hidden="true"></i> Middle East</h2>
-                <div class="cm-cards">
-
-                    <article class="cm-card" id="c-emirats">
-                        <header>
-                            <h3>United Arab Emirates</h3>
-                            <span class="cm-badge cm-badge-dispo">In service</span>
-                        </header>
-                        <span class="cm-tags">from scratch · massive sovereign bet</span>
-                        <p><strong>Falcon</strong> (TII, Abu Dhabi): an open-weight series adopted
-                            worldwide. <strong>Jais</strong> (G42 / Core42 / MBZUAI): Arabic first,
-                            strong at Arabic-English code-switching. The most capitalized sovereign
-                            bet in the world for a country of this size.</p>
-                        <div class="cm-links"><a href="https://falconllm.ai" target="_blank"
-                                rel="noopener">falconllm.ai</a> <a href="https://core42.ai"
-                                target="_blank" rel="noopener">core42.ai</a></div>
-                    </article>
-
-                    <article class="cm-card" id="c-qatar">
-                        <header>
-                            <h3>Qatar</h3>
-                            <span class="cm-badge cm-badge-dispo">In service</span>
-                        </header>
-                        <span class="cm-tags">Arabic-English · full ecosystem</span>
-                        <p><strong>Fanar</strong> (QCRI): an Arabic-English LLM, multimodal 2.0
-                            released in 2026, 3.0 announced for December. Around it:
-                            Fanar-Diwan (classical Arabic poetry), FanarShaheen (translation),
-                            Oryx-IVU (image/video understanding), and the first Arabic
-                            long-form speech recognition benchmark.</p>
-                        <div class="cm-links"><a href="https://www.hbku.edu.qa/en/qcri"
-                                target="_blank" rel="noopener">hbku.edu.qa — QCRI</a></div>
-                    </article>
-
-                    <article class="cm-card" id="c-arabie">
-                        <header>
-                            <h3>Saudi Arabia</h3>
-                            <span class="cm-badge cm-badge-mixte">In service + mega-infrastructures</span>
-                        </header>
-                        <span class="cm-tags">models + infrastructure</span>
-                        <p><strong>ALLaM</strong> (SDAIA): a series of Arabic models, in service.
-                            <strong>HUMAIN</strong> (sovereign fund PIF): more than $100B of
-                            announced AI infrastructure, NVIDIA and hyperscaler partnerships —
-                            massive deployment under way. 2026 was declared the "Year of AI".</p>
-                        <div class="cm-links"><a href="https://www.sdaia.gov.sa" target="_blank"
-                                rel="noopener">sdaia.gov.sa</a></div>
-                    </article>
-                </div>
-
-                <h2 class="cm-region-title" id="afrique"><i class="fa-solid fa-earth-africa"
-                        aria-hidden="true"></i> Africa</h2>
-                <div class="cm-cards">
-
-                    <article class="cm-card" id="c-afsu">
-                        <header>
-                            <h3>South Africa</h3>
-                            <span class="cm-badge cm-badge-dispo">In service</span>
-                        </header>
-                        <span class="cm-tags">low-resource languages</span>
-                        <p><strong>Lelapa AI</strong>: <em>InkubaLM</em>, small multilingual models
-                            for low-resource African languages (Swahili, Yoruba, Xhosa, Hausa,
-                            Zulu), able to handle code-switching. <em>Vulavula</em>: an API platform
-                            (voice, translation, sentiment).</p>
-                        <div class="cm-links"><a href="https://lelapa.ai" target="_blank"
-                                rel="noopener">lelapa.ai</a></div>
-                    </article>
-
-                    <article class="cm-card" id="c-egypte">
-                        <header>
-                            <h3>Egypt</h3>
-                            <span class="cm-badge cm-badge-dispo">In service</span>
-                        </header>
-                        <span class="cm-tags">national LLM · state use cases</span>
-                        <p><strong>Karnak</strong>: the national LLM launched in 2026, well ranked
-                            in Arabic in the 30-40B and 70-80B categories. A foundation for startups
-                            and institutions, with state applications including <em>SIA</em>, an
-                            AI tutor for Arabic and Egyptian history in high school. alongside:
-                            <strong>Widebot</strong> (private) with its Arabic model AQL Mind.</p>
-                        <div class="cm-links"><a href="https://mcit.gov.eg" target="_blank"
-                                rel="noopener">mcit.gov.eg</a></div>
-                    </article>
-
-                    <article class="cm-card" id="c-maroc">
-                        <header>
-                            <h3>Morocco</h3>
-                            <span class="cm-badge cm-badge-endev">Under construction</span>
-                        </header>
-                        <span class="cm-tags">strategy first · assumed fine-tuning</span>
-                        <p>The <strong>"Maroc IA 2030"</strong> roadmap (January 2026): an assumed
-                            choice of fine-tuning open models (Llama, Mistral) rather than from
-                            scratch. Spearhead: <strong>UM6P</strong> and its computing center;
-                            operator Inwi works on a Darija model.</p>
-                        <div class="cm-links"><a href="https://um6p.ma" target="_blank"
-                                rel="noopener">um6p.ma</a></div>
-                    </article>
-
-                    <article class="cm-card" id="c-algerie">
-                        <header>
-                            <h3>Algeria</h3>
-                            <span class="cm-badge cm-badge-endev">Under construction</span>
-                        </header>
-                        <span class="cm-tags">the dialect battle</span>
-                        <p>No national LLM yet: research focuses on <em>Darja</em> —
-                            <strong>DziriBERT</strong> (2021), then <strong>DziriBOT</strong>, a
-                            RAG customer-service agent handling the Arabic / French mix and
-                            Arabizi, in a public market going fully digital (SNTN-2030 strategy).</p>
-                        <div class="cm-links"><a href="https://arxiv.org/abs/2602.02270"
-                                target="_blank" rel="noopener">DziriBOT paper (arXiv)</a></div>
-                    </article>
-
-                    <article class="cm-card" id="c-nigeria">
-                        <header>
-                            <h3>Nigeria</h3>
-                            <span class="cm-badge cm-badge-endev">Under construction</span>
-                        </header>
-                        <span class="cm-tags">digital public good</span>
-                        <p><strong>N-ATLAS</strong>: an open-source multilingual LLM led by the
-                            governmental agency NCAIR for the country's 500+ languages, positioned
-                            as a digital public good "for all of Africa". National AI strategy
-                            being rolled out 2026-2028.</p>
-                        <div class="cm-links"><a href="https://nitda.gov.ng" target="_blank"
-                                rel="noopener">nitda.gov.ng</a></div>
-                    </article>
-
-                    <article class="cm-card" id="c-rwanda">
-                        <header>
-                            <h3>Rwanda</h3>
-                            <span class="cm-badge cm-badge-dispo">Open data</span>
-                        </header>
-                        <span class="cm-tags">data infrastructure first</span>
-                        <p><strong>Digital Umuganda</strong>: more than 2,000 hours of Kinyarwanda
-                            speech collected on Mozilla Common Voice — groundwork started before
-                            the ChatGPT wave.</p>
-                        <div class="cm-links"><a href="https://commonvoice.mozilla.org"
-                                target="_blank" rel="noopener">commonvoice.mozilla.org</a></div>
-                    </article>
-
-                    <article class="cm-card" id="c-namibie">
-                        <header>
-                            <h3>Namibia</h3>
-                            <span class="cm-badge cm-badge-endev">Under construction</span>
-                        </header>
-                        <span class="cm-tags">institutions first</span>
-                        <p>No major model or startup — but a <strong>National AI Institute</strong>
-                            opened in September 2026 in Windhoek (health, education, food security,
-                            energy). Watchpoint: still no data protection law or dedicated
-                            authority.</p>
-                    </article>
-
-                    <article class="cm-card" id="c-masakhane">
-                        <header>
-                            <h3>Pan-African — Masakhane</h3>
-                            <span class="cm-badge cm-badge-dispo">In service</span>
-                        </header>
-                        <span class="cm-tags">citizen community</span>
-                        <p><strong>Masakhane</strong>: an NLP research community bridging Lelapa AI,
-                            Nigerian, Rwandan teams and many more — the human backbone of African
-                            AI.</p>
-                        <div class="cm-links"><a href="https://www.masakhane.co.za" target="_blank"
-                                rel="noopener">masakhane.co.za</a></div>
-                    </article>
-                </div>
-
-                <h2 class="cm-region-title" id="asie-pacifique"><i class="fa-solid fa-earth-asia"
-                        aria-hidden="true"></i> Asia-Pacific</h2>
-                <div class="cm-cards">
-
-                    <article class="cm-card" id="c-russie">
-                        <header>
-                            <h3>Russia</h3>
-                            <span class="cm-badge cm-badge-dispo">In service in Russia</span>
-                        </header>
-                        <span class="cm-tags">closed national duopoly</span>
-                        <p><strong>Yandex</strong>: the <em>Alice</em> assistant plus the YandexGPT
-                            and "Alice AI" families, 100% in-house, optimized for Russian — but
-                            invisible outside Russia (distribution, sanctions, no openness). Private
-                            rival: <strong>GigaChat</strong> (Sber). Even on Russian, they do not
-                            always outperform DeepSeek or Kimi.</p>
-                        <div class="cm-links"><a href="https://alice.yandex.ru" target="_blank"
-                                rel="noopener">alice.yandex.ru</a></div>
-                    </article>
-
-                    <article class="cm-card" id="c-japon">
-                        <header>
-                            <h3>Japan</h3>
-                            <span class="cm-badge cm-badge-dispo">In service</span>
-                        </header>
-                        <span class="cm-tags">the art of the specialized model</span>
-                        <p><strong>tsuzumi</strong> (NTT): lightweight — 30B on a single GPU —
-                            deployed in healthcare, insurance and energy. <strong>LLM-jp</strong>:
-                            the national consortium's open-source model. Swallow (Tokyo Tech), NEC,
-                            Fujitsu: complementary national models. <strong>Sakana AI</strong>: a
-                            world-famous lab founded by co-authors of "Attention Is All You Need".
-                            The state <em>Gennai</em> platform for administration is under
-                            construction.</p>
-                        <div class="cm-links"><a href="https://sakana.ai" target="_blank"
-                                rel="noopener">sakana.ai</a> <a
-                                href="https://huggingface.co/llm-jp" target="_blank"
-                                rel="noopener">Hugging Face — llm-jp</a></div>
-                    </article>
-
-                    <article class="cm-card" id="c-coree">
-                        <header>
-                            <h3>South Korea</h3>
-                            <span class="cm-badge cm-badge-dispo">In service</span>
-                        </header>
-                        <span class="cm-tags">private duopoly, state co-training</span>
-                        <p><strong>Naver</strong>: HyperCLOVA X (search, e-commerce, enterprises).
-                            <strong>LG</strong>: EXAONE 4.0, which passes Korean professional exams,
-                            weights published on Hugging Face. Originality: the government
-                            co-trains both adversarially for its national cybersecurity model.</p>
-                        <div class="cm-links"><a href="https://www.ncloud.com" target="_blank"
-                                rel="noopener">ncloud.com</a></div>
-                    </article>
-
-                    <article class="cm-card" id="c-inde">
-                        <header>
-                            <h3>India</h3>
-                            <span class="cm-badge cm-badge-mixte">APIs in service · sovereign under way</span>
-                        </header>
-                        <span class="cm-tags">frugal AI · multilingual</span>
-                        <p><strong>Sarvam AI</strong>: chosen by the IndiaAI mission to build the
-                            sovereign LLM from scratch with dedicated compute. <strong>Krutrim</strong>
-                            (Ola): the first private rival. <strong>Bhashini</strong>: a public
-                            translation layer for Indian languages.</p>
-                        <div class="cm-links"><a href="https://www.sarvam.ai" target="_blank"
-                                rel="noopener">sarvam.ai</a> <a href="https://bhashini.gov.in"
-                                target="_blank" rel="noopener">bhashini.gov.in</a></div>
-                    </article>
-
-                    <article class="cm-card" id="c-singapour">
-                        <header>
-                            <h3>Singapore</h3>
-                            <span class="cm-badge cm-badge-dispo">In service</span>
-                        </header>
-                        <span class="cm-tags">regional multilingual hub</span>
-                        <p><strong>SEA-LION</strong>: AI Singapore's open family covering 11
-                            Southeast Asian languages (Malay, Tamil, Burmese, Khmer…). Latest wave:
-                            v4.8 co-developed with NVIDIA.</p>
-                        <div class="cm-links"><a href="https://huggingface.co/aisingapore"
-                                target="_blank" rel="noopener">Hugging Face — AI Singapore</a></div>
-                    </article>
-
-                    <article class="cm-card" id="c-vietnam">
-                        <header>
-                            <h3>Vietnam</h3>
-                            <span class="cm-badge cm-badge-mixte">Infra in service · models under way</span>
-                        </header>
-                        <span class="cm-tags">infrastructure first</span>
-                        <p><strong>FPT AI Factory</strong>: the first national infrastructure — 1,000+
-                            NVIDIA GPUs, top 40 worldwide. <em>ViGPT</em> (FPT's Vietnamese LLM) and
-                            Viettel's fine-tune of a Nemotron for a national legal application.
-                            The region's strictest AI law.</p>
-                        <div class="cm-links"><a href="https://fpt.ai" target="_blank"
-                                rel="noopener">fpt.ai</a></div>
-                    </article>
-
-                    <article class="cm-card" id="c-kazakhstan">
-                        <header>
-                            <h3>Kazakhstan</h3>
-                            <span class="cm-badge cm-badge-dispo">v1 in service</span>
-                        </header>
-                        <span class="cm-tags">saving the language</span>
-                        <p><strong>KazLLM</strong>: the first Kazakh LLM, developed by ISSAI
-                            (Nazarbayev University) and QazCode — a national platform for public
-                            services and businesses, to preserve Kazakh online. Later versions under
-                            way.</p>
-                        <div class="cm-links"><a href="https://issai.nu.edu.kz" target="_blank"
-                                rel="noopener">issai.nu.edu.kz</a></div>
-                    </article>
-
-                    <article class="cm-card" id="c-australie">
-                        <header>
-                            <h3>Australia</h3>
-                            <span class="cm-badge cm-badge-dispo">In service</span>
-                        </header>
-                        <span class="cm-tags">images rather than text</span>
-                        <p>No major text LLM — but <strong>Leonardo.Ai</strong> (Sydney):
-                            <em>Phoenix</em>, Australia's first generative foundation, focused on
-                            images, acquired by <strong>Canva</strong> (also Australian) whose
-                            Magic Studio aggregates third-party models in the office suite.</p>
-                        <div class="cm-links"><a href="https://leonardo.ai" target="_blank"
-                                rel="noopener">leonardo.ai</a> <a href="https://www.canva.com"
-                                target="_blank" rel="noopener">canva.com</a></div>
+                        <p class="cm-giant-lede">An ecosystem that publishes its weights at scale: DeepSeek, Kimi, Qwen and GLM are all downloadable.</p>
+                        <ul class="cm-giant-list"><li><img class="cm-logo " src="../images/carte/logos/deepseek.webp" alt="" width="64" height="64" loading="lazy"><strong>DeepSeek</strong><span class="cm-g-model">DeepSeek V4</span><span class="cm-open o-o">open weights</span></li><li><img class="cm-logo " src="../images/carte/logos/alibaba.webp" alt="" width="64" height="64" loading="lazy"><strong>Alibaba</strong><span class="cm-g-model">Qwen · Qwen-Max</span><span class="cm-open o-m">closed + open</span></li><li><img class="cm-logo " src="../images/carte/logos/moonshot.webp" alt="" width="64" height="64" loading="lazy"><strong>Moonshot</strong><span class="cm-g-model">Kimi K3</span><span class="cm-open o-o">open weights</span></li><li><img class="cm-logo " src="../images/carte/logos/zai.webp" alt="" width="64" height="64" loading="lazy"><strong>Z.ai</strong><span class="cm-g-model">GLM</span><span class="cm-open o-o">open weights</span></li><li><img class="cm-logo " src="../images/carte/logos/bytedance.webp" alt="" width="64" height="64" loading="lazy"><strong>ByteDance</strong><span class="cm-g-model">Doubao</span></li><li><img class="cm-logo " src="../images/carte/logos/baidu.webp" alt="" width="64" height="64" loading="lazy"><strong>Baidu</strong><span class="cm-g-model">Ernie</span></li><li><img class="cm-logo " src="../images/carte/logos/tencent.webp" alt="" width="64" height="64" loading="lazy"><strong>Tencent</strong><span class="cm-g-model">Hunyuan</span></li><li><img class="cm-logo " src="../images/carte/logos/minimax.webp" alt="" width="64" height="64" loading="lazy"><strong>MiniMax</strong><span class="cm-g-model">MiniMax</span></li></ul>
+                        <p class="cm-giant-more">… and dozens of other labs, start-ups and universities.</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <!-- The four strategies -->
-        <section class="cm-strategies">
+        <!-- 02 L'échelle -->
+        <section class="cm-block cm-ladder" aria-labelledby="cm-ladder-h2">
             <div class="container">
-                <h2>Four strategies, one shared logic</h2>
-                <p class="cm-lead">Behind the diversity, almost all of these countries follow one of
-                    four paths — and almost all navigate by the same compass: language and
-                    data.</p>
-                <div class="cm-strat-grid">
-                    <article class="cm-strat">
-                        <span class="cm-strat-n">1</span>
-                        <h3>Sovereign from scratch</h3>
-                        <p>Building a complete national model. Rare, expensive (hundreds of
-                            millions): Egypt, Nigeria, India, UAE, Qatar, Saudi Arabia.
-                            Motivations: language + control. Note — several of these projects are
-                            very recent.</p>
-                    </article>
-                    <article class="cm-strat">
-                        <span class="cm-strat-n">2</span>
-                        <h3>Adapting an open model</h3>
-                        <p>The norm: continued pre-training or fine-tuning of a Llama, Mistral or
-                            Qwen base. Cost: a few million. Brazil, Poland, Morocco, Algeria,
-                            Vietnam, Kazakhstan, Singapore, Finland. The fastest way to deliver a
-                            real product.</p>
-                    </article>
-                    <article class="cm-strat">
-                        <span class="cm-strat-n">3</span>
-                        <h3>Interface or hosting sovereignty</h3>
-                        <p>No model: aggregation, local hosting, compliance. Norway (Opera),
-                            Australia (Canva), Germany (PhariaAI). The value is legal and
-                            orchestral, not technological.</p>
-                    </article>
-                    <article class="cm-strat">
-                        <span class="cm-strat-n">4</span>
-                        <h3>Institutionalization</h3>
-                        <p>Laying foundations before having engineers or corpora: institutes,
-                            data centers, laws, funds. Namibia, Mexico, the UK (for its sovereign
-                            part).</p>
-                    </article>
-                </div>
-
-                <div class="cm-drivers">
-                    <h3>Common drivers</h3>
-                    <ul>
-                        <li><strong>Language</strong> — the #1 motivation almost everywhere:
-                            Darja, Darija, Finnish, Tamil, Kazakh…</li>
-                        <li><strong>Data</strong> — keeping citizens' data under national
-                            jurisdiction (GDPR or equivalent).</li>
-                        <li><strong>GPU cost</strong> — the real bottleneck, hence the triumph of
-                            fine-tuning and public supercomputers (LUMI in Finland, UM6P in
-                            Morocco).</li>
-                        <li><strong>Documented pitfalls</strong> — funding that stops (Germany's
-                            Teuken), regulation lagging behind institutions (Namibia), head-on
-                            competition with the giants being nearly impossible.</li>
-                    </ul>
-                    <div class="cm-chain">
-                        <p><strong>The typical value chain:</strong>
-                            open base (Llama / Mistral) → continued pre-training (language) →
-                            fine-tune (domain) → sovereign hosting (PhariaAI-style) → national
-                            interface. That is exactly the path of Bielik (Poland) and Sabiá
-                            (Brazil).</p>
+                <p class="cm-section-kicker">02 · The scale of players</p>
+                <h2 id="cm-ladder-h2">Not everyone plays in the same league</h2>
+                <p class="cm-section-lead">A model used worldwide does not weigh the same as a fine-tune adapting a model to one language. Here are the 31 countries mapped, ranked by scale.</p>
+                <div class="cm-tiers">
+                    <div class="cm-tier cm-tier-5">
+                        <div class="cm-tier-head">
+                            <span class="cm-pips" title="Scale 5/5" aria-label="Scale 5/5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+                            <h3>Superpower</h3>
+                            <p>Dozens of labs, the frontier models, the chips and the cloud.</p>
+                            <span class="cm-tier-count">2 countries</span>
+                        </div>
+                        <div class="cm-tier-items"><a class="cm-lchip s-giant" href="#c-usa"><span class="cm-flag fi fi-us " aria-hidden="true"></span><span><strong>United States</strong><small>OpenAI · Anthropic · Google · Meta…</small></span></a><a class="cm-lchip s-giant" href="#c-chine"><span class="cm-flag fi fi-cn " aria-hidden="true"></span><span><strong>China</strong><small>DeepSeek · Alibaba · Moonshot · Z.ai…</small></span></a></div>
+                    </div>
+                    <div class="cm-tier cm-tier-4">
+                        <div class="cm-tier-head">
+                            <span class="cm-pips" title="Scale 4/5" aria-label="Scale 4/5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span>
+                            <h3>Global power</h3>
+                            <p>Models used far beyond its borders, a world-class lab or a complete, self-sufficient ecosystem.</p>
+                            <span class="cm-tier-count">8 countries</span>
+                        </div>
+                        <div class="cm-tier-items"><a class="cm-lchip s-maison" href="#c-france"><span class="cm-flag fi fi-fr " aria-hidden="true"></span><span><strong>France</strong><small>Mistral AI</small></span></a><a class="cm-lchip s-maison" href="#c-allemagne"><span class="cm-flag fi fi-de " aria-hidden="true"></span><span><strong>Germany</strong><small>Black Forest Labs · Aleph Alpha · OpenGPT-X</small></span></a><a class="cm-lchip s-maison" href="#c-royaume-uni"><span class="cm-flag fi fi-gb " aria-hidden="true"></span><span><strong>United Kingdom</strong><small>Google DeepMind · Stability AI · UK Sovereign AI</small></span></a><a class="cm-lchip s-maison" href="#c-canada"><span class="cm-flag fi fi-ca " aria-hidden="true"></span><span><strong>Canada</strong><small>Cohere</small></span></a><a class="cm-lchip s-maison" href="#c-emirats"><span class="cm-flag fi fi-ae " aria-hidden="true"></span><span><strong>UAE</strong><small>TII · G42 · Core42</small></span></a><a class="cm-lchip s-maison" href="#c-russie"><span class="cm-flag fi fi-ru " aria-hidden="true"></span><span><strong>Russia</strong><small>Yandex · Sber</small></span></a><a class="cm-lchip s-maison" href="#c-japon"><span class="cm-flag fi fi-jp " aria-hidden="true"></span><span><strong>Japan</strong><small>NTT · Sakana AI · LLM-jp</small></span></a><a class="cm-lchip s-maison" href="#c-coree"><span class="cm-flag fi fi-kr " aria-hidden="true"></span><span><strong>S. Korea</strong><small>Naver · LG AI Research</small></span></a></div>
+                    </div>
+                    <div class="cm-tier cm-tier-3">
+                        <div class="cm-tier-head">
+                            <span class="cm-pips" title="Scale 3/5" aria-label="Scale 3/5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span>
+                            <h3>Sovereign player</h3>
+                            <p>A complete national model or massive resources, with regional reach.</p>
+                            <span class="cm-tier-count">7 countries</span>
+                        </div>
+                        <div class="cm-tier-items"><a class="cm-lchip s-maison" href="#c-suisse"><span class="cm-flag fi fi-ch " aria-hidden="true"></span><span><strong>Switzerland</strong><small>Apertus</small></span></a><a class="cm-lchip s-maison" href="#c-finlande"><span class="cm-flag fi fi-fi " aria-hidden="true"></span><span><strong>Finland</strong><small>Silo AI (AMD) · TurkuNLP</small></span></a><a class="cm-lchip s-maison" href="#c-qatar"><span class="cm-flag fi fi-qa " aria-hidden="true"></span><span><strong>Qatar</strong><small>QCRI</small></span></a><a class="cm-lchip s-maison" href="#c-arabie"><span class="cm-flag fi fi-sa " aria-hidden="true"></span><span><strong>Saudi Arabia</strong><small>SDAIA · HUMAIN</small></span></a><a class="cm-lchip s-maison" href="#c-inde"><span class="cm-flag fi fi-in " aria-hidden="true"></span><span><strong>India</strong><small>Sarvam AI · Krutrim · Bhashini</small></span></a><a class="cm-lchip s-adapt" href="#c-singapour"><span class="cm-flag fi fi-sg " aria-hidden="true"></span><span><strong>Singapore</strong><small>AI Singapore</small></span></a><a class="cm-lchip s-interface" href="#c-australie"><span class="cm-flag fi fi-au " aria-hidden="true"></span><span><strong>Australia</strong><small>Canva · Leonardo.Ai</small></span></a></div>
+                    </div>
+                    <div class="cm-tier cm-tier-2">
+                        <div class="cm-tier-head">
+                            <span class="cm-pips" title="Scale 2/5" aria-label="Scale 2/5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>
+                            <h3>National model</h3>
+                            <p>A model dedicated to one language or market, in service.</p>
+                            <span class="cm-tier-count">8 countries</span>
+                        </div>
+                        <div class="cm-tier-items"><a class="cm-lchip s-interface" href="#c-norvege"><span class="cm-flag fi fi-no " aria-hidden="true"></span><span><strong>Norway</strong><small>Opera</small></span></a><a class="cm-lchip s-adapt" href="#c-pologne"><span class="cm-flag fi fi-pl " aria-hidden="true"></span><span><strong>Poland</strong><small>SpeakLeash</small></span></a><a class="cm-lchip s-maison" href="#c-italie"><span class="cm-flag fi fi-it " aria-hidden="true"></span><span><strong>Italy</strong><small>Sapienza</small></span></a><a class="cm-lchip s-adapt" href="#c-bresil"><span class="cm-flag fi fi-br " aria-hidden="true"></span><span><strong>Brazil</strong><small>Maritaca AI</small></span></a><a class="cm-lchip s-maison" href="#c-afsu"><span class="cm-flag fi fi-za " aria-hidden="true"></span><span><strong>South Africa</strong><small>Lelapa AI</small></span></a><a class="cm-lchip s-maison" href="#c-egypte"><span class="cm-flag fi fi-eg " aria-hidden="true"></span><span><strong>Egypt</strong><small>Karnak · Widebot</small></span></a><a class="cm-lchip s-adapt" href="#c-vietnam"><span class="cm-flag fi fi-vn " aria-hidden="true"></span><span><strong>Vietnam</strong><small>FPT · Viettel</small></span></a><a class="cm-lchip s-maison" href="#c-kazakhstan"><span class="cm-flag fi fi-kz " aria-hidden="true"></span><span><strong>Kazakhstan</strong><small>ISSAI</small></span></a></div>
+                    </div>
+                    <div class="cm-tier cm-tier-1">
+                        <div class="cm-tier-head">
+                            <span class="cm-pips" title="Scale 1/5" aria-label="Scale 1/5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span>
+                            <h3>Foundations</h3>
+                            <p>Strategy, institute, data or a model still under construction.</p>
+                            <span class="cm-tier-count">8 countries</span>
+                        </div>
+                        <div class="cm-tier-items"><a class="cm-lchip s-adapt" href="#c-argentine"><span class="cm-flag fi fi-ar " aria-hidden="true"></span><span><strong>Argentina</strong><small>Latam-GPT</small></span></a><a class="cm-lchip s-maison" href="#c-mexique"><span class="cm-flag fi fi-mx " aria-hidden="true"></span><span><strong>Mexico</strong><small>Mexico IA</small></span></a><a class="cm-lchip s-adapt" href="#c-maroc"><span class="cm-flag fi fi-ma " aria-hidden="true"></span><span><strong>Morocco</strong><small>UM6P · Inwi</small></span></a><a class="cm-lchip s-adapt" href="#c-algerie"><span class="cm-flag fi fi-dz " aria-hidden="true"></span><span><strong>Algeria</strong><small>DziriBERT · DziriBOT</small></span></a><a class="cm-lchip s-maison" href="#c-nigeria"><span class="cm-flag fi fi-ng " aria-hidden="true"></span><span><strong>Nigeria</strong><small>NCAIR · NITDA</small></span></a><a class="cm-lchip s-fondation" href="#c-rwanda"><span class="cm-flag fi fi-rw " aria-hidden="true"></span><span><strong>Rwanda</strong><small>Digital Umuganda</small></span></a><a class="cm-lchip s-fondation" href="#c-namibie"><span class="cm-flag fi fi-na " aria-hidden="true"></span><span><strong>Namibia</strong><small>Institut national d’IA</small></span></a><a class="cm-lchip s-fondation" href="#c-masakhane"><span class="cm-flag cm-flag-af " aria-hidden="true"><i class="fa-solid fa-earth-africa"></i></span><span><strong>Masakhane</strong><small>Masakhane</small></span></a></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Going further -->
-        <section class="cm-more">
+        <!-- 03 Chronologie -->
+        <section class="cm-block cm-timeline" aria-labelledby="cm-tl-h2">
+            <div class="container">
+                <p class="cm-section-kicker">03 · Timeline</p>
+                <h2 id="cm-tl-h2">An acceleration since 2023</h2>
+                <p class="cm-section-lead">Before ChatGPT, a handful of pioneers. Since then, every year brings new national models, on every continent.</p>
+                <div class="cm-tl"><div class="cm-tl-col"><ol><li class=""><span class="cm-flag fi fi-gb " aria-hidden="true"></span><span>DeepMind founded in London (2010)</span></li><li class=""><span class="cm-flag fi fi-ru " aria-hidden="true"></span><span>Alice, Yandex’s assistant (2017)</span></li><li class=""><span class="cm-flag fi fi-ca " aria-hidden="true"></span><span>Cohere founded in Toronto (2019)</span></li><li class=""><span class="cm-flag fi fi-de " aria-hidden="true"></span><span>Aleph Alpha founded in Heidelberg (2019)</span></li><li class=""><span class="cm-flag fi fi-dz " aria-hidden="true"></span><span>DziriBERT, Algerian Darja (2021)</span></li></ol><div class="cm-tl-year"><span class="cm-tl-n">5</span>Before 2022</div></div><div class="cm-tl-col"><ol><li class="is-giant"><span class="cm-flag fi fi-us " aria-hidden="true"></span><span>ChatGPT opens to the public (Nov.)</span></li><li class=""><span class="cm-flag fi fi-au " aria-hidden="true"></span><span>Leonardo.Ai founded in Sydney</span></li></ol><div class="cm-tl-year"><span class="cm-tl-n">2</span>2022</div></div><div class="cm-tl-col"><ol><li class=""><span class="cm-flag fi fi-fr " aria-hidden="true"></span><span>Mistral AI founded in Paris</span></li><li class=""><span class="cm-flag fi fi-ae " aria-hidden="true"></span><span>Falcon (TII) and Jais (G42)</span></li><li class=""><span class="cm-flag fi fi-sg " aria-hidden="true"></span><span>SEA-LION, 11 Southeast Asian languages</span></li><li class=""><span class="cm-flag fi fi-kr " aria-hidden="true"></span><span>Naver’s HyperCLOVA X</span></li><li class=""><span class="cm-flag fi fi-jp " aria-hidden="true"></span><span>Sakana AI founded in Tokyo</span></li><li class=""><span class="cm-flag fi fi-br " aria-hidden="true"></span><span>Sabiá, Brazilian Portuguese</span></li><li class=""><span class="cm-flag fi fi-fi " aria-hidden="true"></span><span>Poro, Finnish on LUMI</span></li></ol><div class="cm-tl-year"><span class="cm-tl-n">7</span>2023</div></div><div class="cm-tl-col"><ol><li class=""><span class="cm-flag fi fi-de " aria-hidden="true"></span><span>Flux (Black Forest Labs), Teuken-7B</span></li><li class=""><span class="cm-flag fi fi-pl " aria-hidden="true"></span><span>Bielik, Polish</span></li><li class=""><span class="cm-flag fi fi-it " aria-hidden="true"></span><span>Minerva (Sapienza)</span></li><li class=""><span class="cm-flag fi fi-kz " aria-hidden="true"></span><span>KazLLM, first Kazakh LLM</span></li><li class=""><span class="cm-flag fi fi-qa " aria-hidden="true"></span><span>Fanar (QCRI), Dec.</span></li></ol><div class="cm-tl-year"><span class="cm-tl-n">5</span>2024</div></div><div class="cm-tl-col"><ol><li class="is-giant"><span class="cm-flag fi fi-cn " aria-hidden="true"></span><span>DeepSeek R1 shakes the market (Jan.)</span></li><li class=""><span class="cm-flag fi fi-in " aria-hidden="true"></span><span>Sarvam picked by IndiaAI (Apr.)</span></li><li class=""><span class="cm-flag fi fi-ch " aria-hidden="true"></span><span>Apertus, Swiss public LLM (Sep.)</span></li><li class=""><span class="cm-flag fi fi-jp " aria-hidden="true"></span><span>NTT’s tsuzumi 2 (Oct.)</span></li><li class=""><span class="cm-flag fi fi-ru " aria-hidden="true"></span><span>Alice AI: LLM, vision, images</span></li></ol><div class="cm-tl-year"><span class="cm-tl-n">5</span>2025</div></div><div class="cm-tl-col"><ol><li class=""><span class="cm-flag fi fi-ma " aria-hidden="true"></span><span>Morocco AI 2030 roadmap (Jan.)</span></li><li class=""><span class="cm-flag fi fi-eg " aria-hidden="true"></span><span>Karnak, Egypt’s national LLM</span></li><li class=""><span class="cm-flag fi fi-qa " aria-hidden="true"></span><span>Fanar 2.0, multimodal</span></li><li class=""><span class="cm-flag fi fi-sa " aria-hidden="true"></span><span>&quot;Year of AI&quot; in Saudi Arabia</span></li><li class=""><span class="cm-flag fi fi-na " aria-hidden="true"></span><span>National AI Institute, Windhoek (Sep.)</span></li></ol><div class="cm-tl-year"><span class="cm-tl-n">5</span>2026</div></div></div>
+            </div>
+        </section>
+
+        <!-- 04 Fiches pays -->
+        <section class="cm-block cm-regions" aria-labelledby="cm-regions-h2">
+            <div class="container">
+                <p class="cm-section-kicker">04 · Country by country</p>
+                <h2 id="cm-regions-h2">Detailed profiles</h2>
+                <p class="cm-section-lead">Players, models, key figures and access links. Filter by region or by strategy.</p>
+                <div class="cm-filters">
+                    <div class="cm-filter" role="group" aria-label="Region"><span class="cm-filter-label">Region</span><button type="button" class="cm-chip is-on" data-region="all" aria-pressed="true">All</button><button type="button" class="cm-chip" data-region="europe" aria-pressed="false">Europe</button><button type="button" class="cm-chip" data-region="ameriques" aria-pressed="false">Americas</button><button type="button" class="cm-chip" data-region="moyen-orient" aria-pressed="false">Middle East</button><button type="button" class="cm-chip" data-region="afrique" aria-pressed="false">Africa</button><button type="button" class="cm-chip" data-region="asie-pacifique" aria-pressed="false">Asia-Pacific</button></div>
+                    <div class="cm-filter" role="group" aria-label="Strategy"><span class="cm-filter-label">Strategy</span><button type="button" class="cm-chip is-on" data-fstrat="all" aria-pressed="true">All</button><button type="button" class="cm-chip s-maison" data-fstrat="maison" aria-pressed="false"><i aria-hidden="true"></i>Home-grown model</button><button type="button" class="cm-chip s-adapt" data-fstrat="adapt" aria-pressed="false"><i aria-hidden="true"></i>Adaptation</button><button type="button" class="cm-chip s-interface" data-fstrat="interface" aria-pressed="false"><i aria-hidden="true"></i>Interface &amp; hosting</button><button type="button" class="cm-chip s-fondation" data-fstrat="fondation" aria-pressed="false"><i aria-hidden="true"></i>Foundations</button></div>
+                </div>
+                <p class="cm-empty" hidden>No country matches these filters.</p>
+                <section class="cm-region" data-region="europe" aria-labelledby="europe">
+                    <h2 class="cm-region-title" id="europe">Europe<span>8 countries</span></h2>
+                    <div class="cm-cards">
+                    <article class="cm-card" id="c-france" data-region="europe" data-strat="maison" data-tier="4">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-fr cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>France</h3>
+                                <span class="cm-card-meta">Global power <span class="cm-since">Since 2023</span></span>
+                            </div>
+                            <span class="cm-pips" title="Scale 4/5" aria-label="Scale 4/5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-maison"><i aria-hidden="true"></i>Home-grown model</span>
+                            <span class="cm-status st-dispo"><i class="fa-solid fa-circle" aria-hidden="true"></i>In service</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><img class="cm-logo " src="../images/carte/logos/mistral.webp" alt="" width="64" height="64" loading="lazy"><span><strong>Mistral AI</strong><small>Le Chat · Large 3 · Small 4</small></span></li></ul>
+                        <div class="cm-fig"><span class="cm-fig-n">Alexa+</span><span class="cm-fig-c">Mistral powers the French of Amazon&#x27;s assistant in France</span></div>
+                        <p><strong>Mistral AI</strong>: world-class open-weight models with the consumer interface <strong>Le Chat / Vibe</strong> — which also embeds Z.ai's GLM models. Mistral powers the French of Amazon's Alexa+ and its weights also feed third parties like Bielik in Poland.</p>
+                        <p class="cm-card-kw">from scratch · vertical interface</p>
+                        <div class="cm-links"><a href="https://chat.mistral.ai" target="_blank" rel="noopener">chat.mistral.ai</a> <a href="https://mistral.ai" target="_blank" rel="noopener">mistral.ai</a></div>
+                    </article>
+                    <article class="cm-card" id="c-allemagne" data-region="europe" data-strat="maison" data-tier="4">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-de cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Germany</h3>
+                                <span class="cm-card-meta">Global power <span class="cm-since">Since 2019</span></span>
+                            </div>
+                            <span class="cm-pips" title="Scale 4/5" aria-label="Scale 4/5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-maison"><i aria-hidden="true"></i>Home-grown model</span>
+                            <span class="cm-status st-dispo"><i class="fa-solid fa-circle" aria-hidden="true"></i>In service</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><img class="cm-logo " src="../images/carte/logos/bfl.webp" alt="" width="64" height="64" loading="lazy"><span><strong>Black Forest Labs</strong><small>Flux, open-source images</small></span></li><li><img class="cm-logo " src="../images/carte/logos/alephalpha.webp" alt="" width="64" height="64" loading="lazy"><span><strong>Aleph Alpha</strong><small>PhariaAI, sovereign AI</small></span></li><li><span class="cm-logo cm-mono " aria-hidden="true">OX</span><span><strong>OpenGPT-X</strong><small>Teuken-7B</small></span></li></ul>
+                        <div class="cm-fig"><span class="cm-fig-n">24</span><span class="cm-fig-c">EU languages covered by Teuken-7B</span></div>
+                        <p><strong>Aleph Alpha</strong> (Heidelberg): the sovereign platform <em>PhariaAI</em> — data under exclusive German jurisdiction, deployed in federal ministries; merged with Canada's Cohere. <strong>Teuken-7B</strong> (public consortium OpenGPT-X) covers all 24 EU languages, though federal funding stopped in early 2025. <strong>Black Forest Labs</strong> (Freiburg): <em>Flux</em>, the open-source image generator used worldwide.</p>
+                        <p class="cm-card-kw">sovereignty · open-source images</p>
+                        <div class="cm-links"><a href="https://aleph-alpha.com" target="_blank" rel="noopener">aleph-alpha.com</a> <a href="https://blackforestlabs.ai" target="_blank" rel="noopener">blackforestlabs.ai</a></div>
+                    </article>
+                    <article class="cm-card" id="c-royaume-uni" data-region="europe" data-strat="maison" data-tier="4">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-gb cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>United Kingdom</h3>
+                                <span class="cm-card-meta">Global power <span class="cm-since">Since 2010</span></span>
+                            </div>
+                            <span class="cm-pips" title="Scale 4/5" aria-label="Scale 4/5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-maison"><i aria-hidden="true"></i>Home-grown model</span>
+                            <span class="cm-status st-mixte"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>Research ++ / sovereignty in progress</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><img class="cm-logo " src="../images/carte/logos/deepmind.webp" alt="" width="64" height="64" loading="lazy"><span><strong>Google DeepMind</strong><small>London lab, owned by Google</small></span></li><li><img class="cm-logo " src="../images/carte/logos/stability.webp" alt="" width="64" height="64" loading="lazy"><span><strong>Stability AI</strong><small>Stable Diffusion</small></span></li><li><span class="cm-logo cm-mono " aria-hidden="true">US</span><span><strong>UK Sovereign AI</strong><small>state programme</small></span></li></ul>
+                        <div class="cm-fig"><span class="cm-fig-n">×20</span><span class="cm-fig-c">public compute targeted by 2030 (21 → 420 exaFLOPS)</span></div>
+                        <p><strong>DeepMind</strong> (London): a world-class research lab, but owned by Google. The <em>UK Sovereign AI</em> programme (under construction) backs 11 startups and targets a 20x AI Research Resource by 2030, with AI Growth Zones. <strong>Stability AI</strong>: the historic pioneer of open models (Stable Diffusion), now weakened.</p>
+                        <p class="cm-card-kw">global research · state programmes</p>
+                        <div class="cm-links"><a href="https://deepmind.google" target="_blank" rel="noopener">deepmind.google</a> <a href="https://stability.ai" target="_blank" rel="noopener">stability.ai</a></div>
+                    </article>
+                    <article class="cm-card" id="c-suisse" data-region="europe" data-strat="maison" data-tier="3">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-ch cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Switzerland</h3>
+                                <span class="cm-card-meta">Sovereign player <span class="cm-since">Since 2025</span></span>
+                            </div>
+                            <span class="cm-pips" title="Scale 3/5" aria-label="Scale 3/5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-maison"><i aria-hidden="true"></i>Home-grown model</span>
+                            <span class="cm-status st-dispo"><i class="fa-solid fa-circle" aria-hidden="true"></i>In service</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><span class="cm-logo cm-mono " aria-hidden="true">A</span><span><strong>Apertus</strong><small>Swiss AI Initiative · EPFL · ETH Zurich</small></span></li></ul>
+                        <div class="cm-fig"><span class="cm-fig-n">100 %</span><span class="cm-fig-c">public: open weights, code and training data</span></div>
+                        <p><strong>Apertus</strong>: a fully public, open-source LLM (Apache 2.0) launched by the Swiss AI Initiative (EPFL, ETH Zurich, Swiss National Supercomputing Centre). Multilingual, transparent training data.</p>
+                        <p class="cm-card-kw">from scratch · public good</p>
+                        <div class="cm-links"><a href="https://swiss-ai.ch" target="_blank" rel="noopener">swiss-ai.ch</a></div>
+                    </article>
+                    <article class="cm-card" id="c-finlande" data-region="europe" data-strat="maison" data-tier="3">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-fi cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Finland</h3>
+                                <span class="cm-card-meta">Sovereign player <span class="cm-since">Since 2023</span></span>
+                            </div>
+                            <span class="cm-pips" title="Scale 3/5" aria-label="Scale 3/5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-maison"><i aria-hidden="true"></i>Home-grown model</span>
+                            <span class="cm-status st-dispo"><i class="fa-solid fa-circle" aria-hidden="true"></i>In service</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><span class="cm-logo cm-mono " aria-hidden="true">SA</span><span><strong>Silo AI (AMD)</strong><small>Poro · Viking</small></span></li><li><span class="cm-logo cm-mono " aria-hidden="true">T</span><span><strong>TurkuNLP</strong><small>University of Turku</small></span></li></ul>
+                        <div class="cm-fig"><span class="cm-fig-n">4 096</span><span class="cm-fig-c">AMD GPUs on the European LUMI supercomputer</span></div>
+                        <p><strong>Silo AI</strong>: the open <em>Poro</em> then <em>Viking</em> families, the first LLMs dedicated to Nordic languages, trained on the European <strong>LUMI</strong> supercomputer with the University of Turku. Acquired by AMD, Silo AI is now its AI lab.</p>
+                        <p class="cm-card-kw">linguistic grounding · supercomputing</p>
+                        <div class="cm-links"><a href="https://huggingface.co/LumiOpen" target="_blank" rel="noopener">Hugging Face — LumiOpen</a> <a href="https://www.siloai.com" target="_blank" rel="noopener">siloai.com</a></div>
+                    </article>
+                    <article class="cm-card" id="c-norvege" data-region="europe" data-strat="interface" data-tier="2">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-no cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Norway</h3>
+                                <span class="cm-card-meta">National model </span>
+                            </div>
+                            <span class="cm-pips" title="Scale 2/5" aria-label="Scale 2/5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-interface"><i aria-hidden="true"></i>Interface &amp; hosting</span>
+                            <span class="cm-status st-dispo"><i class="fa-solid fa-circle" aria-hidden="true"></i>In service</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><img class="cm-logo " src="../images/carte/logos/opera.webp" alt="" width="64" height="64" loading="lazy"><span><strong>Opera</strong><small>browser with Aria AI</small></span></li></ul>
+                        <div class="cm-fig"><span class="cm-fig-n">150</span><span class="cm-fig-c">local LLMs usable inside the browser</span></div>
+                        <p>No major Norwegian LLM — but <strong>Opera</strong> (Oslo) pursues an interface strategy: the <em>Aria</em> AI built on OpenAI and Google models, and the first browser to support <strong>150 local LLMs</strong> running directly on the user's machine.</p>
+                        <p class="cm-card-kw">interface without a model · local AI</p>
+                        <div class="cm-links"><a href="https://www.opera.com" target="_blank" rel="noopener">opera.com</a> <a href="offline.html">See "Offline AI"</a></div>
+                    </article>
+                    <article class="cm-card" id="c-pologne" data-region="europe" data-strat="adapt" data-tier="2">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-pl cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Poland</h3>
+                                <span class="cm-card-meta">National model <span class="cm-since">Since 2024</span></span>
+                            </div>
+                            <span class="cm-pips" title="Scale 2/5" aria-label="Scale 2/5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-adapt"><i aria-hidden="true"></i>Adaptation</span>
+                            <span class="cm-status st-dispo"><i class="fa-solid fa-circle" aria-hidden="true"></i>In service</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><img class="cm-logo " src="../images/carte/logos/speakleash.webp" alt="" width="64" height="64" loading="lazy"><span><strong>SpeakLeash</strong><small>Bielik, Mistral base</small></span></li></ul>
+                        <div class="cm-fig"><span class="cm-fig-n">11B</span><span class="cm-fig-c">parameters: enough to beat far bigger models in Polish</span></div>
+                        <p><strong>Bielik</strong> (SpeakLeash foundation): a Mistral base deeply re-trained (1.5B / 4.5B / 11B) that beats much larger models in Polish. Compliant with EU copyright, maintained by its community. The textbook example of a complete value chain.</p>
+                        <p class="cm-card-kw">continued pre-training · community</p>
+                        <div class="cm-links"><a href="https://huggingface.co/speakleash" target="_blank" rel="noopener">Hugging Face — SpeakLeash</a></div>
+                    </article>
+                    <article class="cm-card" id="c-italie" data-region="europe" data-strat="maison" data-tier="2">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-it cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Italy</h3>
+                                <span class="cm-card-meta">National model <span class="cm-since">Since 2024</span></span>
+                            </div>
+                            <span class="cm-pips" title="Scale 2/5" aria-label="Scale 2/5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-maison"><i aria-hidden="true"></i>Home-grown model</span>
+                            <span class="cm-status st-dispo"><i class="fa-solid fa-circle" aria-hidden="true"></i>In service</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><span class="cm-logo cm-mono " aria-hidden="true">S</span><span><strong>Sapienza</strong><small>Minerva</small></span></li></ul>
+                        
+                        <p><strong>Minerva</strong>: the national research LLM developed at Sapienza (Rome), funded by the European recovery plan (PNRR) as part of Italy's national AI strategy.</p>
+                        <p class="cm-card-kw">national research</p>
+                        <div class="cm-links"><a href="https://huggingface.co/DeepSenseAI-Studio" target="_blank" rel="noopener">Hugging Face — DeepSense</a></div>
+                    </article>
+                    </div>
+                </section>
+                <section class="cm-region" data-region="ameriques" aria-labelledby="ameriques">
+                    <h2 class="cm-region-title" id="ameriques">Americas<span>4 countries</span></h2>
+                    <div class="cm-cards">
+                    <article class="cm-card" id="c-canada" data-region="ameriques" data-strat="maison" data-tier="4">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-ca cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Canada</h3>
+                                <span class="cm-card-meta">Global power <span class="cm-since">Since 2019</span></span>
+                            </div>
+                            <span class="cm-pips" title="Scale 4/5" aria-label="Scale 4/5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-maison"><i aria-hidden="true"></i>Home-grown model</span>
+                            <span class="cm-status st-dispo"><i class="fa-solid fa-circle" aria-hidden="true"></i>In service</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><img class="cm-logo " src="../images/carte/logos/cohere.webp" alt="" width="64" height="64" loading="lazy"><span><strong>Cohere</strong><small>Command A · Command A+</small></span></li></ul>
+                        <div class="cm-fig"><span class="cm-fig-n">4 G CAD</span><span class="cm-fig-c">invested in Canada for &quot;sovereign AI&quot;</span></div>
+                        <p><strong>Cohere</strong> (Toronto): founded by ex-Google Brain. The <em>Command A</em> (111B) and <em>Command A+</em> (open source, Apache 2.0) models, positioned as "sovereign AI" for governments and regulated industries, with 4 billion CAD invested in Canada. Absorbed Aleph Alpha.</p>
+                        <p class="cm-card-kw">from scratch · sovereign AI</p>
+                        <div class="cm-links"><a href="https://cohere.com" target="_blank" rel="noopener">cohere.com</a> <a href="https://huggingface.co/CohereLabs" target="_blank" rel="noopener">Hugging Face — CohereLabs</a></div>
+                    </article>
+                    <article class="cm-card" id="c-bresil" data-region="ameriques" data-strat="adapt" data-tier="2">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-br cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Brazil</h3>
+                                <span class="cm-card-meta">National model <span class="cm-since">Since 2023</span></span>
+                            </div>
+                            <span class="cm-pips" title="Scale 2/5" aria-label="Scale 2/5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-adapt"><i aria-hidden="true"></i>Adaptation</span>
+                            <span class="cm-status st-dispo"><i class="fa-solid fa-circle" aria-hidden="true"></i>In service</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><img class="cm-logo " src="../images/carte/logos/maritaca.webp" alt="" width="64" height="64" loading="lazy"><span><strong>Maritaca AI</strong><small>Sabiá 4 · MariTalk</small></span></li></ul>
+                        <div class="cm-fig"><span class="cm-fig-n">128k</span><span class="cm-fig-c">context tokens, Brazilian legal corpus</span></div>
+                        <p><strong>Maritaca AI</strong>: the <em>Sabiá</em> family (up to Sabiá 4) — a generalist base followed by continued pre-training on Brazilian Portuguese and legal corpora, 128k context, and the consumer app <em>MariTalk</em>.</p>
+                        <p class="cm-card-kw">Portuguese · legal corpus</p>
+                        <div class="cm-links"><a href="https://maritaca.ai" target="_blank" rel="noopener">maritaca.ai</a></div>
+                    </article>
+                    <article class="cm-card" id="c-argentine" data-region="ameriques" data-strat="adapt" data-tier="1">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-ar cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Argentina</h3>
+                                <span class="cm-card-meta">Foundations </span>
+                            </div>
+                            <span class="cm-pips" title="Scale 1/5" aria-label="Scale 1/5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-adapt"><i aria-hidden="true"></i>Adaptation</span>
+                            <span class="cm-status st-endev"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>Under construction</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><span class="cm-logo cm-mono " aria-hidden="true">LG</span><span><strong>Latam-GPT</strong><small>Latin American Spanish</small></span></li></ul>
+                        
+                        <p><strong>Latam-GPT</strong>: an academic initiative for a Latin American Spanish LLM, on the path of adapting existing models (access to the European LUMI supercomputer). Atypical political context: in 2026 the government proposed a bill on "non-human societies" — legal entities owned and operated by AIs.</p>
+                        <p class="cm-card-kw">Latin American Spanish</p>
+                        
+                    </article>
+                    <article class="cm-card" id="c-mexique" data-region="ameriques" data-strat="maison" data-tier="1">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-mx cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Mexico</h3>
+                                <span class="cm-card-meta">Foundations </span>
+                            </div>
+                            <span class="cm-pips" title="Scale 1/5" aria-label="Scale 1/5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-maison"><i aria-hidden="true"></i>Home-grown model</span>
+                            <span class="cm-status st-endev"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>Under construction</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><span class="cm-logo cm-mono " aria-hidden="true">MI</span><span><strong>Mexico IA</strong><small>business council (CCE) + NVIDIA</small></span></li></ul>
+                        <div class="cm-fig"><span class="cm-fig-n">18 G$</span><span class="cm-fig-c">of expected data-center investment</span></div>
+                        <p><strong>Mexico IA</strong>: a national initiative led by employers (CCE) with NVIDIA — aiming for a "Spanish, made in Mexico" LLM adapted to regional variants. A parallel data center boom: $18B of expected investments, and Google's first AI lab in Latin America announced in Puebla for 2026.</p>
+                        <p class="cm-card-kw">regional Spanish · data centers</p>
+                        
+                    </article>
+                    </div>
+                </section>
+                <section class="cm-region" data-region="moyen-orient" aria-labelledby="moyen-orient">
+                    <h2 class="cm-region-title" id="moyen-orient">Middle East<span>3 countries</span></h2>
+                    <div class="cm-cards">
+                    <article class="cm-card" id="c-emirats" data-region="moyen-orient" data-strat="maison" data-tier="4">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-ae cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>United Arab Emirates</h3>
+                                <span class="cm-card-meta">Global power <span class="cm-since">Since 2023</span></span>
+                            </div>
+                            <span class="cm-pips" title="Scale 4/5" aria-label="Scale 4/5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-maison"><i aria-hidden="true"></i>Home-grown model</span>
+                            <span class="cm-status st-dispo"><i class="fa-solid fa-circle" aria-hidden="true"></i>In service</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><span class="cm-logo cm-mono " aria-hidden="true">T</span><span><strong>TII</strong><small>Falcon</small></span></li><li><img class="cm-logo " src="../images/carte/logos/g42.webp" alt="" width="64" height="64" loading="lazy"><span><strong>G42 · Core42</strong><small>Jais, Arabic first</small></span></li></ul>
+                        
+                        <p><strong>Falcon</strong> (TII, Abu Dhabi): an open-weight series adopted worldwide. <strong>Jais</strong> (G42 / Core42 / MBZUAI): Arabic first, strong at Arabic-English code-switching. The most capitalized sovereign bet in the world for a country of this size.</p>
+                        <p class="cm-card-kw">from scratch · massive sovereign bet</p>
+                        <div class="cm-links"><a href="https://falconllm.ai" target="_blank" rel="noopener">falconllm.ai</a> <a href="https://core42.ai" target="_blank" rel="noopener">core42.ai</a></div>
+                    </article>
+                    <article class="cm-card" id="c-qatar" data-region="moyen-orient" data-strat="maison" data-tier="3">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-qa cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Qatar</h3>
+                                <span class="cm-card-meta">Sovereign player <span class="cm-since">Since 2024</span></span>
+                            </div>
+                            <span class="cm-pips" title="Scale 3/5" aria-label="Scale 3/5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-maison"><i aria-hidden="true"></i>Home-grown model</span>
+                            <span class="cm-status st-dispo"><i class="fa-solid fa-circle" aria-hidden="true"></i>In service</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><img class="cm-logo " src="../images/carte/logos/qcri.webp" alt="" width="64" height="64" loading="lazy"><span><strong>QCRI</strong><small>Fanar, Arabic-English</small></span></li></ul>
+                        <div class="cm-fig"><span class="cm-fig-n">×3</span><span class="cm-fig-c">size of the multimodal Fanar 2.0 vs the first Fanar (9B)</span></div>
+                        <p><strong>Fanar</strong> (QCRI): an Arabic-English LLM, multimodal 2.0 released in 2026, 3.0 announced for December. Around it: Fanar-Diwan (classical Arabic poetry), FanarShaheen (translation), Oryx-IVU (image/video understanding), and the first Arabic long-form speech recognition benchmark.</p>
+                        <p class="cm-card-kw">Arabic-English · full ecosystem</p>
+                        <div class="cm-links"><a href="https://www.hbku.edu.qa/en/qcri" target="_blank" rel="noopener">hbku.edu.qa — QCRI</a></div>
+                    </article>
+                    <article class="cm-card" id="c-arabie" data-region="moyen-orient" data-strat="maison" data-tier="3">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-sa cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Saudi Arabia</h3>
+                                <span class="cm-card-meta">Sovereign player <span class="cm-since">Since 2023</span></span>
+                            </div>
+                            <span class="cm-pips" title="Scale 3/5" aria-label="Scale 3/5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-maison"><i aria-hidden="true"></i>Home-grown model</span>
+                            <span class="cm-status st-mixte"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>In service + mega-infrastructures</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><span class="cm-logo cm-mono " aria-hidden="true">S</span><span><strong>SDAIA</strong><small>ALLaM</small></span></li><li><img class="cm-logo " src="../images/carte/logos/humain.webp" alt="" width="64" height="64" loading="lazy"><span><strong>HUMAIN</strong><small>PIF sovereign fund</small></span></li></ul>
+                        <div class="cm-fig"><span class="cm-fig-n">100 G$+</span><span class="cm-fig-c">of AI infrastructure announced by HUMAIN</span></div>
+                        <p><strong>ALLaM</strong> (SDAIA): a series of Arabic models, in service. <strong>HUMAIN</strong> (sovereign fund PIF): more than $100B of announced AI infrastructure, NVIDIA and hyperscaler partnerships — massive deployment under way. 2026 was declared the "Year of AI".</p>
+                        <p class="cm-card-kw">models + infrastructure</p>
+                        <div class="cm-links"><a href="https://www.sdaia.gov.sa" target="_blank" rel="noopener">sdaia.gov.sa</a></div>
+                    </article>
+                    </div>
+                </section>
+                <section class="cm-region" data-region="afrique" aria-labelledby="afrique">
+                    <h2 class="cm-region-title" id="afrique">Africa<span>8 countries</span></h2>
+                    <div class="cm-cards">
+                    <article class="cm-card" id="c-afsu" data-region="afrique" data-strat="maison" data-tier="2">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-za cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>South Africa</h3>
+                                <span class="cm-card-meta">National model </span>
+                            </div>
+                            <span class="cm-pips" title="Scale 2/5" aria-label="Scale 2/5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-maison"><i aria-hidden="true"></i>Home-grown model</span>
+                            <span class="cm-status st-dispo"><i class="fa-solid fa-circle" aria-hidden="true"></i>In service</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><img class="cm-logo " src="../images/carte/logos/lelapa.webp" alt="" width="64" height="64" loading="lazy"><span><strong>Lelapa AI</strong><small>InkubaLM · Vulavula</small></span></li></ul>
+                        <div class="cm-fig"><span class="cm-fig-n">5</span><span class="cm-fig-c">low-resource African languages (Swahili, Yoruba, Xhosa…)</span></div>
+                        <p><strong>Lelapa AI</strong>: <em>InkubaLM</em>, small multilingual models for low-resource African languages (Swahili, Yoruba, Xhosa, Hausa, Zulu), able to handle code-switching. <em>Vulavula</em>: an API platform (voice, translation, sentiment).</p>
+                        <p class="cm-card-kw">low-resource languages</p>
+                        <div class="cm-links"><a href="https://lelapa.ai" target="_blank" rel="noopener">lelapa.ai</a></div>
+                    </article>
+                    <article class="cm-card" id="c-egypte" data-region="afrique" data-strat="maison" data-tier="2">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-eg cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Egypt</h3>
+                                <span class="cm-card-meta">National model <span class="cm-since">Since 2026</span></span>
+                            </div>
+                            <span class="cm-pips" title="Scale 2/5" aria-label="Scale 2/5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-maison"><i aria-hidden="true"></i>Home-grown model</span>
+                            <span class="cm-status st-dispo"><i class="fa-solid fa-circle" aria-hidden="true"></i>In service</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><span class="cm-logo cm-mono " aria-hidden="true">K</span><span><strong>Karnak</strong><small>national LLM</small></span></li><li><img class="cm-logo " src="../images/carte/logos/widebot.webp" alt="" width="64" height="64" loading="lazy"><span><strong>Widebot</strong><small>AQL Mind</small></span></li></ul>
+                        
+                        <p><strong>Karnak</strong>: the national LLM launched in 2026, well ranked in Arabic in the 30-40B and 70-80B categories. A foundation for startups and institutions, with state applications including <em>SIA</em>, an AI tutor for Arabic and Egyptian history in high school. alongside: <strong>Widebot</strong> (private) with its Arabic model AQL Mind.</p>
+                        <p class="cm-card-kw">national LLM · state use cases</p>
+                        <div class="cm-links"><a href="https://mcit.gov.eg" target="_blank" rel="noopener">mcit.gov.eg</a></div>
+                    </article>
+                    <article class="cm-card" id="c-maroc" data-region="afrique" data-strat="adapt" data-tier="1">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-ma cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Morocco</h3>
+                                <span class="cm-card-meta">Foundations <span class="cm-since">Since 2026</span></span>
+                            </div>
+                            <span class="cm-pips" title="Scale 1/5" aria-label="Scale 1/5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-adapt"><i aria-hidden="true"></i>Adaptation</span>
+                            <span class="cm-status st-endev"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>Under construction</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><img class="cm-logo " src="../images/carte/logos/um6p.webp" alt="" width="64" height="64" loading="lazy"><span><strong>UM6P</strong><small>compute centre</small></span></li><li><span class="cm-logo cm-mono " aria-hidden="true">I</span><span><strong>Inwi</strong><small>Darija model</small></span></li></ul>
+                        
+                        <p>The <strong>"Maroc IA 2030"</strong> roadmap (January 2026): an assumed choice of fine-tuning open models (Llama, Mistral) rather than from scratch. Spearhead: <strong>UM6P</strong> and its computing center; operator Inwi works on a Darija model.</p>
+                        <p class="cm-card-kw">strategy first · assumed fine-tuning</p>
+                        <div class="cm-links"><a href="https://um6p.ma" target="_blank" rel="noopener">um6p.ma</a></div>
+                    </article>
+                    <article class="cm-card" id="c-algerie" data-region="afrique" data-strat="adapt" data-tier="1">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-dz cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Algeria</h3>
+                                <span class="cm-card-meta">Foundations <span class="cm-since">Since 2021</span></span>
+                            </div>
+                            <span class="cm-pips" title="Scale 1/5" aria-label="Scale 1/5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-adapt"><i aria-hidden="true"></i>Adaptation</span>
+                            <span class="cm-status st-endev"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>Under construction</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><span class="cm-logo cm-mono " aria-hidden="true">DD</span><span><strong>DziriBERT · DziriBOT</strong><small>Darja, mixed Arabic and French</small></span></li></ul>
+                        <div class="cm-fig"><span class="cm-fig-n">342</span><span class="cm-fig-c">digitised public services (SNTN-2030)</span></div>
+                        <p>No national LLM yet: research focuses on <em>Darja</em> — <strong>DziriBERT</strong> (2021), then <strong>DziriBOT</strong>, a RAG customer-service agent handling the Arabic / French mix and Arabizi, in a public market going fully digital (SNTN-2030 strategy).</p>
+                        <p class="cm-card-kw">the dialect battle</p>
+                        <div class="cm-links"><a href="https://arxiv.org/abs/2602.02270" target="_blank" rel="noopener">DziriBOT paper (arXiv)</a></div>
+                    </article>
+                    <article class="cm-card" id="c-nigeria" data-region="afrique" data-strat="maison" data-tier="1">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-ng cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Nigeria</h3>
+                                <span class="cm-card-meta">Foundations </span>
+                            </div>
+                            <span class="cm-pips" title="Scale 1/5" aria-label="Scale 1/5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-maison"><i aria-hidden="true"></i>Home-grown model</span>
+                            <span class="cm-status st-endev"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>Under construction</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><img class="cm-logo " src="../images/carte/logos/nitda.webp" alt="" width="64" height="64" loading="lazy"><span><strong>NCAIR · NITDA</strong><small>N-ATLAS</small></span></li></ul>
+                        <div class="cm-fig"><span class="cm-fig-n">500+</span><span class="cm-fig-c">of the country’s languages targeted by N-ATLAS</span></div>
+                        <p><strong>N-ATLAS</strong>: an open-source multilingual LLM led by the governmental agency NCAIR for the country's 500+ languages, positioned as a digital public good "for all of Africa". National AI strategy being rolled out 2026-2028.</p>
+                        <p class="cm-card-kw">digital public good</p>
+                        <div class="cm-links"><a href="https://nitda.gov.ng" target="_blank" rel="noopener">nitda.gov.ng</a></div>
+                    </article>
+                    <article class="cm-card" id="c-rwanda" data-region="afrique" data-strat="fondation" data-tier="1">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-rw cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Rwanda</h3>
+                                <span class="cm-card-meta">Foundations </span>
+                            </div>
+                            <span class="cm-pips" title="Scale 1/5" aria-label="Scale 1/5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-fondation"><i aria-hidden="true"></i>Foundations</span>
+                            <span class="cm-status st-dispo"><i class="fa-solid fa-circle" aria-hidden="true"></i>Open data</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><img class="cm-logo " src="../images/carte/logos/umuganda.webp" alt="" width="64" height="64" loading="lazy"><span><strong>Digital Umuganda</strong><small>Kinyarwanda voice data</small></span></li></ul>
+                        <div class="cm-fig"><span class="cm-fig-n">2 000 h</span><span class="cm-fig-c">of Kinyarwanda voice, as open data</span></div>
+                        <p><strong>Digital Umuganda</strong>: more than 2,000 hours of Kinyarwanda speech collected on Mozilla Common Voice — groundwork started before the ChatGPT wave.</p>
+                        <p class="cm-card-kw">data infrastructure first</p>
+                        <div class="cm-links"><a href="https://commonvoice.mozilla.org" target="_blank" rel="noopener">commonvoice.mozilla.org</a></div>
+                    </article>
+                    <article class="cm-card" id="c-namibie" data-region="afrique" data-strat="fondation" data-tier="1">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-na cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Namibia</h3>
+                                <span class="cm-card-meta">Foundations <span class="cm-since">Since 2026</span></span>
+                            </div>
+                            <span class="cm-pips" title="Scale 1/5" aria-label="Scale 1/5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-fondation"><i aria-hidden="true"></i>Foundations</span>
+                            <span class="cm-status st-endev"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>Under construction</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><span class="cm-logo cm-mono " aria-hidden="true">IN</span><span><strong>Institut national d’IA</strong><small>Windhoek</small></span></li></ul>
+                        
+                        <p>No major model or startup — but a <strong>National AI Institute</strong> opened in September 2026 in Windhoek (health, education, food security, energy). Watchpoint: still no data protection law or dedicated authority.</p>
+                        <p class="cm-card-kw">institutions first</p>
+                        
+                    </article>
+                    <article class="cm-card" id="c-masakhane" data-region="afrique" data-strat="fondation" data-tier="1">
+                        <header class="cm-card-head">
+                            <span class="cm-flag cm-flag-af cm-flag-lg" aria-hidden="true"><i class="fa-solid fa-earth-africa"></i></span>
+                            <div class="cm-card-title">
+                                <h3>Pan-African — Masakhane</h3>
+                                <span class="cm-card-meta">Foundations </span>
+                            </div>
+                            <span class="cm-pips" title="Scale 1/5" aria-label="Scale 1/5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-fondation"><i aria-hidden="true"></i>Foundations</span>
+                            <span class="cm-status st-dispo"><i class="fa-solid fa-circle" aria-hidden="true"></i>In service</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><span class="cm-logo cm-mono " aria-hidden="true">M</span><span><strong>Masakhane</strong><small>research community</small></span></li></ul>
+                        
+                        <p><strong>Masakhane</strong>: an NLP research community bridging Lelapa AI, Nigerian, Rwandan teams and many more — the human backbone of African AI.</p>
+                        <p class="cm-card-kw">citizen community</p>
+                        <div class="cm-links"><a href="https://www.masakhane.co.za" target="_blank" rel="noopener">masakhane.co.za</a></div>
+                    </article>
+                    </div>
+                </section>
+                <section class="cm-region" data-region="asie-pacifique" aria-labelledby="asie-pacifique">
+                    <h2 class="cm-region-title" id="asie-pacifique">Asia-Pacific<span>8 countries</span></h2>
+                    <div class="cm-cards">
+                    <article class="cm-card" id="c-russie" data-region="asie-pacifique" data-strat="maison" data-tier="4">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-ru cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Russia</h3>
+                                <span class="cm-card-meta">Global power <span class="cm-since">Since 2017</span></span>
+                            </div>
+                            <span class="cm-pips" title="Scale 4/5" aria-label="Scale 4/5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-maison"><i aria-hidden="true"></i>Home-grown model</span>
+                            <span class="cm-status st-dispo"><i class="fa-solid fa-circle" aria-hidden="true"></i>In service in Russia</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><img class="cm-logo " src="../images/carte/logos/yandex.webp" alt="" width="64" height="64" loading="lazy"><span><strong>Yandex</strong><small>Alice · YandexGPT</small></span></li><li><img class="cm-logo " src="../images/carte/logos/sber.webp" alt="" width="64" height="64" loading="lazy"><span><strong>Sber</strong><small>GigaChat</small></span></li></ul>
+                        <div class="cm-fig"><span class="cm-fig-n">100 %</span><span class="cm-fig-c">home-made: a self-sufficient ecosystem, closed to the rest of the world</span></div>
+                        <p><strong>Yandex</strong>: the <em>Alice</em> assistant plus the YandexGPT and "Alice AI" families, 100% in-house, optimized for Russian — but invisible outside Russia (distribution, sanctions, no openness). Private rival: <strong>GigaChat</strong> (Sber). Even on Russian, they do not always outperform DeepSeek or Kimi.</p>
+                        <p class="cm-card-kw">closed national duopoly</p>
+                        <div class="cm-links"><a href="https://alice.yandex.ru" target="_blank" rel="noopener">alice.yandex.ru</a></div>
+                    </article>
+                    <article class="cm-card" id="c-japon" data-region="asie-pacifique" data-strat="maison" data-tier="4">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-jp cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Japan</h3>
+                                <span class="cm-card-meta">Global power <span class="cm-since">Since 2023</span></span>
+                            </div>
+                            <span class="cm-pips" title="Scale 4/5" aria-label="Scale 4/5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-maison"><i aria-hidden="true"></i>Home-grown model</span>
+                            <span class="cm-status st-dispo"><i class="fa-solid fa-circle" aria-hidden="true"></i>In service</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><img class="cm-logo " src="../images/carte/logos/ntt.webp" alt="" width="64" height="64" loading="lazy"><span><strong>NTT</strong><small>tsuzumi</small></span></li><li><img class="cm-logo " src="../images/carte/logos/sakana.webp" alt="" width="64" height="64" loading="lazy"><span><strong>Sakana AI</strong><small>world-class lab</small></span></li><li><span class="cm-logo cm-mono " aria-hidden="true">LJ</span><span><strong>LLM-jp</strong><small>national consortium</small></span></li></ul>
+                        <div class="cm-fig"><span class="cm-fig-n">30B</span><span class="cm-fig-c">parameters on a single GPU (tsuzumi)</span></div>
+                        <p><strong>tsuzumi</strong> (NTT): lightweight — 30B on a single GPU — deployed in healthcare, insurance and energy. <strong>LLM-jp</strong>: the national consortium's open-source model. Swallow (Tokyo Tech), NEC, Fujitsu: complementary national models. <strong>Sakana AI</strong>: a world-famous lab founded by co-authors of "Attention Is All You Need". The state <em>Gennai</em> platform for administration is under construction.</p>
+                        <p class="cm-card-kw">the art of the specialized model</p>
+                        <div class="cm-links"><a href="https://sakana.ai" target="_blank" rel="noopener">sakana.ai</a> <a href="https://huggingface.co/llm-jp" target="_blank" rel="noopener">Hugging Face — llm-jp</a></div>
+                    </article>
+                    <article class="cm-card" id="c-coree" data-region="asie-pacifique" data-strat="maison" data-tier="4">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-kr cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>South Korea</h3>
+                                <span class="cm-card-meta">Global power </span>
+                            </div>
+                            <span class="cm-pips" title="Scale 4/5" aria-label="Scale 4/5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-maison"><i aria-hidden="true"></i>Home-grown model</span>
+                            <span class="cm-status st-dispo"><i class="fa-solid fa-circle" aria-hidden="true"></i>In service</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><img class="cm-logo " src="../images/carte/logos/naver.webp" alt="" width="64" height="64" loading="lazy"><span><strong>Naver</strong><small>HyperCLOVA X</small></span></li><li><img class="cm-logo " src="../images/carte/logos/lg.webp" alt="" width="64" height="64" loading="lazy"><span><strong>LG AI Research</strong><small>EXAONE 4.0</small></span></li></ul>
+                        
+                        <p><strong>Naver</strong>: HyperCLOVA X (search, e-commerce, enterprises). <strong>LG</strong>: EXAONE 4.0, which passes Korean professional exams, weights published on Hugging Face. Originality: the government co-trains both adversarially for its national cybersecurity model.</p>
+                        <p class="cm-card-kw">private duopoly, state co-training</p>
+                        <div class="cm-links"><a href="https://www.ncloud.com" target="_blank" rel="noopener">ncloud.com</a></div>
+                    </article>
+                    <article class="cm-card" id="c-inde" data-region="asie-pacifique" data-strat="maison" data-tier="3">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-in cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>India</h3>
+                                <span class="cm-card-meta">Sovereign player <span class="cm-since">Since 2025</span></span>
+                            </div>
+                            <span class="cm-pips" title="Scale 3/5" aria-label="Scale 3/5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-maison"><i aria-hidden="true"></i>Home-grown model</span>
+                            <span class="cm-status st-mixte"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>APIs in service · sovereign under way</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><img class="cm-logo " src="../images/carte/logos/sarvam.webp" alt="" width="64" height="64" loading="lazy"><span><strong>Sarvam AI</strong><small>IndiaAI sovereign LLM</small></span></li><li><img class="cm-logo " src="../images/carte/logos/krutrim.webp" alt="" width="64" height="64" loading="lazy"><span><strong>Krutrim</strong><small>Ola</small></span></li><li><span class="cm-logo cm-mono " aria-hidden="true">B</span><span><strong>Bhashini</strong><small>public translation</small></span></li></ul>
+                        
+                        <p><strong>Sarvam AI</strong>: chosen by the IndiaAI mission to build the sovereign LLM from scratch with dedicated compute. <strong>Krutrim</strong> (Ola): the first private rival. <strong>Bhashini</strong>: a public translation layer for Indian languages.</p>
+                        <p class="cm-card-kw">frugal AI · multilingual</p>
+                        <div class="cm-links"><a href="https://www.sarvam.ai" target="_blank" rel="noopener">sarvam.ai</a> <a href="https://bhashini.gov.in" target="_blank" rel="noopener">bhashini.gov.in</a></div>
+                    </article>
+                    <article class="cm-card" id="c-singapour" data-region="asie-pacifique" data-strat="adapt" data-tier="3">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-sg cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Singapore</h3>
+                                <span class="cm-card-meta">Sovereign player <span class="cm-since">Since 2023</span></span>
+                            </div>
+                            <span class="cm-pips" title="Scale 3/5" aria-label="Scale 3/5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-adapt"><i aria-hidden="true"></i>Adaptation</span>
+                            <span class="cm-status st-dispo"><i class="fa-solid fa-circle" aria-hidden="true"></i>In service</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><img class="cm-logo " src="../images/carte/logos/aisg.webp" alt="" width="64" height="64" loading="lazy"><span><strong>AI Singapore</strong><small>SEA-LION</small></span></li></ul>
+                        <div class="cm-fig"><span class="cm-fig-n">11</span><span class="cm-fig-c">Southeast Asian languages covered</span></div>
+                        <p><strong>SEA-LION</strong>: AI Singapore's open family covering 11 Southeast Asian languages (Malay, Tamil, Burmese, Khmer…). Latest wave: v4.8 co-developed with NVIDIA.</p>
+                        <p class="cm-card-kw">regional multilingual hub</p>
+                        <div class="cm-links"><a href="https://huggingface.co/aisingapore" target="_blank" rel="noopener">Hugging Face — AI Singapore</a></div>
+                    </article>
+                    <article class="cm-card" id="c-australie" data-region="asie-pacifique" data-strat="interface" data-tier="3">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-au cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Australia</h3>
+                                <span class="cm-card-meta">Sovereign player <span class="cm-since">Since 2022</span></span>
+                            </div>
+                            <span class="cm-pips" title="Scale 3/5" aria-label="Scale 3/5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-interface"><i aria-hidden="true"></i>Interface &amp; hosting</span>
+                            <span class="cm-status st-dispo"><i class="fa-solid fa-circle" aria-hidden="true"></i>In service</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><img class="cm-logo " src="../images/carte/logos/canva.webp" alt="" width="64" height="64" loading="lazy"><span><strong>Canva</strong><small>Magic Studio</small></span></li><li><img class="cm-logo " src="../images/carte/logos/leonardo.webp" alt="" width="64" height="64" loading="lazy"><span><strong>Leonardo.Ai</strong><small>Phoenix, images</small></span></li></ul>
+                        
+                        <p>No major text LLM — but <strong>Leonardo.Ai</strong> (Sydney): <em>Phoenix</em>, Australia's first generative foundation, focused on images, acquired by <strong>Canva</strong> (also Australian) whose Magic Studio aggregates third-party models in the office suite.</p>
+                        <p class="cm-card-kw">images rather than text</p>
+                        <div class="cm-links"><a href="https://leonardo.ai" target="_blank" rel="noopener">leonardo.ai</a> <a href="https://www.canva.com" target="_blank" rel="noopener">canva.com</a></div>
+                    </article>
+                    <article class="cm-card" id="c-vietnam" data-region="asie-pacifique" data-strat="adapt" data-tier="2">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-vn cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Vietnam</h3>
+                                <span class="cm-card-meta">National model </span>
+                            </div>
+                            <span class="cm-pips" title="Scale 2/5" aria-label="Scale 2/5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-adapt"><i aria-hidden="true"></i>Adaptation</span>
+                            <span class="cm-status st-mixte"><i class="fa-solid fa-circle-half-stroke" aria-hidden="true"></i>Infra in service · models under way</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><span class="cm-logo cm-mono " aria-hidden="true">F</span><span><strong>FPT</strong><small>AI Factory · ViGPT</small></span></li><li><img class="cm-logo " src="../images/carte/logos/viettel.webp" alt="" width="64" height="64" loading="lazy"><span><strong>Viettel</strong><small>legal fine-tune</small></span></li></ul>
+                        <div class="cm-fig"><span class="cm-fig-n">1 000+</span><span class="cm-fig-c">NVIDIA GPUs in the FPT AI Factory</span></div>
+                        <p><strong>FPT AI Factory</strong>: the first national infrastructure — 1,000+ NVIDIA GPUs, top 40 worldwide. <em>ViGPT</em> (FPT's Vietnamese LLM) and Viettel's fine-tune of a Nemotron for a national legal application. The region's strictest AI law.</p>
+                        <p class="cm-card-kw">infrastructure first</p>
+                        <div class="cm-links"><a href="https://fpt.ai" target="_blank" rel="noopener">fpt.ai</a></div>
+                    </article>
+                    <article class="cm-card" id="c-kazakhstan" data-region="asie-pacifique" data-strat="maison" data-tier="2">
+                        <header class="cm-card-head">
+                            <span class="cm-flag fi fi-kz cm-flag-lg" aria-hidden="true"></span>
+                            <div class="cm-card-title">
+                                <h3>Kazakhstan</h3>
+                                <span class="cm-card-meta">National model <span class="cm-since">Since 2024</span></span>
+                            </div>
+                            <span class="cm-pips" title="Scale 2/5" aria-label="Scale 2/5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span>
+                        </header>
+                        <div class="cm-card-tags">
+                            <span class="cm-strat-tag s-maison"><i aria-hidden="true"></i>Home-grown model</span>
+                            <span class="cm-status st-dispo"><i class="fa-solid fa-circle" aria-hidden="true"></i>v1 in service</span>
+                        </div>
+                        <ul class="cm-actors" aria-label="Players"><li><img class="cm-logo " src="../images/carte/logos/issai.webp" alt="" width="64" height="64" loading="lazy"><span><strong>ISSAI</strong><small>KazLLM, with QazCode</small></span></li></ul>
+                        
+                        <p><strong>KazLLM</strong>: the first Kazakh LLM, developed by ISSAI (Nazarbayev University) and QazCode — a national platform for public services and businesses, to preserve Kazakh online. Later versions under way.</p>
+                        <p class="cm-card-kw">saving the language</p>
+                        <div class="cm-links"><a href="https://issai.nu.edu.kz" target="_blank" rel="noopener">issai.nu.edu.kz</a></div>
+                    </article>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- 05 Stratégies -->
+        <section class="cm-block cm-strategies" aria-labelledby="cm-strat-h2">
+            <div class="container">
+                <p class="cm-section-kicker">05 · The strategies</p>
+                <h2 id="cm-strat-h2">Four paths, one compass</h2>
+                <p class="cm-section-lead">Behind the diversity, almost all of these countries follow one of four paths — and almost all navigate by the same compass: language and data.</p>
+                <div class="cm-strat-grid">
+                    <article class="cm-strat s-maison">
+                        <span class="cm-strat-n">01</span>
+                        <h3>Home-grown model</h3>
+                        <p>Building a complete model. Expensive (hundreds of millions), but the only path to full control. Several of these projects are very recent.</p>
+                        <div class="cm-strat-countries"><span class="cm-strat-count">19 countries</span><a href="#c-france" class="cm-mini"><span class="cm-flag fi fi-fr " aria-hidden="true"></span>France</a><a href="#c-allemagne" class="cm-mini"><span class="cm-flag fi fi-de " aria-hidden="true"></span>Germany</a><a href="#c-royaume-uni" class="cm-mini"><span class="cm-flag fi fi-gb " aria-hidden="true"></span>United Kingdom</a><a href="#c-canada" class="cm-mini"><span class="cm-flag fi fi-ca " aria-hidden="true"></span>Canada</a><a href="#c-emirats" class="cm-mini"><span class="cm-flag fi fi-ae " aria-hidden="true"></span>UAE</a><a href="#c-russie" class="cm-mini"><span class="cm-flag fi fi-ru " aria-hidden="true"></span>Russia</a><a href="#c-japon" class="cm-mini"><span class="cm-flag fi fi-jp " aria-hidden="true"></span>Japan</a><a href="#c-coree" class="cm-mini"><span class="cm-flag fi fi-kr " aria-hidden="true"></span>S. Korea</a><a href="#c-suisse" class="cm-mini"><span class="cm-flag fi fi-ch " aria-hidden="true"></span>Switzerland</a><a href="#c-finlande" class="cm-mini"><span class="cm-flag fi fi-fi " aria-hidden="true"></span>Finland</a><a href="#c-qatar" class="cm-mini"><span class="cm-flag fi fi-qa " aria-hidden="true"></span>Qatar</a><a href="#c-arabie" class="cm-mini"><span class="cm-flag fi fi-sa " aria-hidden="true"></span>Saudi Arabia</a><a href="#c-inde" class="cm-mini"><span class="cm-flag fi fi-in " aria-hidden="true"></span>India</a><a href="#c-italie" class="cm-mini"><span class="cm-flag fi fi-it " aria-hidden="true"></span>Italy</a><a href="#c-afsu" class="cm-mini"><span class="cm-flag fi fi-za " aria-hidden="true"></span>South Africa</a><a href="#c-egypte" class="cm-mini"><span class="cm-flag fi fi-eg " aria-hidden="true"></span>Egypt</a><a href="#c-kazakhstan" class="cm-mini"><span class="cm-flag fi fi-kz " aria-hidden="true"></span>Kazakhstan</a><a href="#c-mexique" class="cm-mini"><span class="cm-flag fi fi-mx " aria-hidden="true"></span>Mexico</a><a href="#c-nigeria" class="cm-mini"><span class="cm-flag fi fi-ng " aria-hidden="true"></span>Nigeria</a></div>
+                    </article>
+                    <article class="cm-strat s-adapt">
+                        <span class="cm-strat-n">02</span>
+                        <h3>Adaptation</h3>
+                        <p>The norm: continued pre-training or fine-tuning of a Llama, Mistral or Qwen base. A few million, and the fastest way to a real product.</p>
+                        <div class="cm-strat-countries"><span class="cm-strat-count">7 countries</span><a href="#c-singapour" class="cm-mini"><span class="cm-flag fi fi-sg " aria-hidden="true"></span>Singapore</a><a href="#c-pologne" class="cm-mini"><span class="cm-flag fi fi-pl " aria-hidden="true"></span>Poland</a><a href="#c-bresil" class="cm-mini"><span class="cm-flag fi fi-br " aria-hidden="true"></span>Brazil</a><a href="#c-vietnam" class="cm-mini"><span class="cm-flag fi fi-vn " aria-hidden="true"></span>Vietnam</a><a href="#c-argentine" class="cm-mini"><span class="cm-flag fi fi-ar " aria-hidden="true"></span>Argentina</a><a href="#c-maroc" class="cm-mini"><span class="cm-flag fi fi-ma " aria-hidden="true"></span>Morocco</a><a href="#c-algerie" class="cm-mini"><span class="cm-flag fi fi-dz " aria-hidden="true"></span>Algeria</a></div>
+                    </article>
+                    <article class="cm-strat s-interface">
+                        <span class="cm-strat-n">03</span>
+                        <h3>Interface &amp; hosting</h3>
+                        <p>No home-grown model: aggregation, local hosting, compliance. The value is legal and orchestral, not technological.</p>
+                        <div class="cm-strat-countries"><span class="cm-strat-count">2 countries</span><a href="#c-australie" class="cm-mini"><span class="cm-flag fi fi-au " aria-hidden="true"></span>Australia</a><a href="#c-norvege" class="cm-mini"><span class="cm-flag fi fi-no " aria-hidden="true"></span>Norway</a></div>
+                    </article>
+                    <article class="cm-strat s-fondation">
+                        <span class="cm-strat-n">04</span>
+                        <h3>Foundations</h3>
+                        <p>Laying the foundations before the models: institutes, open data, research communities, laws and funds.</p>
+                        <div class="cm-strat-countries"><span class="cm-strat-count">3 countries</span><a href="#c-rwanda" class="cm-mini"><span class="cm-flag fi fi-rw " aria-hidden="true"></span>Rwanda</a><a href="#c-namibie" class="cm-mini"><span class="cm-flag fi fi-na " aria-hidden="true"></span>Namibia</a><a href="#c-masakhane" class="cm-mini"><span class="cm-flag cm-flag-af " aria-hidden="true"><i class="fa-solid fa-earth-africa"></i></span>Masakhane</a></div>
+                    </article>
+                </div>
+                <div class="cm-chain">
+                    <h3>The typical value chain</h3>
+                    <ol><li><span class="cm-chain-n">1</span><strong>Open base</strong><small>Llama, Mistral, Qwen</small></li><li><span class="cm-chain-n">2</span><strong>Continued pre-training</strong><small>the language</small></li><li><span class="cm-chain-n">3</span><strong>Fine-tune</strong><small>the domain</small></li><li><span class="cm-chain-n">4</span><strong>Sovereign hosting</strong><small>PhariaAI-style</small></li><li><span class="cm-chain-n">5</span><strong>National interface</strong><small>the product</small></li></ol>
+                    <p>That is exactly the path of Bielik (Poland) and Sabiá (Brazil).</p>
+                </div>
+                <div class="cm-drivers">
+                    <h3>Common drivers</h3>
+                    <ul><li><strong>Language</strong> — the #1 motivation almost everywhere: Darja, Darija, Finnish, Tamil, Kazakh…</li><li><strong>Data</strong> — keeping citizens' data under national jurisdiction (GDPR or equivalent).</li><li><strong>GPU cost</strong> — the real bottleneck, hence the triumph of fine-tuning and public supercomputers (LUMI in Finland, UM6P in Morocco).</li><li><strong>Pitfalls</strong> — funding that stops (Germany's Teuken), regulation lagging behind (Namibia), head-on competition with the giants being nearly impossible.</li></ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pour aller plus loin -->
+        <section class="cm-block cm-more">
             <div class="container">
                 <h2>Going further</h2>
                 <div class="cm-more-grid">
@@ -640,29 +884,25 @@
                         <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
                         <div>
                             <h3>AI &amp; models</h3>
-                            <p>Who runs what, between models and interfaces:
-                                the big diagram of the landscape.</p>
+                            <p>Who runs what, between models and interfaces: the big diagram of the landscape.</p>
                         </div>
                     </a>
                     <a class="cm-more-card" href="offline.html">
                         <i class="fa-solid fa-plug-circle-xmark" aria-hidden="true"></i>
                         <div>
                             <h3>Offline AI</h3>
-                            <p>Running an open model at home, without cloud or subscription —
-                                the starting point of several sovereignties.</p>
+                            <p>Running an open model at home, without cloud or subscription — the starting point of several sovereignties.</p>
                         </div>
                     </a>
                 </div>
-                <p class="cm-source">Data: "AI beyond the US and China" panorama, compiled on
-                    3 November 2026 (Wikipedia, official sites, specialized press). "In service /
-                    under construction" statuses and links reflect that date.</p>
+                <p class="cm-source">Data: “AI beyond the US and China” panorama and model synthesis, compiled on 3 November 2026 (Wikipedia, official sites, specialised press). Scale is an editorial assessment; statuses and links reflect that date. Logos belong to their respective owners.</p>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <site-footer></site-footer>
 
+    <script type="application/json" id="cm-data">{"lang": "en", "strats": {"maison": "Home-grown model", "adapt": "Adaptation", "interface": "Interface & hosting", "fondation": "Foundations"}, "tiers": {"5": "Superpower", "4": "Global power", "3": "Sovereign player", "2": "National model", "1": "Foundations"}, "st": {"dispo": "In service", "endev": "Under construction"}, "hint": "Click to read the profile", "countries": [{"id": "c-france", "iso2": "fr", "iso3": "FRA", "name": "France", "short": "France", "lat": 48.86, "lon": 2.35, "tier": 4, "strat": "maison", "st": "dispo", "badge": "In service", "actors": ["Mistral AI"], "lw": "none", "li": "l"}, {"id": "c-suisse", "iso2": "ch", "iso3": "CHE", "name": "Switzerland", "short": "Switzerland", "lat": 46.52, "lon": 6.63, "tier": 3, "strat": "maison", "st": "dispo", "badge": "In service", "actors": ["Apertus"], "lw": "none", "li": "b"}, {"id": "c-allemagne", "iso2": "de", "iso3": "DEU", "name": "Germany", "short": "Germany", "lat": 50.1, "lon": 9.7, "tier": 4, "strat": "maison", "st": "dispo", "badge": "In service", "actors": ["Black Forest Labs", "Aleph Alpha", "OpenGPT-X"], "lw": "none", "li": "r"}, {"id": "c-royaume-uni", "iso2": "gb", "iso3": "GBR", "name": "United Kingdom", "short": "United Kingdom", "lat": 51.5, "lon": -0.6, "tier": 4, "strat": "maison", "st": "dispo", "badge": "Research ++ / sovereignty in progress", "actors": ["Google DeepMind", "Stability AI", "UK Sovereign AI"], "lw": "none", "li": "l"}, {"id": "c-finlande", "iso2": "fi", "iso3": "FIN", "name": "Finland", "short": "Finland", "lat": 60.45, "lon": 22.27, "tier": 3, "strat": "maison", "st": "dispo", "badge": "In service", "actors": ["Silo AI (AMD)", "TurkuNLP"], "lw": "none", "li": "r"}, {"id": "c-norvege", "iso2": "no", "iso3": "NOR", "name": "Norway", "short": "Norway", "lat": 59.91, "lon": 10.75, "tier": 2, "strat": "interface", "st": "dispo", "badge": "In service", "actors": ["Opera"], "lw": "none", "li": "l"}, {"id": "c-pologne", "iso2": "pl", "iso3": "POL", "name": "Poland", "short": "Poland", "lat": 52.23, "lon": 21.0, "tier": 2, "strat": "adapt", "st": "dispo", "badge": "In service", "actors": ["SpeakLeash"], "lw": "none", "li": "r"}, {"id": "c-italie", "iso2": "it", "iso3": "ITA", "name": "Italy", "short": "Italy", "lat": 41.9, "lon": 12.5, "tier": 2, "strat": "maison", "st": "dispo", "badge": "In service", "actors": ["Sapienza"], "lw": "none", "li": "r"}, {"id": "c-canada", "iso2": "ca", "iso3": "CAN", "name": "Canada", "short": "Canada", "lat": 43.65, "lon": -79.38, "tier": 4, "strat": "maison", "st": "dispo", "badge": "In service", "actors": ["Cohere"], "lw": "r", "li": "none"}, {"id": "c-bresil", "iso2": "br", "iso3": "BRA", "name": "Brazil", "short": "Brazil", "lat": -23.55, "lon": -46.63, "tier": 2, "strat": "adapt", "st": "dispo", "badge": "In service", "actors": ["Maritaca AI"], "lw": "r", "li": "none"}, {"id": "c-argentine", "iso2": "ar", "iso3": "ARG", "name": "Argentina", "short": "Argentina", "lat": -34.6, "lon": -58.4, "tier": 1, "strat": "adapt", "st": "endev", "badge": "Under construction", "actors": ["Latam-GPT"], "lw": "l", "li": "none"}, {"id": "c-mexique", "iso2": "mx", "iso3": "MEX", "name": "Mexico", "short": "Mexico", "lat": 19.43, "lon": -99.13, "tier": 1, "strat": "maison", "st": "endev", "badge": "Under construction", "actors": ["Mexico IA"], "lw": "r", "li": "none"}, {"id": "c-emirats", "iso2": "ae", "iso3": "ARE", "name": "United Arab Emirates", "short": "UAE", "lat": 24.45, "lon": 54.38, "tier": 4, "strat": "maison", "st": "dispo", "badge": "In service", "actors": ["TII", "G42 · Core42"], "lw": "none", "li": "r"}, {"id": "c-qatar", "iso2": "qa", "iso3": "QAT", "name": "Qatar", "short": "Qatar", "lat": 25.29, "lon": 51.53, "tier": 3, "strat": "maison", "st": "dispo", "badge": "In service", "actors": ["QCRI"], "lw": "none", "li": "t"}, {"id": "c-arabie", "iso2": "sa", "iso3": "SAU", "name": "Saudi Arabia", "short": "Saudi Arabia", "lat": 24.71, "lon": 46.68, "tier": 3, "strat": "maison", "st": "dispo", "badge": "In service + mega-infrastructures", "actors": ["SDAIA", "HUMAIN"], "lw": "none", "li": "l"}, {"id": "c-afsu", "iso2": "za", "iso3": "ZAF", "name": "South Africa", "short": "South Africa", "lat": -26.2, "lon": 28.05, "tier": 2, "strat": "maison", "st": "dispo", "badge": "In service", "actors": ["Lelapa AI"], "lw": "r", "li": "none"}, {"id": "c-egypte", "iso2": "eg", "iso3": "EGY", "name": "Egypt", "short": "Egypt", "lat": 30.04, "lon": 31.24, "tier": 2, "strat": "maison", "st": "dispo", "badge": "In service", "actors": ["Karnak", "Widebot"], "lw": "none", "li": "b"}, {"id": "c-maroc", "iso2": "ma", "iso3": "MAR", "name": "Morocco", "short": "Morocco", "lat": 33.97, "lon": -6.85, "tier": 1, "strat": "adapt", "st": "endev", "badge": "Under construction", "actors": ["UM6P", "Inwi"], "lw": "none", "li": "l"}, {"id": "c-algerie", "iso2": "dz", "iso3": "DZA", "name": "Algeria", "short": "Algeria", "lat": 36.75, "lon": 3.06, "tier": 1, "strat": "adapt", "st": "endev", "badge": "Under construction", "actors": ["DziriBERT · DziriBOT"], "lw": "none", "li": "b"}, {"id": "c-nigeria", "iso2": "ng", "iso3": "NGA", "name": "Nigeria", "short": "Nigeria", "lat": 9.07, "lon": 7.4, "tier": 1, "strat": "maison", "st": "endev", "badge": "Under construction", "actors": ["NCAIR · NITDA"], "lw": "l", "li": "none"}, {"id": "c-rwanda", "iso2": "rw", "iso3": "RWA", "name": "Rwanda", "short": "Rwanda", "lat": -1.95, "lon": 30.06, "tier": 1, "strat": "fondation", "st": "dispo", "badge": "Open data", "actors": ["Digital Umuganda"], "lw": "r", "li": "none"}, {"id": "c-namibie", "iso2": "na", "iso3": "NAM", "name": "Namibia", "short": "Namibia", "lat": -22.56, "lon": 17.08, "tier": 1, "strat": "fondation", "st": "endev", "badge": "Under construction", "actors": ["Institut national d’IA"], "lw": "l", "li": "none"}, {"id": "c-russie", "iso2": "ru", "iso3": "RUS", "name": "Russia", "short": "Russia", "lat": 55.75, "lon": 37.62, "tier": 4, "strat": "maison", "st": "dispo", "badge": "In service in Russia", "actors": ["Yandex", "Sber"], "lw": "none", "li": "r"}, {"id": "c-japon", "iso2": "jp", "iso3": "JPN", "name": "Japan", "short": "Japan", "lat": 35.68, "lon": 139.69, "tier": 4, "strat": "maison", "st": "dispo", "badge": "In service", "actors": ["NTT", "Sakana AI", "LLM-jp"], "lw": "r", "li": "none"}, {"id": "c-coree", "iso2": "kr", "iso3": "KOR", "name": "South Korea", "short": "S. Korea", "lat": 37.57, "lon": 126.98, "tier": 4, "strat": "maison", "st": "dispo", "badge": "In service", "actors": ["Naver", "LG AI Research"], "lw": "b", "li": "none"}, {"id": "c-inde", "iso2": "in", "iso3": "IND", "name": "India", "short": "India", "lat": 12.97, "lon": 77.59, "tier": 3, "strat": "maison", "st": "dispo", "badge": "APIs in service · sovereign under way", "actors": ["Sarvam AI", "Krutrim", "Bhashini"], "lw": "l", "li": "none"}, {"id": "c-singapour", "iso2": "sg", "iso3": null, "name": "Singapore", "short": "Singapore", "lat": 1.35, "lon": 103.82, "tier": 3, "strat": "adapt", "st": "dispo", "badge": "In service", "actors": ["AI Singapore"], "lw": "l", "li": "none"}, {"id": "c-vietnam", "iso2": "vn", "iso3": "VNM", "name": "Vietnam", "short": "Vietnam", "lat": 21.03, "lon": 105.85, "tier": 2, "strat": "adapt", "st": "dispo", "badge": "Infra in service · models under way", "actors": ["FPT", "Viettel"], "lw": "r", "li": "none"}, {"id": "c-kazakhstan", "iso2": "kz", "iso3": "KAZ", "name": "Kazakhstan", "short": "Kazakhstan", "lat": 51.17, "lon": 71.45, "tier": 2, "strat": "maison", "st": "dispo", "badge": "v1 in service", "actors": ["ISSAI"], "lw": "r", "li": "none"}, {"id": "c-australie", "iso2": "au", "iso3": "AUS", "name": "Australia", "short": "Australia", "lat": -33.87, "lon": 151.21, "tier": 3, "strat": "interface", "st": "dispo", "badge": "In service", "actors": ["Canva", "Leonardo.Ai"], "lw": "l", "li": "none"}], "giants": [{"id": "c-usa", "iso2": "us", "iso3": "USA", "name": "United States", "lat": 39.0, "lon": -98.0, "logos": [["OpenAI", "openai"], ["Anthropic", "anthropic"], ["Google", "google"], ["Meta", "meta"], ["xAI", "xai"], ["Microsoft", "microsoft"], ["NVIDIA", "nvidia"], ["Amazon", "amazon"]]}, {"id": "c-chine", "iso2": "cn", "iso3": "CHN", "name": "China", "lat": 34.0, "lon": 104.0, "logos": [["DeepSeek", "deepseek"], ["Alibaba", "alibaba"], ["Moonshot", "moonshot"], ["Z.ai", "zai"], ["ByteDance", "bytedance"], ["Baidu", "baidu"], ["Tencent", "tencent"], ["MiniMax", "minimax"]]}]}</script>
     <script src="../components.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="../script.js"></script>

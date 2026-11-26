@@ -5,19 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <title>Énergie - Génération-IA.fr</title>
+    <title>L'IA et l'environnement : énergie, eau, carbone, les chiffres sourcés — Génération-IA.fr</title>
+    <meta name="description"
+        content="Combien consomme vraiment l'IA ? Énergie d'une requête, entraînement, data centers, carbone, eau et matériel : les chiffres 2025-2026 de l'AIE, de RTE, de Google, Microsoft et Mistral, expliqués et sourcés.">
     <link rel="canonical" href="https://xn--gnration-ia-bbbb.fr/energie.html">
     <link rel="alternate" hreflang="fr" href="https://xn--gnration-ia-bbbb.fr/energie.html">
     <link rel="alternate" hreflang="en" href="https://xn--gnration-ia-bbbb.fr/en/energie.html">
     <link rel="alternate" hreflang="x-default" href="https://xn--gnration-ia-bbbb.fr/energie.html">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="energie.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap"
         rel="stylesheet">
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -26,604 +27,422 @@
 </head>
 
 <body>
-    <!-- Animation de fond -->
+    <!-- Animation de fond (masquée par la feuille claire de la page) -->
     <div id="particles-js"></div>
 
-    <!-- Header -->
     <site-header></site-header>
 
-    <!-- Contenu principal -->
-    <main>
-        <br><br><br><br><br><br><br><br><br>
-        <section class="page-hero">
+    <main class="ep-page">
+        <header class="ep-hero">
             <div class="container">
-                <h1>ÉNERG<span class="blink">I</span>E</h1>
-                <p class="subtitle">L'impact environnemental des intelligences artificielles</p>
-                <div class="hero-visual">
-                    <div class="energy-pulse"></div>
-                    <div class="stats-preview">
-                        <div class="preview-stat">
-                            <div class="preview-number" data-target="1750">0</div>
-                            <div class="preview-label">MWh pour GPT-4</div>
-                        </div>
-                        <div class="preview-stat">
-                            <div class="preview-number" data-target="502">0</div>
-                            <div class="preview-label">Tonnes CO2</div>
-                        </div>
-                        <div class="preview-stat">
-                            <div class="preview-number" data-target="519">0</div>
-                            <div class="preview-label">ml eau/requête</div>
-                        </div>
-                    </div>
-                </div>
+                <p class="ep-overline">Dossier · mis à jour le 26 novembre 2026</p>
+                <h1>L'IA et <span>l'environnement</span></h1>
+                <p class="ep-dek">Une question posée à un chatbot consomme très peu. Des milliards de questions, des modèles toujours plus gros et les machines qu'il faut fabriquer pour les faire tourner, beaucoup. Ce dossier sépare ces deux échelles, <strong>chiffres sourcés à l'appui</strong>.</p>
+                <dl class="ep-kpis">
+                    <div class="ep-kpi"><dt>0,3 Wh</dt><dd>pour une requête texte typique, soit 2 minutes d'ampoule LED</dd></div>
+                    <div class="ep-kpi"><dt>485 TWh</dt><dd>consommés par les data centers du monde en 2025, plus que la France</dd></div>
+                    <div class="ep-kpi"><dt>× 2</dt><dd>d'ici 2030 selon l'AIE, dont les trois quarts dus à l'IA</dd></div>
+                    <div class="ep-kpi"><dt>23 %</dt><dd>de l'électricité irlandaise part déjà dans les data centers</dd></div>
+                </dl>
             </div>
-        </section>
-        <br><br><br><br><br>
-        <section class="energy-content">
-            <div class="container">
-                <!-- Navigation rapide -->
-                <div class="quick-nav">
-                    <a href="#training" class="nav-button"><i class="fas fa-graduation-cap"></i> Entraînement</a>
-                    <a href="#inference" class="nav-button"><i class="fas fa-bolt"></i> Inférence</a>
-                    <a href="#comparison" class="nav-button"><i class="fas fa-chart-bar"></i> Comparaisons</a>
-                    <a href="#solutions" class="nav-button"><i class="fas fa-leaf"></i> Solutions</a>
-                </div>
+        </header>
 
-                <!-- Section Introduction avec toggle -->
-                <div class="intro-section">
-                    <div class="section-header" onclick="toggleSection('intro')">
-                        <h2><i class="fas fa-lightbulb"></i> Comprendre l'impact environnemental</h2>
-                        <span class="toggle-icon">+</span>
+        <div class="container ep-layout">
+            <nav class="ep-toc" aria-label="Sommaire">
+                <p class="ep-toc-h">Sommaire</p>
+                <ol><li><a href="#essentiel"><span class="ep-toc-n">01</span><span class="ep-toc-t">L'essentiel</span><span class="ep-toc-d">Six phrases à retenir et à citer</span></a></li><li><a href="#lire"><span class="ep-toc-n">02</span><span class="ep-toc-t">Lire les chiffres</span><span class="ep-toc-d">Unités et périmètres</span></a></li><li><a href="#requete"><span class="ep-toc-n">03</span><span class="ep-toc-t">Une requête</span><span class="ep-toc-d">Texte, image, vidéo : l'échelle individuelle</span></a></li><li><a href="#entrainement"><span class="ep-toc-n">04</span><span class="ep-toc-t">L'entraînement</span><span class="ep-toc-d">Ce que coûte la fabrication d'un modèle</span></a></li><li><a href="#electricite"><span class="ep-toc-n">05</span><span class="ep-toc-t">L'électricité</span><span class="ep-toc-d">Les data centers du monde et de France</span></a></li><li><a href="#carbone"><span class="ep-toc-n">06</span><span class="ep-toc-t">Le carbone</span><span class="ep-toc-d">Tout dépend de l'électricité utilisée</span></a></li><li><a href="#eau"><span class="ep-toc-n">07</span><span class="ep-toc-t">L'eau</span><span class="ep-toc-d">Pourquoi les chiffres varient de 1 à 2 000</span></a></li><li><a href="#materiel"><span class="ep-toc-n">08</span><span class="ep-toc-t">Le matériel</span><span class="ep-toc-d">Puces, serveurs et déchets</span></a></li><li><a href="#agir"><span class="ep-toc-n">09</span><span class="ep-toc-t">Agir</span><span class="ep-toc-d">Efficacité, sobriété, règles</span></a></li></ol>
+            </nav>
+
+            <div class="ep-body">
+
+                <section class="ep-sec" id="essentiel" aria-labelledby="h-essentiel">
+                    <p class="ep-kicker"><span>01</span>L'essentiel</p>
+                    <h2 id="h-essentiel">Ce qu'il faut retenir</h2>
+                    <p class="ep-lead">Six constats, chacun relié à sa source (les petits numéros renvoient à la liste en bas de page). Le bouton copie la phrase avec sa référence, prête à être citée.</p>
+                    <ol class="ep-keys">
+                        <li class="ep-key">
+                            <span class="ep-key-n">1</span>
+                            <p>Une question posée en texte à un assistant IA consomme environ <b>0,2 à 0,4 Wh</b>, soit une à deux minutes d'éclairage par une ampoule LED. <sup class="ep-ref"><a href="#src-4" aria-label="source 4">4</a><a href="#src-5" aria-label="source 5">5</a><a href="#src-6" aria-label="source 6">6</a></sup></p>
+                            <button type="button" class="ep-copy" data-cite="« Une question posée en texte à un assistant IA consomme environ 0,2 à 0,4 Wh, soit une à deux minutes d'éclairage par une ampoule LED. » (Google, 2025 ; OpenAI, 2025 ; Microsoft Research, Joule, 2026), via Génération-IA.fr"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Copier la citation</span></button>
+                        </li>
+                        <li class="ep-key">
+                            <span class="ep-key-n">2</span>
+                            <p>Un raisonnement long coûte <b>environ dix fois plus</b> qu'une réponse simple ; une vidéo de cinq secondes, <b>plusieurs milliers de fois plus</b>. <sup class="ep-ref"><a href="#src-6" aria-label="source 6">6</a><a href="#src-8" aria-label="source 8">8</a></sup></p>
+                            <button type="button" class="ep-copy" data-cite="« Un raisonnement long coûte environ dix fois plus qu'une réponse simple ; une vidéo de cinq secondes, plusieurs milliers de fois plus. » (Microsoft Research, Joule, 2026 ; MIT Technology Review, 2025), via Génération-IA.fr"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Copier la citation</span></button>
+                        </li>
+                        <li class="ep-key">
+                            <span class="ep-key-n">3</span>
+                            <p>Les data centers du monde ont consommé <b>environ 485 TWh en 2025</b>, 1,5 % de l'électricité mondiale, un peu plus que la France entière. Les sites dédiés à l'IA en représentent déjà un tiers. <sup class="ep-ref"><a href="#src-1" aria-label="source 1">1</a><a href="#src-3" aria-label="source 3">3</a></sup></p>
+                            <button type="button" class="ep-copy" data-cite="« Les data centers du monde ont consommé environ 485 TWh en 2025, 1,5 % de l'électricité mondiale, un peu plus que la France entière. Les sites dédiés à l'IA en représentent déjà un tiers. » (AIE, 2026 ; Our World in Data, 2026), via Génération-IA.fr"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Copier la citation</span></button>
+                        </li>
+                        <li class="ep-key">
+                            <span class="ep-key-n">4</span>
+                            <p>L'AIE prévoit un <b>doublement d'ici 2030</b>, l'IA portant les trois quarts de la hausse. Les émissions liées aux data centers augmenteraient de 70 %. <sup class="ep-ref"><a href="#src-1" aria-label="source 1">1</a><a href="#src-2" aria-label="source 2">2</a></sup></p>
+                            <button type="button" class="ep-copy" data-cite="« L'AIE prévoit un doublement d'ici 2030, l'IA portant les trois quarts de la hausse. Les émissions liées aux data centers augmenteraient de 70 %. » (AIE, 2026 ; AIE, WEO 2026), via Génération-IA.fr"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Copier la citation</span></button>
+                        </li>
+                        <li class="ep-key">
+                            <span class="ep-key-n">5</span>
+                            <p>L'impact est <b>très local</b> : les data centers absorbent 23 % de l'électricité de l'Irlande et plus d'un quart de celle de la Virginie, contre 2 % en France. <sup class="ep-ref"><a href="#src-3" aria-label="source 3">3</a><a href="#src-13" aria-label="source 13">13</a><a href="#src-14" aria-label="source 14">14</a></sup></p>
+                            <button type="button" class="ep-copy" data-cite="« L'impact est très local : les data centers absorbent 23 % de l'électricité de l'Irlande et plus d'un quart de celle de la Virginie, contre 2 % en France. » (Our World in Data, 2026 ; RTE, 2026 ; CSO Irlande, 2026), via Génération-IA.fr"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Copier la citation</span></button>
+                        </li>
+                        <li class="ep-key">
+                            <span class="ep-key-n">6</span>
+                            <p>Les émissions de Microsoft ont augmenté de <b>25 % en un an</b>, celles de la chaîne d'approvisionnement de Google aussi : construire les data centers et fabriquer les puces pèse de plus en plus. <sup class="ep-ref"><a href="#src-15" aria-label="source 15">15</a><a href="#src-16" aria-label="source 16">16</a></sup></p>
+                            <button type="button" class="ep-copy" data-cite="« Les émissions de Microsoft ont augmenté de 25 % en un an, celles de la chaîne d'approvisionnement de Google aussi : construire les data centers et fabriquer les puces pèse de plus en plus. » (Google, 2026 ; Microsoft, 2026), via Génération-IA.fr"><i class="fa-regular fa-copy" aria-hidden="true"></i><span>Copier la citation</span></button>
+                        </li>
+                    </ol>
+                </section>
+
+                <section class="ep-sec" id="lire" aria-labelledby="h-lire">
+                    <p class="ep-kicker"><span>02</span>Lire les chiffres</p>
+                    <h2 id="h-lire">Avant de lire un chiffre</h2>
+                    <p class="ep-lead">Deux questions suffisent à éviter la plupart des contresens : <em>dans quelle unité ?</em> et <em>qu'est-ce qui est compté ?</em></p>
+                    <h3 class="ep-h3">Les unités, de la requête à la planète</h3>
+                    <p>L'énergie électrique se mesure en wattheures (Wh). Chaque marche ci-dessous vaut mille fois la précédente.</p>
+                    <ol class="ep-units"><li class="ep-unit"><span class="ep-unit-v">1 Wh</span><span class="ep-unit-n">wattheure</span><span class="ep-unit-e">une ampoule LED de 10 W allumée 6 minutes</span><span class="ep-unit-s">l'échelle d'une requête</span></li><li class="ep-unit"><span class="ep-unit-v">1 kWh</span><span class="ep-unit-n">mille Wh</span><span class="ep-unit-e">≈ 10 litres d'eau portés à ébullition, ou 6 km en voiture électrique</span><span class="ep-unit-s">l'usage d'une personne sur un an</span></li><li class="ep-unit"><span class="ep-unit-v">1 MWh</span><span class="ep-unit-n">mille kWh</span><span class="ep-unit-e">≈ 3 mois d'électricité d'un foyer français</span></li><li class="ep-unit"><span class="ep-unit-v">1 GWh</span><span class="ep-unit-n">un million de kWh</span><span class="ep-unit-e">≈ 220 foyers français pendant un an</span><span class="ep-unit-s">l'entraînement d'un modèle</span></li><li class="ep-unit"><span class="ep-unit-v">1 TWh</span><span class="ep-unit-n">un milliard de kWh</span><span class="ep-unit-e">≈ 220 000 foyers pendant un an ; la France consomme ≈ 450 TWh</span><span class="ep-unit-s">les data centers d'un pays ou du monde</span></li></ol>
+
+                    <h3 class="ep-h3">Le périmètre change tout</h3>
+                    <p>Une même requête peut « peser » deux à trois fois plus selon ce que l'on inclut. Google l'a montré sur Gemini en 2025 : <sup class="ep-ref"><a href="#src-4" aria-label="source 4">4</a></sup></p>
+                    <div class="ep-scope">
+                        <div class="ep-scope-item"><span class="ep-scope-v">0,10 Wh</span><span class="ep-scope-l">les puces de calcul seules</span></div>
+                        <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                        <div class="ep-scope-item"><span class="ep-scope-v">0,24 Wh</span><span class="ep-scope-l">+ processeurs, mémoire, machines en attente, refroidissement</span></div>
+                        <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                        <div class="ep-scope-item is-open"><span class="ep-scope-v">?</span><span class="ep-scope-l">+ fabrication du matériel, entraînement, réseau, votre appareil : non compté</span></div>
                     </div>
-                    <div class="section-content" id="intro">
-                        <div class="impact-flow">
-                            <div class="flow-step">
-                                <div class="step-icon"><i class="fas fa-brain"></i></div>
-                                <h3>Entraînement</h3>
-                                <p>Formation initiale du modèle sur des mois</p>
-                                <div class="step-metric">1,750 MWh pour GPT-4</div>
+                    <p class="ep-note">Règle pratique : un chiffre sans périmètre ni date ne se compare à rien. Les chiffres publiés par les entreprises ne sont pas vérifiés par des tiers.</p>
+                </section>
+
+                <section class="ep-sec" id="requete" aria-labelledby="h-requete">
+                    <p class="ep-kicker"><span>03</span>Une requête</p>
+                    <h2 id="h-requete">Une requête, combien ?</h2>
+                    <p class="ep-lead">Les mesures récentes convergent pour une question simple en texte : <b>entre 0,2 et 0,4 Wh</b>, bien moins que les 3 Wh souvent cités en 2023. Mais tout dépend de ce que l'on demande : la longueur de la réponse, le raisonnement et surtout l'image ou la vidéo font changer d'ordre de grandeur.</p>
+                    <figure class="ep-fig ep-log" aria-labelledby="cap-wh">
+<div class="ep-log-axis" aria-hidden="true"><span></span><div class="ep-log-ticks">
+<span style="left:0.00%">0,1 Wh</span>
+<span style="left:23.95%">1 Wh</span>
+<span style="left:47.89%">10 Wh</span>
+<span style="left:71.84%">100 Wh</span>
+<span style="left:95.78%">1 kWh</span>
+</div></div><ol class="ep-log-rows">
+<li class="ep-log-row" title="Gemini, requête texte : 0,24 Wh">
+                                <div class="ep-log-lab"><b>Gemini, requête texte</b><span>médiane mesurée par Google <sup class="ep-ref"><a href="#src-4" aria-label="source 4">4</a></sup></span></div>
+                                <div class="ep-log-track"><i class="ep-log-stem" style="width:9.10%"></i><i class="ep-log-dot" style="left:9.10%"></i><span class="ep-log-val" style="left:9.10%">0,24 Wh</span></div>
+                                <span class="ep-log-eq"><i class="fa-regular fa-lightbulb" aria-hidden="true"></i>1,4 min</span>
+                            </li>
+<li class="ep-log-row" title="Modèle de pointe, requête texte : 0,31 Wh">
+                                <div class="ep-log-lab"><b>Modèle de pointe, requête texte</b><span>médiane, Microsoft Research <sup class="ep-ref"><a href="#src-6" aria-label="source 6">6</a></sup></span></div>
+                                <div class="ep-log-track"><i class="ep-log-stem" style="width:11.77%"></i><i class="ep-log-dot" style="left:11.77%"></i><span class="ep-log-val" style="left:11.77%">0,31 Wh</span></div>
+                                <span class="ep-log-eq"><i class="fa-regular fa-lightbulb" aria-hidden="true"></i>1,9 min</span>
+                            </li>
+<li class="ep-log-row" title="ChatGPT, requête moyenne : 0,34 Wh">
+                                <div class="ep-log-lab"><b>ChatGPT, requête moyenne</b><span>déclaration d'OpenAI <sup class="ep-ref"><a href="#src-5" aria-label="source 5">5</a></sup></span></div>
+                                <div class="ep-log-track"><i class="ep-log-stem" style="width:12.73%"></i><i class="ep-log-dot" style="left:12.73%"></i><span class="ep-log-val" style="left:12.73%">0,34 Wh</span></div>
+                                <span class="ep-log-eq"><i class="fa-regular fa-lightbulb" aria-hidden="true"></i>2,0 min</span>
+                            </li>
+<li class="ep-log-row" title="Une image 1024 × 1024 : ≈ 0,6 Wh">
+                                <div class="ep-log-lab"><b>Une image 1024 × 1024</b><span>Stable Diffusion 3 Medium <sup class="ep-ref"><a href="#src-8" aria-label="source 8">8</a></sup></span></div>
+                                <div class="ep-log-track"><i class="ep-log-stem" style="width:19.14%"></i><i class="ep-log-dot" style="left:19.14%"></i><span class="ep-log-val" style="left:19.14%">≈ 0,6 Wh</span></div>
+                                <span class="ep-log-eq"><i class="fa-regular fa-lightbulb" aria-hidden="true"></i>4 min</span>
+                            </li>
+<li class="ep-log-row" title="Réponse avec raisonnement long : ≈ 4 Wh">
+                                <div class="ep-log-lab"><b>Réponse avec raisonnement long</b><span>≈ 5 000 mots-jetons générés <sup class="ep-ref"><a href="#src-6" aria-label="source 6">6</a></sup></span></div>
+                                <div class="ep-log-track"><i class="ep-log-stem" style="width:38.10%"></i><i class="ep-log-dot" style="left:38.10%"></i><span class="ep-log-val" style="left:38.10%">≈ 4 Wh</span></div>
+                                <span class="ep-log-eq"><i class="fa-regular fa-lightbulb" aria-hidden="true"></i>23 min</span>
+                            </li>
+<li class="ep-log-row" title="Analyse d'un très long document : ≈ 40 Wh">
+                                <div class="ep-log-lab"><b>Analyse d'un très long document</b><span>100 000 jetons en entrée, GPT-4o <sup class="ep-ref"><a href="#src-7" aria-label="source 7">7</a></sup></span></div>
+                                <div class="ep-log-track"><i class="ep-log-stem" style="width:62.31%"></i><i class="ep-log-dot" style="left:62.31%"></i><span class="ep-log-val" style="left:62.31%">≈ 40 Wh</span></div>
+                                <span class="ep-log-eq"><i class="fa-regular fa-lightbulb" aria-hidden="true"></i>4 h</span>
+                            </li>
+<li class="ep-log-row" title="Une vidéo de 5 secondes : ≈ 940 Wh">
+                                <div class="ep-log-lab"><b>Une vidéo de 5 secondes</b><span>modèle ouvert CogVideoX <sup class="ep-ref"><a href="#src-8" aria-label="source 8">8</a></sup></span></div>
+                                <div class="ep-log-track"><i class="ep-log-stem" style="width:95.18%"></i><i class="ep-log-dot" style="left:95.18%"></i><span class="ep-log-val" style="left:95.18%" data-right>≈ 940 Wh</span></div>
+                                <span class="ep-log-eq"><i class="fa-regular fa-lightbulb" aria-hidden="true"></i>4 jours</span>
+                            </li>
+</ol><figcaption id="cap-wh">Énergie d'une requête selon son type. Échelle logarithmique : chaque graduation vaut <b>dix fois</b> la précédente. À droite, la durée d'éclairage équivalente d'une ampoule LED de 10 W.</figcaption></figure>
+
+                    <div class="ep-sim" id="simulateur">
+                        <div class="ep-sim-head">
+                            <h3>Votre usage sur un an</h3>
+                            <p>Réglez vos habitudes : le calcul reprend les valeurs du graphique ci-dessus.</p>
+                        </div>
+                        <div class="ep-sim-grid">
+                            <div class="ep-sim-inputs">
+                                <label class="ep-range"><span>Questions en texte, par jour</span><output for="s-text">15</output><input type="range" id="s-text" min="0" max="100" value="15" data-wh="0.3" data-per="365"></label>
+                                <label class="ep-range"><span>Réponses avec raisonnement long, par jour</span><output for="s-reason">2</output><input type="range" id="s-reason" min="0" max="30" value="2" data-wh="3.9" data-per="365"></label>
+                                <label class="ep-range"><span>Images générées, par semaine</span><output for="s-img">3</output><input type="range" id="s-img" min="0" max="100" value="3" data-wh="0.63" data-per="52"></label>
+                                <label class="ep-range"><span>Vidéos de 5 s générées, par mois</span><output for="s-vid">0</output><input type="range" id="s-vid" min="0" max="30" value="0" data-wh="944" data-per="12"></label>
                             </div>
-                            <div class="flow-arrow">→</div>
-                            <div class="flow-step">
-                                <div class="step-icon"><i class="fas fa-server"></i></div>
-                                <h3>Déploiement</h3>
-                                <p>Hébergement sur les data centers</p>
-                                <div class="step-metric">24/7 refroidissement</div>
-                            </div>
-                            <div class="flow-arrow">→</div>
-                            <div class="flow-step">
-                                <div class="step-icon"><i class="fas fa-user"></i></div>
-                                <h3>Utilisation</h3>
-                                <p>Chaque requête consomme de l'énergie</p>
-                                <div class="step-metric">0,3-0,5 Wh/requête</div>
+                            <div class="ep-sim-out" aria-live="polite">
+                                <p class="ep-sim-total"><span id="sim-kwh">3,5</span> kWh <small>par an</small></p>
+                                <ul class="ep-sim-eq">
+                                    <li><i class="fa-solid fa-mug-hot" aria-hidden="true"></i><span><b id="sim-kettle">38</b> litres d'eau portés à ébullition</span></li>
+                                    <li><i class="fa-solid fa-car-side" aria-hidden="true"></i><span><b id="sim-km">20</b> km en voiture électrique</span></li>
+                                    <li><i class="fa-solid fa-smog" aria-hidden="true"></i><span><b id="sim-co2">1,6</b> kg de CO₂ avec l'électricité moyenne mondiale</span></li>
+                                </ul>
+                                <p class="ep-sim-bar"><span>Part de la vidéo</span><i><b id="sim-vidbar" style="width:0%"></b></i><em id="sim-vidpct">0 %</em></p>
                             </div>
                         </div>
+                        <p class="ep-note">Hypothèses : 0,3 Wh par question, 3,9 Wh par raisonnement long, 0,63 Wh par image, 944 Wh par vidéo ; 0,1 kWh pour faire bouillir un litre d'eau ; 17 kWh aux 100 km ; 450 g de CO₂ par kWh. L'entraînement, la fabrication du matériel et votre appareil ne sont pas comptés.</p>
                     </div>
-                </div>
+                    <blockquote class="ep-take"><p class="ep-take-k">À retenir</p><p>À l'échelle d'une personne, le texte pèse peu. Ce qui fait grimper la facture : <b>la vidéo, les images en série et le raisonnement systématique</b>. Et à l'échelle collective, la multiplication par des centaines de millions d'utilisateurs.</p></blockquote>
+                </section>
 
-                <figure class="wide-figure">
-                    <img src="images/illustrations/energie-datacenter.webp" alt="Allées de baies de serveurs dans un centre de données au sol technique carrelé" loading="lazy" decoding="async" width="1600" height="900">
-                    <figcaption>Un data center : des milliers de serveurs qui tournent jour et nuit. C'est ici que les modèles sont entraînés, puis qu'ils répondent à nos requêtes.<span class="credit">Photo : Carl Lender / <a href="https://commons.wikimedia.org/wiki/File:Datacenter_Server_Racks_(22370909788).jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, CC BY 2.0</span></figcaption>
+                <section class="ep-sec" id="entrainement" aria-labelledby="h-entrainement">
+                    <p class="ep-kicker"><span>04</span>L'entraînement</p>
+                    <h2 id="h-entrainement">Entraîner un modèle</h2>
+                    <p class="ep-lead">Avant de répondre, un modèle doit être entraîné : des semaines de calcul sur des dizaines de milliers de puces. C'est un coût ponctuel, mais qui grimpe à chaque génération, et peu d'entreprises le publient.</p>
+                    <figure class="ep-fig">
+                        <ol class="ep-bars"><li class="ep-bar-row" title="GPT-3 : 1,3 GWh">
+                                <div class="ep-bar-lab"><b>GPT-3</b><span>2020 <sup class="ep-ref"><a href="#src-10" aria-label="source 10">10</a></sup></span></div>
+                                <div class="ep-bar-track"><i class="ep-bar" style="width:2.01%"></i><span class="ep-bar-val">1,3 GWh</span></div>
+                                <span class="ep-bar-eq"><i class="fa-solid fa-house" aria-hidden="true"></i>≈ 290</span>
+                            </li><li class="ep-bar-row" title="GPT-4 : ≈ 50 GWh">
+                                <div class="ep-bar-lab"><b>GPT-4</b><span>2023 · estimation indépendante <sup class="ep-ref"><a href="#src-8" aria-label="source 8">8</a></sup></span></div>
+                                <div class="ep-bar-track"><i class="ep-bar" style="width:78.00%"></i><span class="ep-bar-val">≈ 50 GWh</span></div>
+                                <span class="ep-bar-eq"><i class="fa-solid fa-house" aria-hidden="true"></i>≈ 11 000</span>
+                            </li><li class="ep-bar-row" title="Llama 3.1 405B : ≈ 21,6 GWh">
+                                <div class="ep-bar-lab"><b>Llama 3.1 405B</b><span>2024 · puces seules <sup class="ep-ref"><a href="#src-11" aria-label="source 11">11</a></sup></span></div>
+                                <div class="ep-bar-track"><i class="ep-bar" style="width:33.70%"></i><span class="ep-bar-val">≈ 21,6 GWh</span></div>
+                                <span class="ep-bar-eq"><i class="fa-solid fa-house" aria-hidden="true"></i>≈ 4 800</span>
+                            </li></ol>
+                        <figcaption>Électricité consommée pour entraîner trois modèles connus, et nombre de foyers français qu'elle alimenterait pendant un an (≈ 4,5 MWh par foyer).</figcaption>
+                    </figure>
+                    <div class="ep-facts">
+                        <div class="ep-fact"><span class="ep-fact-v">100–150 MW</span><p>La puissance appelée par un grand entraînement aujourd'hui, l'équivalent d'une ville moyenne. Elle double environ chaque année. <sup class="ep-ref"><a href="#src-12" aria-label="source 12">12</a></sup></p></div>
+                        <div class="ep-fact"><span class="ep-fact-v">4–16 GW</span><p>Ce que pourrait demander un seul entraînement de pointe en 2030 selon Epoch AI, soit 4 à 16 réacteurs nucléaires. <sup class="ep-ref"><a href="#src-12" aria-label="source 12">12</a></sup></p></div>
+                        <div class="ep-fact"><span class="ep-fact-v">20 400 t</span><p>de CO₂e et 281 000 m³ d'eau pour Mistral Large 2 : entraînement et 18 mois d'utilisation, la seule analyse de cycle de vie complète publiée. <sup class="ep-ref"><a href="#src-9" aria-label="source 9">9</a></sup></p></div>
+                    </div>
+                    <aside class="ep-box">
+                        <h3><i class="fa-solid fa-scale-unbalanced" aria-hidden="true"></i>Zéro émission ? Une question de comptabilité</h3>
+                        <p>Meta indique deux chiffres pour Llama 3.1 405B : <b>8 930 t de CO₂e</b> selon l'électricité réellement fournie par les réseaux locaux, et <b>0 t</b> après achat de certificats d'énergie renouvelable. Les deux sont « vrais » ; seul le premier dit ce qui a été émis. <sup class="ep-ref"><a href="#src-11" aria-label="source 11">11</a></sup></p>
+                    </aside>
+                </section>
+
+                <figure class="ep-photo">
+                    <img src="images/illustrations/energie-datacenter.webp" alt="Allées de baies de serveurs dans un centre de données" loading="lazy" decoding="async" width="1600" height="900">
+                    <figcaption>Un data center : des milliers de serveurs qui tournent jour et nuit. C'est là que les modèles sont entraînés, puis qu'ils répondent.<span class="ep-credit">Photo : Carl Lender / <a href="https://commons.wikimedia.org/wiki/File:Datacenter_Server_Racks_(22370909788).jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, CC BY 2.0</span></figcaption>
                 </figure>
 
-                <!-- Phase d'entraînement -->
-                <section id="training" class="training-section">
-                    <div class="section-header" onclick="toggleSection('training-content')">
-                        <h2><i class="fas fa-graduation-cap"></i> Phase d'entraînement</h2>
-                        <span class="toggle-icon">-</span>
-                    </div>
-                    <div class="section-content expanded" id="training-content">
-                        <div class="energy-stats">
-                            <div class="stat-card glow-effect">
-                                <div class="card-icon"><i class="fas fa-bolt"></i></div>
-                                <h3>GPT-4</h3>
-                                <div class="stat-value animate-number" data-target="1750">0</div>
-                                <div class="stat-unit">MWh</div>
-                                <div class="stat-label">Équivalent à 160 foyers américains/an</div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 85%"></div>
+                <section class="ep-sec" id="electricite" aria-labelledby="h-electricite">
+                    <p class="ep-kicker"><span>05</span>L'électricité</p>
+                    <h2 id="h-electricite">Les data centers, un pays de plus sur le réseau</h2>
+                    <p class="ep-lead">Les data centers ne servent pas qu'à l'IA : ils hébergent aussi le cloud, les vidéos, les e-mails. Mais l'IA est le moteur de leur croissance : +17 % de consommation en 2025, et +50 % pour les sites dédiés à l'IA. <sup class="ep-ref"><a href="#src-1" aria-label="source 1">1</a><a href="#src-3" aria-label="source 3">3</a></sup></p>
+                    <figure class="ep-fig">
+                        <div class="ep-legend"><span><i class="ep-sw ep-sw-ai"></i>Sites dédiés à l'IA</span><span><i class="ep-sw ep-sw-other"></i>Autres usages</span></div>
+                        <ol class="ep-stacks" style="--fr:36.0%;--jp:75.6%">
+                            <li class="ep-stack-row">
+                                <div class="ep-bar-lab"><b>2025</b><span>mesuré</span></div>
+                                <div class="ep-stack-track">
+                                    <i class="ep-seg ep-seg-ai" style="width:12.40%" title="IA : 155 TWh"><span>155</span></i><i class="ep-seg ep-seg-other" style="width:26.40%" title="Autres usages : 330 TWh"><span>330</span></i>
+                                    <span class="ep-stack-total">485 TWh</span>
                                 </div>
-                            </div>
+                            </li><li class="ep-stack-row">
+                                <div class="ep-bar-lab"><b>2030</b><span>projection centrale</span></div>
+                                <div class="ep-stack-track">
+                                    <i class="ep-seg ep-seg-ai" style="width:37.20%" title="IA : 465 TWh"><span>465</span></i><i class="ep-seg ep-seg-other" style="width:38.40%" title="Autres usages : 480 TWh"><span>480</span></i>
+                                    <span class="ep-stack-total">945 TWh</span>
+                                </div>
+                            </li>
+                        </ol>
+                        <div class="ep-stack-refs" aria-hidden="true"><span style="left:36.0%">France entière ≈ 450</span><span style="left:75.6%">Japon ≈ 940</span></div>
+                        <figcaption>Électricité consommée par les data centers du monde, en TWh. La projection 2030 est le scénario central de l'AIE. <sup class="ep-ref"><a href="#src-1" aria-label="source 1">1</a><a href="#src-3" aria-label="source 3">3</a></sup></figcaption>
+                    </figure>
 
-                            <div class="stat-card glow-effect">
-                                <div class="card-icon"><i class="fas fa-leaf"></i></div>
-                                <h3>GPT-3</h3>
-                                <div class="stat-value animate-number" data-target="1287">0</div>
-                                <div class="stat-unit">MWh</div>
-                                <div class="stat-label">502 tonnes CO2 émises</div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 70%"></div>
-                                </div>
-                            </div>
+                    <h3 class="ep-h3">Un impact concentré</h3>
+                    <p>À l'échelle mondiale, 1,5 % paraît modeste. Mais les data centers se regroupent près des grands câbles et des réseaux électriques solides : localement, ils pèsent autant qu'une industrie entière.</p>
+                    <figure class="ep-fig">
+                        <ol class="ep-bars ep-bars-share"><li class="ep-bar-row" title="Virginie (États-Unis) : > 25 %">
+                                <div class="ep-bar-lab"><b>Virginie (États-Unis) <sup class="ep-ref"><a href="#src-3" aria-label="source 3">3</a></sup></b></div>
+                                <div class="ep-bar-track"><i class="ep-bar" style="width:86.67%"></i><span class="ep-bar-val">> 25 %</span></div>
+                            </li><li class="ep-bar-row" title="Irlande : 23 %">
+                                <div class="ep-bar-lab"><b>Irlande <sup class="ep-ref"><a href="#src-14" aria-label="source 14">14</a></sup></b></div>
+                                <div class="ep-bar-track"><i class="ep-bar" style="width:76.67%"></i><span class="ep-bar-val">23 %</span></div>
+                            </li><li class="ep-bar-row" title="États-Unis : ≈ 5 %">
+                                <div class="ep-bar-lab"><b>États-Unis <sup class="ep-ref"><a href="#src-3" aria-label="source 3">3</a></sup></b></div>
+                                <div class="ep-bar-track"><i class="ep-bar" style="width:16.67%"></i><span class="ep-bar-val">≈ 5 %</span></div>
+                            </li><li class="ep-bar-row" title="France : ≈ 2 %">
+                                <div class="ep-bar-lab"><b>France <sup class="ep-ref"><a href="#src-13" aria-label="source 13">13</a></sup></b></div>
+                                <div class="ep-bar-track"><i class="ep-bar" style="width:6.67%"></i><span class="ep-bar-val">≈ 2 %</span></div>
+                            </li><li class="ep-bar-row" title="Europe : 1,6 %">
+                                <div class="ep-bar-lab"><b>Europe <sup class="ep-ref"><a href="#src-3" aria-label="source 3">3</a></sup></b></div>
+                                <div class="ep-bar-track"><i class="ep-bar" style="width:5.33%"></i><span class="ep-bar-val">1,6 %</span></div>
+                            </li><li class="ep-bar-row" title="Monde : ≈ 1,5 %">
+                                <div class="ep-bar-lab"><b>Monde <sup class="ep-ref"><a href="#src-1" aria-label="source 1">1</a></sup></b></div>
+                                <div class="ep-bar-track"><i class="ep-bar" style="width:5.00%"></i><span class="ep-bar-val">≈ 1,5 %</span></div>
+                            </li></ol>
+                        <figcaption>Part de l'électricité consommée par les data centers, 2024-2025.</figcaption>
+                    </figure>
 
-                            <div class="stat-card glow-effect">
-                                <div class="card-icon"><i class="fas fa-microchip"></i></div>
-                                <h3>Claude 3</h3>
-                                <div class="stat-value animate-number" data-target="640">0</div>
-                                <div class="stat-unit">MWh*</div>
-                                <div class="stat-label">Estimation basée sur la taille</div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill" style="width: 45%"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Graphique comparatif -->
-                        <div class="chart-container">
-                            <h3><i class="fas fa-chart-line"></i> Évolution de la consommation d'entraînement</h3>
-                            <canvas id="trainingChart"></canvas>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Phase d'inférence -->
-                <section id="inference" class="inference-section">
-                    <div class="section-header" onclick="toggleSection('inference-content')">
-                        <h2><i class="fas fa-bolt"></i> Consommation par requête</h2>
-                        <span class="toggle-icon">-</span>
-                    </div>
-                    <div class="section-content expanded" id="inference-content">
-                        <div class="inference-grid">
-                            <div class="inference-card modern-card">
-                                <div class="card-header">
-                                    <h3>GPT-4o</h3>
-                                    <span class="efficiency-badge best">Optimisé 2024</span>
-                                </div>
-                                <div class="energy-display">
-                                    <span class="energy-number">0,3</span>
-                                    <span class="energy-unit">Wh</span>
-                                </div>
-                                <div class="comparison-text">10x plus efficace qu'en 2023</div>
-                                <div class="visual-comparison">
-                                    <div class="comparison-bar" style="width: 30%"></div>
-                                </div>
-                            </div>
-
-                            <div class="inference-card modern-card">
-                                <div class="card-header">
-                                    <h3>GPT-4</h3>
-                                    <span class="efficiency-badge good">Standard</span>
-                                </div>
-                                <div class="energy-display">
-                                    <span class="energy-number">0,5</span>
-                                    <span class="energy-unit">Wh</span>
-                                </div>
-                                <div class="comparison-text">3 minutes d'éclairage LED</div>
-                                <div class="visual-comparison">
-                                    <div class="comparison-bar" style="width: 50%"></div>
-                                </div>
-                            </div>
-
-                            <div class="inference-card modern-card">
-                                <div class="card-header">
-                                    <h3>Recherche Google</h3>
-                                    <span class="efficiency-badge reference">Référence</span>
-                                </div>
-                                <div class="energy-display">
-                                    <span class="energy-number">0,3</span>
-                                    <span class="energy-unit">Wh</span>
-                                </div>
-                                <div class="comparison-text">Pour comparaison</div>
-                                <div class="visual-comparison">
-                                    <div class="comparison-bar reference-bar" style="width: 30%"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Simulateur interactif -->
-                        <div class="simulator-container">
-                            <h3><i class="fas fa-calculator"></i> Simulateur de consommation</h3>
-                            <div class="simulator">
-                                <div class="input-group">
-                                    <label>Nombre de requêtes par jour :</label>
-                                    <input type="range" id="requestsSlider" min="1" max="100" value="10">
-                                    <span id="requestsValue">10</span>
-                                </div>
-                                <div class="results-grid">
-                                    <div class="result-item">
-                                        <span class="result-label">Consommation journalière</span>
-                                        <span class="result-value" id="dailyConsumption">5 Wh</span>
-                                    </div>
-                                    <div class="result-item">
-                                        <span class="result-label">Équivalent CO2</span>
-                                        <span class="result-value" id="co2Equivalent">0,002 kg</span>
-                                    </div>
-                                    <div class="result-item">
-                                        <span class="result-label">Coût énergétique annuel</span>
-                                        <span class="result-value" id="annualCost">0,30 €</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="ep-zoom">
+                        <h3><span class="ep-flag" aria-hidden="true"></span>Et en France ?</h3>
+                        <dl class="ep-zoom-grid">
+                            <div><dt>≈ 300</dt><dd>data centers en service en 2026</dd></div>
+                            <div><dt>≈ 10 TWh</dt><dd>par an, 2 % de la consommation nationale</dd></div>
+                            <div><dt>15–20 TWh</dt><dd>attendus en 2030, 23 à 28 TWh en 2035</dd></div>
+                            <div><dt>18 GW</dt><dd>de capacité réservée sur le réseau en mai 2026, contre 5 GW fin 2024</dd></div>
+                        </dl>
+                        <p class="ep-note">Source : RTE. <sup class="ep-ref"><a href="#src-13" aria-label="source 13">13</a></sup> Une électricité à plus de 90 % bas carbone (nucléaire, hydraulique, renouvelables) fait de la France une destination recherchée pour l'hébergement d'IA.</p>
                     </div>
                 </section>
 
-                <figure class="wide-figure">
-                    <img src="images/illustrations/energie-refroidissement.webp" alt="Rangées de grands ventilateurs de refroidissement sur le toit d'un centre de données" loading="lazy" decoding="async" width="1600" height="900">
-                    <figcaption>Pour évacuer la chaleur des serveurs, les data centers s'appuient sur des systèmes de refroidissement, souvent gourmands en eau.<span class="credit">Photo : Rsparks3 / <a href="https://commons.wikimedia.org/wiki/File:Data_center_cooling_tower.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, CC0</span></figcaption>
-                </figure>
-
-                <!-- Consommation d'eau -->
-                <section class="water-section">
-                    <div class="section-header" onclick="toggleSection('water-content')">
-                        <h2><i class="fas fa-tint"></i> Impact hydrique des data centers</h2>
-                        <span class="toggle-icon">+</span>
+                <section class="ep-sec" id="carbone" aria-labelledby="h-carbone">
+                    <p class="ep-kicker"><span>06</span>Le carbone</p>
+                    <h2 id="h-carbone">Le carbone : tout dépend de la prise</h2>
+                    <p class="ep-lead">Un kilowattheure n'émet pas la même quantité de CO₂ selon la façon dont il est produit. La même requête de 0,3 Wh peut ainsi émettre quarante fois plus selon le pays où se trouve le serveur.</p>
+                    <figure class="ep-fig">
+                        <ol class="ep-bars"><li class="ep-bar-row" title="Électricité française">
+                                <div class="ep-bar-lab"><b>Électricité française</b><span>≈ 25 g par kWh</span></div>
+                                <div class="ep-bar-track"><i class="ep-bar ep-bar-co2" style="width:1.92%"></i><span class="ep-bar-val">0,008 g</span></div>
+                            </li><li class="ep-bar-row" title="Moyenne mondiale">
+                                <div class="ep-bar-lab"><b>Moyenne mondiale</b><span>≈ 450 g par kWh</span></div>
+                                <div class="ep-bar-track"><i class="ep-bar ep-bar-co2" style="width:34.62%"></i><span class="ep-bar-val">0,14 g</span></div>
+                            </li><li class="ep-bar-row" title="Centrale à charbon">
+                                <div class="ep-bar-lab"><b>Centrale à charbon</b><span>≈ 1 000 g par kWh</span></div>
+                                <div class="ep-bar-track"><i class="ep-bar ep-bar-co2" style="width:76.92%"></i><span class="ep-bar-val">0,3 g</span></div>
+                            </li></ol>
+                        <figcaption>CO₂ émis par une requête de 0,3 Wh selon l'électricité utilisée (ordres de grandeur).</figcaption>
+                    </figure>
+                    <div class="ep-facts">
+                        <div class="ep-fact"><span class="ep-fact-v">≈ 150 Mt</span><p>de CO₂ par an liés à l'électricité des data centers, environ 0,5 % des émissions mondiales. <sup class="ep-ref"><a href="#src-1" aria-label="source 1">1</a><a href="#src-3" aria-label="source 3">3</a></sup></p></div>
+                        <div class="ep-fact"><span class="ep-fact-v">+ 70 %</span><p>d'émissions d'ici 2030 selon l'AIE : aux États-Unis, 60 % de l'électricité des data centers viendrait du gaz ; en Chine, la moitié de celle des sites d'IA viendrait du charbon. <sup class="ep-ref"><a href="#src-2" aria-label="source 2">2</a></sup></p></div>
+                        <div class="ep-fact"><span class="ep-fact-v">180 GW</span><p>de centrales à gaz en projet aux États-Unis pour alimenter des data centers (août 2026). <sup class="ep-ref"><a href="#src-2" aria-label="source 2">2</a></sup></p></div>
                     </div>
-                    <div class="section-content" id="water-content">
-                        <div class="water-stats">
-                            <div class="water-visual">
-                                <div class="water-drop">
-                                    <div class="drop-content">
-                                        <span class="drop-number">519</span>
-                                        <span class="drop-unit">ml</span>
-                                    </div>
-                                    <div class="drop-label">Par email de 100 mots (GPT-4)</div>
-                                </div>
-                            </div>
 
-                            <div class="datacenter-comparison">
-                                <div class="dc-item">
-                                    <div class="dc-icon"><i class="fas fa-building"></i></div>
-                                    <h4>Data center moyen</h4>
-                                    <div class="dc-stat">300k gallons/jour</div>
-                                    <div class="dc-equiv">= 100k foyers</div>
-                                </div>
-                                <div class="dc-item">
-                                    <div class="dc-icon"><i class="fas fa-city"></i></div>
-                                    <h4>Hyperscale (Google)</h4>
-                                    <div class="dc-stat">550k gallons/jour</div>
-                                    <div class="dc-equiv">= ville 10-50k hab.</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="water-chart-container">
-                            <canvas id="waterChart"></canvas>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Comparaisons sectorielles -->
-                <section id="comparison" class="comparison-section">
-                    <div class="section-header" onclick="toggleSection('comparison-content')">
-                        <h2><i class="fas fa-chart-bar"></i> Mise en perspective</h2>
-                        <span class="toggle-icon">+</span>
-                    </div>
-                    <div class="section-content" id="comparison-content">
-                        <div class="sector-grid">
-                            <div class="sector-card" data-impact="100">
-                                <div class="sector-icon beef"><i class="fas fa-cow"></i></div>
-                                <h3>Production de bœuf</h3>
-                                <div class="impact-value">1 440 TWh/an</div>
-                                <div class="impact-percent">5% électricité mondiale</div>
-                                <div class="impact-bar">
-                                    <div class="impact-fill" style="width: 100%"></div>
-                                </div>
-                            </div>
-
-                            <div class="sector-card" data-impact="60">
-                                <div class="sector-icon aviation"><i class="fas fa-plane"></i></div>
-                                <h3>Aviation</h3>
-                                <div class="impact-value">2,5% émissions</div>
-                                <div class="impact-percent">mondiales</div>
-                                <div class="impact-bar">
-                                    <div class="impact-fill" style="width: 60%"></div>
-                                </div>
-                            </div>
-
-                            <div class="sector-card" data-impact="20">
-                                <div class="sector-icon datacenter"><i class="fas fa-server"></i></div>
-                                <h3>Data centers</h3>
-                                <div class="impact-value">3,7% émissions</div>
-                                <div class="impact-percent">mondiales</div>
-                                <div class="impact-bar">
-                                    <div class="impact-fill" style="width: 20%"></div>
-                                </div>
-                            </div>
-
-                            <div class="sector-card" data-impact="5">
-                                <div class="sector-icon ai"><i class="fas fa-brain"></i></div>
-                                <h3>IA générative</h3>
-                                <div class="impact-value">228 GWh/an</div>
-                                <div class="impact-percent">0,0008% mondial</div>
-                                <div class="impact-bar">
-                                    <div class="impact-fill ai-fill" style="width: 5%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Tableau détaillé des modèles -->
-                <div class="models-ranking">
-                    <h2><i class="fas fa-trophy"></i> Classement détaillé des modèles</h2>
-                    <div class="table-container">
-                        <table class="ranking-table modern-table">
-                            <thead>
-                                <tr>
-                                    <th><i class="fas fa-medal"></i></th>
-                                    <th>Modèle</th>
-                                    <th><i class="fas fa-bolt"></i> Entraînement</th>
-                                    <th><i class="fas fa-chart-line"></i> Usage annuel</th>
-                                    <th><i class="fas fa-tint"></i> Eau/requête</th>
-                                    <th><i class="fas fa-leaf"></i> CO2</th>
-                                </tr>
-                            </thead>
+                    <h3 class="ep-h3">Ce que publient les géants</h3>
+                    <div class="ep-table-wrap">
+                        <table class="ep-table">
+                            <thead><tr><th scope="col">Entreprise</th><th scope="col">Indicateur</th><th scope="col">Évolution</th></tr></thead>
                             <tbody>
-                                <tr class="rank-1">
-                                    <td class="rank"><span class="medal gold">1</span></td>
-                                    <td class="model-name">
-                                        <div class="model-info">
-                                            <span class="model-title">GPT-4</span>
-                                            <span class="model-company">OpenAI</span>
-                                        </div>
-                                    </td>
-                                    <td><span class="energy-value">1,750 MWh</span></td>
-                                    <td><span class="usage-value">391-463 GWh</span></td>
-                                    <td><span class="water-value">0,5 ml</span></td>
-                                    <td><span class="co2-value">550 t</span></td>
-                                </tr>
-                                <tr class="rank-2">
-                                    <td class="rank"><span class="medal silver">2</span></td>
-                                    <td class="model-name">
-                                        <div class="model-info">
-                                            <span class="model-title">GPT-3</span>
-                                            <span class="model-company">OpenAI</span>
-                                        </div>
-                                    </td>
-                                    <td><span class="energy-value">1,287 MWh</span></td>
-                                    <td><span class="usage-value">227 GWh</span></td>
-                                    <td><span class="water-value">0,05 ml</span></td>
-                                    <td><span class="co2-value">502 t</span></td>
-                                </tr>
-                                <tr class="rank-3">
-                                    <td class="rank"><span class="medal bronze">3</span></td>
-                                    <td class="model-name">
-                                        <div class="model-info">
-                                            <span class="model-title">Claude 3</span>
-                                            <span class="model-company">Anthropic</span>
-                                        </div>
-                                    </td>
-                                    <td><span class="energy-value">~640 MWh*</span></td>
-                                    <td><span class="usage-value">Non communiqué</span></td>
-                                    <td><span class="water-value">N/C</span></td>
-                                    <td><span class="co2-value">~200 t*</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="rank"><span class="rank-number">4</span></td>
-                                    <td class="model-name">
-                                        <div class="model-info">
-                                            <span class="model-title">Gemini</span>
-                                            <span class="model-company">Google</span>
-                                        </div>
-                                    </td>
-                                    <td><span class="energy-value">~750 MWh</span></td>
-                                    <td><span class="usage-value">Non communiqué</span></td>
-                                    <td><span class="water-value">N/C</span></td>
-                                    <td><span class="co2-value">~250 t</span></td>
-                                </tr>
-                                <tr>
-                                    <td class="rank"><span class="rank-number">5</span></td>
-                                    <td class="model-name">
-                                        <div class="model-info">
-                                            <span class="model-title">LLaMA 2</span>
-                                            <span class="model-company">Meta</span>
-                                        </div>
-                                    </td>
-                                    <td><span class="energy-value">449 MWh</span></td>
-                                    <td><span class="usage-value">Limité</span></td>
-                                    <td><span class="water-value">Variable</span></td>
-                                    <td><span class="co2-value">180 t</span></td>
-                                </tr>
+                                <tr><th scope="row"><img class="ep-logo" src="images/carte/logos/google.webp" alt="" width="96" height="96" loading="lazy" decoding="async">Google <small>2025</small></th><td>Électricité consommée</td><td class="ep-up">+ 37 % <sup class="ep-ref"><a href="#src-15" aria-label="source 15">15</a></sup></td></tr>
+                                <tr><th scope="row"><img class="ep-logo" src="images/carte/logos/google.webp" alt="" width="96" height="96" loading="lazy" decoding="async">Google <small>2025</small></th><td>Émissions de la chaîne d'approvisionnement (matériel, construction)</td><td class="ep-up">+ 25 % <sup class="ep-ref"><a href="#src-15" aria-label="source 15">15</a></sup></td></tr>
+                                <tr><th scope="row"><img class="ep-logo" src="images/carte/logos/google.webp" alt="" width="96" height="96" loading="lazy" decoding="async">Google <small>2025</small></th><td>Émissions liées à l'énergie de ses sites</td><td class="ep-down">− 2 % <sup class="ep-ref"><a href="#src-15" aria-label="source 15">15</a></sup></td></tr>
+                                <tr><th scope="row"><img class="ep-logo" src="images/carte/logos/microsoft.webp" alt="" width="96" height="96" loading="lazy" decoding="async">Microsoft <small>exercice 2025</small></th><td>Émissions totales : 20,3 millions de t de CO₂e</td><td class="ep-up">+ 25 % <sup class="ep-ref"><a href="#src-16" aria-label="source 16">16</a></sup></td></tr>
+                                <tr><th scope="row"><img class="ep-logo" src="images/carte/logos/mistral.webp" alt="" width="96" height="96" loading="lazy" decoding="async">Mistral <small>2025</small></th><td>Une réponse de Mistral Large 2 (cycle de vie)</td><td>1,14 g CO₂e <sup class="ep-ref"><a href="#src-9" aria-label="source 9">9</a></sup></td></tr>
                             </tbody>
                         </table>
-                        <p class="table-note">* Estimations basées sur des données comparatives</p>
                     </div>
-                </div>
+                    <p class="ep-note">Google et Microsoft annoncent couvrir 100 % de leur consommation par des achats d'électricité renouvelable : c'est un bilan annuel, qui ne signifie pas que leurs serveurs tournent à chaque instant sur une énergie verte. Anthropic, xAI ou DeepSeek ne publient pas de mesure détaillée.</p>
+                </section>
 
-                <!-- Solutions -->
-                <section id="solutions" class="solutions-section">
-                    <div class="section-header" onclick="toggleSection('solutions-content')">
-                        <h2><i class="fas fa-leaf"></i> Solutions et innovations</h2>
-                        <span class="toggle-icon">+</span>
+                <section class="ep-sec" id="eau" aria-labelledby="h-eau">
+                    <p class="ep-kicker"><span>07</span>L'eau</p>
+                    <h2 id="h-eau">L'eau : de quelques gouttes à une bouteille</h2>
+                    <p class="ep-lead">Les serveurs chauffent ; beaucoup de data centers les refroidissent en évaporant de l'eau. S'y ajoute l'eau utilisée par les centrales qui produisent leur électricité, et celle de la fabrication des puces. Selon ce que l'on additionne, une requête « consomme » de quelques gouttes à une demi-bouteille.</p>
+                    <figure class="ep-fig ep-log" aria-labelledby="cap-ml">
+<div class="ep-log-axis" aria-hidden="true"><span></span><div class="ep-log-ticks">
+<span style="left:0.00%">0,1 ml</span>
+<span style="left:23.95%">1 ml</span>
+<span style="left:47.89%">10 ml</span>
+<span style="left:71.84%">100 ml</span>
+<span style="left:95.78%">1 L</span>
+</div></div><ol class="ep-log-rows">
+<li class="ep-log-row" title="Gemini, requête texte : 0,26 ml">
+                                <div class="ep-log-lab"><b>Gemini, requête texte</b><span>refroidissement du data center seulement <sup class="ep-ref"><a href="#src-4" aria-label="source 4">4</a></sup></span></div>
+                                <div class="ep-log-track"><i class="ep-log-stem" style="width:9.94%"></i><i class="ep-log-dot" style="left:9.94%"></i><span class="ep-log-val" style="left:9.94%">0,26 ml</span></div>
+                                
+                            </li>
+<li class="ep-log-row" title="ChatGPT, requête moyenne : ≈ 0,3 ml">
+                                <div class="ep-log-lab"><b>ChatGPT, requête moyenne</b><span>méthode non détaillée <sup class="ep-ref"><a href="#src-5" aria-label="source 5">5</a></sup></span></div>
+                                <div class="ep-log-track"><i class="ep-log-stem" style="width:12.10%"></i><i class="ep-log-dot" style="left:12.10%"></i><span class="ep-log-val" style="left:12.10%">≈ 0,3 ml</span></div>
+                                
+                            </li>
+<li class="ep-log-row" title="Mistral Large 2, une réponse : 45 ml">
+                                <div class="ep-log-lab"><b>Mistral Large 2, une réponse</b><span>cycle de vie complet, fabrication comprise <sup class="ep-ref"><a href="#src-9" aria-label="source 9">9</a></sup></span></div>
+                                <div class="ep-log-track"><i class="ep-log-stem" style="width:63.53%"></i><i class="ep-log-dot" style="left:63.53%"></i><span class="ep-log-val" style="left:63.53%">45 ml</span></div>
+                                
+                            </li>
+<li class="ep-log-row" title="E-mail de 100 mots, GPT-4 : 519 ml">
+                                <div class="ep-log-lab"><b>E-mail de 100 mots, GPT-4</b><span>avec l'eau des centrales électriques <sup class="ep-ref"><a href="#src-17" aria-label="source 17">17</a></sup></span></div>
+                                <div class="ep-log-track"><i class="ep-log-stem" style="width:88.96%"></i><i class="ep-log-dot" style="left:88.96%"></i><span class="ep-log-val" style="left:88.96%" data-right>519 ml</span></div>
+                                
+                            </li>
+</ol><figcaption id="cap-ml">Eau attribuée à une requête selon ce que l'on compte. Même échelle logarithmique : du simple refroidissement au cycle de vie complet, l'écart est de 1 à 2 000.</figcaption></figure>
+                    <div class="ep-facts">
+                        <div class="ep-fact"><span class="ep-fact-v">222 Md L</span><p>d'eau de refroidissement consommée par les data centers du monde en 2025 ; près de 650 milliards en 2030 au rythme actuel. <sup class="ep-ref"><a href="#src-18" aria-label="source 18">18</a></sup></p></div>
+                        <div class="ep-fact"><span class="ep-fact-v">78 %</span><p>de sa consommation d'eau douce, c'est ce que Google dit avoir « restitué » en 2025 via des projets locaux : 7,7 milliards de gallons (29 milliards de litres). <sup class="ep-ref"><a href="#src-15" aria-label="source 15">15</a></sup></p></div>
                     </div>
-                    <div class="section-content" id="solutions-content">
-                        <div class="solutions-tabs">
-                            <div class="tab-buttons">
-                                <button class="tab-btn active" data-tab="optimization">
-                                    <i class="fas fa-microchip"></i> Optimisation
-                                </button>
-                                <button class="tab-btn" data-tab="infrastructure">
-                                    <i class="fas fa-solar-panel"></i> Infrastructure
-                                </button>
-                                <button class="tab-btn" data-tab="practices">
-                                    <i class="fas fa-users"></i> Pratiques
-                                </button>
-                            </div>
+                    <aside class="ep-box">
+                        <h3><i class="fa-solid fa-droplet" aria-hidden="true"></i>Le vrai sujet : où ?</h3>
+                        <p>Un litre prélevé en Bretagne en hiver n'a pas le même effet qu'un litre prélevé en Arizona en été. Les data centers se multiplient dans des régions déjà sèches (Arizona, Texas, Espagne, Chili) : l'enjeu de l'eau est local avant d'être global.</p>
+                    </aside>
+                </section>
 
-                            <div class="tab-content active" id="optimization">
-                                <div class="solution-grid">
-                                    <div class="solution-item">
-                                        <div class="solution-icon"><i class="fas fa-compress-arrows-alt"></i></div>
-                                        <h4>Modèles spécialisés</h4>
-                                        <p>IA ciblées 10x plus efficaces que les modèles généralistes</p>
-                                        <div class="efficiency-gain">+90% efficacité</div>
-                                    </div>
-                                    <div class="solution-item">
-                                        <div class="solution-icon"><i class="fas fa-filter"></i></div>
-                                        <h4>Distillation</h4>
-                                        <p>Réduction de taille avec conservation des performances</p>
-                                        <div class="efficiency-gain">-90% taille</div>
-                                    </div>
-                                    <div class="solution-item">
-                                        <div class="solution-icon"><i class="fas fa-network-wired"></i></div>
-                                        <h4>Architecture éparse</h4>
-                                        <p>Modèles MoE activant partiellement leurs paramètres</p>
-                                        <div class="efficiency-gain">-1000% énergie</div>
-                                    </div>
-                                </div>
-                            </div>
+                <figure class="ep-photo">
+                    <img src="images/illustrations/energie-refroidissement.webp" alt="Rangées de ventilateurs de refroidissement sur le toit d'un centre de données" loading="lazy" decoding="async" width="1600" height="900">
+                    <figcaption>Tours de refroidissement : c'est ici que l'eau s'évapore pour évacuer la chaleur des serveurs.<span class="ep-credit">Photo : Rsparks3 / <a href="https://commons.wikimedia.org/wiki/File:Data_center_cooling_tower.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons</a>, CC0</span></figcaption>
+                </figure>
 
-                            <div class="tab-content" id="infrastructure">
-                                <div class="solution-grid">
-                                    <div class="solution-item breakthrough">
-                                        <div class="solution-icon"><i class="fas fa-snowflake"></i></div>
-                                        <h4>Refroidissement zéro-évaporation</h4>
-                                        <p>Microsoft : data centers sans évaporation d'eau depuis août 2024</p>
-                                        <div class="efficiency-gain">125M litres économisés/an</div>
-                                    </div>
-                                    <div class="solution-item">
-                                        <div class="solution-icon"><i class="fas fa-wind"></i></div>
-                                        <h4>Énergie renouvelable</h4>
-                                        <p>Google et Microsoft visent 100% renouvelable d'ici 2030</p>
-                                        <div class="efficiency-gain">-80% CO2</div>
-                                    </div>
-                                    <div class="solution-item">
-                                        <div class="solution-icon"><i class="fas fa-thermometer-half"></i></div>
-                                        <h4>Localisation optimale</h4>
-                                        <p>Data centers dans les régions froides</p>
-                                        <div class="efficiency-gain">-40% refroidissement</div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="tab-content" id="practices">
-                                <div class="practices-grid">
-                                    <div class="practice-card">
-                                        <h4><i class="fas fa-lightbulb"></i> Usage intelligent</h4>
-                                        <ul>
-                                            <li>Formulation de prompts précis</li>
-                                            <li>Réutilisation des réponses</li>
-                                            <li>Choix du modèle adapté</li>
-                                        </ul>
-                                        <div class="impact-reduction">-60% requêtes</div>
-                                    </div>
-                                    <div class="practice-card">
-                                        <h4><i class="fas fa-clock"></i> Timing optimal</h4>
-                                        <ul>
-                                            <li>Utilisation en heures creuses</li>
-                                            <li>Planification des entraînements</li>
-                                            <li>Localisation géographique</li>
-                                        </ul>
-                                        <div class="impact-reduction">-30% émissions</div>
-                                    </div>
-                                    <div class="practice-card">
-                                        <h4><i class="fas fa-share-alt"></i> Mutualisation</h4>
-                                        <ul>
-                                            <li>Partage de modèles pré-entraînés</li>
-                                            <li>Réutilisation des données</li>
-                                            <li>Collaboration recherche</li>
-                                        </ul>
-                                        <div class="impact-reduction">-70% redondance</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <section class="ep-sec" id="materiel" aria-labelledby="h-materiel">
+                    <p class="ep-kicker"><span>08</span>Le matériel</p>
+                    <h2 id="h-materiel">Le matériel : l'impact qu'on ne voit pas</h2>
+                    <p class="ep-lead">Avant de consommer la moindre électricité, une puce d'IA a déjà un coût : extraction des métaux, fabrication à Taïwan ou en Corée, transport, construction du bâtiment. Puis, au bout de quelques années, elle devient un déchet.</p>
+                    <div class="ep-life">
+                        <div class="ep-life-step"><i class="fa-solid fa-mountain" aria-hidden="true"></i><b>Extraire</b><span>métaux et terres rares</span></div>
+                        <div class="ep-life-step"><i class="fa-solid fa-industry" aria-hidden="true"></i><b>Fabriquer</b><span>puces, serveurs, bâtiments</span></div>
+                        <div class="ep-life-step is-use"><i class="fa-solid fa-bolt" aria-hidden="true"></i><b>Utiliser</b><span>entraîner et répondre</span></div>
+                        <div class="ep-life-step"><i class="fa-solid fa-dumpster" aria-hidden="true"></i><b>Jeter</b><span>tous les 3 à 5 ans</span></div>
+                    </div>
+                    <div class="ep-facts">
+                        <div class="ep-fact"><span class="ep-fact-v">≈ 15 %</span><p>des émissions de Mistral Large 2 viennent de la fabrication du matériel et du reste du cycle de vie ; 85,5 % de l'entraînement et de l'utilisation. Mistral note qu'aucune étude fiable du cycle de vie des GPU n'existe encore. <sup class="ep-ref"><a href="#src-9" aria-label="source 9">9</a></sup></p></div>
+                        <div class="ep-fact"><span class="ep-fact-v">2,5 Mt</span><p>de déchets électroniques par an d'ici 2030 dus à l'IA générative, contre 2 600 t en 2023, dans le scénario le plus intensif. L'économie circulaire pourrait en éviter 16 à 86 %. <sup class="ep-ref"><a href="#src-19" aria-label="source 19">19</a></sup></p></div>
+                        <div class="ep-fact"><span class="ep-fact-v">+ 25 %</span><p>d'émissions de la chaîne d'approvisionnement de Google en 2025, principalement la fabrication de matériel d'IA. <sup class="ep-ref"><a href="#src-15" aria-label="source 15">15</a></sup></p></div>
                     </div>
                 </section>
 
-                <!-- Projections futures -->
-                <div class="future-section">
-                    <h2><i class="fas fa-rocket"></i> Horizon 2030</h2>
-                    <div class="timeline-container">
-                        <div class="timeline">
-                            <div class="timeline-item active">
-                                <div class="timeline-year">2024</div>
-                                <div class="timeline-content">
-                                    <h4>État actuel</h4>
-                                    <p>228 GWh/an pour l'IA générative</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-year">2027</div>
-                                <div class="timeline-content">
-                                    <h4>Expansion IA</h4>
-                                    <p>85-134 TWh/an prévus (3-5x l'Irlande)</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <div class="timeline-year">2030</div>
-                                <div class="timeline-content">
-                                    <h4>Objectifs durabilité</h4>
-                                    <p>100% énergies renouvelables (Microsoft/Google)</p>
-                                </div>
-                            </div>
-                        </div>
+                <section class="ep-sec" id="agir" aria-labelledby="h-agir">
+                    <p class="ep-kicker"><span>09</span>Agir</p>
+                    <h2 id="h-agir">Plus efficace ne veut pas dire plus sobre</h2>
+                    <p class="ep-lead">Les progrès sont réels : Google a divisé par 33 l'énergie d'une requête Gemini en un an, et Microsoft Research estime qu'on peut encore la réduire de 8 à 20 fois. Pourtant, la consommation totale des data centers augmente de 17 % par an. Quand un service devient moins cher, on s'en sert davantage : c'est l'<b>effet rebond</b>. <sup class="ep-ref"><a href="#src-4" aria-label="source 4">4</a><a href="#src-6" aria-label="source 6">6</a><a href="#src-1" aria-label="source 1">1</a></sup></p>
+                    <div class="ep-act">
+                        <article class="ep-act-col">
+                            <h3><i class="fa-solid fa-user" aria-hidden="true"></i>Vous</h3>
+                            <ul>
+                                <li>Un moteur de recherche pour une simple information.</li>
+                                <li>Un modèle rapide pour les tâches simples ; le mode « raisonnement » quand il sert vraiment.</li>
+                                <li>Une consigne précise plutôt que dix essais ; pas de vidéos régénérées à l'infini.</li>
+                                <li>Un petit modèle en local, sur votre ordinateur, pour l'usage courant.</li>
+                            </ul>
+                        </article>
+                        <article class="ep-act-col">
+                            <h3><i class="fa-solid fa-building" aria-hidden="true"></i>Les organisations</h3>
+                            <ul>
+                                <li>Mesurer avant d'optimiser : <a href="https://ecologits.ai/" target="_blank" rel="noopener noreferrer">EcoLogits</a>, <a href="https://codecarbon.io" target="_blank" rel="noopener noreferrer">CodeCarbon</a>.</li>
+                                <li>Comparer l'efficacité des modèles avec l'<a href="https://huggingface.github.io/AIEnergyScore/" target="_blank" rel="noopener noreferrer">AI Energy Score</a>.</li>
+                                <li>Héberger là où l'électricité est bas carbone et l'eau abondante.</li>
+                                <li>Prolonger la vie du matériel, mutualiser plutôt que réentraîner.</li>
+                            </ul>
+                        </article>
+                        <article class="ep-act-col">
+                            <h3><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>Les règles</h3>
+                            <ul>
+                                <li>Depuis août 2025, le règlement européen sur l'IA oblige les fournisseurs de grands modèles à documenter l'énergie consommée pour leur entraînement. <sup class="ep-ref"><a href="#src-20" aria-label="source 20">20</a></sup></li>
+                                <li>En France, RTE revoit l'accès au réseau : priorité aux projets de data centers prêts à se raccorder.</li>
+                                <li>Il manque encore une mesure obligatoire et vérifiée par requête : aujourd'hui, chaque entreprise choisit son périmètre.</li>
+                            </ul>
+                        </article>
                     </div>
-                </div>
+                </section>
 
-                <!-- Ressources -->
-                <div class="resources-section">
-                    <h2><i class="fas fa-tools"></i> Outils et ressources</h2>
-                    <div class="resources-grid">
-                        <div class="resource-card featured">
-                            <div class="resource-icon"><i class="fas fa-chart-line"></i></div>
-                            <h3>AI Index Report</h3>
-                            <p>Rapport Stanford avec données environnementales actualisées</p>
-                            <a href="https://aiindex.stanford.edu" target="_blank" rel="noopener" class="resource-link">
-                                Consulter <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                        <div class="resource-card">
-                            <div class="resource-icon"><i class="fas fa-calculator"></i></div>
-                            <h3>Green Algorithms</h3>
-                            <p>Calculateur d'empreinte carbone pour vos entraînements</p>
-                            <a href="https://green-algorithms.org" target="_blank" rel="noopener" class="resource-link">
-                                Calculer <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                        <div class="resource-card">
-                            <div class="resource-icon"><i class="fas fa-code"></i></div>
-                            <h3>Code Carbon</h3>
-                            <p>Package Python pour tracker automatiquement vos émissions</p>
-                            <a href="https://codecarbon.io" target="_blank" rel="noopener" class="resource-link">
-                                Installer <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                        <div class="resource-card">
-                            <div class="resource-icon"><i class="fas fa-flask"></i></div>
-                            <h3>ML CO2 Impact</h3>
-                            <p>Mesure en temps réel de l'impact de vos modèles</p>
-                            <a href="https://mlco2.github.io/impact" target="_blank" rel="noopener"
-                                class="resource-link">
-                                Mesurer <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <section class="ep-sec ep-more" aria-labelledby="h-more">
+                    <h2 id="h-more">Aller plus loin</h2>
+                    <div class="ep-more-grid"><a class="ep-more-card" href="offline.html"><i class="fa-solid fa-plug-circle-xmark" aria-hidden="true"></i><div><h3>L'IA offline</h3><p>Faire tourner un modèle sur sa propre machine.</p></div></a><a class="ep-more-card" href="ia-modeles.html"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i><div><h3>Les IA et leurs modèles</h3><p>Qui fait tourner quoi, et où partent vos données.</p></div></a><a class="ep-more-card" href="carte-mondiale.html"><i class="fa-solid fa-earth-europe" aria-hidden="true"></i><div><h3>Carte mondiale</h3><p>Les écosystèmes d'IA pays par pays.</p></div></a></div>
+                </section>
 
-                <!-- Call to action -->
-                <div class="cta-section">
-                    <div class="cta-content">
-                        <h2>Agissons ensemble pour une IA responsable</h2>
-                        <p>Chaque requête compte. Adoptons des pratiques durables dès aujourd'hui.</p>
-                        <div class="cta-buttons">
-                            <a href="#solutions" class="cta-btn primary">
-                                <i class="fas fa-leaf"></i> Découvrir les solutions
-                            </a>
-                            <a href="https://green-algorithms.org" target="_blank" class="cta-btn secondary">
-                                <i class="fas fa-calculator"></i> Calculer mon impact
-                            </a>
-                        </div>
-                    </div>
-                    <div class="cta-visual">
-                        <div class="earth-icon"><i class="fa-solid fa-earth-europe" aria-hidden="true"></i></div>
-                        <div class="orbit-ring"></div>
-                        <div class="orbit-ring delay-1"></div>
-                        <div class="orbit-ring delay-2"></div>
-                    </div>
-                </div>
+                <section class="ep-sec ep-sources" id="sources" aria-labelledby="h-sources">
+                    <h2 id="h-sources">Sources</h2>
+                    <p class="ep-note">Chiffres vérifiés le 26 novembre 2026. Les ordres de grandeur sur l'intensité carbone et les équivalences (foyers, ampoules, bouilloires) sont des calculs de Génération-IA.fr à partir de ces sources.</p>
+                    <ol class="ep-src"><li id="src-1"><span class="ep-src-n">1</span><span>AIE, <em>Energy and AI</em> (2025) et sa mise à jour <em>Key Questions on Energy and AI</em> (avril 2026). <a href="https://www.iea.org/reports/energy-and-ai" target="_blank" rel="noopener noreferrer">iea.org</a></span></li><li id="src-2"><span class="ep-src-n">2</span><span>AIE, <em>World Energy Outlook 2026</em>, 19 novembre 2026 (chiffres sur les data centers repris par l'AFP). <a href="https://www.iea.org/reports/world-energy-outlook-2026" target="_blank" rel="noopener noreferrer">iea.org</a></span></li><li id="src-3"><span class="ep-src-n">3</span><span>H. Ritchie, « How much energy do data centers and AI use? », Our World in Data, juillet 2026. <a href="https://ourworldindata.org/how-much-energy-do-data-centers-and-artificial-intelligence-use" target="_blank" rel="noopener noreferrer">ourworldindata.org</a></span></li><li id="src-4"><span class="ep-src-n">4</span><span>Google, « Measuring the environmental impact of delivering AI at Google scale », août 2025 (arXiv 2508.15734). <a href="https://arxiv.org/abs/2508.15734" target="_blank" rel="noopener noreferrer">arxiv.org</a></span></li><li id="src-5"><span class="ep-src-n">5</span><span>S. Altman (OpenAI), « The Gentle Singularity », juin 2025. <a href="https://blog.samaltman.com/the-gentle-singularity" target="_blank" rel="noopener noreferrer">blog.samaltman.com</a></span></li><li id="src-6"><span class="ep-src-n">6</span><span>F. Oviedo et al. (Microsoft Research), « Energy use of AI inference, efficiency pathways, and test-time scaling », <em>Joule</em>, avril 2026. <a href="https://doi.org/10.1016/j.joule.2026.102430" target="_blank" rel="noopener noreferrer">doi.org</a></span></li><li id="src-7"><span class="ep-src-n">7</span><span>Epoch AI, « How much energy does ChatGPT use? », février 2025. <a href="https://epoch.ai/gradient-updates/how-much-energy-does-chatgpt-use" target="_blank" rel="noopener noreferrer">epoch.ai</a></span></li><li id="src-8"><span class="ep-src-n">8</span><span>J. O'Donnell et C. Crownhart, « We did the math on AI's energy footprint », <em>MIT Technology Review</em>, mai 2025. <a href="https://www.technologyreview.com/2025/05/20/1116327/ai-energy-usage-climate-footprint-big-tech/" target="_blank" rel="noopener noreferrer">technologyreview.com</a></span></li><li id="src-9"><span class="ep-src-n">9</span><span>Mistral AI, avec Carbone 4 et l'ADEME, analyse de cycle de vie de Mistral Large 2, juillet 2025. <a href="https://mistral.ai/fr/news/our-contribution-to-a-global-environmental-standard-for-ai/" target="_blank" rel="noopener noreferrer">mistral.ai</a></span></li><li id="src-10"><span class="ep-src-n">10</span><span>D. Patterson et al. (Google, Berkeley), « Carbon Emissions and Large Neural Network Training », 2021. <a href="https://arxiv.org/abs/2104.10350" target="_blank" rel="noopener noreferrer">arxiv.org</a></span></li><li id="src-11"><span class="ep-src-n">11</span><span>Meta, fiche technique du modèle Llama 3.1 405B, juillet 2024. <a href="https://huggingface.co/meta-llama/Llama-3.1-405B" target="_blank" rel="noopener noreferrer">huggingface.co</a></span></li><li id="src-12"><span class="ep-src-n">12</span><span>Epoch AI et EPRI, « Power demands of frontier AI training », août 2025. <a href="https://epoch.ai/blog/power-demands-of-frontier-ai-training" target="_blank" rel="noopener noreferrer">epoch.ai</a></span></li><li id="src-13"><span class="ep-src-n">13</span><span>RTE, « Les data centers en chiffres clés », mis à jour le 1er juin 2026. <a href="https://www.rte-france.com/bases-electricite/consommation-electricite/essor-data-centers-france" target="_blank" rel="noopener noreferrer">rte-france.com</a></span></li><li id="src-14"><span class="ep-src-n">14</span><span>CSO (office statistique irlandais), <em>Data Centres Metered Electricity Consumption 2025</em>, juillet 2026. <a href="https://www.cso.ie/en/releasesandpublications/ep/p-dcmec/datacentresmeteredelectricityconsumption2025/" target="_blank" rel="noopener noreferrer">cso.ie</a></span></li><li id="src-15"><span class="ep-src-n">15</span><span>Google, <em>2026 Environmental Report</em> (données 2025), 30 juin 2026. <a href="https://blog.google/company-news/outreach-and-initiatives/sustainability/2026-environmental-report/" target="_blank" rel="noopener noreferrer">blog.google</a></span></li><li id="src-16"><span class="ep-src-n">16</span><span>Microsoft, <em>2026 Environmental Sustainability Report</em> (exercice 2025), d'après ESG Dive, juillet 2026. <a href="https://www.esgdive.com/news/microsofts-data-center-expansion-drove-25-emissions-spike-2025-environmental-sustainability-report/825082/" target="_blank" rel="noopener noreferrer">esgdive.com</a></span></li><li id="src-17"><span class="ep-src-n">17</span><span><em>The Washington Post</em> avec l'université de Californie à Riverside (S. Ren), septembre 2024. <a href="https://www.washingtonpost.com/technology/2024/09/18/energy-ai-use-electricity-water-data-centers/" target="_blank" rel="noopener noreferrer">washingtonpost.com</a></span></li><li id="src-18"><span class="ep-src-n">18</span><span>Rystad Energy, 2026, d'après <em>Down To Earth</em>. <a href="https://www.downtoearth.org.in/science-technology/data-centre-water-consumption-could-triple-to-644-billion-litres-by-2030" target="_blank" rel="noopener noreferrer">downtoearth.org.in</a></span></li><li id="src-19"><span class="ep-src-n">19</span><span>P. Wang et al., « E-waste challenges of generative artificial intelligence », <em>Nature Computational Science</em>, octobre 2024. <a href="https://www.nature.com/articles/s43588-024-00712-6" target="_blank" rel="noopener noreferrer">nature.com</a></span></li><li id="src-20"><span class="ep-src-n">20</span><span>Règlement européen sur l'IA (UE) 2024/1689, article 53 et annexe XI. <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener noreferrer">eur-lex.europa.eu</a></span></li></ol>
+                </section>
             </div>
-        </section>
+        </div>
     </main>
 
-    <!-- Footer -->
     <site-footer></site-footer>
 
-    <!-- Scripts -->
     <script src="components.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <script src="script.js"></script>
     <script src="energie.js"></script>
     <script

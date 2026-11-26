@@ -1,463 +1,119 @@
-/* ===== SCRIPTS POUR LA PAGE ÉNERGIE ===== */
+/* Dossier « L'IA et l'environnement » : simulateur, citations copiables, sommaire actif. */
+(function () {
+    'use strict';
 
-const E = document.documentElement.lang === 'en';
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Animation des nombres au chargement
-    animateNumbers();
-    
-    // Initialisation des graphiques
-    initCharts();
-    
-    // Simulateur interactif
-    initSimulator();
-    
-    // Système d'onglets
-    initTabs();
-    
-    // Animation au scroll
-    initScrollAnimations();
-    
-    // Navigation fluide
-    initSmoothScrolling();
-});
-
-// Animation des nombres compteurs
-function animateNumbers() {
-    const numbers = document.querySelectorAll('.animate-number, .preview-number[data-target]');
-    
-    const animateNumber = (element) => {
-        const target = parseInt(element.dataset.target) || parseInt(element.textContent);
-        const duration = 2000;
-        const start = 0;
-        const increment = target / (duration / 16);
-        let current = start;
-        
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                element.textContent = target;
-                clearInterval(timer);
-            } else {
-                element.textContent = Math.floor(current);
-            }
-        }, 16);
+    var lang = document.documentElement.lang === 'en' ? 'en' : 'fr';
+    var nf = function (v, d) {
+        return v.toLocaleString(lang === 'fr' ? 'fr-FR' : 'en-GB', {
+            minimumFractionDigits: d,
+            maximumFractionDigits: d
+        });
     };
-    
-    // Observer pour déclencher l'animation quand l'élément est visible
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
-                entry.target.classList.add('animated');
-                animateNumber(entry.target);
-            }
-        });
-    });
-    
-    numbers.forEach(number => observer.observe(number));
-}
+    var smart = function (v) {
+        if (v >= 100) return nf(Math.round(v), 0);
+        if (v >= 10) return nf(v, 0);
+        return nf(v, 1);
+    };
 
-// Système de sections pliables
-function toggleSection(sectionId) {
-    const content = document.getElementById(sectionId);
-    const header = content.previousElementSibling;
-    const icon = header.querySelector('.toggle-icon');
-    
-    const open = !content.classList.contains('expanded');
-    content.classList.toggle('expanded', open);
-    header.classList.toggle('expanded', open);
-    header.setAttribute('aria-expanded', String(open));
-    if (icon) icon.textContent = '+'; // le « + » pivote en « × » via le CSS
-}
+    /* ---------- Simulateur ---------- */
+    function initSim() {
+        var inputs = document.querySelectorAll('.ep-range input');
+        if (!inputs.length) return;
+        var $ = function (id) { return document.getElementById(id); };
 
-// Accordéons : état initial cohérent + accessibilité clavier
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.section-header').forEach(header => {
-        const content = header.nextElementSibling;
-        const open = !!(content && content.classList.contains('expanded'));
-        header.classList.toggle('expanded', open);
-        header.setAttribute('role', 'button');
-        header.setAttribute('tabindex', '0');
-        header.setAttribute('aria-expanded', String(open));
-        const icon = header.querySelector('.toggle-icon');
-        if (icon) { icon.textContent = '+'; icon.setAttribute('aria-hidden', 'true'); }
-        header.addEventListener('keydown', e => {
-            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); header.click(); }
-        });
-    });
-});
-
-// Rendre la fonction accessible globalement
-window.toggleSection = toggleSection;
-
-// Initialisation des graphiques
-function initCharts() {
-    if (window.Chart) {
-        Chart.defaults.font.family = "'Roboto', sans-serif";
-        Chart.defaults.color = '#bbb';
-    }
-    // Graphique d'évolution des consommations d'entraînement
-    const trainingCtx = document.getElementById('trainingChart');
-    if (trainingCtx) {
-        new Chart(trainingCtx, {
-            type: 'bar',
-            data: {
-                labels: ['BERT (2018)', 'GPT-1 (2018)', 'GPT-2 (2019)', 'GPT-3 (2020)', 'GPT-4 (2023)', 'GPT-5 (Est.)'],
-                datasets: [{
-                    label: E ? 'Training consumption (MWh)' : 'Consommation d\'entraînement (MWh)',
-                    data: [300, 450, 650, 1287, 1750, 3500],
-                    backgroundColor: [
-                        'rgba(201, 162, 74, 0.35)',
-                        'rgba(201, 162, 74, 0.5)',
-                        'rgba(201, 162, 74, 0.65)',
-                        'rgba(201, 162, 74, 0.8)',
-                        'rgba(217, 113, 74, 0.8)',
-                        'rgba(217, 113, 74, 0.95)'
-                    ],
-                    borderColor: [
-                        'rgb(201, 162, 74)',
-                        'rgb(201, 162, 74)',
-                        'rgb(201, 162, 74)',
-                        'rgb(201, 162, 74)',
-                        'rgb(217, 113, 74)',
-                        'rgb(217, 113, 74)'
-                    ],
-                    borderWidth: 2,
-                    borderRadius: 8
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: '#C9A24A',
-                            font: {
-                                family: 'Roboto'
-                            }
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: {
-                            color: '#ccc',
-                            callback: function(value) {
-                                return value + ' MWh';
-                            }
-                        },
-                        grid: {
-                            color: 'rgba(255, 255, 255, 0.1)'
-                        }
-                    },
-                    x: {
-                        ticks: {
-                            color: '#ccc'
-                        },
-                        grid: {
-                            color: 'rgba(255, 255, 255, 0.1)'
-                        }
-                    }
-                },
-                animation: {
-                    duration: 2000,
-                    easing: 'easeOutQuart'
-                }
-            }
-        });
-    }
-    
-    // Graphique de consommation d'eau
-    const waterCtx = document.getElementById('waterChart');
-    if (waterCtx) {
-        new Chart(waterCtx, {
-            type: 'doughnut',
-            data: {
-                labels: E ? ['GPT-4 (per request)', 'Average data center/day', 'Hyperscale/day'] : ['GPT-4 (par requête)', 'Data center moyen/jour', 'Hyperscale/jour'],
-                datasets: [{
-                    data: [0.519, 1135000, 2082000], // en litres
-                    backgroundColor: [
-                        'rgba(201, 162, 74, 0.85)',
-                        'rgba(224, 192, 104, 0.85)',
-                        'rgba(217, 113, 74, 0.85)'
-                    ],
-                    borderColor: [
-                        '#141414',
-                        '#141414',
-                        '#141414'
-                    ],
-                    borderWidth: 3
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: {
-                            color: '#ccc',
-                            padding: 20,
-                            font: {
-                                family: 'Roboto'
-                            }
-                        }
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                const value = context.parsed;
-                                if (value < 1) {
-                                    return context.label + ': ' + (value * 1000).toFixed(0) + ' ml';
-                                }
-                                return context.label + ': ' + value.toLocaleString() + ' litres';
-                            }
-                        }
-                    }
-                },
-                animation: {
-                    animateRotate: true,
-                    duration: 2000
-                }
-            }
-        });
-    }
-}
-
-// Simulateur interactif
-function initSimulator() {
-    const slider = document.getElementById('requestsSlider');
-    const valueDisplay = document.getElementById('requestsValue');
-    const dailyConsumption = document.getElementById('dailyConsumption');
-    const co2Equivalent = document.getElementById('co2Equivalent');
-    const annualCost = document.getElementById('annualCost');
-    
-    if (slider) {
-        const updateSimulator = () => {
-            const requests = parseInt(slider.value);
-            valueDisplay.textContent = requests;
-            
-            // Calculs (basés sur GPT-4o : 0.3 Wh par requête)
-            const dailyWh = requests * 0.3;
-            const dailyKwh = dailyWh / 1000;
-            const co2PerKwh = 0.5; // kg CO2 par kWh (moyenne mondiale)
-            const dailyCO2 = dailyKwh * co2PerKwh;
-            const costPerKwh = 0.16; // € par kWh (moyenne France)
-            const annualCostEur = dailyKwh * 365 * costPerKwh;
-            
-            // Mise à jour de l'affichage
-            dailyConsumption.textContent = dailyWh.toFixed(1) + ' Wh';
-            co2Equivalent.textContent = (dailyCO2 * 1000).toFixed(1) + ' g';
-            annualCost.textContent = annualCostEur.toFixed(2) + ' €';
-            
-            // Animation des valeurs
-            [dailyConsumption, co2Equivalent, annualCost].forEach(el => {
-                el.style.transform = 'scale(1.1)';
-                setTimeout(() => {
-                    el.style.transform = 'scale(1)';
-                }, 200);
+        function update() {
+            var total = 0;
+            var video = 0;
+            inputs.forEach(function (inp) {
+                var n = +inp.value;
+                var out = inp.parentNode.querySelector('output');
+                if (out) out.textContent = n;
+                var wh = n * parseFloat(inp.dataset.wh) * parseFloat(inp.dataset.per);
+                total += wh;
+                if (inp.id === 's-vid') video = wh;
             });
-        };
-        
-        slider.addEventListener('input', updateSimulator);
-        updateSimulator(); // Initialisation
+            var kwh = total / 1000;
+            $('sim-kwh').textContent = smart(kwh);
+            $('sim-kettle').textContent = smart(kwh / 0.1);
+            $('sim-km').textContent = smart(kwh / 0.17);
+            $('sim-co2').textContent = smart(kwh * 0.45);
+            var pct = total > 0 ? Math.round(video / total * 100) : 0;
+            $('sim-vidbar').style.width = pct + '%';
+            $('sim-vidpct').textContent = pct + (lang === 'fr' ? ' %' : '%');
+        }
+
+        inputs.forEach(function (inp) { inp.addEventListener('input', update); });
+        update();
     }
-}
 
-// Système d'onglets
-function initTabs() {
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
-    
-    tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const targetTab = button.dataset.tab;
-            
-            // Désactiver tous les onglets
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            tabContents.forEach(content => content.classList.remove('active'));
-            
-            // Activer l'onglet cliqué
-            button.classList.add('active');
-            const targetContent = document.getElementById(targetTab);
-            if (targetContent) {
-                targetContent.classList.add('active');
-            }
-            
-            // Animation
-            button.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-                button.style.transform = 'scale(1)';
-            }, 150);
-        });
-    });
-}
-
-// Animations au scroll
-function initScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-on-scroll');
-                
-                // Animation spéciale pour les cartes
-                if (entry.target.classList.contains('stat-card') || 
-                    entry.target.classList.contains('inference-card') ||
-                    entry.target.classList.contains('sector-card')) {
-                    const delay = Array.from(entry.target.parentNode.children).indexOf(entry.target) * 100;
-                    entry.target.style.animationDelay = delay + 'ms';
+    /* ---------- Citations copiables ---------- */
+    function initCopy() {
+        document.querySelectorAll('.ep-copy').forEach(function (btn) {
+            var label = btn.querySelector('span');
+            var initial = label.textContent;
+            btn.addEventListener('click', function () {
+                var text = btn.dataset.cite;
+                var done = function () {
+                    btn.classList.add('is-done');
+                    label.textContent = lang === 'fr' ? 'Copié' : 'Copied';
+                    setTimeout(function () {
+                        btn.classList.remove('is-done');
+                        label.textContent = initial;
+                    }, 1800);
+                };
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(done, function () { fallback(text); done(); });
+                } else {
+                    fallback(text);
+                    done();
                 }
-            }
+            });
         });
-    }, observerOptions);
-    
-    // Observer les éléments à animer
-    const elementsToAnimate = document.querySelectorAll(`
-        .stat-card, 
-        .inference-card, 
-        .sector-card, 
-        .solution-item, 
-        .practice-card,
-        .resource-card,
-        .timeline-item
-    `);
-    
-    elementsToAnimate.forEach(el => observer.observe(el));
-}
 
-// Navigation fluide
-function initSmoothScrolling() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const offsetTop = target.offsetTop - 100; // Offset pour le header
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-}
-
-// Effet de survol sur les cartes de secteur
-document.addEventListener('DOMContentLoaded', function() {
-    const sectorCards = document.querySelectorAll('.sector-card');
-    
-    sectorCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            const impact = this.dataset.impact;
-            const bar = this.querySelector('.impact-fill');
-            if (bar) {
-                bar.style.animation = 'none';
-                bar.style.width = '0';
-                setTimeout(() => {
-                    bar.style.animation = `fill-bar 1s ease-out forwards`;
-                    bar.style.width = impact + '%';
-                }, 50);
-            }
-        });
-    });
-});
-
-// Effet parallaxe pour le fond
-window.addEventListener('scroll', function() {
-    const scrolled = window.pageYOffset;
-    const particles = document.getElementById('particles-js');
-    if (particles) {
-        particles.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
-});
-
-// Animation des barres de progression au scroll
-function animateProgressBars() {
-    const progressBars = document.querySelectorAll('.progress-fill');
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
-                entry.target.classList.add('animated');
-                const originalWidth = entry.target.style.width;
-                entry.target.style.width = '0';
-                entry.target.offsetHeight; // Force reflow
-                entry.target.style.transition = 'width 2s ease-out';
-                entry.target.style.width = originalWidth;
-            }
-        });
-    });
-    
-    progressBars.forEach(bar => observer.observe(bar));
-}
-
-// Initialiser les animations des barres de progression
-document.addEventListener('DOMContentLoaded', animateProgressBars);
-
-// Effet de typing pour certains textes
-function typeWriter(element, text, speed = 50) {
-    let i = 0;
-    element.innerHTML = '';
-    
-    function typing() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(typing, speed);
+        function fallback(text) {
+            var ta = document.createElement('textarea');
+            ta.value = text;
+            ta.setAttribute('readonly', '');
+            ta.style.position = 'fixed';
+            ta.style.opacity = '0';
+            document.body.appendChild(ta);
+            ta.select();
+            try { document.execCommand('copy'); } catch (e) { /* rien */ }
+            document.body.removeChild(ta);
         }
     }
-    
-    typing();
-}
 
-// Easter egg : clic sur l'icône énergie
-document.addEventListener('DOMContentLoaded', function() {
-    const energyPulse = document.querySelector('.energy-pulse');
-    if (energyPulse) {
-        let clickCount = 0;
-        energyPulse.addEventListener('click', function() {
-            clickCount++;
-            if (clickCount === 5) {
-                this.style.background = 'radial-gradient(circle, #f0d68c 0%, #D9714A 100%)';
-                this.querySelector('::before') && (this.querySelector('::before').textContent = '🌱');
-                setTimeout(() => {
-                    this.style.background = 'radial-gradient(circle, #E0C068 0%, #D9714A 100%)';
-                }, 3000);
-                clickCount = 0;
-            }
+    /* ---------- Sommaire : section en cours ---------- */
+    function initToc() {
+        var links = document.querySelectorAll('.ep-toc a');
+        if (!links.length || !('IntersectionObserver' in window)) return;
+        var map = {};
+        links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+        var current = null;
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting && map[e.target.id]) {
+                    if (current) current.removeAttribute('aria-current');
+                    current = map[e.target.id];
+                    current.setAttribute('aria-current', 'true');
+                }
+            });
+        }, { rootMargin: '-35% 0px -60% 0px' });
+        Object.keys(map).forEach(function (id) {
+            var el = document.getElementById(id);
+            if (el) io.observe(el);
         });
     }
-});
 
-// Détection du mode sombre/clair (si implémenté)
-function detectColorScheme() {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark-mode');
+    function init() {
+        initSim();
+        initCopy();
+        initToc();
     }
-}
 
-// Optimisation des performances pour les animations
-function throttle(func, limit) {
-    let inThrottle;
-    return function() {
-        const args = arguments;
-        const context = this;
-        if (!inThrottle) {
-            func.apply(context, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
     }
-}
-
-// Application du throttle au scroll
-window.addEventListener('scroll', throttle(function() {
-    // Code des animations au scroll ici si nécessaire
-}, 16)); // ~60fps
+})();

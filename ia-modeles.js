@@ -1,200 +1,256 @@
-/* Page IA et modèles — grand schéma SVG : modèles, interfaces, flèches.
+/* Page IA et modèles : schéma modèles → interfaces (interactif) + filtre de l'annuaire.
    Données : synthèse structurelle « Modèles, interfaces, données », nov. 2026. */
+(function () {
+    'use strict';
 
-/* i18n léger : la page EN recharge le même script */
-const I18N_EN = document.documentElement.lang === 'en';
-const S = (fr, en) => (I18N_EN ? (en !== undefined ? en : fr) : fr);
-const LOGO = (p) => (I18N_EN ? '../' + p : p);
+    const EN = document.documentElement.lang === 'en';
+    const S = (fr, en) => (EN ? en : fr);
+    const PRE = EN ? '../' : '';
+    const L = (k) => PRE + 'images/' + k;
 
-/* --- Nœuds --- */
-const MODELS = {
-    /*_cluster ouverts (3 colonnes x 3 rangées) */
-    mistral:    { open: true,  col: 0, row: 0, name: 'Mistral L/S/M', sub: 'Mistral AI · France', logo: 'images/mistral_logo.png' },
-    llama:      { open: true,  col: 1, row: 0, name: 'Llama', sub: 'Meta', logo: 'images/meta_logo.jpg' },
-    deepseek:   { open: true,  col: 2, row: 0, name: 'DeepSeek V4', sub: 'DeepSeek · MIT', logo: 'images/deepseek_logo.svg' },
-    kimi:       { open: true,  col: 0, row: 1, name: 'Kimi K3', sub: 'Moonshot · 2 800 Md', logo: 'images/kimi_logo.jpg' },
-    qwen:       { open: true,  col: 1, row: 1, name: 'Qwen (série)', sub: 'Alibaba', logo: 'images/qwen_logo.svg' },
-    glm:        { open: true,  col: 2, row: 1, name: 'GLM', sub: 'Z.ai', logo: 'images/zai_logo.png' },
-    sonar:      { open: true,  col: 0, row: 2, name: 'Sonar', sub: S('dérivé Llama · Perplexity', 'Llama derivative · Perplexity'), logo: 'images/perplexity_logo.svg' },
-    nova:       { open: true,  col: 1, row: 2, name: 'Nova', sub: 'Amazon', logo: 'images/amazon_logo.svg' },
-    gemma:      { open: true,  col: 2, row: 2, name: 'Gemma', sub: S('Google · diffusion en aval', 'Google · downstream diffusion'), logo: 'images/gemini_logo.svg' },
-    /* cluster fermés (2 colonnes x 4 rangées) */
-    gpt:        { open: false, col: 0, row: 0, name: 'GPT-5.6 / GPT-6', sub: 'OpenAI', logo: 'images/openai_logo.png' },
-    claude:     { open: false, col: 1, row: 0, name: 'Claude 5', sub: 'Anthropic', logo: 'images/claude_logo.png' },
-    gemini:     { open: false, col: 0, row: 1, name: 'Gemini 3.x', sub: 'Google', logo: 'images/gemini_logo.svg' },
-    grok:       { open: false, col: 1, row: 1, name: 'Grok 4.x', sub: 'xAI', logo: 'images/grok_logo.jpg' },
-    qwmax:      { open: false, col: 0, row: 2, name: 'Qwen3-Max', sub: 'Alibaba · flagship', logo: 'images/qwen_logo.svg' },
-    muse:       { open: false, col: 1, row: 2, name: 'Muse Spark', sub: 'Meta · frontière', logo: 'images/meta_logo.jpg' },
-    yandex:     { open: false, col: 0, row: 3, name: 'YandexGPT', sub: 'Yandex', logo: 'images/yandex_logo.png' }
-};
+    /* ---------- Données du schéma ---------- */
+    const MODEL_GROUPS = [
+        { title: S('POIDS FERMÉS', 'CLOSED WEIGHTS'), open: false, ids: ['gpt', 'claude', 'gemini', 'grok', 'qwmax', 'muse', 'yandex'] },
+        { title: S('POIDS OUVERTS', 'OPEN WEIGHTS'), open: true, ids: ['mistral', 'glm', 'deepseek', 'kimi', 'qwen', 'llama', 'nova', 'sonar', 'gemma'] }
+    ];
+    const MODELS = {
+        gpt: { name: 'GPT-5.6 / GPT-6', sub: 'OpenAI', logo: 'carte/logos/openai.webp' },
+        claude: { name: 'Claude 5', sub: 'Anthropic', logo: 'carte/logos/anthropic.webp' },
+        gemini: { name: 'Gemini 3.x', sub: 'Google', logo: 'modeles/gemini.webp' },
+        grok: { name: 'Grok 4.x', sub: 'xAI', logo: 'modeles/grok.webp' },
+        qwmax: { name: 'Qwen3-Max', sub: S('Alibaba · phare', 'Alibaba · flagship'), logo: 'modeles/qwen.webp' },
+        muse: { name: 'Muse Spark', sub: S('Meta · frontière', 'Meta · frontier'), logo: 'carte/logos/meta.webp' },
+        yandex: { name: 'YandexGPT', sub: 'Yandex', logo: 'carte/logos/yandex.webp' },
+        mistral: { name: 'Mistral L / S / M', sub: 'Mistral AI · Apache 2.0', logo: 'carte/logos/mistral.webp' },
+        glm: { name: 'GLM', sub: 'Z.ai', logo: 'carte/logos/zai.webp' },
+        deepseek: { name: 'DeepSeek V4', sub: 'DeepSeek · MIT', logo: 'carte/logos/deepseek.webp' },
+        kimi: { name: 'Kimi K3', sub: S('Moonshot · 2 800 Md param.', 'Moonshot · 2.8T params'), logo: 'modeles/kimi.webp' },
+        qwen: { name: S('Qwen (série)', 'Qwen (series)'), sub: 'Alibaba', logo: 'modeles/qwen.webp' },
+        llama: { name: 'Llama', sub: 'Meta', logo: 'carte/logos/meta.webp' },
+        nova: { name: 'Nova', sub: 'Amazon', logo: 'carte/logos/amazon.webp' },
+        sonar: { name: 'Sonar', sub: S('Perplexity · dérivé de Llama', 'Perplexity · Llama derivative'), logo: 'modeles/perplexity.webp' },
+        gemma: { name: 'Gemma', sub: S('Google · diffusion en aval', 'Google · downstream'), logo: 'carte/logos/google.webp' }
+    };
 
-const IFACES = {
-    /* verticales */
-    chatgpt:      { group: 'V', row: 0, name: 'ChatGPT', sub: 'OpenAI', logo: 'images/openai_logo.png' },
-    claude_ai:    { group: 'V', row: 1, name: 'Claude.ai', sub: 'Anthropic', logo: 'images/claude_logo.png' },
-    gemini_ai:    { group: 'V', row: 2, name: 'Gemini', sub: 'Google', logo: 'images/gemini_logo.svg' },
-    grok_x:       { group: 'V', row: 3, name: 'Grok', sub: S('sur X · xAI', 'on X · xAI'), logo: 'images/grok_logo.jpg' },
-    vibe:         { group: 'V', row: 4, name: 'Le Chat / Vibe', sub: 'Mistral (+ GLM)', logo: 'images/mistral_logo.png' },
-    deepseek_app: { group: 'V', row: 5, name: 'DeepSeek', sub: 'DeepSeek', logo: 'images/deepseek_logo.svg' },
-    kimi_app:     { group: 'V', row: 6, name: 'Kimi', sub: 'Moonshot', logo: 'images/kimi_logo.jpg' },
-    qwen_chat:    { group: 'V', row: 7, name: 'Qwen Chat', sub: 'Alibaba', logo: 'images/qwen_logo.svg' },
-    /* écosystèmes */
-    meta_ai:      { group: 'E', row: 0, name: 'Meta AI', sub: 'WhatsApp · Instagram', logo: 'images/meta_logo.jpg' },
-    copilot:      { group: 'E', row: 1, name: 'Copilot', sub: 'Windows · Office', logo: 'images/copilot_logo.webp' },
-    alexa:        { group: 'E', row: 2, name: 'Alexa+', sub: 'Amazon', logo: 'images/amazon_logo.svg' },
-    alice:        { group: 'E', row: 3, name: 'Alice', sub: 'Yandex', logo: 'images/yandex_logo.png' },
-    /* agrégateurs */
-    perplexity:   { group: 'A', row: 0, name: 'Perplexity', sub: S('recherche augmentée', 'augmented search'), logo: 'images/perplexity_logo.svg' },
-    venice:       { group: 'A', row: 1, name: 'Venice', sub: S('zéro rétention', 'zero retention'), logo: 'images/venice_logo.png' },
-    /* locales */
-    ollama:       { group: 'L', row: 0, name: 'Ollama', sub: S('150+ modèles locaux', '150+ local models'), logo: 'images/ollama_logo.png' },
-    opera:        { group: 'L', row: 1, name: 'Opera', sub: S('navigateur', 'browser'), logo: 'images/opera_logo.png' }
-};
+    const IFACE_GROUPS = [
+        { title: S('VERTICALES', 'VERTICAL'), ids: ['chatgpt', 'claude_ai', 'gemini_ai', 'grok_x', 'vibe', 'deepseek_app', 'kimi_app', 'qwen_chat'] },
+        { title: S('ÉCOSYSTÈMES', 'ECOSYSTEMS'), ids: ['meta_ai', 'copilot', 'alexa', 'alice'] },
+        { title: S('AGRÉGATEURS', 'AGGREGATORS'), ids: ['perplexity', 'venice'] },
+        { title: S('LOCALES', 'LOCAL'), ids: ['ollama', 'opera'] }
+    ];
+    const IFACES = {
+        chatgpt: { name: 'ChatGPT', sub: 'OpenAI', logo: 'carte/logos/openai.webp', zone: 'US' },
+        claude_ai: { name: 'Claude.ai', sub: 'Anthropic', logo: 'carte/logos/anthropic.webp', zone: 'US' },
+        gemini_ai: { name: 'Gemini', sub: 'Google', logo: 'modeles/gemini.webp', zone: 'US' },
+        grok_x: { name: 'Grok', sub: S('xAI · sur X', 'xAI · on X'), logo: 'modeles/grok.webp', zone: 'US' },
+        vibe: { name: 'Le Chat / Vibe', sub: 'Mistral AI', logo: 'carte/logos/mistral.webp', zone: S('UE', 'EU') },
+        deepseek_app: { name: 'DeepSeek', sub: S('appli', 'app'), logo: 'carte/logos/deepseek.webp', zone: 'CN' },
+        kimi_app: { name: 'Kimi', sub: 'Moonshot', logo: 'modeles/kimi.webp', zone: 'CN' },
+        qwen_chat: { name: 'Qwen Chat', sub: 'Alibaba', logo: 'modeles/qwen.webp', zone: 'CN' },
+        meta_ai: { name: 'Meta AI', sub: 'WhatsApp · Instagram', logo: 'carte/logos/meta.webp', zone: 'US' },
+        copilot: { name: 'Copilot', sub: 'Windows · Office', logo: 'modeles/copilot.webp', zone: 'US' },
+        alexa: { name: 'Alexa+', sub: 'Amazon', logo: 'modeles/alexa.webp', zone: 'US' },
+        alice: { name: 'Alice', sub: 'Yandex', logo: 'modeles/alice.webp', zone: 'RU' },
+        perplexity: { name: 'Perplexity', sub: S('recherche augmentée', 'augmented search'), logo: 'modeles/perplexity.webp', zone: 'US' },
+        venice: { name: 'Venice', sub: S('zéro rétention', 'zero retention'), logo: 'modeles/venice.webp', zone: S('GPU', 'GPU') },
+        ollama: { name: 'Ollama', sub: S('150+ modèles locaux', '150+ local models'), logo: 'modeles/ollama.webp', zone: S('LOCAL', 'LOCAL') },
+        opera: { name: 'Opera', sub: S('navigateur', 'browser'), logo: 'carte/logos/opera.webp', zone: S('LOCAL', 'LOCAL') }
+    };
 
-const GROUPS = {
-    V: { x: 45,  title: S('VERTICALES', 'VERTICAL'), sub: S('le chatbot pur, modèles maison', 'the pure chatbot, in-house models') },
-    E: { x: 335, title: S('ÉCOSYSTÈMES', 'ECOSYSTEM'), sub: S('greffée sur une plateforme', 'grafted onto a platform') },
-    A: { x: 625, title: S('AGRÉGATEURS', 'AGGREGATORS'), sub: S('modèles tiers, orchestration', 'third-party models, orchestration') },
-    L: { x: 915, title: S('LOCALES', 'LOCAL'), sub: S('sur votre machine', 'on your machine') }
-};
+    /* solid = moteur maison ; dashed = modèle tiers invité */
+    const EDGES = [
+        ['gpt', 'chatgpt', 'solid'], ['claude', 'claude_ai', 'solid'], ['gemini', 'gemini_ai', 'solid'],
+        ['grok', 'grok_x', 'solid'], ['mistral', 'vibe', 'solid'], ['deepseek', 'deepseek_app', 'solid'],
+        ['kimi', 'kimi_app', 'solid'], ['qwen', 'qwen_chat', 'solid'], ['qwmax', 'qwen_chat', 'solid'],
+        ['muse', 'meta_ai', 'solid'], ['llama', 'meta_ai', 'solid'], ['nova', 'alexa', 'solid'],
+        ['sonar', 'perplexity', 'solid'], ['yandex', 'alice', 'solid'],
+        ['glm', 'vibe', 'dashed'], ['gpt', 'copilot', 'dashed'], ['claude', 'copilot', 'dashed'],
+        ['grok', 'copilot', 'dashed'], ['claude', 'alexa', 'dashed'], ['mistral', 'alexa', 'dashed'],
+        ['gpt', 'perplexity', 'dashed'], ['claude', 'perplexity', 'dashed'], ['gemini', 'perplexity', 'dashed'],
+        ['grok', 'perplexity', 'dashed'], ['kimi', 'perplexity', 'dashed']
+    ];
+    /* Poids ouverts téléchargés : du bloc « ouverts » vers ces interfaces */
+    const OPEN_FLOWS = ['venice', 'ollama', 'opera'];
 
-/* --- Liens : solide = moteur maison ; dashed = modèle tiers invité --- */
-const EDGES = [
-    ['gpt', 'chatgpt', 'solid'], ['claude', 'claude_ai', 'solid'], ['gemini', 'gemini_ai', 'solid'],
-    ['grok', 'grok_x', 'solid'], ['mistral', 'vibe', 'solid'], ['deepseek', 'deepseek_app', 'solid'],
-    ['kimi', 'kimi_app', 'solid'], ['qwen', 'qwen_chat', 'solid'], ['qwmax', 'qwen_chat', 'solid'],
-    ['muse', 'meta_ai', 'solid'], ['llama', 'meta_ai', 'solid'], ['nova', 'alexa', 'solid'],
-    ['sonar', 'perplexity', 'solid'], ['yandex', 'alice', 'solid'],
-    ['glm', 'vibe', 'dashed'], ['gpt', 'copilot', 'dashed'], ['claude', 'copilot', 'dashed'],
-    ['grok', 'copilot', 'dashed'], ['mistral', 'alexa', 'dashed'],
-    ['gpt', 'perplexity', 'dashed'], ['claude', 'perplexity', 'dashed'], ['gemini', 'perplexity', 'dashed'],
-    ['grok', 'perplexity', 'dashed'], ['kimi', 'perplexity', 'dashed']
-];
+    /* ---------- Géométrie ---------- */
+    const W = 960, CW = 258, CH = 38, STEP = 45, GAP = 30, HEAD = 26;
+    const LX = 0, RX = W - CW, BRX = CW + 14;
 
-/* Liens spéciaux depuis le cluster des poids ouverts */
-const OPEN_FLOWS = [
-    { to: 'venice', label: S('GPU décentralisés', 'decentralized GPUs') },
-    { to: 'ollama', label: S('téléchargés chez vous', 'downloaded to your machine') }
-];
+    function layout(groups) {
+        const pos = {}, heads = [];
+        let y = 0;
+        groups.forEach((g, gi) => {
+            if (gi) y += GAP;
+            heads.push({ g, y: y + 14, top: y + HEAD, bottom: y + HEAD + g.ids.length * STEP - (STEP - CH) });
+            y += HEAD;
+            g.ids.forEach(id => { pos[id] = y; y += STEP; });
+        });
+        return { pos, heads, h: y };
+    }
 
-/* --- Géométrie --- */
-const OPEN_CLUSTER  = { x: 40, y: 56, w: 600, h: 326 };
-const CLOSED_CLUSTER = { x: 680, y: 56, w: 520, h: 326 };
-const M_CHIP = { w: 176, h: 54, dx: 16, dy: 14, x0: 60, y0: 100 };   /* ouverts : 3 colonnes */
-const C_CHIP = { w: 238, h: 54, dx: 20, dy: 14, x0: 704, y0: 100 };  /* fermés : 2 colonnes */
-const I_CHIP = { w: 250, h: 46, x: 0, y0: 502, dy: 58 };
+    const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-function modelPos(id) {
-    const m = MODELS[id];
-    if (m.open) return { x: M_CHIP.x0 + m.col * (M_CHIP.w + M_CHIP.dx), y: M_CHIP.y0 + m.row * (M_CHIP.h + M_CHIP.dy), w: M_CHIP.w, h: M_CHIP.h };
-    return { x: C_CHIP.x0 + m.col * (C_CHIP.w + C_CHIP.dx), y: C_CHIP.y0 + m.row * (C_CHIP.h + C_CHIP.dy), w: C_CHIP.w, h: C_CHIP.h };
-}
+    function chip(kind, id, x, y, d, extra) {
+        return `<g class="dg-node dg-${kind}${extra.cls || ''}" data-id="${id}" tabindex="0" role="button" aria-label="${esc(d.name)}">
+  <rect class="dg-box" x="${x}" y="${y}" width="${CW}" height="${CH}" rx="6"/>
+  ${extra.stripe ? `<rect class="dg-stripe" x="${x}" y="${y}" width="4" height="${CH}" rx="2"/>` : ''}
+  <image href="${L(d.logo)}" x="${x + 12}" y="${y + 7}" width="24" height="24" preserveAspectRatio="xMidYMid meet"/>
+  <text class="dg-name" x="${x + 46}" y="${y + 17}">${esc(d.name)}</text>
+  <text class="dg-sub" x="${x + 46}" y="${y + 31}">${esc(d.sub)}</text>
+  ${extra.zone ? `<text class="dg-zone" x="${x + CW - 10}" y="${y + 23}" text-anchor="end">${esc(extra.zone)}</text>` : ''}
+</g>`;
+    }
 
-function ifacePos(id) {
-    const i = IFACES[id];
-    return { x: GROUPS[i.group].x, y: I_CHIP.y0 + i.row * I_CHIP.dy, w: I_CHIP.w, h: I_CHIP.h };
-}
+    function buildDiagram() {
+        const svg = document.getElementById('ia-diagram');
+        if (!svg) return;
+        const LM = layout(MODEL_GROUPS), LI = layout(IFACE_GROUPS);
+        const H = Math.max(LM.h, LI.h) + 4;
+        svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
 
-function esc(s) {
-    return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-}
+        const inCount = {}, outCount = {}, inIdx = {}, outIdx = {};
+        EDGES.forEach(([f, t]) => { inCount[t] = (inCount[t] || 0) + 1; outCount[f] = (outCount[f] || 0) + 1; });
+        OPEN_FLOWS.forEach(t => { inCount[t] = (inCount[t] || 0) + 1; });
 
-function chipSvg(id, p, name, sub, logo, cls) {
-    return `
-  <g class="dg-chip ${cls}" data-id="${id}">
-    <rect class="dg-chip-rect" x="${p.x}" y="${p.y}" width="${p.w}" height="${p.h}" rx="10"/>
-    <rect class="dg-tile" x="${p.x + 10}" y="${p.y + (p.h - 36) / 2}" width="36" height="36" rx="8"/>
-    <image href="${LOGO(logo)}" x="${p.x + 15}" y="${p.y + (p.h - 36) / 2 + 5}" width="26" height="26" preserveAspectRatio="xMidYMid meet"/>
-    <text class="dg-name" x="${p.x + 56}" y="${p.y + p.h / 2 - 5}">${esc(name)}</text>
-    <text class="dg-sub" x="${p.x + 56}" y="${p.y + p.h / 2 + 12}">${esc(sub)}</text>
-  </g>`;
-}
+        const portY = (base, idx, n) => base + CH / 2 + (n > 1 ? (idx - (n - 1) / 2) * Math.min(6, 26 / (n - 1)) : 0);
 
-function buildDiagram() {
-    /* Décalages d'arrivée : quand plusieurs flèches ciblent la même interface, on les répartit */
-    const inMap = {};
-    EDGES.forEach(([from, to]) => { (inMap[to] = inMap[to] || []).push(from); });
+        let edges = '';
+        EDGES.forEach(([f, t, kind]) => {
+            const oi = outIdx[f] = (outIdx[f] || 0) + 1;
+            const ii = inIdx[t] = (inIdx[t] || 0) + 1;
+            const y1 = portY(LM.pos[f], oi - 1, outCount[f]);
+            const y2 = portY(LI.pos[t], ii - 1, inCount[t]);
+            const x1 = LX + CW, x2 = RX;
+            const mx = (x1 + x2) / 2;
+            edges += `<path class="dg-e dg-e-${kind}" data-from="${f}" data-to="${t}" d="M ${x1} ${y1} C ${mx} ${y1}, ${mx} ${y2}, ${x2 - 3} ${y2}"/>`;
+        });
 
-    let edges = '';
-    EDGES.forEach(([from, to, kind]) => {
-        const f = modelPos(from);
-        const t = ifacePos(to);
-        const list = inMap[to];
-        const i = list.indexOf(from);
-        const n = list.length;
-        const spread = n > 1 ? (i - (n - 1) / 2) * Math.min(28, 220 / n) : 0;
-        const fx = Math.min(Math.max(f.x + f.w / 2, f.x + 18), f.x + f.w - 18);
-        const fy = f.y + f.h;
-        const tx = t.x + t.w / 2 + spread;
-        const ty = t.y;
-        edges += `
-  <path class="dg-edge dg-edge-${kind}" d="M ${fx} ${fy} C ${fx} ${fy + 45}, ${tx} ${ty - 45}, ${tx} ${ty}"/>`;
-    });
+        /* Accolade du bloc ouvert et flux de poids téléchargés */
+        const oh = LM.heads[1];
+        const by = (oh.top + oh.bottom) / 2;
+        let flows = `<path class="dg-brace" d="M ${CW + 6} ${oh.top} h 8 V ${oh.bottom} h -8 M ${BRX} ${by} h 8"/>`;
+        OPEN_FLOWS.forEach(t => {
+            const ii = inIdx[t] = (inIdx[t] || 0) + 1;
+            const y2 = portY(LI.pos[t], ii - 1, inCount[t]);
+            const x1 = BRX + 8, x2 = RX;
+            const mx = (x1 + x2) / 2 + 30;
+            flows += `<path class="dg-e dg-e-dotted" data-from="@open" data-to="${t}" d="M ${x1} ${by} C ${mx} ${by}, ${mx} ${y2}, ${x2 - 3} ${y2}"/>`;
+        });
+        flows += `<text class="dg-flow-lbl" x="${BRX + 14}" y="${by - 8}">${esc(S('poids téléchargés', 'downloaded weights'))}</text>`;
 
-    /* Les chemins spéciaux partent du bord droit du cluster des poids ouverts */
-    OPEN_FLOWS.forEach(flow => {
-        const t = ifacePos(flow.to);
-        const fx = OPEN_CLUSTER.x + OPEN_CLUSTER.w;
-        const fy = OPEN_CLUSTER.y + OPEN_CLUSTER.h / 2 + (flow.to === 'venice' ? -30 : 30);
-        const tx = t.x + t.w / 2;
-        const ty = t.y;
-        const midX = (fx + tx) / 2, midY = (fy + ty) / 2;
-        edges += `
-  <path class="dg-edge dg-edge-cluster" d="M ${fx} ${fy} C ${fx + 60} ${fy}, ${tx} ${ty - 60}, ${tx} ${ty}"/>
-  <text class="dg-flow-label" x="${midX + 6}" y="${midY - 8}">${esc(flow.label)}</text>`;
-    });
+        let heads = '';
+        LM.heads.forEach(h => {
+            heads += `<text class="dg-head ${h.g.open ? 'dg-head-open' : 'dg-head-closed'}" x="${LX + 2}" y="${h.y}">${esc(h.g.title)}</text>`;
+        });
+        LI.heads.forEach(h => {
+            heads += `<text class="dg-head" x="${RX + 2}" y="${h.y}">${esc(h.g.title)}</text>`;
+        });
+        heads += `<text class="dg-head dg-head-col" x="${W / 2}" y="14" text-anchor="middle">${esc(S('MODÈLES → INTERFACES', 'MODELS → INTERFACES'))}</text>`;
 
-    let models = '';
-    Object.keys(MODELS).forEach(id => {
-        const m = MODELS[id];
-        models += chipSvg(id, modelPos(id), m.name, m.sub, m.logo, m.open ? 'dg-model-open' : 'dg-model-closed');
-    });
+        let nodes = '';
+        MODEL_GROUPS.forEach(g => g.ids.forEach(id => {
+            nodes += chip('model', id, LX, LM.pos[id], MODELS[id], { stripe: true, cls: g.open ? ' dg-open' : ' dg-closed' });
+        }));
+        IFACE_GROUPS.forEach(g => g.ids.forEach(id => {
+            nodes += chip('iface', id, RX, LI.pos[id], IFACES[id], { zone: IFACES[id].zone });
+        }));
 
-    let ifaces = '';
-    Object.keys(IFACES).forEach(id => {
+        svg.innerHTML = `<g class="dg-edges">${edges}${flows}</g>${heads}${nodes}`;
+        wireDiagram(svg);
+    }
+
+    /* ---------- Interaction : isoler les liens d'un nœud ---------- */
+    function describe(id, isModel) {
+        const own = [], third = [];
+        if (isModel) {
+            EDGES.forEach(([f, t, k]) => { if (f === id) (k === 'solid' ? own : third).push(IFACES[t].name); });
+            const m = MODELS[id];
+            if (!own.length && !third.length) {
+                return `<strong>${esc(m.name)}</strong> : ${esc(S('aucune interface grand public ici ; ses poids ouverts servent surtout à d’autres développeurs.', 'no consumer interface here; its open weights mostly serve other developers.'))}`;
+            }
+            let s = `<strong>${esc(m.name)}</strong> ${esc(S('alimente', 'powers'))} `;
+            const parts = [];
+            if (own.length) parts.push(`${esc(own.join(', '))} <em>(${esc(S('maison', 'in-house'))})</em>`);
+            if (third.length) parts.push(`${esc(third.join(', '))} <em>(${esc(S('en invité', 'as a guest'))})</em>`);
+            return s + parts.join(S(' et ', ' and ')) + '.';
+        }
+        EDGES.forEach(([f, t, k]) => { if (t === id) (k === 'solid' ? own : third).push(MODELS[f].name); });
         const i = IFACES[id];
-        ifaces += chipSvg(id, ifacePos(id), i.name, i.sub, i.logo, 'dg-iface');
-    });
+        const parts = [];
+        if (own.length) parts.push(`${esc(own.join(', '))} <em>(${esc(S('maison', 'in-house'))})</em>`);
+        if (third.length) parts.push(`${esc(third.join(', '))} <em>(${esc(S('tiers', 'third-party'))})</em>`);
+        if (OPEN_FLOWS.includes(id)) parts.push(`${esc(S('les modèles à poids ouverts de votre choix', 'the open-weight models of your choice'))}`);
+        return `<strong>${esc(i.name)}</strong> ${esc(S('utilise', 'uses'))} ${parts.join(S(' et ', ' and '))}.`;
+    }
 
-    let groups = '';
-    Object.keys(GROUPS).forEach(g => {
-        const G = GROUPS[g];
-        const count = Object.values(IFACES).filter(i => i.group === g).length;
-        const h = (count - 1) * I_CHIP.dy + I_CHIP.h + 70;
-        groups += `
-  <rect class="dg-group-rect" x="${G.x - 7}" y="446" width="264" height="${h}" rx="12"/>
-  <text class="dg-group-title" x="${G.x}" y="470">${esc(G.title)}</text>
-  <text class="dg-group-sub" x="${G.x}" y="486">${esc(G.sub)}</text>`;
-    });
+    function wireDiagram(svg) {
+        const readout = document.getElementById('dg-readout');
+        const hint = readout ? readout.innerHTML : '';
+        const nodes = svg.querySelectorAll('.dg-node');
+        const paths = svg.querySelectorAll('.dg-e');
+        const openIds = MODEL_GROUPS[1].ids;
+        let pinned = null;
 
-    document.getElementById('ia-diagram').innerHTML = `
-  <defs>
-    <marker id="dg-arr-solid" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#E0C068"/>
-    </marker>
-    <marker id="dg-arr-dashed" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(224,192,104,.7)"/>
-    </marker>
-    <marker id="dg-arr-cluster" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="rgba(240,240,240,.45)"/>
-    </marker>
-  </defs>
+        function show(id) {
+            if (!id) {
+                svg.classList.remove('is-focus');
+                nodes.forEach(n => n.classList.remove('is-on'));
+                paths.forEach(p => p.classList.remove('is-on'));
+                if (readout) readout.innerHTML = hint;
+                return;
+            }
+            const isModel = !!MODELS[id];
+            const linked = new Set([id]);
+            paths.forEach(p => {
+                const f = p.dataset.from, t = p.dataset.to;
+                let on = f === id || t === id;
+                if (f === '@open' && isModel && openIds.includes(id)) on = true;
+                p.classList.toggle('is-on', on);
+                if (on) {
+                    if (f === '@open') { if (!isModel) openIds.forEach(o => linked.add(o)); }
+                    else linked.add(f);
+                    linked.add(t);
+                }
+            });
+            svg.classList.add('is-focus');
+            nodes.forEach(n => n.classList.toggle('is-on', linked.has(n.dataset.id)));
+            if (readout) readout.innerHTML = describe(id, isModel);
+        }
 
-  <text class="dg-band-title" x="40" y="30">${S('COUCHE 1 · LES MODÈLES — ce qui « pense »', 'LAYER 1 · THE MODELS — the thinking part')}</text>
+        nodes.forEach(n => {
+            const id = n.dataset.id;
+            n.addEventListener('mouseenter', () => { if (!pinned) show(id); });
+            n.addEventListener('mouseleave', () => { if (!pinned) show(null); });
+            n.addEventListener('focus', () => show(id));
+            n.addEventListener('blur', () => { if (!pinned) show(null); });
+            n.addEventListener('click', (e) => {
+                e.stopPropagation();
+                pinned = pinned === id ? null : id;
+                show(pinned);
+            });
+            n.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); n.dispatchEvent(new MouseEvent('click')); }
+                if (e.key === 'Escape') { pinned = null; show(null); n.blur(); }
+            });
+        });
+        svg.addEventListener('click', () => { pinned = null; show(null); });
+    }
 
-  <rect class="dg-cluster dg-cluster-open" x="${OPEN_CLUSTER.x}" y="${OPEN_CLUSTER.y}" width="${OPEN_CLUSTER.w}" height="${OPEN_CLUSTER.h}" rx="14"/>
-  <text class="dg-cluster-title dg-cluster-title-open" x="${OPEN_CLUSTER.x + 20}" y="${OPEN_CLUSTER.y + 28}">${S('POIDS OUVERTS', 'OPEN WEIGHTS')}</text>
-  <text class="dg-cluster-sub" x="${OPEN_CLUSTER.x + 20}" y="${OPEN_CLUSTER.y + 44}">${S('téléchargeables, utilisables par d\u2019autres interfaces', 'downloadable, usable by other interfaces')}</text>
+    /* ---------- Annuaire : filtre « où partent vos données » ---------- */
+    function wireFilter() {
+        const chips = document.querySelectorAll('.im-filter .im-chip');
+        const cards = document.querySelectorAll('.im-card');
+        const groups = document.querySelectorAll('.im-group');
+        chips.forEach(c => c.addEventListener('click', () => {
+            const z = c.dataset.zone;
+            chips.forEach(o => o.setAttribute('aria-pressed', String(o === c)));
+            cards.forEach(card => { card.hidden = z !== 'all' && card.dataset.zone !== z; });
+            groups.forEach(g => { g.hidden = !g.querySelector('.im-card:not([hidden])'); });
+        }));
+    }
 
-  <rect class="dg-cluster dg-cluster-closed" x="${CLOSED_CLUSTER.x}" y="${CLOSED_CLUSTER.y}" width="${CLOSED_CLUSTER.w}" height="${CLOSED_CLUSTER.h}" rx="14"/>
-  <text class="dg-cluster-title dg-cluster-title-closed" x="${CLOSED_CLUSTER.x + 20}" y="${CLOSED_CLUSTER.y + 28}">${S('POIDS FERMÉS', 'CLOSED WEIGHTS')}</text>
-  <text class="dg-cluster-sub" x="${CLOSED_CLUSTER.x + 20}" y="${CLOSED_CLUSTER.y + 44}">${S('non téléchargeables, chez l\u2019éditeur', 'not downloadable, on the vendor side')}</text>
 
-  <text class="dg-band-title" x="40" y="426">${S('COUCHE 2 · LES INTERFACES — ce que l\u2019utilisateur voit', 'LAYER 2 · THE INTERFACES — what the user sees')}</text>
-${edges}
-${groups}
-${models}
-${ifaces}`;
-}
-
-document.addEventListener('DOMContentLoaded', buildDiagram);
+    function init() { buildDiagram(); wireFilter(); }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+    else init();
+})();

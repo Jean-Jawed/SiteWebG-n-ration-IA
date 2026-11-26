@@ -5,20 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
-    <title>AI &amp; Models: the major AIs and what's behind them — Génération-IA</title>
+    <title>AI &amp; Models: the major AIs and what&#x27;s behind them — Génération-IA</title>
     <meta name="description"
-        content="All the major AI interfaces (ChatGPT, Claude, Gemini, Mistral, DeepSeek…) and a clear diagram of the link between model, interface and data: whoever runs the model decides where your conversations go.">
+        content="The major AI interfaces (ChatGPT, Claude, Gemini, Le Chat, DeepSeek…), the open or closed models that power them, and where your data goes: a clear guide, as of November 2026.">
     <link rel="canonical" href="https://xn--gnration-ia-bbbb.fr/en/ia-modeles.html">
     <link rel="alternate" hreflang="fr" href="https://xn--gnration-ia-bbbb.fr/ia-modeles.html">
     <link rel="alternate" hreflang="en" href="https://xn--gnration-ia-bbbb.fr/en/ia-modeles.html">
     <link rel="alternate" hreflang="x-default" href="https://xn--gnration-ia-bbbb.fr/ia-modeles.html">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
     <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="../ia-modeles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap"
         rel="stylesheet">
     <script>
         window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -27,326 +28,452 @@
 </head>
 
 <body>
-    <!-- Background animation -->
+    <!-- Animation de fond (masquée par la feuille claire de la page) -->
     <div id="particles-js"></div>
 
-    <!-- Header -->
     <site-header></site-header>
 
-    <main>
-        <section class="page-hero">
+    <main class="im-page">
+        <header class="im-hero">
             <div class="container">
-                <h1>AI <span class="highlight">&amp;</span> MODELS</h1>
-                <p class="subtitle">All the AI interfaces — and what really sits behind them</p>
+                <p class="im-kicker">Guide · November 2026 edition</p>
+                <h1>AIs <span>and their models</span></h1>
+                <p class="im-dek">ChatGPT, Le Chat or Perplexity are not “AIs” in the strict sense: they are <strong>interfaces</strong>. Behind each one runs a model, sometimes someone else's. And it is the model, not the interface, that decides <strong>where your data goes</strong>.</p>
+                <div class="im-kpis"><div class="im-kpi"><span class="im-kpi-n">19</span><span class="im-kpi-l">interfaces covered</span></div><div class="im-kpi"><span class="im-kpi-n">16</span><span class="im-kpi-l">model families</span></div><div class="im-kpi"><span class="im-kpi-n">9</span><span class="im-kpi-l">with open weights</span></div><div class="im-kpi"><span class="im-kpi-n">4</span><span class="im-kpi-l">routes for your data</span></div></div>
+                <div class="im-strip" aria-hidden="true"><img class="im-logo" src="../images/carte/logos/openai.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><img class="im-logo" src="../images/carte/logos/anthropic.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><img class="im-logo" src="../images/modeles/gemini.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><img class="im-logo" src="../images/carte/logos/mistral.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><img class="im-logo" src="../images/carte/logos/deepseek.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><img class="im-logo" src="../images/modeles/kimi.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><img class="im-logo" src="../images/modeles/qwen.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><img class="im-logo" src="../images/modeles/grok.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><img class="im-logo" src="../images/modeles/pi.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><img class="im-logo" src="../images/carte/logos/meta.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><img class="im-logo" src="../images/modeles/copilot.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><img class="im-logo" src="../images/modeles/alexa.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><img class="im-logo" src="../images/modeles/alice.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><img class="im-logo" src="../images/modeles/perplexity.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><img class="im-logo" src="../images/modeles/venice.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><img class="im-logo" src="../images/modeles/poe.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><img class="im-logo" src="../images/modeles/yiaho.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><img class="im-logo" src="../images/modeles/komo.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><img class="im-logo" src="../images/modeles/ollama.webp" alt="" width="96" height="96" loading="lazy" decoding="async"></div>
+            </div>
+        </header>
+
+        <section class="im-block im-dir" id="annuaire" aria-labelledby="im-h-1">
+            <div class="container">
+                <p class="im-section-kicker">01 · The directory</p>
+                <div class="im-head">
+                    <div>
+                        <h2 id="im-h-1">The main interfaces</h2>
+                        <p class="im-lead">Sorted by how they work. Each entry shows the publisher, the engine running behind it and where your conversations end up.</p>
+                        <p class="im-englegend"><span class="im-eng im-eng-o"><i aria-hidden="true"></i>open model</span><span class="im-eng im-eng-f"><i aria-hidden="true"></i>closed model</span><span class="im-eng im-eng-t"><i aria-hidden="true"></i>third-party model</span></p>
+                    </div>
+                    <div class="im-filter" role="group" aria-label="Where does your data go?">
+                        <span class="im-filter-label">Where does your data go?</span>
+                        <button type="button" class="im-chip" data-zone="all" aria-pressed="true">All</button><button type="button" class="im-chip" data-zone="us" aria-pressed="false"><span class="im-flag fi fi-us" aria-hidden="true"></span>United States</button><button type="button" class="im-chip" data-zone="cn" aria-pressed="false"><span class="im-flag fi fi-cn" aria-hidden="true"></span>China</button><button type="button" class="im-chip" data-zone="eu" aria-pressed="false"><span class="im-flag fi fi-eu" aria-hidden="true"></span>Europe</button><button type="button" class="im-chip" data-zone="ru" aria-pressed="false"><span class="im-flag fi fi-ru" aria-hidden="true"></span>Russia</button><button type="button" class="im-chip" data-zone="dec" aria-pressed="false"><i class="fa-solid fa-circle-nodes" aria-hidden="true"></i>Decentralized</button><button type="button" class="im-chip" data-zone="home" aria-pressed="false"><i class="fa-solid fa-house-laptop" aria-hidden="true"></i>On your device</button>
+                    </div>
+                </div>
+                <div class="im-group" data-type="V">
+                    <div class="im-group-head"><h3>Vertical</h3><span class="im-group-n">9</span><p>The publisher builds both the model and the interface.</p></div>
+                    <div class="im-cards">
+                        <article class="im-card" data-zone="us" id="if-chatgpt">
+                            <div class="im-card-top">
+                                <img class="im-logo im-logo-lg" src="../images/carte/logos/openai.webp" alt="ChatGPT" width="96" height="96" loading="lazy" decoding="async">
+                                <div class="im-card-id">
+                                    <h4><a href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT</a></h4>
+                                    <p class="im-org"><span class="im-flag fi fi-us" aria-hidden="true"></span>OpenAI</p>
+                                </div>
+                                <span class="im-year">since 2022</span>
+                            </div>
+                            <p class="im-desc">OpenAI&#x27;s assistant, built on the GPT models. The most widely used in the world.</p>
+                            <dl class="im-facts">
+                                <div><dt>Engine</dt><dd><ul class="im-engs"><li class="im-eng im-eng-f" title="closed model"><i aria-hidden="true"></i>GPT<span class="sr-only"> (closed model)</span></li></ul></dd></div>
+                                <div><dt>Your data</dt><dd class="im-data"><span class="im-flag fi fi-us" aria-hidden="true"></span>OpenAI cloud, United States</dd></div>
+                            </dl>
+                            <p class="im-visit">chatgpt.com <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+                        </article>
+                        <article class="im-card" data-zone="us" id="if-claude">
+                            <div class="im-card-top">
+                                <img class="im-logo im-logo-lg" src="../images/carte/logos/anthropic.webp" alt="Claude" width="96" height="96" loading="lazy" decoding="async">
+                                <div class="im-card-id">
+                                    <h4><a href="https://claude.ai" target="_blank" rel="noopener">Claude</a></h4>
+                                    <p class="im-org"><span class="im-flag fi fi-us" aria-hidden="true"></span>Anthropic</p>
+                                </div>
+                                <span class="im-year">since 2023</span>
+                            </div>
+                            <p class="im-desc">Anthropic&#x27;s assistant, known for writing, long-document analysis and code.</p>
+                            <dl class="im-facts">
+                                <div><dt>Engine</dt><dd><ul class="im-engs"><li class="im-eng im-eng-f" title="closed model"><i aria-hidden="true"></i>Claude<span class="sr-only"> (closed model)</span></li></ul></dd></div>
+                                <div><dt>Your data</dt><dd class="im-data"><span class="im-flag fi fi-us" aria-hidden="true"></span>Anthropic cloud, United States</dd></div>
+                            </dl>
+                            <p class="im-visit">claude.ai <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+                        </article>
+                        <article class="im-card" data-zone="us" id="if-gemini">
+                            <div class="im-card-top">
+                                <img class="im-logo im-logo-lg" src="../images/modeles/gemini.webp" alt="Gemini" width="96" height="96" loading="lazy" decoding="async">
+                                <div class="im-card-id">
+                                    <h4><a href="https://gemini.google.com" target="_blank" rel="noopener">Gemini</a></h4>
+                                    <p class="im-org"><span class="im-flag fi fi-us" aria-hidden="true"></span>Google</p>
+                                </div>
+                                <span class="im-year">since 2023</span>
+                            </div>
+                            <p class="im-desc">Google&#x27;s assistant, multimodal from the ground up and built into the Google ecosystem.</p>
+                            <dl class="im-facts">
+                                <div><dt>Engine</dt><dd><ul class="im-engs"><li class="im-eng im-eng-f" title="closed model"><i aria-hidden="true"></i>Gemini<span class="sr-only"> (closed model)</span></li></ul></dd></div>
+                                <div><dt>Your data</dt><dd class="im-data"><span class="im-flag fi fi-us" aria-hidden="true"></span>Google cloud, United States</dd></div>
+                            </dl>
+                            <p class="im-visit">gemini.google.com <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+                        </article>
+                        <article class="im-card" data-zone="eu" id="if-lechat">
+                            <div class="im-card-top">
+                                <img class="im-logo im-logo-lg" src="../images/carte/logos/mistral.webp" alt="Le Chat" width="96" height="96" loading="lazy" decoding="async">
+                                <div class="im-card-id">
+                                    <h4><a href="https://chat.mistral.ai/chat" target="_blank" rel="noopener">Le Chat</a></h4>
+                                    <p class="im-org"><span class="im-flag fi fi-fr" aria-hidden="true"></span>Mistral AI</p>
+                                </div>
+                                <span class="im-year">since 2024</span>
+                            </div>
+                            <p class="im-desc">Le Chat, the assistant from Mistral AI, a French start-up founded in 2023. Some of its models are open.</p>
+                            <dl class="im-facts">
+                                <div><dt>Engine</dt><dd><ul class="im-engs"><li class="im-eng im-eng-o" title="open model"><i aria-hidden="true"></i>Mistral<span class="sr-only"> (open model)</span></li><li class="im-eng im-eng-t" title="third-party model"><i aria-hidden="true"></i>GLM<span class="sr-only"> (third-party model)</span></li></ul></dd></div>
+                                <div><dt>Your data</dt><dd class="im-data"><span class="im-flag fi fi-eu" aria-hidden="true"></span>Mistral cloud, European Union</dd></div>
+                            </dl>
+                            <p class="im-visit">chat.mistral.ai <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+                        </article>
+                        <article class="im-card" data-zone="cn" id="if-deepseek">
+                            <div class="im-card-top">
+                                <img class="im-logo im-logo-lg" src="../images/carte/logos/deepseek.webp" alt="DeepSeek" width="96" height="96" loading="lazy" decoding="async">
+                                <div class="im-card-id">
+                                    <h4><a href="https://www.deepseek.com/en" target="_blank" rel="noopener">DeepSeek</a></h4>
+                                    <p class="im-org"><span class="im-flag fi fi-cn" aria-hidden="true"></span>DeepSeek</p>
+                                </div>
+                                <span class="im-year">since 2023</span>
+                            </div>
+                            <p class="im-desc">Chinese lab known for its open models, trained at low cost and strong at reasoning and code.</p>
+                            <dl class="im-facts">
+                                <div><dt>Engine</dt><dd><ul class="im-engs"><li class="im-eng im-eng-o" title="open model"><i aria-hidden="true"></i>DeepSeek V4<span class="sr-only"> (open model)</span></li></ul></dd></div>
+                                <div><dt>Your data</dt><dd class="im-data"><span class="im-flag fi fi-cn" aria-hidden="true"></span>Servers in China</dd></div>
+                            </dl>
+                            <p class="im-visit">deepseek.com <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+                        </article>
+                        <article class="im-card" data-zone="cn" id="if-kimi">
+                            <div class="im-card-top">
+                                <img class="im-logo im-logo-lg" src="../images/modeles/kimi.webp" alt="Kimi" width="96" height="96" loading="lazy" decoding="async">
+                                <div class="im-card-id">
+                                    <h4><a href="https://www.kimi.com" target="_blank" rel="noopener">Kimi</a></h4>
+                                    <p class="im-org"><span class="im-flag fi fi-cn" aria-hidden="true"></span>Moonshot AI</p>
+                                </div>
+                                <span class="im-year">since 2023</span>
+                            </div>
+                            <p class="im-desc">The assistant from Moonshot AI (China), known for long contexts and its open K2 models.</p>
+                            <dl class="im-facts">
+                                <div><dt>Engine</dt><dd><ul class="im-engs"><li class="im-eng im-eng-o" title="open model"><i aria-hidden="true"></i>Kimi K3<span class="sr-only"> (open model)</span></li></ul></dd></div>
+                                <div><dt>Your data</dt><dd class="im-data"><span class="im-flag fi fi-cn" aria-hidden="true"></span>Servers in China</dd></div>
+                            </dl>
+                            <p class="im-visit">kimi.com <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+                        </article>
+                        <article class="im-card" data-zone="cn" id="if-qwen">
+                            <div class="im-card-top">
+                                <img class="im-logo im-logo-lg" src="../images/modeles/qwen.webp" alt="Qwen" width="96" height="96" loading="lazy" decoding="async">
+                                <div class="im-card-id">
+                                    <h4><a href="https://chat.qwen.ai/" target="_blank" rel="noopener">Qwen</a></h4>
+                                    <p class="im-org"><span class="im-flag fi fi-cn" aria-hidden="true"></span>Alibaba</p>
+                                </div>
+                                <span class="im-year">since 2023</span>
+                            </div>
+                            <p class="im-desc">Alibaba&#x27;s assistant and model family, many of which are released openly.</p>
+                            <dl class="im-facts">
+                                <div><dt>Engine</dt><dd><ul class="im-engs"><li class="im-eng im-eng-o" title="open model"><i aria-hidden="true"></i>Qwen<span class="sr-only"> (open model)</span></li><li class="im-eng im-eng-f" title="closed model"><i aria-hidden="true"></i>Qwen3-Max<span class="sr-only"> (closed model)</span></li></ul></dd></div>
+                                <div><dt>Your data</dt><dd class="im-data"><span class="im-flag fi fi-cn" aria-hidden="true"></span>Servers in China</dd></div>
+                            </dl>
+                            <p class="im-visit">chat.qwen.ai <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+                        </article>
+                        <article class="im-card" data-zone="us" id="if-grok">
+                            <div class="im-card-top">
+                                <img class="im-logo im-logo-lg" src="../images/modeles/grok.webp" alt="Grok" width="96" height="96" loading="lazy" decoding="async">
+                                <div class="im-card-id">
+                                    <h4><a href="https://grok.com/" target="_blank" rel="noopener">Grok</a></h4>
+                                    <p class="im-org"><span class="im-flag fi fi-us" aria-hidden="true"></span>xAI</p>
+                                </div>
+                                <span class="im-year">since 2023</span>
+                            </div>
+                            <p class="im-desc">The assistant from xAI, Elon Musk&#x27;s company, built into the X social network.</p>
+                            <dl class="im-facts">
+                                <div><dt>Engine</dt><dd><ul class="im-engs"><li class="im-eng im-eng-f" title="closed model"><i aria-hidden="true"></i>Grok<span class="sr-only"> (closed model)</span></li></ul></dd></div>
+                                <div><dt>Your data</dt><dd class="im-data"><span class="im-flag fi fi-us" aria-hidden="true"></span>xAI cloud, United States</dd></div>
+                            </dl>
+                            <p class="im-visit">grok.com <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+                        </article>
+                        <article class="im-card" data-zone="us" id="if-pi">
+                            <div class="im-card-top">
+                                <img class="im-logo im-logo-lg" src="../images/modeles/pi.webp" alt="Pi" width="96" height="96" loading="lazy" decoding="async">
+                                <div class="im-card-id">
+                                    <h4><a href="https://pi.ai/" target="_blank" rel="noopener">Pi</a></h4>
+                                    <p class="im-org"><span class="im-flag fi fi-us" aria-hidden="true"></span>Inflection AI</p>
+                                </div>
+                                <span class="im-year">since 2023</span>
+                            </div>
+                            <p class="im-desc">Inflection AI&#x27;s assistant, designed for supportive, everyday conversation.</p>
+                            <dl class="im-facts">
+                                <div><dt>Engine</dt><dd><ul class="im-engs"><li class="im-eng im-eng-f" title="closed model"><i aria-hidden="true"></i>Inflection<span class="sr-only"> (closed model)</span></li></ul></dd></div>
+                                <div><dt>Your data</dt><dd class="im-data"><span class="im-flag fi fi-us" aria-hidden="true"></span>Inflection cloud, United States</dd></div>
+                            </dl>
+                            <p class="im-visit">pi.ai <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+                        </article>
+                    </div>
+                </div>
+                <div class="im-group" data-type="E">
+                    <div class="im-group-head"><h3>Ecosystems</h3><span class="im-group-n">4</span><p>AI grafted onto a platform that already has its users.</p></div>
+                    <div class="im-cards">
+                        <article class="im-card" data-zone="us" id="if-metaai">
+                            <div class="im-card-top">
+                                <img class="im-logo im-logo-lg" src="../images/carte/logos/meta.webp" alt="Meta AI" width="96" height="96" loading="lazy" decoding="async">
+                                <div class="im-card-id">
+                                    <h4><a href="https://www.meta.ai/" target="_blank" rel="noopener">Meta AI</a></h4>
+                                    <p class="im-org"><span class="im-flag fi fi-us" aria-hidden="true"></span>Meta</p>
+                                </div>
+                                <span class="im-year">since 2023</span>
+                            </div>
+                            <p class="im-desc">Meta&#x27;s assistant, built into WhatsApp, Instagram and Facebook. Based on Llama, then Muse Spark.</p>
+                            <dl class="im-facts">
+                                <div><dt>Engine</dt><dd><ul class="im-engs"><li class="im-eng im-eng-o" title="open model"><i aria-hidden="true"></i>Llama<span class="sr-only"> (open model)</span></li><li class="im-eng im-eng-f" title="closed model"><i aria-hidden="true"></i>Muse Spark<span class="sr-only"> (closed model)</span></li></ul></dd></div>
+                                <div><dt>Your data</dt><dd class="im-data"><span class="im-flag fi fi-us" aria-hidden="true"></span>Meta cloud, United States</dd></div>
+                            </dl>
+                            <p class="im-visit">meta.ai <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+                        </article>
+                        <article class="im-card" data-zone="us" id="if-copilot">
+                            <div class="im-card-top">
+                                <img class="im-logo im-logo-lg" src="../images/modeles/copilot.webp" alt="Microsoft Copilot" width="96" height="96" loading="lazy" decoding="async">
+                                <div class="im-card-id">
+                                    <h4><a href="https://copilot.microsoft.com/" target="_blank" rel="noopener">Microsoft Copilot</a></h4>
+                                    <p class="im-org"><span class="im-flag fi fi-us" aria-hidden="true"></span>Microsoft</p>
+                                </div>
+                                <span class="im-year">since 2023</span>
+                            </div>
+                            <p class="im-desc">Microsoft&#x27;s assistant, built on OpenAI models and integrated into Windows, Edge and Microsoft 365.</p>
+                            <dl class="im-facts">
+                                <div><dt>Engine</dt><dd><ul class="im-engs"><li class="im-eng im-eng-t" title="third-party model"><i aria-hidden="true"></i>GPT<span class="sr-only"> (third-party model)</span></li><li class="im-eng im-eng-t" title="third-party model"><i aria-hidden="true"></i>Claude<span class="sr-only"> (third-party model)</span></li><li class="im-eng im-eng-t" title="third-party model"><i aria-hidden="true"></i>Grok<span class="sr-only"> (third-party model)</span></li><li class="im-eng im-eng-f" title="closed model"><i aria-hidden="true"></i>MAI<span class="sr-only"> (closed model)</span></li></ul></dd></div>
+                                <div><dt>Your data</dt><dd class="im-data"><span class="im-flag fi fi-us" aria-hidden="true"></span>Microsoft cloud, plus third-party vendors</dd></div>
+                            </dl>
+                            <p class="im-visit">copilot.microsoft.com <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+                        </article>
+                        <article class="im-card" data-zone="us" id="if-alexa">
+                            <div class="im-card-top">
+                                <img class="im-logo im-logo-lg" src="../images/modeles/alexa.webp" alt="Alexa+" width="96" height="96" loading="lazy" decoding="async">
+                                <div class="im-card-id">
+                                    <h4><a href="https://www.amazon.com/alexa" target="_blank" rel="noopener">Alexa+</a></h4>
+                                    <p class="im-org"><span class="im-flag fi fi-us" aria-hidden="true"></span>Amazon</p>
+                                </div>
+                                <span class="im-year">since 2025</span>
+                            </div>
+                            <p class="im-desc">Amazon&#x27;s new Alexa: a router that picks between Nova, Claude and Mistral depending on the task and the language.</p>
+                            <dl class="im-facts">
+                                <div><dt>Engine</dt><dd><ul class="im-engs"><li class="im-eng im-eng-o" title="open model"><i aria-hidden="true"></i>Nova<span class="sr-only"> (open model)</span></li><li class="im-eng im-eng-t" title="third-party model"><i aria-hidden="true"></i>Claude<span class="sr-only"> (third-party model)</span></li><li class="im-eng im-eng-t" title="third-party model"><i aria-hidden="true"></i>Mistral<span class="sr-only"> (third-party model)</span></li></ul></dd></div>
+                                <div><dt>Your data</dt><dd class="im-data"><span class="im-flag fi fi-us" aria-hidden="true"></span>AWS (Mistral for French)</dd></div>
+                            </dl>
+                            <p class="im-visit">amazon.com <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+                        </article>
+                        <article class="im-card" data-zone="ru" id="if-alice">
+                            <div class="im-card-top">
+                                <img class="im-logo im-logo-lg" src="../images/modeles/alice.webp" alt="Alice" width="96" height="96" loading="lazy" decoding="async">
+                                <div class="im-card-id">
+                                    <h4><a href="https://alice.yandex.ru/" target="_blank" rel="noopener">Alice</a></h4>
+                                    <p class="im-org"><span class="im-flag fi fi-ru" aria-hidden="true"></span>Yandex</p>
+                                </div>
+                                <span class="im-year">since 2017</span>
+                            </div>
+                            <p class="im-desc">Yandex&#x27;s assistant, present in search, the browser, the cloud and smart speakers. A 100% in-house model.</p>
+                            <dl class="im-facts">
+                                <div><dt>Engine</dt><dd><ul class="im-engs"><li class="im-eng im-eng-f" title="closed model"><i aria-hidden="true"></i>YandexGPT<span class="sr-only"> (closed model)</span></li></ul></dd></div>
+                                <div><dt>Your data</dt><dd class="im-data"><span class="im-flag fi fi-ru" aria-hidden="true"></span>Servers in Russia</dd></div>
+                            </dl>
+                            <p class="im-visit">alice.yandex.ru <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+                        </article>
+                    </div>
+                </div>
+                <div class="im-group" data-type="A">
+                    <div class="im-group-head"><h3>Aggregators</h3><span class="im-group-n">5</span><p>One interface, other people's models.</p></div>
+                    <div class="im-cards">
+                        <article class="im-card" data-zone="us" id="if-perplexity">
+                            <div class="im-card-top">
+                                <img class="im-logo im-logo-lg" src="../images/modeles/perplexity.webp" alt="Perplexity" width="96" height="96" loading="lazy" decoding="async">
+                                <div class="im-card-id">
+                                    <h4><a href="https://www.perplexity.ai" target="_blank" rel="noopener">Perplexity</a></h4>
+                                    <p class="im-org"><span class="im-flag fi fi-us" aria-hidden="true"></span>Perplexity AI</p>
+                                </div>
+                                <span class="im-year">since 2022</span>
+                            </div>
+                            <p class="im-desc">Answer engine: it searches the web, summarises and cites its sources, using several models.</p>
+                            <dl class="im-facts">
+                                <div><dt>Engine</dt><dd><ul class="im-engs"><li class="im-eng im-eng-o" title="open model"><i aria-hidden="true"></i>Sonar<span class="sr-only"> (open model)</span></li><li class="im-eng im-eng-t" title="third-party model"><i aria-hidden="true"></i>GPT<span class="sr-only"> (third-party model)</span></li><li class="im-eng im-eng-t" title="third-party model"><i aria-hidden="true"></i>Claude<span class="sr-only"> (third-party model)</span></li><li class="im-eng im-eng-t" title="third-party model"><i aria-hidden="true"></i>Gemini<span class="sr-only"> (third-party model)</span></li><li class="im-eng im-eng-t" title="third-party model"><i aria-hidden="true"></i>Grok<span class="sr-only"> (third-party model)</span></li><li class="im-eng im-eng-t" title="third-party model"><i aria-hidden="true"></i>Kimi<span class="sr-only"> (third-party model)</span></li></ul></dd></div>
+                                <div><dt>Your data</dt><dd class="im-data"><span class="im-flag fi fi-us" aria-hidden="true"></span>Perplexity cloud, plus the chosen model’s vendor</dd></div>
+                            </dl>
+                            <p class="im-visit">perplexity.ai <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+                        </article>
+                        <article class="im-card" data-zone="dec" id="if-venice">
+                            <div class="im-card-top">
+                                <img class="im-logo im-logo-lg" src="../images/modeles/venice.webp" alt="Venice" width="96" height="96" loading="lazy" decoding="async">
+                                <div class="im-card-id">
+                                    <h4><a href="https://venice.ai/" target="_blank" rel="noopener">Venice</a></h4>
+                                    <p class="im-org"><span class="im-flag fi fi-us" aria-hidden="true"></span>Venice.ai</p>
+                                </div>
+                                <span class="im-year">since 2024</span>
+                            </div>
+                            <p class="im-desc">Privacy-focused aggregator: open models, conversations kept in the browser, minimal filtering.</p>
+                            <dl class="im-facts">
+                                <div><dt>Engine</dt><dd><ul class="im-engs"><li class="im-eng im-eng-o" title="open model"><i aria-hidden="true"></i>open models<span class="sr-only"> (open model)</span></li></ul></dd></div>
+                                <div><dt>Your data</dt><dd class="im-data"><i class="fa-solid fa-circle-nodes" aria-hidden="true"></i>Decentralized GPUs, zero retention</dd></div>
+                            </dl>
+                            <p class="im-visit">venice.ai <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+                        </article>
+                        <article class="im-card" data-zone="us" id="if-poe">
+                            <div class="im-card-top">
+                                <img class="im-logo im-logo-lg" src="../images/modeles/poe.webp" alt="Poe" width="96" height="96" loading="lazy" decoding="async">
+                                <div class="im-card-id">
+                                    <h4><a href="https://poe.com/" target="_blank" rel="noopener">Poe</a></h4>
+                                    <p class="im-org"><span class="im-flag fi fi-us" aria-hidden="true"></span>Quora</p>
+                                </div>
+                                <span class="im-year">since 2022</span>
+                            </div>
+                            <p class="im-desc">Quora&#x27;s platform bringing many models and custom bots together under one subscription.</p>
+                            <dl class="im-facts">
+                                <div><dt>Engine</dt><dd><ul class="im-engs"><li class="im-eng im-eng-t" title="third-party model"><i aria-hidden="true"></i>GPT<span class="sr-only"> (third-party model)</span></li><li class="im-eng im-eng-t" title="third-party model"><i aria-hidden="true"></i>Claude<span class="sr-only"> (third-party model)</span></li><li class="im-eng im-eng-t" title="third-party model"><i aria-hidden="true"></i>Gemini<span class="sr-only"> (third-party model)</span></li><li class="im-eng im-eng-t" title="third-party model"><i aria-hidden="true"></i>Llama…<span class="sr-only"> (third-party model)</span></li></ul></dd></div>
+                                <div><dt>Your data</dt><dd class="im-data"><span class="im-flag fi fi-us" aria-hidden="true"></span>Poe, plus the chosen model’s vendor</dd></div>
+                            </dl>
+                            <p class="im-visit">poe.com <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+                        </article>
+                        <article class="im-card" data-zone="other" id="if-yiaho">
+                            <div class="im-card-top">
+                                <img class="im-logo im-logo-lg" src="../images/modeles/yiaho.webp" alt="Yiaho" width="96" height="96" loading="lazy" decoding="async">
+                                <div class="im-card-id">
+                                    <h4><a href="https://www.yiaho.com/" target="_blank" rel="noopener">Yiaho</a></h4>
+                                    <p class="im-org"><span class="im-flag fi fi-fr" aria-hidden="true"></span>Yiaho</p>
+                                </div>
+                                
+                            </div>
+                            <p class="im-desc">French website offering free access to several AI models from a single interface.</p>
+                            <dl class="im-facts">
+                                <div><dt>Engine</dt><dd><ul class="im-engs"><li class="im-eng im-eng-t" title="third-party model"><i aria-hidden="true"></i>third-party models<span class="sr-only"> (third-party model)</span></li></ul></dd></div>
+                                <div><dt>Your data</dt><dd class="im-data"><i class="fa-solid fa-shuffle" aria-hidden="true"></i>Yiaho, plus the model’s vendor</dd></div>
+                            </dl>
+                            <p class="im-visit">yiaho.com <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+                        </article>
+                        <article class="im-card" data-zone="other" id="if-komo">
+                            <div class="im-card-top">
+                                <img class="im-logo im-logo-lg" src="../images/modeles/komo.webp" alt="Komo" width="96" height="96" loading="lazy" decoding="async">
+                                <div class="im-card-id">
+                                    <h4><a href="https://komo.ai/" target="_blank" rel="noopener">Komo</a></h4>
+                                    <p class="im-org">Komo AI</p>
+                                </div>
+                                
+                            </div>
+                            <p class="im-desc">Ad-free, AI-powered search engine for exploring a topic in depth.</p>
+                            <dl class="im-facts">
+                                <div><dt>Engine</dt><dd><ul class="im-engs"><li class="im-eng im-eng-t" title="third-party model"><i aria-hidden="true"></i>third-party models<span class="sr-only"> (third-party model)</span></li></ul></dd></div>
+                                <div><dt>Your data</dt><dd class="im-data"><i class="fa-solid fa-shuffle" aria-hidden="true"></i>Komo, plus the model’s vendor</dd></div>
+                            </dl>
+                            <p class="im-visit">komo.ai <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+                        </article>
+                    </div>
+                </div>
+                <div class="im-group" data-type="L">
+                    <div class="im-group-head"><h3>Local</h3><span class="im-group-n">1</span><p>The model runs on your machine.</p></div>
+                    <div class="im-cards">
+                        <article class="im-card" data-zone="home" id="if-ollama">
+                            <div class="im-card-top">
+                                <img class="im-logo im-logo-lg" src="../images/modeles/ollama.webp" alt="Ollama" width="96" height="96" loading="lazy" decoding="async">
+                                <div class="im-card-id">
+                                    <h4><a href="https://ollama.com/" target="_blank" rel="noopener">Ollama</a></h4>
+                                    <p class="im-org">Ollama</p>
+                                </div>
+                                <span class="im-year">since 2023</span>
+                            </div>
+                            <p class="im-desc">Free software that downloads an open model and runs it on your own computer, offline.</p>
+                            <dl class="im-facts">
+                                <div><dt>Engine</dt><dd><ul class="im-engs"><li class="im-eng im-eng-o" title="open model"><i aria-hidden="true"></i>Llama, Mistral, Qwen…<span class="sr-only"> (open model)</span></li></ul></dd></div>
+                                <div><dt>Your data</dt><dd class="im-data"><i class="fa-solid fa-house-laptop" aria-hidden="true"></i>Nothing leaves your machine</dd></div>
+                            </dl>
+                            <p class="im-visit">ollama.com <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></p>
+                        </article>
+                    </div>
+                </div>
+                <div class="im-tl">
+                    <h3>Milestones: launch year</h3>
+                    <ol style="--n:5"><li><span class="im-tl-y">2017</span><ul><li><img class="im-logo" src="../images/modeles/alice.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>Alice</span></li></ul></li><li><span class="im-tl-y">2022</span><ul><li><img class="im-logo" src="../images/carte/logos/openai.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>ChatGPT</span></li><li><img class="im-logo" src="../images/modeles/perplexity.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>Perplexity</span></li><li><img class="im-logo" src="../images/modeles/poe.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>Poe</span></li></ul></li><li><span class="im-tl-y">2023</span><ul><li><img class="im-logo" src="../images/carte/logos/anthropic.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>Claude</span></li><li><img class="im-logo" src="../images/modeles/gemini.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>Gemini</span></li><li><img class="im-logo" src="../images/carte/logos/deepseek.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>DeepSeek</span></li><li><img class="im-logo" src="../images/modeles/kimi.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>Kimi</span></li><li><img class="im-logo" src="../images/modeles/qwen.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>Qwen</span></li><li><img class="im-logo" src="../images/modeles/grok.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>Grok</span></li><li><img class="im-logo" src="../images/modeles/pi.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>Pi</span></li><li><img class="im-logo" src="../images/carte/logos/meta.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>Meta AI</span></li><li><img class="im-logo" src="../images/modeles/copilot.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>Microsoft Copilot</span></li><li><img class="im-logo" src="../images/modeles/ollama.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>Ollama</span></li></ul></li><li><span class="im-tl-y">2024</span><ul><li><img class="im-logo" src="../images/carte/logos/mistral.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>Le Chat</span></li><li><img class="im-logo" src="../images/modeles/venice.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>Venice</span></li></ul></li><li><span class="im-tl-y">2025</span><ul><li><img class="im-logo" src="../images/modeles/alexa.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>Alexa+</span></li></ul></li></ol>
+                    <p class="im-note">Gemini was first called Bard; Copilot started as Bing Chat; Alice predates generative AI and switched to YandexGPT.</p>
+                </div>
             </div>
         </section>
 
-        <!-- PART 1: the AI interfaces (former home page) -->
-        <section class="aim-grid">
+        <section class="im-block im-layers-sec" id="couches" aria-labelledby="im-h-2">
             <div class="container">
-                <h2>The main generative AIs</h2>
-                <div class="grid">
-
-                    <div class="ai-card">
-                        <img src="../images/openai_logo.png" alt="ChatGPT">
-                        <div class="ai-card-content">
-                            <h3>ChatGPT</h3>
-                            <p>Advanced language model developed by OpenAI</p>
-                            <a href="https://chat.openai.com" target="_blank" rel="noopener">Visit</a>
-                        </div>
+                <p class="im-section-kicker">02 · The three layers</p>
+                <div class="im-layers-head">
+                    <div>
+                        <h2 id="im-h-2">A model, an AI: what are we talking about?</h2>
+                        <p class="im-lead">People often confuse “an AI” with “a model”. The whole landscape fits into three stacked layers: the engine, what you see, and where your conversations go.</p>
                     </div>
-                    <div class="ai-card">
-                        <img src="../images/claude_logo.png" alt="Claude">
-                        <div class="ai-card-content">
-                            <h3>Claude</h3>
-                            <p>Conversational AI developed by Anthropic</p>
-                            <a href="https://claude.ai" target="_blank" rel="noopener">Visit</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="../images/gemini_logo.svg" alt="Gemini">
-                        <div class="ai-card-content">
-                            <h3>Gemini</h3>
-                            <p>Multimodal model developed by Google DeepMind</p>
-                            <a href="https://gemini.google.com" target="_blank" rel="noopener">Visit</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="../images/mistral_logo.png" alt="Mistral">
-                        <div class="ai-card-content">
-                            <h3>Mistral</h3>
-                            <p>French AI company founded in 2023. High-performance open-source models</p>
-                            <a href="https://chat.mistral.ai/chat" target="_blank" rel="noopener">Visit</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="../images/deepseek_logo.svg" alt="DeepSeek">
-                        <div class="ai-card-content">
-                            <h3>DeepSeek</h3>
-                            <p>High-performance Chinese model specialized in information retrieval</p>
-                            <a href="https://www.deepseek.com/en" target="_blank" rel="noopener">Visit</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="../images/meta_logo.jpg" alt="Meta AI">
-                        <div class="ai-card-content">
-                            <h3>Meta AI</h3>
-                            <p>AI running Meta's models: Llama, then Muse Spark</p>
-                            <a href="https://www.meta.ai/" target="_blank" rel="noopener">Visit</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="../images/perplexity_logo.svg" alt="Perplexity">
-                        <div class="ai-card-content">
-                            <h3>Perplexity</h3>
-                            <p>Search AI with cited sources</p>
-                            <a href="https://www.perplexity.ai" target="_blank" rel="noopener">Visit</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="../images/venice_logo.png" alt="Venice">
-                        <div class="ai-card-content">
-                            <h3>Venice</h3>
-                            <p>The free, private, secure, uncensored AI</p>
-                            <a href="https://venice.ai/" target="_blank" rel="noopener">Visit</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="../images/grok_logo.jpg" alt="Grok">
-                        <div class="ai-card-content">
-                            <h3>Grok</h3>
-                            <p>Advanced AI developed by xAI (formerly Twitter)</p>
-                            <a href="https://grok.com/" target="_blank" rel="noopener">Visit</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="../images/kimi_logo.jpg" alt="Kimi">
-                        <div class="ai-card-content">
-                            <h3>Kimi</h3>
-                            <p>Chinese conversational assistant</p>
-                            <a href="https://kimi.moonshot.cn" target="_blank" rel="noopener">Visit</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="../images/qwen_logo.svg" alt="Qwen">
-                        <div class="ai-card-content">
-                            <h3>Qwen</h3>
-                            <p>Open-source models from Alibaba Cloud</p>
-                            <a href="https://chat.qwen.ai/" target="_blank" rel="noopener">Visit</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="../images/copilot_logo.webp" alt="Copilot">
-                        <div class="ai-card-content">
-                            <h3>Microsoft Copilot</h3>
-                            <p>Microsoft's AI built on GPT models. Everywhere in the Windows ecosystem</p>
-                            <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener">Visit</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="../images/poe_logo.png" alt="Poe">
-                        <div class="ai-card-content">
-                            <h3>Poe</h3>
-                            <p>A platform giving access to various AI models and many specialized bots</p>
-                            <a href="https://poe.com/" target="_blank" rel="noopener">Visit</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="../images/yiaho_logo.jpg" alt="Yiaho">
-                        <div class="ai-card-content">
-                            <h3>Yiaho</h3>
-                            <p>The French site for free, unlimited AI</p>
-                            <a href="https://www.yiaho.com/" target="_blank" rel="noopener">Visit</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="../images/pi_logo.webp" alt="Pi">
-                        <div class="ai-card-content">
-                            <h3>Pi</h3>
-                            <p>A personal, empathetic, always-available conversational AI, built to
-                                offer support, advice and warm conversation</p>
-                            <a href="https://pi.ai/" target="_blank" rel="noopener">Visit</a>
-                        </div>
-                    </div>
-                    <div class="ai-card">
-                        <img src="../images/komo_logo.png" alt="Komo">
-                        <div class="ai-card-content">
-                            <h3>Komo</h3>
-                            <p>An ad-free AI-powered search engine built to explore topics</p>
-                            <a href="https://komo.ai/" target="_blank" rel="noopener">Visit</a>
-                        </div>
-                    </div>
+                    <figure class="im-figure">
+                        <img src="../images/illustrations/modeles-atelier.webp" alt="In a large workshop, a few big brass engines are linked by belts to many small machines used by people" loading="lazy" decoding="async" width="1024" height="572">
+                        <figcaption>A few big engines, many machines: a handful of models powers the many interfaces we use.</figcaption>
+                    </figure>
+                </div>
+                <div class="im-layers">
+                    <article class="im-layer"><span class="im-layer-n">01</span><i class="fa-solid fa-microchip" aria-hidden="true"></i><h3>The model</h3><p>It is <strong>the engine</strong>, the part that “thinks”. A giant neural network trained on massive corpora. In practice, a file of weights from a few gigabytes to several hundred. <em>Open</em>, you can download it and run it yourself; <em>closed</em>, only its publisher can run it.</p></article>
+                    <article class="im-layer"><span class="im-layer-n">02</span><i class="fa-solid fa-window-restore" aria-hidden="true"></i><h3>The interface</h3><p>It is <strong>what you see</strong>: the chat, the search bar, the voice assistant. Some companies do everything (OpenAI, Anthropic, Mistral, DeepSeek). Others only <strong>assemble</strong> an interface plugged into other people's models (Perplexity, Venice, Poe).</p></article>
+                    <article class="im-layer"><span class="im-layer-n">03</span><i class="fa-solid fa-route" aria-hidden="true"></i><h3>The data</h3><p>It is <strong>where your conversations go</strong>. The interface does not decide this: <strong>whoever runs the model</strong> does. The publisher, a third-party interface, a GPU network, or your own computer.</p></article>
                 </div>
             </div>
         </section>
 
-        <!-- PART 2: model, interface — the big diagram -->
-        <section class="schema-intro" id="schema">
+        <section class="im-block im-schema" id="schema" aria-labelledby="im-h-3">
             <div class="container">
-                <h2>A model, an AI: what are we talking about?</h2>
-                <p class="schema-lead">
-                    People often confuse "an AI" with "a model". In reality, what we commonly call
-                    an AI — ChatGPT, Le Chat, Perplexity — is an <strong>interface</strong>.
-                    Behind it runs one or several <strong>models</strong>. The diagram below shows
-                    who does what across the whole landscape.
-                </p>
-            <figure class="wide-figure">
-                <img src="../images/illustrations/modeles-atelier.webp" alt="In a large workshop, a few big brass engines are linked by belts to many small machines used by people" loading="lazy" decoding="async" width="1024" height="572">
-                <figcaption>A few big engines, many machines: a handful of models powers the many interfaces we use.</figcaption>
-            </figure>
-
-
-                <div class="concepts">
-                    <article class="concept-card">
-                        <div class="concept-icon"><i class="fa-solid fa-microchip" aria-hidden="true"></i></div>
-                        <h3>The model</h3>
-                        <p>It is <strong>the engine</strong>, the part that "thinks". A giant neural
-                            network trained on massive corpora of text and data. A model is a file
-                            of weights — from a few gigabytes to several hundred. If it is
-                            <em>open</em>, you can download it and run it yourself; if it is
-                            <em>closed</em>, only its publisher can run it.</p>
-                    </article>
-                    <article class="concept-card">
-                        <div class="concept-icon"><i class="fa-solid fa-window-restore" aria-hidden="true"></i></div>
-                        <h3>The interface</h3>
-                        <p>It is <strong>what you see</strong>: the chat, the search bar, the voice
-                            assistant. An AI in the everyday sense is almost always an interface
-                            talking to one or more models — its own, or other people's.</p>
-                    </article>
-                    <article class="concept-card">
-                        <div class="concept-icon"><i class="fa-solid fa-diagram-project" aria-hidden="true"></i></div>
-                        <h3>The link between the two</h3>
-                        <p>Some companies do everything: their model, their interface (OpenAI,
-                            Anthropic, Mistral, DeepSeek). Others only <strong>assemble</strong>:
-                            an elegant interface plugged into other people's models (Perplexity,
-                            Venice, Poe). And the same model can power several competing
-                            interfaces.</p>
-                    </article>
-                </div>
+                <p class="im-section-kicker">03 · The big diagram</p>
+                <h2 id="im-h-3">Who runs what?</h2>
+                <p class="im-lead">Model families on the left, interfaces on the right. Hover or tap a name to isolate its links. The same model often powers several competing interfaces, and some interfaces have no model of their own.</p>
+                <figure class="im-diagram">
+                    <div class="im-scroll"><svg id="ia-diagram" viewBox="0 0 960 860" role="img" aria-label="Diagram: open and closed model families linked to the interfaces that use them"></svg></div>
+                    <p class="im-scroll-hint"><i class="fa-solid fa-arrows-left-right" aria-hidden="true"></i>Swipe the diagram</p>
+                    <figcaption class="im-readout" id="dg-readout" aria-live="polite"><i class="fa-regular fa-hand-pointer" aria-hidden="true"></i>Hover or tap a model or an interface</figcaption>
+                </figure>
+                <ul class="im-dg-legend"><li><svg width="36" height="10" aria-hidden="true"><line class="dg-e dg-e-solid" x1="1" y1="5" x2="35" y2="5"/></svg>The interface’s in-house model</li><li><svg width="36" height="10" aria-hidden="true"><line class="dg-e dg-e-dashed" x1="1" y1="5" x2="35" y2="5"/></svg>Third-party model brought in</li><li><svg width="36" height="10" aria-hidden="true"><line class="dg-e dg-e-dotted" x1="1" y1="5" x2="35" y2="5"/></svg>Downloaded open weights</li><li><span class="dg-sample dg-sample-open" aria-hidden="true"></span>Open-weight model</li><li><span class="dg-sample dg-sample-closed" aria-hidden="true"></span>Closed model</li></ul>
+                <p class="im-note">State of the landscape as of 3 November 2026. Open/closed statuses change fast: they are dated.</p>
             </div>
         </section>
 
-        <section class="schema-diagram">
+        <section class="im-block im-philo" id="philosophies" aria-labelledby="im-h-4">
             <div class="container">
-                <h2>Who does what: the big diagram</h2>
-                <p class="schema-lead">
-                    Models on top, interfaces below, one arrow for every link.
-                    <strong>Solid arrows</strong>: the in-house engine. <strong>Dotted golden
-                    arrows</strong>: a third-party model brought in. Count the arrows entering
-                    Perplexity or Venice: that is what an aggregator is.
-                </p>
-
-                <div class="diagram-wrap">
-                    <svg id="ia-diagram" viewBox="0 0 1240 1000" role="img"
-                        aria-label="Diagram of the AI landscape: open and closed models at the top, four types of interfaces at the bottom, connected by arrows"></svg>
+                <p class="im-section-kicker">04 · Open or closed</p>
+                <h2 id="im-h-4">Four philosophies</h2>
+                <p class="im-lead">Few companies publish everything or nothing. The real question is <em>which part</em> of the house stays behind the door.</p>
+                <div class="im-axis" aria-hidden="true"><span>Everything published</span><span>Nothing published</span></div>
+                <div class="im-archs">
+                    <article class="im-arch im-arch-1"><span class="im-arch-n">1</span><h3>Open by principle</h3><p>Even the flagship model is published. Its weights directly power other interfaces.</p><ul class="im-arch-logos"><li><img class="im-logo" src="../images/carte/logos/deepseek.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>DeepSeek</span></li><li><img class="im-logo" src="../images/carte/logos/moonshot.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>Moonshot</span></li><li><img class="im-logo" src="../images/carte/logos/zai.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>Z.ai</span></li></ul></article>
+                    <article class="im-arch im-arch-2"><span class="im-arch-n">2</span><h3>Open core with tiers</h3><p>Open core (Apache 2.0), commercial licence above a revenue threshold.</p><ul class="im-arch-logos"><li><img class="im-logo" src="../images/carte/logos/mistral.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>Mistral AI</span></li></ul></article>
+                    <article class="im-arch im-arch-3"><span class="im-arch-n">3</span><h3>Closed at the top, open downstream</h3><p>The frontier stays closed while distribution models are opened: flood the ecosystem without giving away the flagship.</p><ul class="im-arch-logos"><li><img class="im-logo" src="../images/carte/logos/google.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>Google</span></li><li><img class="im-logo" src="../images/carte/logos/meta.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>Meta</span></li><li><img class="im-logo" src="../images/carte/logos/alibaba.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>Alibaba</span></li><li><img class="im-logo" src="../images/carte/logos/xai.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>xAI</span></li></ul></article>
+                    <article class="im-arch im-arch-4"><span class="im-arch-n">4</span><h3>Closed</h3><p>No downloadable weights today: the models only run on the publisher's servers.</p><ul class="im-arch-logos"><li><img class="im-logo" src="../images/carte/logos/openai.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>OpenAI</span></li><li><img class="im-logo" src="../images/carte/logos/anthropic.webp" alt="" width="96" height="96" loading="lazy" decoding="async"><span>Anthropic</span></li></ul></article>
                 </div>
-
-                <ul class="dg-legend">
-                    <li><span class="dg-line dg-line-solid"></span> The in-house model powers its own
-                        interface</li>
-                    <li><span class="dg-line dg-line-dashed"></span> The interface uses a third-party
-                        model</li>
-                    <li><span class="dg-line dg-line-dotted"></span> Open models, downloadable by
-                        anyone</li>
-                    <li><span class="dg-chip-sample dg-sample-open"></span> Open model (downloadable
-                        weights)</li>
-                    <li><span class="dg-chip-sample dg-sample-closed"></span> Closed model</li>
-                </ul>
-                <p class="legend-date">State of the landscape as of 3 November 2026 — open/closed
-                    statuses drift fast: they are dated.</p>
+                <p class="im-note">A model's status is a dated fact: Mistral opened its Medium, Alibaba closed its Max, xAI re-closed after Grok-1.</p>
             </div>
         </section>
 
-        <section class="schema-archetypes">
+        <section class="im-block im-data-sec" id="donnees" aria-labelledby="im-h-5">
             <div class="container">
-                <h2>Open or closed: four philosophies</h2>
-                <p class="schema-lead">Few companies publish everything or nothing. Catalogues are
-                    mixed — the real question is <em>which part</em> of the house stays behind
-                    the door.</p>
-                <div class="archetype-grid">
-                    <article class="archetype-card">
-                        <span class="arch-tag">1</span>
-                        <h3>Open by principle</h3>
-                        <p>Even the flagship model is published. Its weights directly power other
-                            interfaces.</p>
-                        <div class="arch-logos">
-                            <img src="../images/deepseek_logo.svg" alt="DeepSeek">
-                            <img src="../images/kimi_logo.jpg" alt="Moonshot">
-                            <img src="../images/zai_logo.png" alt="Z.ai">
-                        </div>
-                    </article>
-                    <article class="archetype-card">
-                        <span class="arch-tag">2</span>
-                        <h3>Open core with tiers</h3>
-                        <p>Open core (Apache 2.0), commercial tiers above a revenue threshold.</p>
-                        <div class="arch-logos">
-                            <img src="../images/mistral_logo.png" alt="Mistral AI">
-                        </div>
-                    </article>
-                    <article class="archetype-card">
-                        <span class="arch-tag">3</span>
-                        <h3>Closed at the top, open downstream</h3>
-                        <p>The frontier stays closed while distribution lines are opened — to flood
-                            the ecosystem without giving away the flagship.</p>
-                        <div class="arch-logos">
-                            <img src="../images/gemini_logo.svg" alt="Google">
-                            <img src="../images/meta_logo.jpg" alt="Meta">
-                            <img src="../images/qwen_logo.svg" alt="Alibaba">
-                            <img src="../images/grok_logo.jpg" alt="xAI">
-                        </div>
-                    </article>
-                    <article class="archetype-card">
-                        <span class="arch-tag">4</span>
-                        <h3>Closed</h3>
-                        <p>No downloadable weights today: these models only run on the publisher's
-                            servers.</p>
-                        <div class="arch-logos">
-                            <img src="../images/openai_logo.png" alt="OpenAI">
-                            <img src="../images/claude_logo.png" alt="Anthropic">
-                        </div>
-                    </article>
+                <p class="im-section-kicker">05 · Your data</p>
+                <h2 id="im-h-5">Where do your conversations go?</h2>
+                <p class="im-lead">Four possible routes. The look of the interface says nothing about the destination: you have to check who runs the model.</p>
+                <div class="im-routes">
+                    <article class="im-route"><span class="im-route-n">1</span><i class="fa-solid fa-building im-route-ic" aria-hidden="true"></i><h3>Closed model, official interface</h3><p class="im-path"><span>You</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i><span>Interface</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i><span>Publisher&#x27;s servers</span></p><p>Your conversations go to the publisher, tied to your account. GPT, Claude, Gemini, Grok: US clouds. The DeepSeek, Kimi and Qwen apps: servers in China, <strong>even though the weights are open</strong>.</p></article>
+                    <article class="im-route"><span class="im-route-n">2</span><i class="fa-solid fa-shuffle im-route-ic" aria-hidden="true"></i><h3>Third-party interface</h3><p class="im-path"><span>You</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i><span>Interface</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i><span>Model publisher</span></p><p>The interface's servers first, then the publisher of the chosen model. Perplexity applies standard retention. Venice keeps nothing, but if you pick a closed model, its publisher still sees the request.</p></article>
+                    <article class="im-route"><span class="im-route-n">3</span><i class="fa-solid fa-server im-route-ic" aria-hidden="true"></i><h3>Self-hosted open model</h3><p class="im-path"><span>You</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i><span>Your servers</span></p><p>The weights are downloaded and run inside your company or administration. Everything stays with you: this is the path of national and sovereign models.</p></article>
+                    <article class="im-route"><span class="im-route-n">4</span><i class="fa-solid fa-house-laptop im-route-ic" aria-hidden="true"></i><h3>Local</h3><p class="im-path"><span>You</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i><span>Your computer</span></p><p>With Ollama or Opera, the model runs on your machine. Nothing leaves the computer, even offline.</p></article>
                 </div>
-                <p class="arch-note">A model's status is a dated fact: Mistral opened its Medium,
-                    Alibaba closed its Max, xAI re-closed after Grok-1.</p>
+                <div class="im-zoom">
+                    <article class="im-zoom-card"><div class="im-zoom-head"><img class="im-logo" src="../images/modeles/perplexity.webp" alt="Perplexity" width="96" height="96" loading="lazy" decoding="async"><h3>Perplexity</h3></div><p>An augmented search engine. Its Sonar model, a Llama derivative, lives alongside GPT, Claude, Gemini, Grok and Kimi: six arrows come into it in the diagram.</p></article>
+                    <article class="im-zoom-card"><div class="im-zoom-head"><img class="im-logo" src="../images/modeles/venice.webp" alt="Venice" width="96" height="96" loading="lazy" decoding="async"><h3>Venice</h3></div><p>No in-house model: Venice runs open models on decentralized GPUs, with <strong>zero retention</strong>. Nothing is stored on its servers.</p></article>
+                </div>
+                <blockquote class="im-rule"><p class="im-rule-k">The rule to remember</p><p>Your data stays where the model runs. Choosing an AI means choosing <em>who runs the model</em>.</p></blockquote>
             </div>
         </section>
 
-        <section class="schema-agregateurs">
+        <section class="im-block im-more" aria-labelledby="im-h-6">
             <div class="container">
-                <h2>Zoom: Perplexity and Venice</h2>
-                <div class="agreg-grid">
-                    <article class="agreg-card">
-                        <div class="agreg-head">
-                            <img src="../images/perplexity_logo.svg" alt="Perplexity">
-                            <h3>Perplexity</h3>
-                        </div>
-                        <p>An augmented search engine. Its Sonar model (a Llama derivative) lives
-                            alongside GPT, Claude, Gemini, Grok and Kimi: the diagram above shows
-                            the six arrows coming in.</p>
-                    </article>
-                    <article class="agreg-card">
-                        <div class="agreg-head">
-                            <img src="../images/venice_logo.png" alt="Venice">
-                            <h3>Venice</h3>
-                        </div>
-                        <p>No in-house model: Venice routes open models across decentralized GPUs,
-                            with <strong>zero retention</strong> — nothing is stored on their
-                            servers.</p>
-                    </article>
+                <h2 id="im-h-6">Going further</h2>
+                <div class="im-more-grid">
+                    <a class="im-more-card" href="carte-mondiale.html"><i class="fa-solid fa-earth-europe" aria-hidden="true"></i><div><h3>World map</h3><p>National ecosystems outside the US and China: Yandex, Naver, Falcon, Sarvam…</p></div></a>
+                    <a class="im-more-card" href="offline.html"><i class="fa-solid fa-plug-circle-xmark" aria-hidden="true"></i><div><h3>Offline AI</h3><p>Installing an open model at home, step by step.</p></div></a>
+                    <a class="im-more-card" href="prompting.html"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i><div><h3>Prompting</h3><p>Getting better answers from any of these interfaces.</p></div></a>
                 </div>
-                <div class="golden-rule">
-                    <p><strong>The rule to remember:</strong> your data stays where the model runs.
-                        Choosing an AI means choosing <em>who runs the model</em> — the interface's
-                        looks say nothing about that destination.</p>
-                </div>
-                <p class="schema-source">Sources and per-actor details: "Models, interfaces, data"
-                    structural synthesis, November 2026. For national ecosystems outside the US and
-                    China, see the <a href="carte-mondiale.html">World map</a> page.</p>
+                <p class="im-source">Data: “Models, interfaces, data” structural synthesis, November 2026 (official sites, vendor documentation, specialist press). Naver (HyperCLOVA X, South Korea) follows the same pattern as Yandex but is not drawn here. Logos: property of their respective owners.</p>
             </div>
         </section>
     </main>
 
-    <!-- Footer -->
     <site-footer></site-footer>
 
     <script src="../components.js"></script>
